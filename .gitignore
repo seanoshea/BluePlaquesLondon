@@ -27,3 +27,5 @@ Pods
 
 # KML
 *.kml
+*.xlsx
+*.kmz

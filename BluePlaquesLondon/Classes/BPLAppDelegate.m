@@ -17,6 +17,14 @@
 #import "BPLAppDelegate.h"
 
 #import "SimpleKML.h"
+#import "SimpleKMLContainer.h"
+#import "SimpleKMLDocument.h"
+#import "SimpleKMLFeature.h"
+#import "SimpleKMLPlacemark.h"
+#import "SimpleKMLPoint.h"
+#import "SimpleKMLPolygon.h"
+#import "SimpleKMLLinearRing.h"
+#import "SimpleKMLFolder.h"
 
 @implementation BPLAppDelegate
 
@@ -25,9 +33,23 @@
     
     NSError *error;
     
-    SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"kml"] error:NULL];
+    SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"blueplaques" ofType:@"kmz"] error:NULL];
 
-    
+    if (kml.feature && [kml.feature isKindOfClass:[SimpleKMLDocument class]]) {
+
+        for (SimpleKMLFeature *feature in ((SimpleKMLContainer *)kml.feature).features) {
+            if ([feature isKindOfClass:[SimpleKMLFolder class]]) {
+                SimpleKMLFolder *asd = (SimpleKMLFolder *)feature;
+                SimpleKMLDocument *doccc = (SimpleKMLDocument *)asd.document;
+                NSArray *addsads = doccc.flattenedPlacemarks;
+                for (SimpleKMLPlacemark *pm in addsads) {
+                    SimpleKMLPoint *point = pm.point;
+                    
+                    NSLog(@"pm.description: %@ Lat %.5f Long %.5f", pm.featureDescription, point.coordinate.latitude, point.coordinate.longitude);
+                }
+            }
+        }
+    }
     return YES;
 }
 
