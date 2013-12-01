@@ -16,6 +16,14 @@
 
 #import "BPLMapViewController.h"
 
+#import "BPLAppDelegate.h"
+#import "BPLModel.h"
+#import "SimpleKMLDocument.h"
+#import "SimpleKMLPlacemark.h"
+#import "SimpleKMLPoint.h"
+
+#import "NSUserDefaults+BPLState.h"
+
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate>
     @property (nonatomic) CLLocationManager *locationManager;
     @property (nonatomic) GMSMapView *mapView;
@@ -33,7 +41,8 @@
     return self;
 }
 
-- (void)commonInit {
+- (void)commonInit
+{
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -41,10 +50,14 @@
     [self.locationManager startUpdatingLocation];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
-                                                            longitude:151.2086
+    
+    CLLocationCoordinate2D lastKnownCoordinate = [[NSUserDefaults standardUserDefaults] lastKnownBPLCoordinate];
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lastKnownCoordinate.latitude
+                                                            longitude:lastKnownCoordinate.longitude
                                                                  zoom:15];
     self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     
@@ -54,6 +67,10 @@
     self.mapView.settings.compassButton = YES;
     
     self.view = self.mapView;
+    
+    [self.mapView animateToLocation:lastKnownCoordinate];
+    
+    [self dummy];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -63,28 +80,46 @@
     if (!self.currentLocation) {
         self.currentLocation = [locations lastObject];
     }
-    
     for (CLLocation *recordedLocation in locations) {
         if (recordedLocation.horizontalAccuracy < self.currentLocation.horizontalAccuracy) {
             self.currentLocation = recordedLocation;
         }
     }
-    
-    [self.mapView animateToLocation:self.currentLocation.coordinate];
+    [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
 }
 
 #pragma mark - GMSMapViewDelegate
 
-- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)cameraPosition {
+- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)cameraPosition
+{
     
 }
 
-- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
+{
     
 }
 
-- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
-    return YES;
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
+{
+    [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
+    return NO;
+}
+
+- (void)dummy
+{
+    BPLAppDelegate *appDelegate = (BPLAppDelegate *)[[UIApplication sharedApplication] delegate];
+    BPLModel *model = appDelegate.bplModel;
+    for (SimpleKMLPlacemark *pm in model.data.flattenedPlacemarks) {
+        SimpleKMLPoint *point = pm.point;
+
+        GMSMarker *marker = [GMSMarker markerWithPosition:point.coordinate];
+        marker.title = pm.name;
+        marker.snippet = pm.featureDescription;
+        marker.tappable = YES;
+        
+        marker.map = self.mapView;
+    }
 }
 
 @end

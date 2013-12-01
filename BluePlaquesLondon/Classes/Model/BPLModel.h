@@ -14,25 +14,12 @@
  limitations under the License.
  */
 
-#import <XCTest/XCTest.h>
+#import <Foundation/Foundation.h>
 
-#import "BPLModel.h"
-#import "SimpleKML.h"
-#import "SimpleKMLContainer.h"
-#import "SimpleKMLDocument.h"
-#import "SimpleKMLFeature.h"
-#import "SimpleKMLFolder.h"
+@class SimpleKMLDocument;
 
-@interface BPLModelTests : XCTestCase
+@interface BPLModel : NSObject
 
-@end
-
-@implementation BPLModelTests
-
-- (void)testLoadsKMZFile
-{
-    BPLModel *model = [[BPLModel alloc] init];
-    NSAssert([model.data isKindOfClass:SimpleKMLDocument class], @"Data should be loaded automatically once the model is instantiated");
-}
+@property (nonatomic) SimpleKMLDocument *data;
 
 @end
