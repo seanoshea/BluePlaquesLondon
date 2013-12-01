@@ -54,11 +54,15 @@
 {
     [super viewDidLoad];
     
-    CLLocationCoordinate2D lastKnownCoordinate = [[NSUserDefaults standardUserDefaults] lastKnownBPLCoordinate];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    CLLocationCoordinate2D lastKnownCoordinate = [defaults lastKnownBPLCoordinate];
+    float mapZoom = [defaults mapZoom];
+
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lastKnownCoordinate.latitude
                                                             longitude:lastKnownCoordinate.longitude
-                                                                 zoom:15];
+                                                                 zoom:mapZoom];
+    
     self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     
     self.mapView.delegate = self;
@@ -104,6 +108,17 @@
 {
     [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
     return NO;
+}
+
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
+{
+    if (position.zoom > 0) {
+        [[NSUserDefaults standardUserDefaults] saveMapZoom:position.zoom];
+    }
+}
+
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    
 }
 
 - (void)dummy
