@@ -14,7 +14,6 @@
  limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
 @interface NSUserDefaults (BPLState)

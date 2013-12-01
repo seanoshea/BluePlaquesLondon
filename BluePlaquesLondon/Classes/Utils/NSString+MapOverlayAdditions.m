@@ -25,10 +25,22 @@ static NSString *const BPLOverlayTitleDelimiter = @"<br>";
 - (NSString *)overlayTitle
 {
     NSString *title = self;
+    
+    static NSArray *HTMLElementsToBeStripped;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        HTMLElementsToBeStripped = @[@"<em>", @"</em>"];
+    });
+    
     int location = [self rangeOfString:BPLOverlayTitleDelimiter].location;
     if (location != NSNotFound) {
         title = [self substringWithRange:NSMakeRange(0, location)];
     }
+    
+    for (NSString *element in HTMLElementsToBeStripped) {
+        title = [title stringByReplacingOccurrencesOfString:element withString:@""];
+    }
+    
     return [[NSString trimWhitespaceFromString:title] gtm_stringByUnescapingFromHTML];
 }
 
