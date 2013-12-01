@@ -112,7 +112,7 @@
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
 {
-    [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
+    [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
     return NO;
 }
 
@@ -125,6 +125,7 @@
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
 
+    [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
     BPLMapViewDetailViewController *controller = [[BPLMapViewDetailViewController alloc] init];
     [self presentViewController:controller animated:YES completion:nil];
 }
