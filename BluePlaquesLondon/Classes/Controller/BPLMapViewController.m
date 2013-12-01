@@ -21,8 +21,8 @@
 #import "SimpleKMLDocument.h"
 #import "SimpleKMLPlacemark.h"
 #import "SimpleKMLPoint.h"
-
 #import "NSUserDefaults+BPLState.h"
+#import "NSString+MapOverlayAdditions.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate>
     @property (nonatomic) CLLocationManager *locationManager;
@@ -112,7 +112,7 @@
 
 - (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
 {
-    if (position.zoom > 0) {
+    if (position.zoom > 0.0f) {
         [[NSUserDefaults standardUserDefaults] saveMapZoom:position.zoom];
     }
 }
@@ -129,9 +129,9 @@
         SimpleKMLPoint *point = pm.point;
 
         GMSMarker *marker = [GMSMarker markerWithPosition:point.coordinate];
-        marker.title = pm.name;
-        marker.snippet = pm.featureDescription;
-        marker.tappable = YES;
+        
+        marker.title = [pm.featureDescription overlayTitle];
+        marker.snippet = [pm.featureDescription overlaySubtitle];
         
         marker.map = self.mapView;
     }

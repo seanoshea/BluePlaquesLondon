@@ -64,4 +64,10 @@
     XCTAssert(after.latitude == 0.1f && after.longitude == 0.2f, @"Saving the last known BPL coordinate should be automatically saved to the defaults");
 }
 
+- (void)tearDown
+{
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+}
+
 @end
