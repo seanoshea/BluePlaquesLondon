@@ -14,8 +14,8 @@
  limitations under the License.
  */
 
-@interface BPLConstants : NSObject
+#import "BPLMapViewDetailViewController.h"
 
-extern NSString* const BPLKMZFilename;
+@implementation BPLMapViewDetailViewController
 
 @end

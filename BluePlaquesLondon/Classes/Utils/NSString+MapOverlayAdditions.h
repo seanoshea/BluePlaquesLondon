@@ -14,8 +14,6 @@
  limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-
 @interface NSString (MapOverlayAdditions)
 
 - (NSString *)overlayTitle;

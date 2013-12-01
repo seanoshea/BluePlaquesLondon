@@ -21,8 +21,14 @@
 #import "SimpleKMLDocument.h"
 #import "SimpleKMLPlacemark.h"
 #import "SimpleKMLPoint.h"
+#import "SimpleKMLStyle.h"
+#import "SimpleKMLIconStyle.h"
+#import "SimpleKMLLineStyle.h"
+#import "SimpleKMLPolyStyle.h"
+#import "SimpleKMLBalloonStyle.h"
 #import "NSUserDefaults+BPLState.h"
 #import "NSString+MapOverlayAdditions.h"
+#import "BPLMapViewDetailViewController.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate>
     @property (nonatomic) CLLocationManager *locationManager;
@@ -118,7 +124,9 @@
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-    
+
+    BPLMapViewDetailViewController *controller = [[BPLMapViewDetailViewController alloc] init];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)dummy
@@ -127,9 +135,9 @@
     BPLModel *model = appDelegate.bplModel;
     for (SimpleKMLPlacemark *pm in model.data.flattenedPlacemarks) {
         SimpleKMLPoint *point = pm.point;
-
-        GMSMarker *marker = [GMSMarker markerWithPosition:point.coordinate];
         
+        GMSMarker *marker = [GMSMarker markerWithPosition:point.coordinate];
+        marker.icon = pm.style.iconStyle.icon;
         marker.title = [pm.featureDescription overlayTitle];
         marker.snippet = [pm.featureDescription overlaySubtitle];
         
