@@ -21,11 +21,14 @@ static NSString *const BPLStateLastKnownBPLCoordinatLongitude = @"BPLStateLastKn
 static NSString *const BPLStateLastKnownCoordinatLatitude = @"BPLStateLastKnownCoordinatLatitude";
 static NSString *const BPLStateLastKnownCoordinatLongitude = @"BPLStateLastKnownCoordinatLongitude";
 
+static NSString *const BPLStateMapZoom = @"BPLStateMapZoom";
+static float const BPLStateMapZoomDefault = 15.0f;
+
 @implementation NSUserDefaults (BPLState)
 
 - (CLLocationCoordinate2D)lastKnownBPLCoordinate
 {
-    return [self savedCoordinateAtLatitude:BPLStateLastKnownBPLCoordinatLatitude longitude:BPLStateLastKnownBPLCoordinatLongitude];
+    return [self savedCoordinateAtLatitudeKey:BPLStateLastKnownBPLCoordinatLatitude longitudeKey:BPLStateLastKnownBPLCoordinatLongitude];
 }
 
 - (void)saveLastKnownBPLCoordinate:(CLLocationCoordinate2D)coordinate
@@ -35,7 +38,7 @@ static NSString *const BPLStateLastKnownCoordinatLongitude = @"BPLStateLastKnown
 
 - (CLLocationCoordinate2D)lastKnownCoordinate
 {
-    return [self savedCoordinateAtLatitude:BPLStateLastKnownCoordinatLatitude longitude:BPLStateLastKnownCoordinatLongitude];
+    return [self savedCoordinateAtLatitudeKey:BPLStateLastKnownCoordinatLatitude longitudeKey:BPLStateLastKnownCoordinatLongitude];
 }
 
 - (void)saveLastKnownCoordinate:(CLLocationCoordinate2D)coordinate
@@ -43,11 +46,31 @@ static NSString *const BPLStateLastKnownCoordinatLongitude = @"BPLStateLastKnown
     [self saveCoordinate:coordinate latitudeKey:BPLStateLastKnownCoordinatLatitude longitudeKey:BPLStateLastKnownCoordinatLongitude];
 }
 
-- (CLLocationCoordinate2D)savedCoordinateAtLatitude:(NSString *)latitude longitude:(NSString *)longitude
+- (float)mapZoom
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    CLLocationDegrees latitudeDegrees = [userDefaults doubleForKey:BPLStateLastKnownBPLCoordinatLatitude];
-    CLLocationDegrees longitudeDegrees = [userDefaults doubleForKey:BPLStateLastKnownBPLCoordinatLongitude];
+    float mapZoom = [userDefaults floatForKey:BPLStateMapZoom];
+    // ensure that we always have a positive zoom for the camera
+    if (mapZoom <= 0.0f) {
+        mapZoom = BPLStateMapZoomDefault;
+    }
+    return mapZoom;
+}
+
+- (void)saveMapZoom:(float)zoom
+{
+    NSParameterAssert(zoom > 0.0f);
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setFloat:zoom forKey:BPLStateMapZoom];
+    [userDefaults synchronize];
+}
+
+- (CLLocationCoordinate2D)savedCoordinateAtLatitudeKey:(NSString *)latitudeKey longitudeKey:(NSString *)longitudeKey
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    CLLocationDegrees latitudeDegrees = [userDefaults doubleForKey:latitudeKey];
+    CLLocationDegrees longitudeDegrees = [userDefaults doubleForKey:longitudeKey];
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitudeDegrees, longitudeDegrees);
     // check to see whether this is a valid lat/long coordinate.
     if (![self isValidCoordinate:coordinate]) {

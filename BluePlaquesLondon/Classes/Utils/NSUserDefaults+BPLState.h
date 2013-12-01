@@ -15,6 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface NSUserDefaults (BPLState)
 
@@ -23,5 +24,8 @@
 
 - (CLLocationCoordinate2D)lastKnownCoordinate;
 - (void)saveLastKnownCoordinate:(CLLocationCoordinate2D)coordinate;
+
+- (float)mapZoom;
+- (void)saveMapZoom:(float)zoom;
 
 @end
