@@ -16,18 +16,12 @@
 
 #import <XCTest/XCTest.h>
 
-#import "BPLModel.h"
+#import "NSUserDefaults+BPLState.h"
 
-@interface BPLModelTests : XCTestCase
+@interface BPLStateTest : XCTestCase
 
 @end
 
-@implementation BPLModelTests
-
-- (void)testLoadsKMZFile
-{
-    BPLModel *model = [[BPLModel alloc] init];
-    NSAssert(model.data != nil, @"Data should be loaded when BPLModel is initialized");
-}
+@implementation BPLStateTest
 
 @end
