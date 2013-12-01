@@ -18,4 +18,6 @@
 
 @implementation BPLConstants
 
+NSString* const BPLKMZFilename = @"blueplaques";
+
 @end

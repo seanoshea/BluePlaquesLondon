@@ -16,8 +16,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class BPLModel;
+
 @interface BPLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic) BPLModel *bplModel;
 
 @end

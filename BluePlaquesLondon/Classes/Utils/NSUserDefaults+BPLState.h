@@ -14,25 +14,14 @@
  limitations under the License.
  */
 
-#import <XCTest/XCTest.h>
+#import <Foundation/Foundation.h>
 
-#import "BPLModel.h"
-#import "SimpleKML.h"
-#import "SimpleKMLContainer.h"
-#import "SimpleKMLDocument.h"
-#import "SimpleKMLFeature.h"
-#import "SimpleKMLFolder.h"
+@interface NSUserDefaults (BPLState)
 
-@interface BPLModelTests : XCTestCase
+- (CLLocationCoordinate2D)lastKnownBPLCoordinate;
+- (void)saveLastKnownBPLCoordinate:(CLLocationCoordinate2D)coordinate;
 
-@end
-
-@implementation BPLModelTests
-
-- (void)testLoadsKMZFile
-{
-    BPLModel *model = [[BPLModel alloc] init];
-    NSAssert([model.data isKindOfClass:SimpleKMLDocument class], @"Data should be loaded automatically once the model is instantiated");
-}
+- (CLLocationCoordinate2D)lastKnownCoordinate;
+- (void)saveLastKnownCoordinate:(CLLocationCoordinate2D)coordinate;
 
 @end

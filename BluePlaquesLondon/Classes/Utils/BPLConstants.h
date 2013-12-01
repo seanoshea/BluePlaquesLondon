@@ -18,4 +18,6 @@
 
 @interface BPLConstants : NSObject
 
+extern NSString* const BPLKMZFilename;
+
 @end
