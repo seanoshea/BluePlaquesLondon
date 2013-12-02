@@ -16,6 +16,7 @@
 
 @interface BPLConstants : NSObject
 
-extern NSString* const BPLKMZFilename;
+extern NSString * const BPLKMZFilename;
+extern NSString * const BPLMapDetailViewControllerSegue;
 
 @end
