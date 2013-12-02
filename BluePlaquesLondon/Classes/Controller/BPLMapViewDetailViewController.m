@@ -16,6 +16,34 @@
 
 #import "BPLMapViewDetailViewController.h"
 
+#import "NSString+MapOverlayAdditions.h"
+#import "SimpleKMLPlacemark.h"
+
+#import <UIKit/UIKit.h>
+
+@interface BPLMapViewDetailViewController()
+
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
+
+@end
+
 @implementation BPLMapViewDetailViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTapped:)];
+    
+    self.navigationItem.rightBarButtonItem = doneButton;
+    
+    SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.marker.userData;
+    self.titleLabel.text = [placemark.featureDescription overlayTitle];
+    self.descriptionLabel.text = [placemark.featureDescription overlaySubtitle];
+}
+
+- (void)doneButtonTapped:(id)sender
+{
+    
+}
 
 @end

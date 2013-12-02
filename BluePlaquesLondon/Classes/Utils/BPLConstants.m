@@ -18,6 +18,7 @@
 
 @implementation BPLConstants
 
-NSString* const BPLKMZFilename = @"blueplaques";
+NSString * const BPLKMZFilename = @"blueplaques";
+NSString * const BPLMapDetailViewControllerSegue = @"BPLMapDetailViewControllerSegue";
 
 @end

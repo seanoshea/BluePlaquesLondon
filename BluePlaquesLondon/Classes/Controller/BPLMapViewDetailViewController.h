@@ -16,4 +16,6 @@
 
 @interface BPLMapViewDetailViewController : UIViewController
 
+@property (nonatomic) GMSMarker *marker;
+
 @end

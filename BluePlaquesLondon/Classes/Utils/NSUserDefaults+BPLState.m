@@ -59,7 +59,8 @@ static float const BPLStateMapZoomDefault = 15.0f;
 
 - (void)saveMapZoom:(float)zoom
 {
-    NSParameterAssert(zoom > 0.0f);
+    NSParameterAssert(zoom > kGMSMinZoomLevel);
+    NSParameterAssert(zoom < kGMSMaxZoomLevel);
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setFloat:zoom forKey:BPLStateMapZoom];
