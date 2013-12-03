@@ -19,4 +19,14 @@
 extern NSString * const BPLKMZFilename;
 extern NSString * const BPLMapDetailViewControllerSegue;
 
+#pragma mark - 3rd Party Keys
+
+extern NSString * const BPLCrashReportingKey;
+extern NSString * const BPLAnalyticsKey;
+extern NSString * const BPLMapsKey;
+
+#pragma mark - NSNotificationCenter Keys
+
+extern NSString * const BPLNetworkAvailable;
+
 @end

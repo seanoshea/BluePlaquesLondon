@@ -21,4 +21,14 @@
 NSString * const BPLKMZFilename = @"blueplaques";
 NSString * const BPLMapDetailViewControllerSegue = @"BPLMapDetailViewControllerSegue";
 
+#pragma mark - 3rd Party Keys
+
+NSString * const BPLCrashReportingKey = @"8aa2986353e21d6181e23a9360cd528dca68aafb";
+NSString * const BPLAnalyticsKey = @"UA-46153093-1";
+NSString * const BPLMapsKey = @"AIzaSyD3VT-JDnPAKhNiStoUpVAxOyIUUrWUsz0";
+
+#pragma mark - NSNotificationCenter Keys
+
+NSString * const BPLNetworkAvailable = @"BPLNetworkAvailable";
+
 @end

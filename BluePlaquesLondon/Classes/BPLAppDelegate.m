@@ -16,18 +16,148 @@
 
 #import "BPLAppDelegate.h"
 
+#import <Crashlytics/Crashlytics.h>
+#import "Reachability.h"
+
 #import "BPLModel.h"
+#import "BPLConfiguration.h"
+
+typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
+    BPLMapViewControllerIndex = 0,
+    BPLSearchViewControllerIndex = 1,
+    BPLAboutViewControllerIndex = 2,
+};
+
+@interface BPLAppDelegate() <UITabBarControllerDelegate>
+
+@property (nonatomic) Reachability *internetReach;
+
+@end
 
 @implementation BPLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.bplModel = [[BPLModel alloc] init];
     [self initializeGoogleMapsApi];
+    [self initializeLogging];
+    [self initializeReachability];
+    [self initializeLocalization];
+    [self initializeTracking];
+    [self initializeCrashReporting];
+    [self initializeDelegate];
     return YES;
 }
 
-- (void)initializeGoogleMapsApi {
-    [GMSServices provideAPIKey:@"AIzaSyD3VT-JDnPAKhNiStoUpVAxOyIUUrWUsz0"];
+- (void)initializeLogging
+{
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    NSString *productName =  [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
+    NSString *shortVersionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+    DDLogInfo(@"Application Loaded");
+    DDLogInfo(@"%@ v%@", productName, shortVersionString);
+}
+
+#pragma mark Reachability
+
+- (void)initializeReachability
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    self.internetReach = [Reachability reachabilityForInternetConnection];
+    [self.internetReach startNotifier];
+}
+
+- (BOOL)hasInternetConnection {
+    BOOL hasInternetConnection = NO;
+    if (self.internetReach) {
+        NetworkStatus netStatus = [self.internetReach currentReachabilityStatus];
+        hasInternetConnection = netStatus != NotReachable;
+    }
+    return hasInternetConnection;
+}
+
+- (void)reachabilityChanged:(NSNotification *)notification {
+    // check to see whether the device was previously offline & whether the new reachability is online
+    if (self.internetReach && [self.internetReach currentReachabilityStatus] != NotReachable) {
+        DDLogInfo(@"Reachability changed back to reachable");
+        [[NSNotificationCenter defaultCenter] postNotificationName:BPLNetworkAvailable object:nil];
+    }
+}
+
+- (void)initializeLocalization {
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    NSArray *viewControllers = tabBarController.viewControllers;
+    // Ensure each view controller has a unique identifier
+    for (int i = 0; i < viewControllers.count; i++) {
+        UIViewController *viewController = viewControllers[i];
+        viewController.view.tag = i;
+    }
+    // Localize the tab names (they're stored in the storyboards)
+    NSArray *items = tabBarController.tabBar.items;
+    for (int i = 0; i < items.count; i++) {
+        UITabBarItem *item = items[i];
+        NSString *title;
+        switch (i) {
+            case BPLMapViewControllerIndex: {
+                title = NSLocalizedString(@"Map", @"");
+            } break;
+            case BPLSearchViewControllerIndex: {
+                title = NSLocalizedString(@"Search", @"");
+            } break;
+            case BPLAboutViewControllerIndex: {
+                title = NSLocalizedString(@"About", @"");
+            } break;
+            default:
+                break;
+        }
+        item.title = title;
+    }
+}
+
+- (void)initializeTracking
+{
+    if ([BPLConfiguration isAnalyticsEnabled]) {
+        
+    }
+}
+
+- (void)initializeCrashReporting
+{
+    if ([BPLConfiguration isCrashReportingEnabled]) {
+        [Crashlytics startWithAPIKey:BPLCrashReportingKey];
+    }
+}
+
+- (void)checkSettingsChanges
+{
+//    [GAI sharedInstance].optOut = ![BPLConfiguration isAnalyticsEnabled];
+}
+
+- (void)initializeGoogleMapsApi
+{
+    [GMSServices provideAPIKey:BPLMapsKey];
+}
+
+- (void)initializeDelegate {
+    id rootViewController = self.window.rootViewController;
+    ((UITabBarController *)rootViewController).delegate = self;
+}
+
+#pragma mark UITabBarControllerDelegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSString *viewControllerIdentifier;
+    switch (viewController.view.tag) {
+        case BPLMapViewControllerIndex:
+//            viewControllerIdentifier = kPortfoliosClicked;
+            break;
+        case BPLSearchViewControllerIndex:
+//            viewControllerIdentifier = kStoreClicked;
+            break;
+        case BPLAboutViewControllerIndex:
+//            viewControllerIdentifier = kContactButtonClicked;
+            break;
+    }
 }
 
 @end
