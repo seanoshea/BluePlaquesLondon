@@ -16,6 +16,7 @@
 
 #import "BPLAppDelegate.h"
 
+#import <GoogleMaps/GoogleMaps.h>
 #import <Crashlytics/Crashlytics.h>
 #import "Reachability.h"
 

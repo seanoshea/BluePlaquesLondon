@@ -14,6 +14,8 @@
  limitations under the License.
  */
 
+#import <GoogleMaps/GoogleMaps.h>
+
 @interface BPLMapViewDetailViewController : UIViewController
 
 @property (nonatomic) GMSMarker *marker;
