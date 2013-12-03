@@ -24,6 +24,8 @@ static NSString *const BPLStateLastKnownCoordinatLongitude = @"BPLStateLastKnown
 static NSString *const BPLStateMapZoom = @"BPLStateMapZoom";
 static float const BPLStateMapZoomDefault = 15.0f;
 
+static NSString *const BPLTrackingEnabled = @"BPLTrackingEnabled";
+
 @implementation NSUserDefaults (BPLState)
 
 - (CLLocationCoordinate2D)lastKnownBPLCoordinate
@@ -64,6 +66,22 @@ static float const BPLStateMapZoomDefault = 15.0f;
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setFloat:zoom forKey:BPLStateMapZoom];
+    [userDefaults synchronize];
+}
+
+- (BOOL)isTrackingEnabled
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults objectForKey:BPLTrackingEnabled] != nil) {
+        [self saveTrackingEnabled:YES];
+    }
+    return [userDefaults boolForKey:BPLTrackingEnabled];
+}
+
+- (void)saveTrackingEnabled:(BOOL)trackingEnabled
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:trackingEnabled forKey:BPLTrackingEnabled];
     [userDefaults synchronize];
 }
 

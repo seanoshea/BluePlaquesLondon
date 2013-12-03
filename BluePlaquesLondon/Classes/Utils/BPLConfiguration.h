@@ -14,20 +14,10 @@
  limitations under the License.
  */
 
-#import <CoreLocation/CoreLocation.h>
+@interface BPLConfiguration : NSObject
 
-@interface NSUserDefaults (BPLState)
-
-- (CLLocationCoordinate2D)lastKnownBPLCoordinate;
-- (void)saveLastKnownBPLCoordinate:(CLLocationCoordinate2D)coordinate;
-
-- (CLLocationCoordinate2D)lastKnownCoordinate;
-- (void)saveLastKnownCoordinate:(CLLocationCoordinate2D)coordinate;
-
-- (float)mapZoom;
-- (void)saveMapZoom:(float)zoom;
-
-- (BOOL)isTrackingEnabled;
-- (void)saveTrackingEnabled:(BOOL)trackingEnabled;
++ (BOOL)isAnalyticsEnabled;
++ (BOOL)isCrashReportingEnabled;
++ (BOOL)isDebug;
 
 @end
