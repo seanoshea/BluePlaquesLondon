@@ -16,6 +16,8 @@
 
 #import "NSUserDefaults+BPLState.h"
 
+#import <GoogleMaps/GoogleMaps.h>
+
 static NSString *const BPLStateLastKnownBPLCoordinatLatitude = @"BPLStateLastKnownBPLCoordinatLatitude";
 static NSString *const BPLStateLastKnownBPLCoordinatLongitude = @"BPLStateLastKnownBPLCoordinatLongitude";
 static NSString *const BPLStateLastKnownCoordinatLatitude = @"BPLStateLastKnownCoordinatLatitude";
