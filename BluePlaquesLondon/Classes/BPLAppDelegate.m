@@ -19,9 +19,13 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <Crashlytics/Crashlytics.h>
 #import "Reachability.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
 
 #import "BPLModel.h"
 #import "BPLConfiguration.h"
+#import "BPLConstants.h"
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLMapViewControllerIndex = 0,
@@ -118,7 +122,15 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 - (void)initializeTracking
 {
     if ([BPLConfiguration isAnalyticsEnabled]) {
-        
+        NSString *shortVersionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+        [GAI sharedInstance].trackUncaughtExceptions = YES;
+        [GAI sharedInstance].dispatchInterval = 20;
+        [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+        id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:BPLAnalyticsKey];
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLApplicationLoaded
+                                                              action:[NSString stringWithFormat:@"Application Version: %@", shortVersionString]
+                                                               label:[NSString stringWithFormat:@"iOS Version %@", [[UIDevice currentDevice] systemVersion]]
+                                                               value:nil] build]];
     }
 }
 
@@ -131,7 +143,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)checkSettingsChanges
 {
-//    [GAI sharedInstance].optOut = ![BPLConfiguration isAnalyticsEnabled];
+    [GAI sharedInstance].optOut = ![BPLConfiguration isAnalyticsEnabled];
 }
 
 - (void)initializeGoogleMapsApi
@@ -150,14 +162,18 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     NSString *viewControllerIdentifier;
     switch (viewController.view.tag) {
         case BPLMapViewControllerIndex:
-//            viewControllerIdentifier = kPortfoliosClicked;
+            viewControllerIdentifier = BPLMapView;
             break;
         case BPLSearchViewControllerIndex:
-//            viewControllerIdentifier = kStoreClicked;
+            viewControllerIdentifier = BPLSearchView;
             break;
         case BPLAboutViewControllerIndex:
-//            viewControllerIdentifier = kContactButtonClicked;
+            viewControllerIdentifier = BPLAboutView;
             break;
+    }
+    if (viewControllerIdentifier) {
+        [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:viewControllerIdentifier];
+        [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView]  build]];
     }
 }
 

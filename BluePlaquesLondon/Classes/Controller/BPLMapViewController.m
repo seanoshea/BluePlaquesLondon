@@ -29,11 +29,14 @@
 #import "NSUserDefaults+BPLState.h"
 #import "NSString+MapOverlayAdditions.h"
 #import "BPLMapViewDetailViewController.h"
+#import "BPLConstants.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate>
-    @property (nonatomic) CLLocationManager *locationManager;
-    @property (nonatomic) GMSMapView *mapView;
-    @property (nonatomic) CLLocation *currentLocation;
+
+@property (nonatomic) CLLocationManager *locationManager;
+@property (nonatomic) GMSMapView *mapView;
+@property (nonatomic) CLLocation *currentLocation;
+
 @end
 
 @implementation BPLMapViewController

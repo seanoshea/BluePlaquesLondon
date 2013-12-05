@@ -31,4 +31,11 @@ NSString * const BPLMapsKey = @"AIzaSyD3VT-JDnPAKhNiStoUpVAxOyIUUrWUsz0";
 
 NSString * const BPLNetworkAvailable = @"BPLNetworkAvailable";
 
+#pragma mark - Tracking
+
+NSString * const BPLApplicationLoaded = @"ApplicationLoaded";
+NSString * const BPLMapView = @"MapView";
+NSString * const BPLSearchView = @"SearchView";
+NSString * const BPLAboutView = @"AboutView";
+
 @end
