@@ -22,6 +22,8 @@
 #import "SimpleKMLFeature.h"
 #import "SimpleKMLFolder.h"
 
+#import "BPLConstants.h"
+
 @implementation BPLModel
 
 - (id)init

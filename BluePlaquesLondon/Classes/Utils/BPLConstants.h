@@ -29,4 +29,11 @@ extern NSString * const BPLMapsKey;
 
 extern NSString * const BPLNetworkAvailable;
 
+#pragma mark - Tracking
+
+extern NSString * const BPLApplicationLoaded;
+extern NSString * const BPLMapView;
+extern NSString * const BPLSearchView;
+extern NSString * const BPLAboutView;
+
 @end
