@@ -24,7 +24,10 @@
 @interface BPLMapViewDetailViewController()
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, weak) IBOutlet UILabel *occupationLabel;
+@property (nonatomic, weak) IBOutlet UILabel *addressLabel;
+
+- (IBAction)doneButtonTapped:(id)sender;
 
 @end
 
@@ -32,18 +35,15 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTapped:)];
-    
-    self.navigationItem.rightBarButtonItem = doneButton;
-    
     SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.marker.userData;
     self.titleLabel.text = [placemark.featureDescription overlayTitle];
-    self.descriptionLabel.text = [placemark.featureDescription overlaySubtitle];
+    self.occupationLabel.text = placemark.featureDescription.occupation;
+    self.addressLabel.text = placemark.featureDescription.address;
 }
 
 - (void)doneButtonTapped:(id)sender
 {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

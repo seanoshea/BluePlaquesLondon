@@ -215,7 +215,6 @@
 		76289D551843F550008E1391 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		76289D5E1843F5BE008E1391 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		76289D601843F5CC008E1391 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		764BD4241851309F0033E603 /* BluePlaquesLondonTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BluePlaquesLondonTests copy-Info.plist"; path = "/Users/osheas/dev/github/BluePlaquesLondon/BluePlaquesLondonTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		764BD429185130B50033E603 /* BluePlaquesLondonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePlaquesLondonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		764BD42F185130B50033E603 /* BluePlaquesLondonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BluePlaquesLondonTests-Info.plist"; sourceTree = "<group>"; };
 		764BD431185130B50033E603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -594,7 +593,6 @@
 				76B00EA318427FBB007A5EE0 /* Frameworks */,
 				76B00EA218427FBB007A5EE0 /* Products */,
 				46A54203EC884337A5D8131D /* Pods.xcconfig */,
-				764BD4241851309F0033E603 /* BluePlaquesLondonTests copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};

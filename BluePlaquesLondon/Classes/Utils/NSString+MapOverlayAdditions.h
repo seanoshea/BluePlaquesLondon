@@ -18,6 +18,9 @@
 
 - (NSString *)overlayTitle;
 - (NSString *)overlaySubtitle;
+- (NSString *)occupation;
+- (NSString *)address;
+- (NSString *)note;
 
 + (NSString *)trimWhitespaceFromString:(NSString *)input;
 
