@@ -19,6 +19,8 @@
 #import "GTMNSString+HTML.h"
 
 static NSString *const BPLOverlayTitleDelimiter = @"<br>";
+static NSString *const BPLEmphasisNoteOpeningTag = @"<em>";
+static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 @implementation NSString (MapOverlayAdditions)
 
@@ -26,19 +28,15 @@ static NSString *const BPLOverlayTitleDelimiter = @"<br>";
 {
     NSString *title = self;
     
-    static NSArray *HTMLElementsToBeStripped;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        HTMLElementsToBeStripped = @[@"<em>", @"</em>"];
-    });
-    
     int location = [self rangeOfString:BPLOverlayTitleDelimiter].location;
     if (location != NSNotFound) {
         title = [self substringWithRange:NSMakeRange(0, location)];
     }
-    
-    for (NSString *element in HTMLElementsToBeStripped) {
-        title = [title stringByReplacingOccurrencesOfString:element withString:@""];
+
+    NSScanner *scanner = [NSScanner scannerWithString:title];
+    NSString *strippedString = nil;
+    if (![scanner scanUpToString:BPLEmphasisNoteOpeningTag intoString:&strippedString]) {
+        strippedString = title;
     }
     
     return [[NSString trimWhitespaceFromString:title] gtm_stringByUnescapingFromHTML];
@@ -55,10 +53,51 @@ static NSString *const BPLOverlayTitleDelimiter = @"<br>";
     return [[NSString trimWhitespaceFromString:subtitle] gtm_stringByUnescapingFromHTML];
 }
 
+- (NSString *)occupation
+{
+    NSString *occupation = self;
+    int location = [self rangeOfString:BPLOverlayTitleDelimiter].location;
+    if (location != NSNotFound) {
+        occupation = [self substringFromIndex:location];
+        NSRange startRange = [occupation rangeOfString:BPLOverlayTitleDelimiter options:NSCaseInsensitiveSearch range:NSMakeRange(0, occupation.length - 1)];
+        if (startRange.location == 0) {
+            int delimiterLength = BPLOverlayTitleDelimiter.length;
+            NSRange endRange = [occupation rangeOfString:BPLOverlayTitleDelimiter options:NSCaseInsensitiveSearch range:NSMakeRange(delimiterLength, occupation.length - delimiterLength - 1)];
+            occupation = [occupation substringWithRange:NSMakeRange(delimiterLength, endRange.location - delimiterLength)];
+        }
+        
+    }
+    return [NSString trimWhitespaceFromString:occupation];
+}
+
+- (NSString *)address
+{
+    NSString *address;
+    NSArray *components = [self componentsSeparatedByString:BPLOverlayTitleDelimiter];
+    if (components.count && components.count > 3) {
+        address = [NSString trimWhitespaceFromString:components[2]];
+    }
+    return address;
+}
+
+- (NSString *)note
+{
+    NSString *note;
+    NSRange startOfEmphasis = [self rangeOfString:BPLEmphasisNoteOpeningTag];
+    if (startOfEmphasis.location != NSNotFound) {
+        NSRange endOfEmphasis = [self rangeOfString:BPLEmphasisNoteClosingTag];
+        note = [self substringWithRange:NSMakeRange(startOfEmphasis.location + BPLEmphasisNoteOpeningTag.length, endOfEmphasis.location - startOfEmphasis.location - BPLEmphasisNoteClosingTag.length + 1)];
+        note = [NSString trimWhitespaceFromString:note];
+    }
+    return note;
+}
+
 + (NSString *)trimWhitespaceFromString:(NSString *)input
 {
     input = [input stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    return [input stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    input = [input stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSRange range = [input rangeOfString:@"^\\s*" options:NSRegularExpressionSearch];
+    return [input stringByReplacingCharactersInRange:range withString:@""];
 }
 
 @end
