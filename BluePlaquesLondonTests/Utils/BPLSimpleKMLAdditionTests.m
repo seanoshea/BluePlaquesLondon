@@ -16,50 +16,52 @@
 
 #import <XCTest/XCTest.h>
 
-#import "NSString+MapOverlayAdditions.h"
+#import "SimpleKMLPlacemark+Additions.h"
 
-@interface BPLMapOverlayAdditionTests : XCTestCase
+@interface BPLSimpleKMLAdditionTests : XCTestCase
 
-@property (nonatomic, copy) NSString *exampleString;
-@property (nonatomic, copy) NSString *exampleStringWithNote;
+@property (nonatomic, copy) SimpleKMLPlacemark *examplePlacemark;
+@property (nonatomic, copy) SimpleKMLPlacemark *examplePlacemarkWithNote;
 
 @end
 
-@implementation BPLMapOverlayAdditionTests
+@implementation BPLSimpleKMLAdditionTests
 
 - (void)setUp {
     
-    self.exampleString = @"WANAMAKER, Sam (1919-1993)<br> The man behind Shakespeare's Globe<br> New Globe Buildings, Bankside, SE1<br> Southwark 2003<br> Southwark Council Plaque";
-    self.exampleStringWithNote = @"GAINSBOROUGH, Thomas (1727-1788)<br> Artist, lived here<br> 80 - 82 Pall Mall, SW1<br> Westminster 1951<br> <em>Note: Replaces plaque up in 1881 by RSA at No. 80.</em>";
+    self.examplePlacemark = [[SimpleKMLPlacemark alloc] init];
+    self.examplePlacemark.featureDescription = @"WANAMAKER, Sam (1919-1993)<br> The man behind Shakespeare's Globe<br> New Globe Buildings, Bankside, SE1<br> Southwark 2003<br> Southwark Council Plaque";
+    self.examplePlacemarkWithNote = [[SimpleKMLPlacemark alloc] init];
+    self.examplePlacemarkWithNote.featureDescription = @"GAINSBOROUGH, Thomas (1727-1788)<br> Artist, lived here<br> 80 - 82 Pall Mall, SW1<br> Westminster 1951<br> <em>Note: Replaces plaque up in 1881 by RSA at No. 80.</em>";
 }
 
 - (void)testExtractOverlayTitle
 {
-    NSString *overlayTitle = self.exampleString.overlayTitle;
+    NSString *overlayTitle = self.examplePlacemark.overlayTitle;
     XCTAssert([overlayTitle isEqualToString:@"WANAMAKER, Sam (1919-1993)"], @"The title should contain the name and birth dates");
 }
 
 - (void)testExtractOverlaySubtitle
 {
-    NSString *overlaySubtitle = self.exampleString.overlaySubtitle;
+    NSString *overlaySubtitle = self.examplePlacemark.overlaySubtitle;
     XCTAssert([overlaySubtitle isEqualToString:@"The man behind Shakespeare's Globe  New Globe Buildings, Bankside, SE1  Southwark 2003  Southwark Council Plaque"], @"The subtitle should only include ancillary information");
 }
 
 - (void)testExtractOccupation
 {
-    NSString *occupation = self.exampleString.occupation;
+    NSString *occupation = self.examplePlacemark.occupation;
     XCTAssert([occupation isEqualToString:@"The man behind Shakespeare's Globe"], @"The occupation should only include the reason the plaque was commerated in the first place");
 }
 
 - (void)testExtractAddress
 {
-    NSString *address = self.exampleString.address;
+    NSString *address = self.examplePlacemark.address;
     XCTAssert([address isEqualToString:@"New Globe Buildings, Bankside, SE1"], @"The address should only include the plaque's human-readable location");
 }
 
 - (void)testExtractNote
 {
-    NSString *occupation = self.exampleStringWithNote.note;
+    NSString *occupation = self.examplePlacemarkWithNote.note;
     XCTAssert([occupation isEqualToString:@"Note: Replaces plaque up in 1881 by RSA at No. 80."], @"The note should only include exactly what is in between <em></em> tags");
 }
 
