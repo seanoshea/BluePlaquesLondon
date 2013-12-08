@@ -14,18 +14,12 @@
  limitations under the License.
  */
 
-#import "NSString+MapOverlayAdditions.h"
+#import <Foundation/Foundation.h>
 
-#import "GTMNSString+HTML.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@implementation NSString (MapOverlayAdditions)
+@interface BPLMapViewModel : NSObject
 
-+ (NSString *)trimWhitespaceFromString:(NSString *)input
-{
-    input = [input stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    input = [input stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSRange range = [input rangeOfString:@"^\\s*" options:NSRegularExpressionSearch];
-    return [[input stringByReplacingCharactersInRange:range withString:@""] gtm_stringByUnescapingFromHTML];
-}
+- (void)createMarkersForMap:(GMSMapView *)mapView;
 
 @end

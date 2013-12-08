@@ -16,22 +16,15 @@
 
 #import "BPLMapViewController.h"
 
-#import "BPLAppDelegate.h"
-#import "BPLModel.h"
-#import "SimpleKMLDocument.h"
-#import "SimpleKMLPlacemark.h"
-#import "SimpleKMLPoint.h"
-#import "SimpleKMLStyle.h"
-#import "SimpleKMLIconStyle.h"
-#import "SimpleKMLLineStyle.h"
-#import "SimpleKMLPolyStyle.h"
-#import "SimpleKMLBalloonStyle.h"
+#import "BPLMapViewModel.h"
+
 #import "NSUserDefaults+BPLState.h"
-#import "NSString+MapOverlayAdditions.h"
 #import "BPLMapViewDetailViewController.h"
 #import "BPLConstants.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate>
+
+@property (nonatomic) BPLMapViewModel *model;
 
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) GMSMapView *mapView;
@@ -52,6 +45,8 @@
 
 - (void)commonInit
 {
+    self.model = [[BPLMapViewModel alloc] init];
+
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -83,7 +78,7 @@
     
     [self.mapView animateToLocation:lastKnownCoordinate];
     
-    [self dummy];
+    [self.model createMarkersForMap:self.mapView];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -138,25 +133,6 @@
 
     [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
     [self performSegueWithIdentifier:BPLMapDetailViewControllerSegue sender:self];
-}
-
-- (void)dummy
-{
-    BPLAppDelegate *appDelegate = (BPLAppDelegate *)[[UIApplication sharedApplication] delegate];
-    BPLModel *model = appDelegate.bplModel;
-    int counter = 0;
-    for (SimpleKMLPlacemark *placemark in model.data.flattenedPlacemarks) {
-        SimpleKMLPoint *point = placemark.point;
-        
-        GMSMarker *marker = [GMSMarker markerWithPosition:point.coordinate];
-        marker.userData = placemark;
-        marker.icon = placemark.style.iconStyle.icon;
-        marker.title = [placemark.featureDescription overlayTitle];
-        marker.snippet = [placemark.featureDescription overlaySubtitle];
-        marker.map = self.mapView;
-        
-        counter++;
-    }
 }
 
 @end

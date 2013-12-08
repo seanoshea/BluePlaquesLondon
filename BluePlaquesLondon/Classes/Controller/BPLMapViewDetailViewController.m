@@ -16,8 +16,7 @@
 
 #import "BPLMapViewDetailViewController.h"
 
-#import "NSString+MapOverlayAdditions.h"
-#import "SimpleKMLPlacemark.h"
+#import "SimpleKMLPlacemark+Additions.h"
 
 #import <UIKit/UIKit.h>
 
@@ -26,8 +25,10 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *occupationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *addressLabel;
+@property (nonatomic, weak) IBOutlet UILabel *noteLabel;
 
 - (IBAction)doneButtonTapped:(id)sender;
+- (IBAction)openWalkingDirectionsTapped:(id)sender;
 
 @end
 
@@ -36,14 +37,26 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.marker.userData;
-    self.titleLabel.text = [placemark.featureDescription overlayTitle];
-    self.occupationLabel.text = placemark.featureDescription.occupation;
-    self.addressLabel.text = placemark.featureDescription.address;
+    self.titleLabel.text = placemark.title;
+    self.occupationLabel.text = placemark.occupation;
+    self.addressLabel.text = [NSString stringWithFormat:@"Address %@", placemark.address];
+    NSString *note = placemark.note;
+    if (note) {
+        self.noteLabel.text = [NSString stringWithFormat:@"Note %@", placemark.note];
+        self.noteLabel.hidden = NO;
+    } else {
+        self.noteLabel.hidden = YES;
+    }
 }
 
 - (void)doneButtonTapped:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)openWalkingDirectionsTapped:(id)sender
+{
+    
 }
 
 @end
