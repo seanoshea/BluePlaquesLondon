@@ -95,6 +95,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
     self.tableView.hidden = YES;
     [self.searchBar resignFirstResponder];

@@ -34,12 +34,11 @@
 @interface BPLMapViewModel()
 
 @property (nonatomic) SimpleKMLDocument *data;
-
-@property (nonatomic, copy) NSMutableDictionary *coordinatesToArrayPositions;
-@property (nonatomic, copy) NSMutableSet *councils;
-@property (nonatomic, copy) NSMutableSet *years;
-@property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
+@property (nonatomic, copy) NSMutableArray *massagedData;
 @property (nonatomic, copy) NSMutableDictionary *coordinateToMarker;
+@property (nonatomic, copy) NSMutableDictionary *keyToArrayPositions;
+@property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
+
 
 @end
 
@@ -49,10 +48,9 @@
 {
     self = [super init];
     if (self) {
-        _coordinatesToArrayPositions = [@{} mutableCopy];
-        _councils = [[NSMutableSet alloc] init];
-        _years = [[NSMutableSet alloc] init];
         _coordinateToMarker = [@{} mutableCopy];
+        _keyToArrayPositions = [@{} mutableCopy];
+        _massagedData = [@[] mutableCopy];
         [self loadBluePlaquesData];
     }
     return self;
@@ -85,22 +83,19 @@
     // make sure there aren't any duplicates
     [self.data.flattenedPlacemarks enumerateObjectsUsingBlock:^(SimpleKMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
         
-        NSArray *placemarksAssociatedWithKey = self.coordinatesToArrayPositions[placemark.key];
+        NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[placemark.key];
         if (!placemarksAssociatedWithKey) {
-            [self.coordinatesToArrayPositions setObject:@[@(idx)] forKey:placemark.key];
+            [self.keyToArrayPositions setObject:@[@(idx)] forKey:placemark.key];
+            [self.massagedData addObject:placemark];
         } else {
             NSMutableArray *newPlacemarks = [placemarksAssociatedWithKey mutableCopy];
             [newPlacemarks addObject:@(idx)];
-            [self.coordinatesToArrayPositions setObject:newPlacemarks forKey:placemark.key];
+            [self.keyToArrayPositions setObject:newPlacemarks forKey:placemark.key];
         }
     }];
     
     // pop the markers on the map
-    for (id key in self.coordinatesToArrayPositions) {
-        
-        id i = self.coordinatesToArrayPositions[key][0];
-        
-        SimpleKMLPlacemark *placemark = self.data.flattenedPlacemarks[[i intValue]];
+    for (SimpleKMLPlacemark *placemark in self.massagedData) {
         SimpleKMLPoint *point = placemark.point;
         
         GMSMarker *marker = [GMSMarker markerWithPosition:point.coordinate];
@@ -116,13 +111,13 @@
 
 - (NSInteger)numberOfPlacemarks
 {
-    return self.data.flattenedPlacemarks.count;
+    return self.massagedData.count;
 }
 
 - (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.alphabeticallySortedPositions) {
-        self.alphabeticallySortedPositions = [self.data.flattenedPlacemarks sortedArrayUsingComparator:^NSComparisonResult(SimpleKMLPlacemark* one, SimpleKMLPlacemark* two) {
+        self.alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(SimpleKMLPlacemark* one, SimpleKMLPlacemark* two) {
             return [one.name compare:two.name];
         }];
     }
