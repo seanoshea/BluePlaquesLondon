@@ -34,6 +34,8 @@
 @property (nonatomic, copy) NSMutableDictionary *coordinatesToArrayPositions;
 @property (nonatomic, copy) NSMutableSet *councils;
 @property (nonatomic, copy) NSMutableSet *years;
+@property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
+@property (nonatomic, copy) NSMutableDictionary *coordinateToMarker;
 
 @end
 
@@ -46,6 +48,7 @@
         _coordinatesToArrayPositions = [@{} mutableCopy];
         _councils = [[NSMutableSet alloc] init];
         _years = [[NSMutableSet alloc] init];
+        _coordinateToMarker = [@{} mutableCopy];
     }
     return self;
 }
@@ -82,8 +85,35 @@
         marker.title = placemark.title;
         marker.snippet = placemark.subtitle;
         
+        self.coordinateToMarker[placemark.key] = marker;
+        
         marker.map = mapView;
     }
+}
+
+- (NSInteger)numberOfPlacemarks
+{
+    BPLAppDelegate *appDelegate = (BPLAppDelegate *)[[UIApplication sharedApplication] delegate];
+    BPLModel *model = appDelegate.bplModel;
+    return model.data.flattenedPlacemarks.count;
+}
+
+- (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BPLAppDelegate *appDelegate = (BPLAppDelegate *)[[UIApplication sharedApplication] delegate];
+    BPLModel *model = appDelegate.bplModel;
+    if (!self.alphabeticallySortedPositions) {
+
+        self.alphabeticallySortedPositions = [model.data.flattenedPlacemarks sortedArrayUsingComparator:^NSComparisonResult(SimpleKMLPlacemark* one, SimpleKMLPlacemark* two) {
+            return [one.name compare:two.name];
+        }];
+    }
+    return self.alphabeticallySortedPositions[indexPath.row];
+}
+
+- (GMSMarker *)markerAtPoint:(SimpleKMLPlacemark *)placemark
+{
+    return self.coordinateToMarker[placemark.key];
 }
 
 @end

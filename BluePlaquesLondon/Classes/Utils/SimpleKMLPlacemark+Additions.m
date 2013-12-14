@@ -20,10 +20,23 @@
 #import "SimpleKMLPoint.h"
 
 static NSString *const BPLOverlayTitleDelimiter = @"<br>";
+static NSString *const BPLNameDelimiter = @"(";
 static NSString *const BPLEmphasisNoteOpeningTag = @"<em>";
 static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 @implementation SimpleKMLPlacemark (Additions)
+
+- (NSString *)name
+{
+    NSString *name = self.title;
+    NSRange startOfYears = [name rangeOfString:BPLNameDelimiter];
+    if (startOfYears.location != NSNotFound) {
+        name = [name stringByReplacingOccurrencesOfString:BPLEmphasisNoteOpeningTag withString:@""];
+        name = [name stringByReplacingOccurrencesOfString:BPLEmphasisNoteClosingTag withString:@""];
+        name = [name substringToIndex:startOfYears.location];
+    }
+    return [NSString trimWhitespaceFromString:name];
+}
 
 - (NSString *)title
 {
@@ -158,7 +171,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"title: %@ subtitle: %@ occupation: %@ address: %@ note: %@", self.title, self.subtitle, self.occupation, self.address, self.note];
+    return [NSString stringWithFormat:@"name: %@ title: %@ subtitle: %@ occupation: %@ address: %@ note: %@", self.name, self.title, self.subtitle, self.occupation, self.address, self.note];
 }
 
 @end
