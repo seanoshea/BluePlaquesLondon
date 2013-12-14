@@ -35,7 +35,6 @@ NSString * const BPLNetworkAvailable = @"BPLNetworkAvailable";
 
 NSString * const BPLApplicationLoaded = @"ApplicationLoaded";
 NSString * const BPLMapView = @"MapView";
-NSString * const BPLSearchView = @"SearchView";
 NSString * const BPLAboutView = @"AboutView";
 
 @end

@@ -33,7 +33,6 @@ extern NSString * const BPLNetworkAvailable;
 
 extern NSString * const BPLApplicationLoaded;
 extern NSString * const BPLMapView;
-extern NSString * const BPLSearchView;
 extern NSString * const BPLAboutView;
 
 @end

@@ -16,8 +16,8 @@
 
 #import "BPLMapViewModel.h"
 
-#import "BPLAppDelegate.h"
-#import "BPLModel.h"
+#import "BPLConstants.h"
+
 #import "SimpleKMLDocument.h"
 #import "SimpleKMLPlacemark.h"
 #import "SimpleKMLPoint.h"
@@ -26,10 +26,14 @@
 #import "SimpleKMLLineStyle.h"
 #import "SimpleKMLPolyStyle.h"
 #import "SimpleKMLBalloonStyle.h"
+#import "SimpleKMLFolder.h"
+
 #import "NSString+MapOverlayAdditions.h"
 #import "SimpleKMLPlacemark+Additions.h"
 
 @interface BPLMapViewModel()
+
+@property (nonatomic) SimpleKMLDocument *data;
 
 @property (nonatomic, copy) NSMutableDictionary *coordinatesToArrayPositions;
 @property (nonatomic, copy) NSMutableSet *councils;
@@ -49,17 +53,37 @@
         _councils = [[NSMutableSet alloc] init];
         _years = [[NSMutableSet alloc] init];
         _coordinateToMarker = [@{} mutableCopy];
+        [self loadBluePlaquesData];
     }
     return self;
 }
 
+- (NSError *)loadBluePlaquesData
+{
+    NSError *error;
+    
+    SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kmz"] error:&error];
+    
+    if (!error) {
+        if (kml.feature && [kml.feature isKindOfClass:[SimpleKMLDocument class]]) {
+            for (SimpleKMLFeature *feature in ((SimpleKMLContainer *)kml.feature).features) {
+                if ([feature isKindOfClass:[SimpleKMLFolder class]]) {
+                    self.data = ((SimpleKMLFolder *)feature).document;
+                    break;
+                }
+            }
+        }
+    } else {
+        
+    }
+    
+    return error;
+}
+
 - (void)createMarkersForMap:(GMSMapView *)mapView
 {
-    BPLAppDelegate *appDelegate = (BPLAppDelegate *)[[UIApplication sharedApplication] delegate];
-    BPLModel *model = appDelegate.bplModel;
-    
     // make sure there aren't any duplicates
-    [model.data.flattenedPlacemarks enumerateObjectsUsingBlock:^(SimpleKMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
+    [self.data.flattenedPlacemarks enumerateObjectsUsingBlock:^(SimpleKMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
         
         NSArray *placemarksAssociatedWithKey = self.coordinatesToArrayPositions[placemark.key];
         if (!placemarksAssociatedWithKey) {
@@ -76,7 +100,7 @@
         
         id i = self.coordinatesToArrayPositions[key][0];
         
-        SimpleKMLPlacemark *placemark = model.data.flattenedPlacemarks[[i intValue]];
+        SimpleKMLPlacemark *placemark = self.data.flattenedPlacemarks[[i intValue]];
         SimpleKMLPoint *point = placemark.point;
         
         GMSMarker *marker = [GMSMarker markerWithPosition:point.coordinate];
@@ -84,34 +108,28 @@
         marker.icon = placemark.style.iconStyle.icon;
         marker.title = placemark.title;
         marker.snippet = placemark.subtitle;
+        marker.map = mapView;
         
         self.coordinateToMarker[placemark.key] = marker;
-        
-        marker.map = mapView;
     }
 }
 
 - (NSInteger)numberOfPlacemarks
 {
-    BPLAppDelegate *appDelegate = (BPLAppDelegate *)[[UIApplication sharedApplication] delegate];
-    BPLModel *model = appDelegate.bplModel;
-    return model.data.flattenedPlacemarks.count;
+    return self.data.flattenedPlacemarks.count;
 }
 
 - (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BPLAppDelegate *appDelegate = (BPLAppDelegate *)[[UIApplication sharedApplication] delegate];
-    BPLModel *model = appDelegate.bplModel;
     if (!self.alphabeticallySortedPositions) {
-
-        self.alphabeticallySortedPositions = [model.data.flattenedPlacemarks sortedArrayUsingComparator:^NSComparisonResult(SimpleKMLPlacemark* one, SimpleKMLPlacemark* two) {
+        self.alphabeticallySortedPositions = [self.data.flattenedPlacemarks sortedArrayUsingComparator:^NSComparisonResult(SimpleKMLPlacemark* one, SimpleKMLPlacemark* two) {
             return [one.name compare:two.name];
         }];
     }
     return self.alphabeticallySortedPositions[indexPath.row];
 }
 
-- (GMSMarker *)markerAtPoint:(SimpleKMLPlacemark *)placemark
+- (GMSMarker *)markerAtPlacemark:(SimpleKMLPlacemark *)placemark
 {
     return self.coordinateToMarker[placemark.key];
 }

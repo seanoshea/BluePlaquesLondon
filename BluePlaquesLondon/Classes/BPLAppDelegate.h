@@ -22,11 +22,8 @@
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
-@class BPLModel;
-
 @interface BPLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic) BPLModel *bplModel;
 
 @end

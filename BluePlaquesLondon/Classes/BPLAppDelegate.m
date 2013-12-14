@@ -23,14 +23,12 @@
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
 
-#import "BPLModel.h"
 #import "BPLConfiguration.h"
 #import "BPLConstants.h"
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLMapViewControllerIndex = 0,
-    BPLSearchViewControllerIndex = 1,
-    BPLAboutViewControllerIndex = 2,
+    BPLAboutViewControllerIndex = 1,
 };
 
 @interface BPLAppDelegate() <UITabBarControllerDelegate>
@@ -42,7 +40,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 @implementation BPLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.bplModel = [[BPLModel alloc] init];
     [self initializeGoogleMapsApi];
     [self initializeLogging];
     [self initializeReachability];
@@ -106,9 +103,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
             case BPLMapViewControllerIndex: {
                 title = NSLocalizedString(@"Map", @"");
             } break;
-            case BPLSearchViewControllerIndex: {
-                title = NSLocalizedString(@"Search", @"");
-            } break;
             case BPLAboutViewControllerIndex: {
                 title = NSLocalizedString(@"About", @"");
             } break;
@@ -163,9 +157,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     switch (viewController.view.tag) {
         case BPLMapViewControllerIndex:
             viewControllerIdentifier = BPLMapView;
-            break;
-        case BPLSearchViewControllerIndex:
-            viewControllerIdentifier = BPLSearchView;
             break;
         case BPLAboutViewControllerIndex:
             viewControllerIdentifier = BPLAboutView;
