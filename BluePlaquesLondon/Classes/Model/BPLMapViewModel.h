@@ -25,6 +25,6 @@
 
 - (NSInteger)numberOfPlacemarks;
 - (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (GMSMarker *)markerAtPoint:(SimpleKMLPlacemark *)placemark;
+- (GMSMarker *)markerAtPlacemark:(SimpleKMLPlacemark *)placemark;
 
 @end

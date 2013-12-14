@@ -99,7 +99,7 @@
     self.tableView.hidden = YES;
     [self.searchBar resignFirstResponder];
     [self.mapView animateToLocation:pm.point.coordinate];
-    self.mapView.selectedMarker = [self.model markerAtPoint:pm];
+    self.mapView.selectedMarker = [self.model markerAtPlacemark:pm];
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
