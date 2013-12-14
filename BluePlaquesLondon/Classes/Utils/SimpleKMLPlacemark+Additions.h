@@ -18,6 +18,7 @@
 
 @interface SimpleKMLPlacemark (Additions)
 
+- (NSString *)name;
 - (NSString *)title;
 - (NSString *)subtitle;
 - (NSString *)occupation;

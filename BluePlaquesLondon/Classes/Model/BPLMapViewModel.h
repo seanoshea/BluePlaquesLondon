@@ -17,9 +17,14 @@
 #import <Foundation/Foundation.h>
 
 #import <GoogleMaps/GoogleMaps.h>
+#import "SimpleKMLPlacemark.h"
 
 @interface BPLMapViewModel : NSObject
 
 - (void)createMarkersForMap:(GMSMapView *)mapView;
+
+- (NSInteger)numberOfPlacemarks;
+- (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (GMSMarker *)markerAtPoint:(SimpleKMLPlacemark *)placemark;
 
 @end
