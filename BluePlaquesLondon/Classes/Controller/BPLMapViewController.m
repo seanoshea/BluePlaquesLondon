@@ -64,12 +64,12 @@
 
 - (void)findClosestPlaqueViewTouched:(id)sender
 {
-    SimpleKMLPlacemark *placemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
-    [self navigateToPlacemark:placemark];
+    [self navigateToPlacemark:[self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate]];
 }
 
 - (void)navigateToPlacemark:(SimpleKMLPlacemark *)placemark
 {
+    [self.searchBar resignFirstResponder];
     [self toggleTableView:NO];
     [self.mapView animateToLocation:placemark.point.coordinate];
     self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
@@ -96,9 +96,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
-    [self.searchBar resignFirstResponder];
-    [self navigateToPlacemark:pm];
+    [self navigateToPlacemark:[self.model placemarkForRowAtIndexPath:indexPath]];
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
