@@ -128,7 +128,21 @@
 
 - (SimpleKMLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    return self.alphabeticallySortedPositions[20];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    SimpleKMLPlacemark *placemark;
+    CLLocationDistance currentDistance;
+    for (SimpleKMLPlacemark *pm in self.alphabeticallySortedPositions) {
+        CLLocation *sean = [[CLLocation alloc] initWithLatitude:pm.point.coordinate.latitude longitude:pm.point.coordinate.longitude];
+        CLLocationDistance distance = [location distanceFromLocation:sean];
+        if (!placemark) {
+            currentDistance = distance;
+            placemark = pm;
+        } else if (distance < currentDistance) {
+            currentDistance = distance;
+            placemark = pm;
+        }
+    }
+    return placemark;
 }
 
 - (NSArray *)alphabeticallySortedPositions
