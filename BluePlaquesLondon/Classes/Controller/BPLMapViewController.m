@@ -133,6 +133,7 @@
     } else {
         [self.view sendSubviewToBack:self.tableView];
     }
+    self.searchBar.showsCancelButton = show;
     self.tableView.hidden = !show;
 }
 
@@ -151,8 +152,6 @@
 {
     [super viewDidLoad];
     
-    self.searchBar.showsCancelButton = YES;
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     CLLocationCoordinate2D lastKnownCoordinate = [defaults lastKnownBPLCoordinate];
@@ -168,15 +167,13 @@
     self.mapView.indoorEnabled = NO;
     self.mapView.settings.myLocationButton = YES;
     self.mapView.settings.compassButton = YES;
-    
     [self.view addSubview:self.mapView];
-    
-    [self.view bringSubviewToFront:self.searchBar];
-    [self.view sendSubviewToBack:self.tableView];
-    
     [self.mapView animateToLocation:lastKnownCoordinate];
-    
     [self.model createMarkersForMap:self.mapView];
+    
+    self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
+    [self.view bringSubviewToFront:self.searchBar];
+    [self toggleTableView:NO];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
