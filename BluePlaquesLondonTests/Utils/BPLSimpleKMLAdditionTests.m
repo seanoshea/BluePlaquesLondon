@@ -37,13 +37,13 @@
 
 - (void)testExtractOverlayTitle
 {
-    NSString *overlayTitle = self.examplePlacemark.overlayTitle;
+    NSString *overlayTitle = self.examplePlacemark.title;
     XCTAssert([overlayTitle isEqualToString:@"WANAMAKER, Sam (1919-1993)"], @"The title should contain the name and birth dates");
 }
 
 - (void)testExtractOverlaySubtitle
 {
-    NSString *overlaySubtitle = self.examplePlacemark.overlaySubtitle;
+    NSString *overlaySubtitle = self.examplePlacemark.subtitle;
     XCTAssert([overlaySubtitle isEqualToString:@"The man behind Shakespeare's Globe  New Globe Buildings, Bankside, SE1  Southwark 2003  Southwark Council Plaque"], @"The subtitle should only include ancillary information");
 }
 
