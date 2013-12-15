@@ -49,32 +49,6 @@
     return self;
 }
 
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    // Tells the table data source to reload when text changes
-    [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    // Return YES to cause the search result table view to be reloaded.
-    return YES;
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    // Tells the table data source to reload when scope bar selection changes
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    // Return YES to cause the search result table view to be reloaded.
-    return YES;
-}
-
-#pragma mark Content Filtering
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-//    // Update the filtered array based on the search text and scope.
-//    // Remove all objects from the filtered search array
-//    [self.filteredCandyArray removeAllObjects];
-//    // Filter the array using NSPredicate
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
-//    filteredCandyArray = [NSMutableArray arrayWithArray:[candyArray filteredArrayUsingPredicate:predicate]];
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -108,8 +82,9 @@
     return YES;
 }
 
-- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [self filterDataForSearchText:searchBar.text];
     [searchBar resignFirstResponder];
 }
 
@@ -125,12 +100,12 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
-
+    [self filterDataForSearchText:searchBar.text];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-
+    [self filterDataForSearchText:searchText];
 }
 
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -142,6 +117,13 @@
 {
     [searchBar resignFirstResponder];
     [self toggleTableView:NO];
+}
+
+- (void)filterDataForSearchText:(NSString *)searchText
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText];
+    self.model.filteredData = [self.model.massagedData filteredArrayUsingPredicate:predicate];
+    [self.tableView reloadData];
 }
 
 - (void)toggleTableView:(BOOL)show

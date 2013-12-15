@@ -21,6 +21,9 @@
 
 @interface BPLMapViewModel : NSObject
 
+@property (nonatomic, copy) NSMutableArray *massagedData;
+@property (nonatomic, copy) NSArray *filteredData;
+
 - (void)createMarkersForMap:(GMSMapView *)mapView;
 
 - (NSInteger)numberOfPlacemarks;
