@@ -34,11 +34,9 @@
 @interface BPLMapViewModel()
 
 @property (nonatomic) SimpleKMLDocument *data;
-@property (nonatomic, copy) NSMutableArray *massagedData;
 @property (nonatomic, copy) NSMutableDictionary *coordinateToMarker;
 @property (nonatomic, copy) NSMutableDictionary *keyToArrayPositions;
 @property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
-
 
 @end
 
@@ -111,7 +109,7 @@
 
 - (NSInteger)numberOfPlacemarks
 {
-    return self.massagedData.count;
+    return self.filteredData.count ?: self.massagedData.count;
 }
 
 - (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -121,7 +119,11 @@
             return [one.name compare:two.name];
         }];
     }
-    return self.alphabeticallySortedPositions[indexPath.row];
+    if (self.filteredData.count) {
+        return self.filteredData[indexPath.row];
+    } else {
+        return self.alphabeticallySortedPositions[indexPath.row];
+    }
 }
 
 - (GMSMarker *)markerAtPlacemark:(SimpleKMLPlacemark *)placemark
