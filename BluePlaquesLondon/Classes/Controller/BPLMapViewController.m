@@ -23,6 +23,7 @@
 #import "NSUserDefaults+BPLState.h"
 #import "BPLMapViewDetailViewController.h"
 #import "BPLConstants.h"
+#import "BPLFindClosestPlaqueView.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -49,6 +50,31 @@
     return self;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30.0f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    BPLFindClosestPlaqueView *findClosestView = (BPLFindClosestPlaqueView *)[[NSBundle mainBundle] loadNibNamed:@"BPLFindClosestPlaqueView" owner:nil options:nil][0];
+    [findClosestView addTarget:self action:@selector(findClosestPlaqueViewTouched:) forControlEvents:UIControlEventTouchUpInside];
+    return findClosestView;
+}
+
+- (void)findClosestPlaqueViewTouched:(id)sender
+{
+    SimpleKMLPlacemark *placemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
+    [self navigateToPlacemark:placemark];
+}
+
+- (void)navigateToPlacemark:(SimpleKMLPlacemark *)placemark
+{
+    [self toggleTableView:NO];
+    [self.mapView animateToLocation:placemark.point.coordinate];
+    self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -71,10 +97,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
-    self.tableView.hidden = YES;
     [self.searchBar resignFirstResponder];
-    [self.mapView animateToLocation:pm.point.coordinate];
-    self.mapView.selectedMarker = [self.model markerAtPlacemark:pm];
+    [self navigateToPlacemark:pm];
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar

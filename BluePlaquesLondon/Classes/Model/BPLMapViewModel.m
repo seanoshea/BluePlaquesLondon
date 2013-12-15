@@ -114,11 +114,6 @@
 
 - (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!self.alphabeticallySortedPositions) {
-        self.alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(SimpleKMLPlacemark* one, SimpleKMLPlacemark* two) {
-            return [one.name compare:two.name];
-        }];
-    }
     if (self.filteredData.count) {
         return self.filteredData[indexPath.row];
     } else {
@@ -129,6 +124,21 @@
 - (GMSMarker *)markerAtPlacemark:(SimpleKMLPlacemark *)placemark
 {
     return self.coordinateToMarker[placemark.key];
+}
+
+- (SimpleKMLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    return self.alphabeticallySortedPositions[20];
+}
+
+- (NSArray *)alphabeticallySortedPositions
+{
+    if (!_alphabeticallySortedPositions) {
+        _alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(SimpleKMLPlacemark* one, SimpleKMLPlacemark* two) {
+            return [one.name compare:two.name];
+        }];
+    }
+    return _alphabeticallySortedPositions;
 }
 
 @end
