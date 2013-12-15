@@ -8,62 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
-		761359D6185E55F000C16B04 /* SimpleKML_UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C9F1843F4AB008E1391 /* SimpleKML_UIImage.m */; };
-		761359D7185E55F000C16B04 /* SimpleKML.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CA11843F4AB008E1391 /* SimpleKML.m */; };
-		761359D8185E55F000C16B04 /* SimpleKMLBalloonStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CA31843F4AB008E1391 /* SimpleKMLBalloonStyle.m */; };
-		761359D9185E55F000C16B04 /* SimpleKMLColorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CA51843F4AB008E1391 /* SimpleKMLColorStyle.m */; };
-		761359DA185E55F000C16B04 /* SimpleKMLContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CA71843F4AB008E1391 /* SimpleKMLContainer.m */; };
-		761359DB185E55F000C16B04 /* SimpleKMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CA91843F4AB008E1391 /* SimpleKMLDocument.m */; };
-		761359DC185E55F000C16B04 /* SimpleKMLFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CAB1843F4AB008E1391 /* SimpleKMLFeature.m */; };
-		761359DD185E55F000C16B04 /* SimpleKMLFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CAD1843F4AB008E1391 /* SimpleKMLFolder.m */; };
-		761359DE185E55F000C16B04 /* SimpleKMLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CAF1843F4AB008E1391 /* SimpleKMLGeometry.m */; };
-		761359DF185E55F000C16B04 /* SimpleKMLGroundOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CB11843F4AB008E1391 /* SimpleKMLGroundOverlay.m */; };
-		761359E0185E55F000C16B04 /* SimpleKMLIconStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CB31843F4AB008E1391 /* SimpleKMLIconStyle.m */; };
-		761359E1185E55F000C16B04 /* SimpleKMLLinearRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CB51843F4AB008E1391 /* SimpleKMLLinearRing.m */; };
-		761359E2185E55F000C16B04 /* SimpleKMLLineString.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CB71843F4AB008E1391 /* SimpleKMLLineString.m */; };
-		761359E3185E55F000C16B04 /* SimpleKMLLineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CB91843F4AB008E1391 /* SimpleKMLLineStyle.m */; };
-		761359E4185E55F000C16B04 /* SimpleKMLMultiGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CBB1843F4AB008E1391 /* SimpleKMLMultiGeometry.m */; };
-		761359E5185E55F000C16B04 /* SimpleKMLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CBD1843F4AB008E1391 /* SimpleKMLObject.m */; };
-		761359E6185E55F000C16B04 /* SimpleKMLOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CBF1843F4AB008E1391 /* SimpleKMLOverlay.m */; };
-		761359E7185E55F000C16B04 /* SimpleKMLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CC11843F4AB008E1391 /* SimpleKMLPlacemark.m */; };
-		761359E8185E55F000C16B04 /* SimpleKMLPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CC31843F4AB008E1391 /* SimpleKMLPoint.m */; };
-		761359E9185E55F000C16B04 /* SimpleKMLPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CC51843F4AB008E1391 /* SimpleKMLPolygon.m */; };
-		761359EA185E55F000C16B04 /* SimpleKMLPolyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CC71843F4AB008E1391 /* SimpleKMLPolyStyle.m */; };
-		761359EB185E55F000C16B04 /* SimpleKMLStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CC91843F4AB008E1391 /* SimpleKMLStyle.m */; };
-		761359EC185E55F000C16B04 /* SimpleKMLStyleSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CCB1843F4AB008E1391 /* SimpleKMLStyleSelector.m */; };
-		761359ED185E55F000C16B04 /* SimpleKMLSubStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289CCD1843F4AB008E1391 /* SimpleKMLSubStyle.m */; };
-		761359EE185E55F800C16B04 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		761359EF185E55F800C16B04 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		761359F6185E55FE00C16B04 /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
-		761359F7185E55FE00C16B04 /* BPLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C951842AE42008E1391 /* BPLConstants.m */; };
-		761359F8185E55FE00C16B04 /* NSString+MapOverlayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0BA184BA18000864D6B /* NSString+MapOverlayAdditions.m */; };
-		761359F9185E55FE00C16B04 /* NSUserDefaults+BPLState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7695D690184B375200E735C4 /* NSUserDefaults+BPLState.m */; };
-		761359FA185E55FE00C16B04 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
-		761359FB185E55FE00C16B04 /* UIColor+BluePlaquesLondon.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BluePlaquesLondon.m */; };
-		761359FC185E55FE00C16B04 /* UIFont+BluePlaquestLondon.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8D1842ADEA008E1391 /* UIFont+BluePlaquestLondon.m */; };
-		761359FD185E560200C16B04 /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8018429036008E1391 /* BPLAboutViewController.m */; };
-		761359FE185E560200C16B04 /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8218429036008E1391 /* BPLMapViewController.m */; };
-		761359FF185E560200C16B04 /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
-		76135A01185E560700C16B04 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
-		76135A02185E560700C16B04 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
-		76135A03185E561400C16B04 /* FileInZipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D3A1843F53B008E1391 /* FileInZipInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		76135A04185E561400C16B04 /* ZipException.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D3C1843F53B008E1391 /* ZipException.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		76135A05185E561400C16B04 /* ZipFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D3E1843F53B008E1391 /* ZipFile.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		76135A06185E561400C16B04 /* ZipReadStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D401843F53B008E1391 /* ZipReadStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		76135A07185E561400C16B04 /* ZipWriteStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D421843F53B008E1391 /* ZipWriteStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		76135A08185E561D00C16B04 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D031843F520008E1391 /* CXMLDocument_CreationExtensions.m */; };
-		76135A09185E561D00C16B04 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D051843F520008E1391 /* CXMLNode_CreationExtensions.m */; };
-		76135A0A185E561D00C16B04 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D071843F520008E1391 /* CXHTMLDocument.m */; };
-		76135A0B185E561D00C16B04 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D091843F520008E1391 /* CXMLDocument.m */; };
-		76135A0C185E561D00C16B04 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D0B1843F520008E1391 /* CXMLDocument_PrivateExtensions.m */; };
-		76135A0D185E561D00C16B04 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D0D1843F520008E1391 /* CXMLElement.m */; };
-		76135A0E185E561D00C16B04 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D0F1843F520008E1391 /* CXMLElement_CreationExtensions.m */; };
-		76135A0F185E561D00C16B04 /* CXMLElement_ElementTreeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D111843F520008E1391 /* CXMLElement_ElementTreeExtensions.m */; };
-		76135A10185E561D00C16B04 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D131843F520008E1391 /* CXMLNamespaceNode.m */; };
-		76135A11185E561D00C16B04 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D151843F520008E1391 /* CXMLNode.m */; };
-		76135A12185E561D00C16B04 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D171843F520008E1391 /* CXMLNode_PrivateExtensions.m */; };
-		76135A13185E561D00C16B04 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D191843F520008E1391 /* CXMLNode_XPathExtensions.m */; };
-		76135A14185E562100C16B04 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289D1C1843F520008E1391 /* CTidy.m */; };
 		76289C7D18429027008E1391 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
 		76289C8518429036008E1391 /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8018429036008E1391 /* BPLAboutViewController.m */; };
 		76289C8718429036008E1391 /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8218429036008E1391 /* BPLMapViewController.m */; };
@@ -146,7 +90,9 @@
 		76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
 		76CBBB65184D33C100A6828C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
+		76E908331854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
 		76E9083E1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
+		76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
 		76F1F68018472DA70079E033 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */; };
 		76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
@@ -897,64 +843,10 @@
 			files = (
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				764BD442185131F30033E603 /* BPLSimpleKMLAdditionTests.m in Sources */,
-				76135A0F185E561D00C16B04 /* CXMLElement_ElementTreeExtensions.m in Sources */,
-				76135A01185E560700C16B04 /* BPLAppDelegate.m in Sources */,
-				761359DF185E55F000C16B04 /* SimpleKMLGroundOverlay.m in Sources */,
-				761359F6185E55FE00C16B04 /* BPLConfiguration.m in Sources */,
-				761359E9185E55F000C16B04 /* SimpleKMLPolygon.m in Sources */,
-				761359E1185E55F000C16B04 /* SimpleKMLLinearRing.m in Sources */,
-				761359FC185E55FE00C16B04 /* UIFont+BluePlaquestLondon.m in Sources */,
-				76135A0B185E561D00C16B04 /* CXMLDocument.m in Sources */,
-				76135A09185E561D00C16B04 /* CXMLNode_CreationExtensions.m in Sources */,
-				761359E7185E55F000C16B04 /* SimpleKMLPlacemark.m in Sources */,
-				76135A06185E561400C16B04 /* ZipReadStream.m in Sources */,
-				761359E4185E55F000C16B04 /* SimpleKMLMultiGeometry.m in Sources */,
-				761359D6185E55F000C16B04 /* SimpleKML_UIImage.m in Sources */,
-				761359E3185E55F000C16B04 /* SimpleKMLLineStyle.m in Sources */,
-				761359FE185E560200C16B04 /* BPLMapViewController.m in Sources */,
-				761359DC185E55F000C16B04 /* SimpleKMLFeature.m in Sources */,
-				76135A05185E561400C16B04 /* ZipFile.m in Sources */,
-				761359EA185E55F000C16B04 /* SimpleKMLPolyStyle.m in Sources */,
-				76135A07185E561400C16B04 /* ZipWriteStream.m in Sources */,
-				761359E8185E55F000C16B04 /* SimpleKMLPoint.m in Sources */,
-				761359FD185E560200C16B04 /* BPLAboutViewController.m in Sources */,
-				761359EC185E55F000C16B04 /* SimpleKMLStyleSelector.m in Sources */,
-				761359FF185E560200C16B04 /* BPLMapViewDetailViewController.m in Sources */,
-				76135A0E185E561D00C16B04 /* CXMLElement_CreationExtensions.m in Sources */,
-				761359F9185E55FE00C16B04 /* NSUserDefaults+BPLState.m in Sources */,
-				761359D9185E55F000C16B04 /* SimpleKMLColorStyle.m in Sources */,
-				761359D7185E55F000C16B04 /* SimpleKML.m in Sources */,
-				76135A11185E561D00C16B04 /* CXMLNode.m in Sources */,
-				76135A08185E561D00C16B04 /* CXMLDocument_CreationExtensions.m in Sources */,
-				761359E5185E55F000C16B04 /* SimpleKMLObject.m in Sources */,
-				761359D8185E55F000C16B04 /* SimpleKMLBalloonStyle.m in Sources */,
-				761359F7185E55FE00C16B04 /* BPLConstants.m in Sources */,
-				761359DB185E55F000C16B04 /* SimpleKMLDocument.m in Sources */,
-				761359F8185E55FE00C16B04 /* NSString+MapOverlayAdditions.m in Sources */,
-				761359EE185E55F800C16B04 /* GTMNSString+HTML.m in Sources */,
-				761359FB185E55FE00C16B04 /* UIColor+BluePlaquesLondon.m in Sources */,
+				76E908331854B1F900B31DC4 /* BPLMapViewModel.m in Sources */,
 				764BD434185130B50033E603 /* BluePlaquesLondonTests.m in Sources */,
-				76135A14185E562100C16B04 /* CTidy.m in Sources */,
-				76135A0C185E561D00C16B04 /* CXMLDocument_PrivateExtensions.m in Sources */,
 				768E2084185D9F2F002E1FF0 /* BPLFindClosestPlaqueView.m in Sources */,
-				76135A03185E561400C16B04 /* FileInZipInfo.m in Sources */,
-				761359ED185E55F000C16B04 /* SimpleKMLSubStyle.m in Sources */,
-				761359E2185E55F000C16B04 /* SimpleKMLLineString.m in Sources */,
-				761359DE185E55F000C16B04 /* SimpleKMLGeometry.m in Sources */,
-				76135A04185E561400C16B04 /* ZipException.m in Sources */,
-				76135A10185E561D00C16B04 /* CXMLNamespaceNode.m in Sources */,
-				76135A13185E561D00C16B04 /* CXMLNode_XPathExtensions.m in Sources */,
-				761359FA185E55FE00C16B04 /* SimpleKMLPlacemark+Additions.m in Sources */,
-				761359EB185E55F000C16B04 /* SimpleKMLStyle.m in Sources */,
-				76135A12185E561D00C16B04 /* CXMLNode_PrivateExtensions.m in Sources */,
-				76135A02185E560700C16B04 /* BPLMapViewModel.m in Sources */,
-				761359EF185E55F800C16B04 /* Reachability.m in Sources */,
-				76135A0D185E561D00C16B04 /* CXMLElement.m in Sources */,
-				761359E6185E55F000C16B04 /* SimpleKMLOverlay.m in Sources */,
-				76135A0A185E561D00C16B04 /* CXHTMLDocument.m in Sources */,
-				761359E0185E55F000C16B04 /* SimpleKMLIconStyle.m in Sources */,
-				761359DD185E55F000C16B04 /* SimpleKMLFolder.m in Sources */,
-				761359DA185E55F000C16B04 /* SimpleKMLContainer.m in Sources */,
+				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,18 +981,6 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/CocoaLumberjack\"",
-					"\"${PODS_ROOT}/Headers/Google-Maps-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/Google-Maps-iOS-SDK/GoogleMaps\"",
-					"\"${PODS_ROOT}/Headers/GoogleAnalytics-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/TTTAttributedLabel\"",
-					"$(SDKROOT)/usr/include/libz",
-					/usr/include/libxml2,
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
 				INFOPLIST_FILE = "BluePlaquesLondonTests/BluePlaquesLondonTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1120,18 +1000,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondonTests/BluePlaquesLondonTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/CocoaLumberjack\"",
-					"\"${PODS_ROOT}/Headers/Google-Maps-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/Google-Maps-iOS-SDK/GoogleMaps\"",
-					"\"${PODS_ROOT}/Headers/GoogleAnalytics-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/TTTAttributedLabel\"",
-					"$(SDKROOT)/usr/include/libz",
-					/usr/include/libxml2,
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
 				INFOPLIST_FILE = "BluePlaquesLondonTests/BluePlaquesLondonTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
