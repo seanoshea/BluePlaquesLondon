@@ -13,6 +13,8 @@
 - (void)awakeFromNib
 {
     self.titleLabel.text = NSLocalizedString(@"Find the Plaque Closest to You", @"");
+    self.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.titleLabel.textColor = [UIColor blueColor];
 }
 
 @end

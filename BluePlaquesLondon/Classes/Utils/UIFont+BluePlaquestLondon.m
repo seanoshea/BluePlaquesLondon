@@ -18,4 +18,14 @@
 
 @implementation UIFont (BluePlaquesLondon)
 
++ (UIColor *)blueColor
+{
+    static UIColor *color;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        color = [UIColor blueColor];
+    });
+    return color;
+}
+
 @end

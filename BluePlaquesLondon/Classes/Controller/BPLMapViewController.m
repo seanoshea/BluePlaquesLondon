@@ -87,7 +87,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    static NSString *cellIdentifier = @"BluePlaquesLondonSearchCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] init];
+        cell.textLabel.textColor = [UIColor blueColor];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
     cell.textLabel.text = pm.name;
     return cell;
