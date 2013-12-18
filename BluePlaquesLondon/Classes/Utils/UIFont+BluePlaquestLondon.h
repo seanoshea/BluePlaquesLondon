@@ -18,4 +18,6 @@
 
 @interface UIFont (BluePlaquesLondon)
 
++ (UIColor *)blueColor;
+
 @end
