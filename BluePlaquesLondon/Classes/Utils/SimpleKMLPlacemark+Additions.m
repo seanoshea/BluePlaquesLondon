@@ -16,7 +16,7 @@
 
 #import "SimpleKMLPlacemark+Additions.h"
 
-#import "NSString+MapOverlayAdditions.h"
+#import "NSString+BPLPlacemarkFeatureDescription.h"
 #import "SimpleKMLPoint.h"
 
 static NSString *const BPLOverlayTitleDelimiter = @"<br>";
@@ -28,141 +28,34 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 - (NSString *)name
 {
-    NSString *name = self.title;
-    NSRange startOfYears = [name rangeOfString:BPLNameDelimiter];
-    if (startOfYears.location != NSNotFound) {
-        name = [name stringByReplacingOccurrencesOfString:BPLEmphasisNoteOpeningTag withString:@""];
-        name = [name stringByReplacingOccurrencesOfString:BPLEmphasisNoteClosingTag withString:@""];
-        name = [name substringToIndex:startOfYears.location];
-    }
-    return [NSString trimWhitespaceFromString:name];
+    return self.featureDescription.name;
 }
 
 - (NSString *)title
 {
-    NSString *title = self.featureDescription;
-    
-    int location = [self.featureDescription rangeOfString:BPLOverlayTitleDelimiter].location;
-    if (location != NSNotFound) {
-        title = [self.featureDescription substringWithRange:NSMakeRange(0, location)];
-    }
-    
-    NSScanner *scanner = [NSScanner scannerWithString:title];
-    NSString *strippedString = nil;
-    if (![scanner scanUpToString:BPLEmphasisNoteOpeningTag intoString:&strippedString]) {
-        strippedString = title;
-    }
-    
-    return [NSString trimWhitespaceFromString:title];
+    return self.featureDescription.title;
 }
 
 - (NSString *)subtitle
 {
-    NSString *subtitle = self.featureDescription;
-    int location = [self.featureDescription rangeOfString:BPLOverlayTitleDelimiter].location;
-    if (location != NSNotFound) {
-        subtitle = [self.featureDescription substringFromIndex:location];
-        subtitle = [self removeNoteFromString:subtitle];
-        if (self.councilAndYear) {
-            subtitle = [subtitle stringByReplacingOccurrencesOfString:self.councilAndYear withString:@""];
-        }
-    }
-    return [NSString trimWhitespaceFromString:[subtitle stringByReplacingOccurrencesOfString:BPLOverlayTitleDelimiter withString:@" "]];
+    return self.featureDescription.subtitle;
 }
 
 - (NSString *)occupation
 {
-    NSString *occupation = self.featureDescription;
-    int location = [self.featureDescription rangeOfString:BPLOverlayTitleDelimiter].location;
-    if (location != NSNotFound) {
-        occupation = [self.featureDescription substringFromIndex:location];
-        NSRange startRange = [occupation rangeOfString:BPLOverlayTitleDelimiter options:NSCaseInsensitiveSearch range:NSMakeRange(0, occupation.length - 1)];
-        if (startRange.location == 0) {
-            int delimiterLength = BPLOverlayTitleDelimiter.length;
-            NSRange endRange = [occupation rangeOfString:BPLOverlayTitleDelimiter options:NSCaseInsensitiveSearch range:NSMakeRange(delimiterLength, occupation.length - delimiterLength - 1)];
-            occupation = [occupation substringWithRange:NSMakeRange(delimiterLength, endRange.location - delimiterLength)];
-        }
-        
-    }
-    return [NSString trimWhitespaceFromString:occupation];
+    return self.featureDescription.occupation;
 }
 
 - (NSString *)address
 {
-    NSString *address;
-    NSArray *components = [self.featureDescription componentsSeparatedByString:BPLOverlayTitleDelimiter];
-    if (components.count && components.count > 3) {
-        address = [NSString trimWhitespaceFromString:components[2]];
-    }
-    return address;
+    return self.featureDescription.address;
 }
 
 - (NSString *)note
 {
-    NSString *note;
-    NSRange startOfEmphasis = [self.featureDescription rangeOfString:BPLEmphasisNoteOpeningTag];
-    if (startOfEmphasis.location != NSNotFound) {
-        NSRange endOfEmphasis = [self.featureDescription rangeOfString:BPLEmphasisNoteClosingTag];
-        if (endOfEmphasis.location == NSNotFound) {
-            endOfEmphasis.location = self.featureDescription.length;
-        }
-        note = [self.featureDescription substringWithRange:NSMakeRange(startOfEmphasis.location + BPLEmphasisNoteOpeningTag.length, endOfEmphasis.location - startOfEmphasis.location - BPLEmphasisNoteClosingTag.length + 1)];
-        note = [NSString trimWhitespaceFromString:note];
-    }
-    return note;
+    return self.featureDescription.note;
 }
 
-- (NSString *)councilAndYear
-{
-    NSString *councilAndYear;
-    
-    NSString *description = description = [self removeNoteFromString:self.featureDescription];
-    NSArray *components = [description componentsSeparatedByString:BPLOverlayTitleDelimiter];
-    if (components.count && components.count > 4) {
-        councilAndYear = [NSString trimWhitespaceFromString:components[components.count - 1]];
-    }
-    
-    return councilAndYear;
-}
-
-- (NSString *)council
-{
-    return [self extractStringComponentAtPosition:0];
-}
-
-- (NSString *)yearErrected
-{
-    return [self extractStringComponentAtPosition:1];
-}
-
-- (NSString *)extractStringComponentAtPosition:(NSInteger)position
-{
-    NSString *extractedString;
-    NSString *councilAndYear = self.councilAndYear;
-    if (councilAndYear) {
-        NSMutableArray *components = [[councilAndYear componentsSeparatedByString:@" "] mutableCopy];
-        if (components.count > position) {
-            if (position == 0) {
-                [components removeObject:components.lastObject];
-                extractedString = [components componentsJoinedByString:@" "];
-            } else {
-                extractedString = components.lastObject;
-            }
-        }
-    }
-    return extractedString;
-}
-
-- (NSString *)removeNoteFromString:(NSString *)input
-{
-    NSString *note = self.note;
-    if (note) {
-        input = [input stringByReplacingOccurrencesOfString:BPLEmphasisNoteOpeningTag withString:@""];
-        input = [input stringByReplacingOccurrencesOfString:note withString:@""];
-        input = [input stringByReplacingOccurrencesOfString:BPLEmphasisNoteClosingTag withString:@""];
-    }
-    return input;
-}
 
 - (NSString *)key
 {

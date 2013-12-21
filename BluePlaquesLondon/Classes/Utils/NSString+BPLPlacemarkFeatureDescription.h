@@ -14,18 +14,18 @@
  limitations under the License.
  */
 
-#import "NSString+MapOverlayAdditions.h"
+#import <Foundation/Foundation.h>
 
-#import "GTMNSString+HTML.h"
+@interface NSString (BPLPlacemarkFeatureDescription)
 
-@implementation NSString (MapOverlayAdditions)
-
-+ (NSString *)trimWhitespaceFromString:(NSString *)input
-{
-    input = [input stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    input = [input stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSRange range = [input rangeOfString:@"^\\s*" options:NSRegularExpressionSearch];
-    return [[input stringByReplacingCharactersInRange:range withString:@""] gtm_stringByUnescapingFromHTML];
-}
+- (NSString *)name;
+- (NSString *)title;
+- (NSString *)subtitle;
+- (NSString *)occupation;
+- (NSString *)address;
+- (NSString *)note;
+- (NSString *)councilAndYear;
+- (NSString *)council;
+- (NSString *)yearErrected;
 
 @end

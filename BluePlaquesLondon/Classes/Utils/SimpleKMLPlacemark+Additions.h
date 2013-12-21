@@ -24,10 +24,6 @@
 - (NSString *)occupation;
 - (NSString *)address;
 - (NSString *)note;
-- (NSString *)councilAndYear;
-- (NSString *)council;
-- (NSString *)yearErrected;
-
 - (NSString *)key;
 
 @end
