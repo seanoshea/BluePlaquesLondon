@@ -14,15 +14,10 @@
  limitations under the License.
  */
 
-#import "BPLFindClosestPlaqueView.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@implementation BPLFindClosestPlaqueView
+@interface BPLWikipediaViewController : UIViewController
 
-- (void)awakeFromNib
-{
-    self.titleLabel.text = NSLocalizedString(@"Find the Plaque Closest to You", @"");
-    self.titleLabel.font = [UIFont systemFontOfSize:13.0f];
-    self.titleLabel.textColor = [UIColor blueColor];
-}
+@property (nonatomic) GMSMarker *marker;
 
 @end

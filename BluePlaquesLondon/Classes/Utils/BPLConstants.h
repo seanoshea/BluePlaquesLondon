@@ -18,6 +18,7 @@
 
 extern NSString * const BPLKMZFilename;
 extern NSString * const BPLMapDetailViewControllerSegue;
+extern NSString * const BPLWikipediaViewControllerSegue;
 
 #pragma mark - 3rd Party Keys
 

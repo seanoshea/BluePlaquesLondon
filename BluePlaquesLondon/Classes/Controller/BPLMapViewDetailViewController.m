@@ -17,8 +17,8 @@
 #import "BPLMapViewDetailViewController.h"
 
 #import "SimpleKMLPlacemark+Additions.h"
-
-#import <UIKit/UIKit.h>
+#import "BPLConstants.h"
+#import "BPLWikipediaViewController.h"
 
 @interface BPLMapViewDetailViewController()
 
@@ -28,7 +28,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *noteLabel;
 
 - (IBAction)doneButtonTapped:(id)sender;
-- (IBAction)openWalkingDirectionsTapped:(id)sender;
 
 @end
 
@@ -39,24 +38,27 @@
     SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.marker.userData;
     self.titleLabel.text = placemark.title;
     self.occupationLabel.text = placemark.occupation;
-    self.addressLabel.text = [NSString stringWithFormat:@"Address %@", placemark.address];
+    self.addressLabel.text = placemark.address;
     NSString *note = placemark.note;
     if (note) {
-        self.noteLabel.text = [NSString stringWithFormat:@"Note %@", placemark.note];
+        self.noteLabel.text = placemark.note;
         self.noteLabel.hidden = NO;
     } else {
         self.noteLabel.hidden = YES;
     }
 }
 
-- (void)doneButtonTapped:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:BPLWikipediaViewControllerSegue]) {
+        BPLWikipediaViewController *destinationViewController = (BPLWikipediaViewController *)segue.destinationViewController;
+        destinationViewController.marker = self.marker;
+    }
 }
 
-- (IBAction)openWalkingDirectionsTapped:(id)sender
+- (IBAction)doneButtonTapped:(id)sender
 {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
