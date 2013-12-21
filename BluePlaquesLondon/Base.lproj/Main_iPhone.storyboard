@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
-        <!--Map View Detail View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Gcx-wC-Hj2">
             <objects>
-                <viewController storyboardIdentifier="BPLMapViewDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Eph-hh-E1n" customClass="BPLMapViewDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BPLMapViewDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Eph-hh-E1n" userLabel="Detail View Controller" customClass="BPLMapViewDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uq4-f5-AHc"/>
                         <viewControllerLayoutGuide type="bottom" id="tBO-dA-2yo"/>
@@ -79,6 +79,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTh-4c-VXa">
+                                <rect key="frame" x="20" y="308" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-Ea-nmQ">
+                                <rect key="frame" x="20" y="442" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Wikipedia Article">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dot-8M-zRq" kind="modal" identifier="BPLWikipediaViewControllerSegue" id="mnE-cG-fxD"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpt-zb-qf1" userLabel="Button - Done">
                                 <rect key="frame" x="20" y="500" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,13 +106,6 @@
                                     <action selector="doneButtonTapped:" destination="Eph-hh-E1n" eventType="touchUpInside" id="92R-jS-Z5d"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTh-4c-VXa">
-                                <rect key="frame" x="20" y="308" width="280" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -109,6 +119,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0J-mZ-Sgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1059" y="-138"/>
+        </scene>
+        <!--Wikipedia View Controller-->
+        <scene sceneID="oLL-eE-l30">
+            <objects>
+                <viewController storyboardIdentifier="BPLWikipediaViewController" id="dot-8M-zRq" userLabel="Wikipedia View Controller" customClass="BPLWikipediaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GHS-UJ-K2G"/>
+                        <viewControllerLayoutGuide type="bottom" id="ip1-Fo-tsq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4dA-rC-681">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A2n-RF-jEd">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="G8h-S6-6up">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="dO1-MR-4iH"/>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="webView" destination="A2n-RF-jEd" id="49J-Fw-I87"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZT4-EX-Im5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1463" y="-138"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="xtl-vj-pvF">

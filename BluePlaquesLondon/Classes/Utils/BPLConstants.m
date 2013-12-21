@@ -20,6 +20,7 @@
 
 NSString * const BPLKMZFilename = @"blueplaques";
 NSString * const BPLMapDetailViewControllerSegue = @"BPLMapDetailViewControllerSegue";
+NSString * const BPLWikipediaViewControllerSegue = @"BPLWikipediaViewControllerSegue";
 
 #pragma mark - 3rd Party Keys
 

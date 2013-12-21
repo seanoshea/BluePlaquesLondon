@@ -69,6 +69,8 @@
 		764BD434185130B50033E603 /* BluePlaquesLondonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD433185130B50033E603 /* BluePlaquesLondonTests.m */; };
 		764BD442185131F30033E603 /* BPLSimpleKMLAdditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD440185131F30033E603 /* BPLSimpleKMLAdditionTests.m */; };
 		764BD443185131F30033E603 /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD441185131F30033E603 /* BPLStateTest.m */; };
+		7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
+		7653BF0A186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
 		766CD0BB184BA18000864D6B /* NSString+MapOverlayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0BA184BA18000864D6B /* NSString+MapOverlayAdditions.m */; };
 		766CD0C1184BBE2300864D6B /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
 		766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C4184BE94B00864D6B /* blueplaques.kmz */; };
@@ -226,6 +228,8 @@
 		764BD440185131F30033E603 /* BPLSimpleKMLAdditionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLSimpleKMLAdditionTests.m; sourceTree = "<group>"; };
 		764BD441185131F30033E603 /* BPLStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStateTest.m; sourceTree = "<group>"; };
 		765145B1184B5F2500388E0F /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaViewController.h; sourceTree = "<group>"; };
+		7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewController.m; sourceTree = "<group>"; };
 		766CD0B9184BA18000864D6B /* NSString+MapOverlayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MapOverlayAdditions.h"; sourceTree = "<group>"; };
 		766CD0BA184BA18000864D6B /* NSString+MapOverlayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MapOverlayAdditions.m"; sourceTree = "<group>"; };
 		766CD0BF184BBE2300864D6B /* BPLMapViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewDetailViewController.h; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				76289C8218429036008E1391 /* BPLMapViewController.m */,
 				766CD0BF184BBE2300864D6B /* BPLMapViewDetailViewController.h */,
 				766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */,
+				7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */,
+				7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -846,6 +852,7 @@
 				76E908331854B1F900B31DC4 /* BPLMapViewModel.m in Sources */,
 				764BD434185130B50033E603 /* BluePlaquesLondonTests.m in Sources */,
 				768E2084185D9F2F002E1FF0 /* BPLFindClosestPlaqueView.m in Sources */,
+				7653BF0A186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */,
 				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -866,6 +873,7 @@
 				76289C8518429036008E1391 /* BPLAboutViewController.m in Sources */,
 				76289D2E1843F520008E1391 /* CXMLNamespaceNode.m in Sources */,
 				76289CE41843F4AB008E1391 /* SimpleKMLLinearRing.m in Sources */,
+				7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */,
 				76289CF61843F4AB008E1391 /* SimpleKMLPolyStyle.m in Sources */,
 				76289D1E1843F520008E1391 /* CXMLDocument_CreationExtensions.m in Sources */,
 				76289D4B1843F53B008E1391 /* ZipWriteStream.m in Sources */,
