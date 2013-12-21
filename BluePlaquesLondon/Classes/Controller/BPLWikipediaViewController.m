@@ -43,6 +43,18 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:strUTF8]] queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
+        NSError *error = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        
+        if (!error) {
+            
+            NSArray *arr = json[@"query"][@"search"];
+            if (arr.count) {
+                NSString *title = arr[0][@"title"];
+                    NSString *ddd = [[NSString stringWithFormat:@"http://en.wikipedia.org/wiki/%@", [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ddd]]];
+            }
+        }
     }];
     
 }
