@@ -27,15 +27,18 @@
 @property (nonatomic, weak) IBOutlet UILabel *addressLabel;
 @property (nonatomic, weak) IBOutlet UILabel *noteLabel;
 
-- (IBAction)doneButtonTapped:(id)sender;
-
 @end
 
 @implementation BPLMapViewDetailViewController
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.navigationController.navigationBarHidden = NO;
+    
     SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.marker.userData;
+    
+    self.navigationItem.title = placemark.name;
+    
     self.titleLabel.text = placemark.title;
     self.occupationLabel.text = placemark.occupation;
     self.addressLabel.text = placemark.address;
@@ -54,11 +57,6 @@
         BPLWikipediaViewController *destinationViewController = (BPLWikipediaViewController *)segue.destinationViewController;
         destinationViewController.marker = self.marker;
     }
-}
-
-- (IBAction)doneButtonTapped:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
