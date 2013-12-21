@@ -95,6 +95,9 @@
 		76E908331854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
 		76E9083E1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
 		76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
+		76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
+		76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
+		76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F19BA61865DA90002F6A3D /* QuartzCore.framework */; };
 		76F1F68018472DA70079E033 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */; };
 		76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
@@ -267,6 +270,9 @@
 		76E908311854B1F900B31DC4 /* BPLMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLMapViewModel.m; path = Model/BPLMapViewModel.m; sourceTree = "<group>"; };
 		76E9083C1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SimpleKMLPlacemark+Additions.h"; sourceTree = "<group>"; };
 		76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SimpleKMLPlacemark+Additions.m"; sourceTree = "<group>"; };
+		76F19BA21865C5D2002F6A3D /* BPLWikipediaViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLWikipediaViewModel.h; path = Model/BPLWikipediaViewModel.h; sourceTree = "<group>"; };
+		76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLWikipediaViewModel.m; path = Model/BPLWikipediaViewModel.m; sourceTree = "<group>"; };
+		76F19BA61865DA90002F6A3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		76F1F68218472E530079E033 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */,
 				76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */,
 				76289D5F1843F5BE008E1391 /* libz.dylib in Frameworks */,
 				76C37B61184E770E004D229B /* Crashlytics.framework in Frameworks */,
@@ -328,6 +335,8 @@
 			children = (
 				76E908301854B1F900B31DC4 /* BPLMapViewModel.h */,
 				76E908311854B1F900B31DC4 /* BPLMapViewModel.m */,
+				76F19BA21865C5D2002F6A3D /* BPLWikipediaViewModel.h */,
+				76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -632,6 +641,7 @@
 		76B00EA318427FBB007A5EE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76F19BA61865DA90002F6A3D /* QuartzCore.framework */,
 				76C37B63184E8DD5004D229B /* libPods.a */,
 				76C37B60184E770E004D229B /* Crashlytics.framework */,
 				76B00EA618427FBB007A5EE0 /* CoreGraphics.framework */,
@@ -850,6 +860,7 @@
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				764BD442185131F30033E603 /* BPLSimpleKMLAdditionTests.m in Sources */,
 				76E908331854B1F900B31DC4 /* BPLMapViewModel.m in Sources */,
+				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
 				764BD434185130B50033E603 /* BluePlaquesLondonTests.m in Sources */,
 				768E2084185D9F2F002E1FF0 /* BPLFindClosestPlaqueView.m in Sources */,
 				7653BF0A186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */,
@@ -912,6 +923,7 @@
 				76289D581843F550008E1391 /* mztools.c in Sources */,
 				76289D221843F520008E1391 /* CXHTMLDocument.m in Sources */,
 				76289CF01843F4AB008E1391 /* SimpleKMLPlacemark.m in Sources */,
+				76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
 				76289CEE1843F4AB008E1391 /* SimpleKMLOverlay.m in Sources */,
 				76CBBB65184D33C100A6828C /* Reachability.m in Sources */,
 				76289CD61843F4AB008E1391 /* SimpleKMLContainer.m in Sources */,

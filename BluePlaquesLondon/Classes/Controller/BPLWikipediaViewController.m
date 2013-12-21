@@ -17,10 +17,17 @@
 #import "BPLWikipediaViewController.h"
 
 #import "SimpleKMLPlacemark+Additions.h"
+#import "BPLWikipediaViewModel.h"
+
+#import <DACircularProgress/DACircularProgressView.h>
 
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) DACircularProgressView *progressView;
+@property (strong, nonatomic) NSTimer *timer;
+
+@property (nonatomic) BPLWikipediaViewModel *model;
 
 @end
 
@@ -29,34 +36,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"Wikipedia Article";
+    
+    self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 140.0f, 40.0f, 40.0f)];
+    self.progressView.roundedCorners = YES;
+    self.progressView.trackTintColor = [UIColor redColor];
+    [self.view addSubview:self.progressView];
+    
+    self.model = [[BPLWikipediaViewModel alloc] initWithPlacemark:self.marker.userData];
+    self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
     self.webView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.marker.userData;
-    
-    NSString *strUTF8 = [[NSString stringWithFormat:@"http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=%@&srprop=timestamp&format=json", placemark.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:strUTF8]] queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        NSError *error = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        
+    [self startAnimation];
+    [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
         if (!error) {
-            
-            NSArray *arr = json[@"query"][@"search"];
-            if (arr.count) {
-                NSString *title = arr[0][@"title"];
-                    NSString *ddd = [[NSString stringWithFormat:@"http://en.wikipedia.org/wiki/%@", [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ddd]]];
-            }
+            [self.webView loadRequest:urlRequest];
+        } else {
+            [self stopAnimation];
         }
-    }];
-    
+    }];    
 }
 
 #pragma mark UIWebViewDelegate
@@ -73,12 +74,36 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    
+    [self stopAnimation];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    
+    [self stopAnimation];
+}
+
+- (void)progressChange
+{
+    CGFloat progress = ![self.timer isValid] ? 30 / 10.0f : self.progressView.progress + 0.01f;
+    [self.progressView setProgress:progress animated:YES];
+    if (self.progressView.progress >= 1.0f && [self.timer isValid]) {
+        [self.progressView setProgress:0.f animated:YES];
+    }
+}
+
+- (void)startAnimation
+{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03
+                                                  target:self
+                                                selector:@selector(progressChange)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
+
+- (void)stopAnimation
+{
+    [self.timer invalidate];
+    [self.progressView removeFromSuperview];
 }
 
 - (void)dealloc
