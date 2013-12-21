@@ -76,6 +76,9 @@
     [self.searchBar resignFirstResponder];
     [self toggleTableView:NO];
     [self.mapView animateToLocation:placemark.point.coordinate];
+    
+    NSLog(@"placemark %@", placemark.featureDescription);
+    
     self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
 }
 

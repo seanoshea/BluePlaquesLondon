@@ -66,11 +66,8 @@
 		764BD42B185130B50033E603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA418427FBB007A5EE0 /* Foundation.framework */; };
 		764BD42C185130B50033E603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA818427FBB007A5EE0 /* UIKit.framework */; };
 		764BD432185130B50033E603 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 764BD430185130B50033E603 /* InfoPlist.strings */; };
-		764BD434185130B50033E603 /* BluePlaquesLondonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD433185130B50033E603 /* BluePlaquesLondonTests.m */; };
-		764BD442185131F30033E603 /* BPLSimpleKMLAdditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD440185131F30033E603 /* BPLSimpleKMLAdditionTests.m */; };
 		764BD443185131F30033E603 /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD441185131F30033E603 /* BPLStateTest.m */; };
 		7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
-		7653BF0A186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
 		766CD0C1184BBE2300864D6B /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
 		766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C4184BE94B00864D6B /* blueplaques.kmz */; };
 		766CD0C8184BE94B00864D6B /* blueplaques.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C5184BE94B00864D6B /* blueplaques.xlsx */; };
@@ -91,7 +88,6 @@
 		76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
 		76CBBB65184D33C100A6828C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
-		76E908331854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
 		76E9083E1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
 		76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
 		76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
@@ -99,6 +95,7 @@
 		76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F19BA61865DA90002F6A3D /* QuartzCore.framework */; };
 		76F19BAA186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
 		76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
+		76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		76F1F68018472DA70079E033 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */; };
 		76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
@@ -227,9 +224,7 @@
 		764BD429185130B50033E603 /* BluePlaquesLondonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePlaquesLondonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		764BD42F185130B50033E603 /* BluePlaquesLondonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BluePlaquesLondonTests-Info.plist"; sourceTree = "<group>"; };
 		764BD431185130B50033E603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		764BD433185130B50033E603 /* BluePlaquesLondonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BluePlaquesLondonTests.m; sourceTree = "<group>"; };
 		764BD435185130B50033E603 /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
-		764BD440185131F30033E603 /* BPLSimpleKMLAdditionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLSimpleKMLAdditionTests.m; sourceTree = "<group>"; };
 		764BD441185131F30033E603 /* BPLStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStateTest.m; sourceTree = "<group>"; };
 		765145B1184B5F2500388E0F /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaViewController.h; sourceTree = "<group>"; };
@@ -274,6 +269,7 @@
 		76F19BA61865DA90002F6A3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		76F19BA8186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BPLPlacemarkFeatureDescription.h"; sourceTree = "<group>"; };
 		76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BPLPlacemarkFeatureDescription.m"; sourceTree = "<group>"; };
+		76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkFeatureDescriptionTests.m; sourceTree = "<group>"; };
 		76F1F68218472E530079E033 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -568,7 +564,6 @@
 			children = (
 				764BD43F185131DF0033E603 /* Utils */,
 				764BD43B185131950033E603 /* Model */,
-				764BD433185130B50033E603 /* BluePlaquesLondonTests.m */,
 				764BD42E185130B50033E603 /* Supporting Files */,
 			);
 			path = BluePlaquesLondonTests;
@@ -594,8 +589,8 @@
 		764BD43F185131DF0033E603 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				764BD440185131F30033E603 /* BPLSimpleKMLAdditionTests.m */,
 				764BD441185131F30033E603 /* BPLStateTest.m */,
+				76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -859,12 +854,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
-				764BD442185131F30033E603 /* BPLSimpleKMLAdditionTests.m in Sources */,
-				76E908331854B1F900B31DC4 /* BPLMapViewModel.m in Sources */,
+				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
-				764BD434185130B50033E603 /* BluePlaquesLondonTests.m in Sources */,
 				768E2084185D9F2F002E1FF0 /* BPLFindClosestPlaqueView.m in Sources */,
-				7653BF0A186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */,
 				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
 				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
 			);
@@ -1003,6 +995,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "BluePlaquesLondonTests/BluePlaquesLondonTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1022,6 +1019,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondonTests/BluePlaquesLondonTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "BluePlaquesLondonTests/BluePlaquesLondonTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
