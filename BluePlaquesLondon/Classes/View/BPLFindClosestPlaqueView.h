@@ -16,6 +16,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BPLFindClosestPlaqueView : UIButton
+@interface BPLFindClosestPlaqueView : UIView
+
+@property (nonatomic, weak) IBOutlet UIButton *button;
 
 @end

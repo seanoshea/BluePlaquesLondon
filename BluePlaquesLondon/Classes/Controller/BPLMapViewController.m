@@ -24,6 +24,7 @@
 #import "BPLMapViewDetailViewController.h"
 #import "BPLConstants.h"
 #import "BPLFindClosestPlaqueView.h"
+#import "UIColor+BluePlaquesLondon.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -52,13 +53,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30.0f;
+    if (section == 0) {
+            return 30.0f;
+    }
+        return 0.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     BPLFindClosestPlaqueView *findClosestView = (BPLFindClosestPlaqueView *)[[NSBundle mainBundle] loadNibNamed:@"BPLFindClosestPlaqueView" owner:nil options:nil][0];
-    [findClosestView addTarget:self action:@selector(findClosestPlaqueViewTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [findClosestView.button addTarget:self action:@selector(findClosestPlaqueViewTouched:) forControlEvents:UIControlEventTouchUpInside];
     return findClosestView;
 }
 
@@ -91,7 +95,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] init];
-        cell.textLabel.textColor = [UIColor blueColor];
+        cell.textLabel.textColor = [UIColor darkBlueColour];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
