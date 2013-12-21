@@ -16,10 +16,11 @@
 
 #import "BPLWikipediaViewController.h"
 
+#import <DACircularProgress/DACircularProgressView.h>
+
 #import "SimpleKMLPlacemark+Additions.h"
 #import "BPLWikipediaViewModel.h"
-
-#import <DACircularProgress/DACircularProgressView.h>
+#import "UIColor+BluePlaquesLondon.h"
 
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 
@@ -39,7 +40,7 @@
     
     self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 140.0f, 40.0f, 40.0f)];
     self.progressView.roundedCorners = YES;
-    self.progressView.trackTintColor = [UIColor redColor];
+    self.progressView.trackTintColor = [UIColor darkBlueColour];
     [self.view addSubview:self.progressView];
     
     self.model = [[BPLWikipediaViewModel alloc] initWithPlacemark:self.marker.userData];
@@ -58,6 +59,12 @@
             [self stopAnimation];
         }
     }];    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self stopAnimation];
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark UIWebViewDelegate
@@ -93,17 +100,13 @@
 
 - (void)startAnimation
 {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03
-                                                  target:self
-                                                selector:@selector(progressChange)
-                                                userInfo:nil
-                                                 repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
 }
 
 - (void)stopAnimation
 {
     [self.timer invalidate];
-    [self.progressView removeFromSuperview];
+    self.progressView.hidden = YES;
 }
 
 - (void)dealloc

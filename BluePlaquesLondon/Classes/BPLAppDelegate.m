@@ -25,6 +25,7 @@
 
 #import "BPLConfiguration.h"
 #import "BPLConstants.h"
+#import "UIColor+BluePlaquesLondon.h"
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLMapViewControllerIndex = 0,
@@ -41,6 +42,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self initializeGoogleMapsApi];
+    [self initializeStyling];
     [self initializeLogging];
     [self initializeReachability];
     [self initializeLocalization];
@@ -48,6 +50,22 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [self initializeCrashReporting];
     [self initializeDelegate];
     return YES;
+}
+
+- (void)initializeStyling
+{
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    tabBarController.tabBar.selectedImageTintColor = [UIColor darkBlueColour];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage alloc]];
+    [[UITabBarItem appearance] setTitleTextAttributes:
+     @{ NSForegroundColorAttributeName: [UIColor darkBlueColour],
+        NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
+                                             forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:
+     @{ NSForegroundColorAttributeName: [UIColor darkBlueColour],
+        NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
+                                             forState:UIControlStateSelected];
+    self.window.tintColor = [UIColor darkBlueColour];
 }
 
 - (void)initializeLogging

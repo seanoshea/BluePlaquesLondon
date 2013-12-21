@@ -16,13 +16,16 @@
 
 #import "BPLFindClosestPlaqueView.h"
 
+#import "UIColor+BluePlaquesLondon.h"
+
 @implementation BPLFindClosestPlaqueView
 
 - (void)awakeFromNib
 {
-    self.titleLabel.text = NSLocalizedString(@"Find the Plaque Closest to You", @"");
-    self.titleLabel.font = [UIFont systemFontOfSize:13.0f];
-    self.titleLabel.textColor = [UIColor blueColor];
+    self.backgroundColor = [UIColor darkBlueColour];
+    self.button.titleLabel.text = NSLocalizedString(@"Find the Plaque Closest to You", @"");
+    self.button.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.button.titleLabel.textColor = [UIColor whiteColor];
 }
 
 @end

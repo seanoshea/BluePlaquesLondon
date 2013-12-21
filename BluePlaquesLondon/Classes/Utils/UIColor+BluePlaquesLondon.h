@@ -18,4 +18,7 @@
 
 @interface UIColor (BluePlaquesLondon)
 
++ (UIColor *)darkBlueColour;
++ (UIColor *)lightBlueColour;
+
 @end

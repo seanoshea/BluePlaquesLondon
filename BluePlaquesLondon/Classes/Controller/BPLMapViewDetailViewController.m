@@ -19,6 +19,7 @@
 #import "SimpleKMLPlacemark+Additions.h"
 #import "BPLConstants.h"
 #import "BPLWikipediaViewController.h"
+#import "UIColor+BluePlaquesLondon.h"
 
 @interface BPLMapViewDetailViewController()
 
@@ -31,8 +32,19 @@
 
 @implementation BPLMapViewDetailViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.titleLabel.textColor = [UIColor darkBlueColour];
+    self.occupationLabel.textColor = [UIColor darkBlueColour];
+    self.addressLabel.textColor = [UIColor darkBlueColour];
+    self.noteLabel.textColor = [UIColor darkBlueColour];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     self.navigationController.navigationBarHidden = NO;
     
     SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.marker.userData;
