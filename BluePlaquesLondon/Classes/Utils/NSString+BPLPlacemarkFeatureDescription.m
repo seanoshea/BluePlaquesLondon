@@ -80,6 +80,17 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
             int delimiterLength = BPLOverlayTitleDelimiter.length;
             NSRange endRange = [occupation rangeOfString:BPLOverlayTitleDelimiter options:NSCaseInsensitiveSearch range:NSMakeRange(delimiterLength, occupation.length - delimiterLength - 1)];
             occupation = [occupation substringWithRange:NSMakeRange(delimiterLength, endRange.location - delimiterLength)];
+            // check to see whether we have a valid occupation here or if this is actually a date range
+            if ([NSString trimWhitespaceFromString:occupation].length == 9) {
+                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[0-9]{4}-[0-9]{4}" options:0 error:NULL];
+                NSTextCheckingResult *match = [regex firstMatchInString:occupation options:0 range:NSMakeRange(0, occupation.length)];
+                if (match.range.location != NSNotFound) {
+                    NSArray *components = [self componentsSeparatedByString:BPLOverlayTitleDelimiter];
+                    if (components.count && components.count > 3) {
+                        occupation = [NSString trimWhitespaceFromString:components[2]];
+                    }
+                }
+            }
         }
         
     }
@@ -90,8 +101,25 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 {
     NSString *address;
     NSArray *components = [self componentsSeparatedByString:BPLOverlayTitleDelimiter];
-    if (components.count && components.count > 3) {
-        address = [NSString trimWhitespaceFromString:components[2]];
+    if (components.count) {
+        switch (components.count) {
+            case 2:
+            case 3:{
+                address = [NSString trimWhitespaceFromString:components[1]];
+            } break;
+            case 4:
+            case 5: {
+                address = [NSString trimWhitespaceFromString:components[2]];
+            } break;
+            case 6: {
+                address = [NSString trimWhitespaceFromString:components[3]];
+            } break;
+            case 7: {
+                address = [NSString trimWhitespaceFromString:components[4]];
+            } break;
+            default:
+                break;
+        }
     }
     return address;
 }

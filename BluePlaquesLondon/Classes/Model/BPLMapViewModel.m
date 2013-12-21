@@ -99,7 +99,18 @@
         marker.userData = placemark;
         marker.icon = placemark.style.iconStyle.icon;
         marker.title = placemark.title;
-        marker.snippet = placemark.subtitle;
+        // check to see if the regular subtitle would be too big to pop into the snippet
+        NSString *snippet;
+        NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
+        if (numberOfPlacemarksAssociatedWithPlacemark.count == 1) {
+            // ok to simply use the subtitle
+            snippet = placemark.subtitle;
+        } else {
+            // generic message should suffice
+            snippet = NSLocalizedString(@"Multiple Placemarks at this location", @"");
+        }
+        
+        marker.snippet = snippet;
         marker.map = mapView;
         
         self.coordinateToMarker[placemark.key] = marker;
