@@ -18,6 +18,6 @@
 
 @interface BPLWikipediaViewController : UIViewController
 
-@property (nonatomic) GMSMarker *marker;
+@property (nonatomic, copy) NSArray *markers;
 
 @end

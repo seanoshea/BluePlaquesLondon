@@ -136,6 +136,16 @@
     return self.coordinateToMarker[placemark.key];
 }
 
+- (NSArray *)placemarksForKey:(NSString *)key
+{
+    NSArray *indices = self.keyToArrayPositions[key];
+    NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:indices.count];
+    for (NSNumber *index in indices) {
+        [placemarks addObject:self.data.flattenedPlacemarks[[index intValue]]];
+    }
+    return placemarks;
+}
+
 - (SimpleKMLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate
 {
     CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
