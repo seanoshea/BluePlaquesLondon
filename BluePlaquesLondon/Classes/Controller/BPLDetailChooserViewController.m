@@ -18,6 +18,7 @@
 
 #import "SimpleKMLPlacemark.h"
 #import "UIColor+BluePlaquesLondon.h"
+#import "BPLConstants.h"
 
 @implementation BPLDetailChooserViewController
 
@@ -50,6 +51,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BPLDetailChooserViewControllerRowSelected object:@(indexPath.row)];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

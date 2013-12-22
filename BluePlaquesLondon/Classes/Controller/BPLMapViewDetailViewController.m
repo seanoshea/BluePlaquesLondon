@@ -39,6 +39,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
+    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkBlueColour]}];
     self.occupationLabel.textColor = [UIColor darkBlueColour];
     self.addressLabel.textColor = [UIColor darkBlueColour];
@@ -88,6 +91,21 @@
         BPLDetailChooserViewController *destinationViewController = (BPLDetailChooserViewController *)segue.destinationViewController;
         destinationViewController.markers = self.markers;
     }
+}
+
+- (void)detailChooserViewControllerRowSelected:(NSNotification *)notification {
+    
+    NSNumber *index = [notification object];
+    SimpleKMLPlacemark *selectedPlacemark = self.markers[[index intValue]];
+    NSMutableArray *mutableMarkers = [self.markers mutableCopy];
+    [mutableMarkers removeObject:selectedPlacemark];
+    [mutableMarkers insertObject:selectedPlacemark atIndex:0];
+    self.markers = [mutableMarkers copy];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
