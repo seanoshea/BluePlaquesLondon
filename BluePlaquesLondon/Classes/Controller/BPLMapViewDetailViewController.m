@@ -47,7 +47,7 @@
     
     self.navigationController.navigationBarHidden = NO;
     
-    SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.marker.userData;
+    SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.markers[0];
     
     self.navigationItem.title = placemark.name;
     
@@ -67,7 +67,7 @@
     
     if ([segue.identifier isEqualToString:BPLWikipediaViewControllerSegue]) {
         BPLWikipediaViewController *destinationViewController = (BPLWikipediaViewController *)segue.destinationViewController;
-        destinationViewController.marker = self.marker;
+        destinationViewController.markers = self.markers;
     }
 }
 

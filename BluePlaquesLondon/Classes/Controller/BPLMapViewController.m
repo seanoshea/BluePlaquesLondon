@@ -53,10 +53,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-            return 30.0f;
-    }
-        return 0.0f;
+    return 30.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -76,9 +73,6 @@
     [self.searchBar resignFirstResponder];
     [self toggleTableView:NO];
     [self.mapView animateToLocation:placemark.point.coordinate];
-    
-    NSLog(@"placemark %@", placemark.featureDescription);
-    
     self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
 }
 
@@ -220,7 +214,8 @@
     
     if ([segue.identifier isEqualToString:BPLMapDetailViewControllerSegue]) {
         BPLMapViewDetailViewController *destinationViewController = (BPLMapViewDetailViewController *)segue.destinationViewController;
-        destinationViewController.marker = self.mapView.selectedMarker;
+        SimpleKMLPlacemark *placemark = self.mapView.selectedMarker.userData;
+        destinationViewController.markers = [self.model placemarksForKey:placemark.key];
     }
 }
 

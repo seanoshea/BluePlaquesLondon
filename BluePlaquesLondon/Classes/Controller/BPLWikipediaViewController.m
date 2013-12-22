@@ -43,7 +43,7 @@
     self.progressView.trackTintColor = [UIColor darkBlueColour];
     [self.view addSubview:self.progressView];
     
-    self.model = [[BPLWikipediaViewModel alloc] initWithPlacemark:self.marker.userData];
+    self.model = [[BPLWikipediaViewModel alloc] initWithPlacemark:self.markers[0]];
     self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
     self.webView.delegate = self;
 }
