@@ -94,6 +94,8 @@
 		76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		76F19BB018675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */; };
 		76F19BB118675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */; };
+		76F19BB418679AF6002F6A3D /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
+		76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
 		76F1F68018472DA70079E033 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */; };
 		76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
@@ -267,6 +269,8 @@
 		76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkFeatureDescriptionTests.m; sourceTree = "<group>"; };
 		76F19BAE18675A49002F6A3D /* BPLDetailChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLDetailChooserViewController.h; sourceTree = "<group>"; };
 		76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLDetailChooserViewController.m; sourceTree = "<group>"; };
+		76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLTableViewCell.h; path = View/BPLTableViewCell.h; sourceTree = "<group>"; };
+		76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLTableViewCell.m; path = View/BPLTableViewCell.m; sourceTree = "<group>"; };
 		76F1F68218472E530079E033 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -320,6 +324,8 @@
 		76289C7418428FEB008E1391 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */,
+				76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -838,6 +844,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
@@ -911,6 +918,7 @@
 				76289D361843F520008E1391 /* CTidy.m in Sources */,
 				76289CE81843F4AB008E1391 /* SimpleKMLLineStyle.m in Sources */,
 				76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */,
+				76F19BB418679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
 				76289D2C1843F520008E1391 /* CXMLElement_ElementTreeExtensions.m in Sources */,
 				76289CF81843F4AB008E1391 /* SimpleKMLStyle.m in Sources */,
 				76289CE61843F4AB008E1391 /* SimpleKMLLineString.m in Sources */,

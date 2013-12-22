@@ -24,6 +24,7 @@
 #import "BPLMapViewDetailViewController.h"
 #import "BPLConstants.h"
 #import "UIColor+BluePlaquesLondon.h"
+#import "BPLTableViewCell.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -74,18 +75,13 @@
     if (indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"BluePlaquesClosestCell"];
         if (!cell) {
-            cell = [[UITableViewCell alloc] init];
-            cell.textLabel.textColor = [UIColor whiteColor];
-            cell.backgroundColor = [UIColor darkBlueColour];
-            cell.textLabel.text = NSLocalizedString(@"Find the Plaque closest to me", nil);
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BluePlaquesClosestCell"];
         }
+        cell.textLabel.text = NSLocalizedString(@"Find the Plaque closest to me", nil);
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"BluePlaquesLondonSearchCell"];
         if (!cell) {
-            cell = [[UITableViewCell alloc] init];
-            cell.textLabel.textColor = [UIColor darkBlueColour];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                        cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BluePlaquesLondonSearchCell"];
         }
         SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
         cell.textLabel.text = pm.name;
