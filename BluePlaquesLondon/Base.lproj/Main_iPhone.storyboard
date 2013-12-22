@@ -96,12 +96,23 @@
                                     <segue destination="dot-8M-zRq" kind="push" identifier="BPLWikipediaViewControllerSegue" id="mnE-cG-fxD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-1Y-SZz">
+                                <rect key="frame" x="20" y="482" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="More People at this Location">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9Kw-aG-koE" kind="push" identifier="BPLDetailChooserViewControllerSegue" id="ba8-BQ-065"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="xEc-Pe-SbB" id="Ppt-JV-XCG"/>
                         <outlet property="councilAndYearLabel" destination="Gkz-B6-AwZ" id="1O9-CR-4bY"/>
+                        <outlet property="moreButton" destination="EYI-1Y-SZz" id="AUk-f5-nke"/>
                         <outlet property="noteLabel" destination="RTh-4c-VXa" id="rMf-Na-3gc"/>
                         <outlet property="occupationLabel" destination="1K8-dP-7Mx" id="YEc-Xp-5cx"/>
                     </connections>
@@ -138,6 +149,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZT4-EX-Im5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1989" y="-138"/>
+        </scene>
+        <!--Detail Chooser View Controller-->
+        <scene sceneID="zwW-8G-PDh">
+            <objects>
+                <tableViewController storyboardIdentifier="BPLDetailChooserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Kw-aG-koE" customClass="BPLDetailChooserViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u7W-e3-ULz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BluePlaquesLondonMultipleCell" id="FHQ-KX-jNu">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FHQ-KX-jNu" id="4IG-CJ-WH6">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Kw-aG-koE" id="MWM-O6-CKN"/>
+                            <outlet property="delegate" destination="9Kw-aG-koE" id="vip-bA-R1K"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pkr-qM-P3w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991" y="534"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="xtl-vj-pvF">
