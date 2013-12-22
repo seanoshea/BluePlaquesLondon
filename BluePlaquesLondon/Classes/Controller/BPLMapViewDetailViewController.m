@@ -19,6 +19,8 @@
 #import "SimpleKMLPlacemark+Additions.h"
 #import "BPLConstants.h"
 #import "BPLWikipediaViewController.h"
+#import "BPLDetailChooserViewController.h"
+
 #import "UIColor+BluePlaquesLondon.h"
 
 @interface BPLMapViewDetailViewController()
@@ -27,6 +29,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *addressLabel;
 @property (nonatomic, weak) IBOutlet UILabel *noteLabel;
 @property (nonatomic, weak) IBOutlet UILabel *councilAndYearLabel;
+
+@property (nonatomic, weak) IBOutlet UIButton *moreButton;
 
 @end
 
@@ -70,12 +74,18 @@
     } else {
         self.noteLabel.hidden = YES;
     }
+    
+    // not all placemarks have multiple people associated with them
+    self.moreButton.hidden = self.markers.count == 1;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:BPLWikipediaViewControllerSegue]) {
         BPLWikipediaViewController *destinationViewController = (BPLWikipediaViewController *)segue.destinationViewController;
+        destinationViewController.markers = self.markers;
+    } else if ([segue.identifier isEqualToString:BPLDetailChooserViewControllerSegue]) {
+        BPLDetailChooserViewController *destinationViewController = (BPLDetailChooserViewController *)segue.destinationViewController;
         destinationViewController.markers = self.markers;
     }
 }
