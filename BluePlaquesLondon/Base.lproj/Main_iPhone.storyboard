@@ -86,6 +86,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-4v-dwU">
+                                <rect key="frame" x="20" y="381" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Street View">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3iC-ih-uur" kind="push" identifier="BPLStreetMapViewControllerSegue" id="MhC-mZ-Pnl"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-Ea-nmQ">
                                 <rect key="frame" x="20" y="424" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -121,6 +131,25 @@
             </objects>
             <point key="canvasLocation" x="1585" y="-138"/>
         </scene>
+        <!--Street View View Controller-->
+        <scene sceneID="jlg-bu-Cd4">
+            <objects>
+                <viewController id="3iC-ih-uur" customClass="BPLStreetViewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="efc-N5-VZk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y0B-uO-sOf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ViV-uZ-TUr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hqD-UG-MlX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KoA-Uo-4LQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2123" y="-831"/>
+        </scene>
         <!--Wikipedia View Controller-->
         <scene sceneID="oLL-eE-l30">
             <objects>
@@ -148,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZT4-EX-Im5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989" y="-138"/>
+            <point key="canvasLocation" x="2123" y="-138"/>
         </scene>
         <!--Detail Chooser View Controller-->
         <scene sceneID="zwW-8G-PDh">
@@ -176,7 +205,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkr-qM-P3w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="534"/>
+            <point key="canvasLocation" x="2123" y="570"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="xtl-vj-pvF">
@@ -195,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAg-Rf-eFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="1225"/>
+            <point key="canvasLocation" x="653" y="581"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">

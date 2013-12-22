@@ -20,6 +20,7 @@
 #import "BPLConstants.h"
 #import "BPLWikipediaViewController.h"
 #import "BPLDetailChooserViewController.h"
+#import "BPLStreetViewViewController.h"
 
 #import "UIColor+BluePlaquesLondon.h"
 
@@ -90,6 +91,9 @@
     } else if ([segue.identifier isEqualToString:BPLDetailChooserViewControllerSegue]) {
         BPLDetailChooserViewController *destinationViewController = (BPLDetailChooserViewController *)segue.destinationViewController;
         destinationViewController.markers = self.markers;
+    } else if ([segue.identifier isEqualToString:BPLStreetMapViewControllerSegue]) {
+        BPLStreetViewViewController *destinationViewController = (BPLStreetViewViewController *)segue.destinationViewController;
+        destinationViewController.placemark = self.markers[0];
     }
 }
 
