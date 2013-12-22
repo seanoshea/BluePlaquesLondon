@@ -16,10 +16,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (BluePlaquesLondon)
-
-+ (UIColor *)darkBlueColour;
-+ (UIColor *)lightGreyColour;
-+ (UIColor *)lightYellowColour;
+@interface BPLTableViewCell : UITableViewCell
 
 @end
