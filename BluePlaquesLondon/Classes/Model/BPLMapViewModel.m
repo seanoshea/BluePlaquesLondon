@@ -125,9 +125,9 @@
 - (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.filteredData.count) {
-        return self.filteredData[indexPath.row];
+        return self.filteredData[indexPath.row - 1];
     } else {
-        return self.alphabeticallySortedPositions[indexPath.row];
+        return self.alphabeticallySortedPositions[indexPath.row - 1];
     }
 }
 

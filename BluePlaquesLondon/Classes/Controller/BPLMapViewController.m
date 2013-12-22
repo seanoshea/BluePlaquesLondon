@@ -23,7 +23,6 @@
 #import "NSUserDefaults+BPLState.h"
 #import "BPLMapViewDetailViewController.h"
 #import "BPLConstants.h"
-#import "BPLFindClosestPlaqueView.h"
 #import "UIColor+BluePlaquesLondon.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -51,23 +50,6 @@
     return self;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 30.0f;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    BPLFindClosestPlaqueView *findClosestView = (BPLFindClosestPlaqueView *)[[NSBundle mainBundle] loadNibNamed:@"BPLFindClosestPlaqueView" owner:nil options:nil][0];
-    [findClosestView.button addTarget:self action:@selector(findClosestPlaqueViewTouched:) forControlEvents:UIControlEventTouchUpInside];
-    return findClosestView;
-}
-
-- (void)findClosestPlaqueViewTouched:(id)sender
-{
-    [self navigateToPlacemark:[self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate]];
-}
-
 - (void)navigateToPlacemark:(SimpleKMLPlacemark *)placemark
 {
     [self.searchBar resignFirstResponder];
@@ -83,27 +65,42 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.model.numberOfPlacemarks;
+    return self.model.numberOfPlacemarks + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"BluePlaquesLondonSearchCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] init];
-        cell.textLabel.textColor = [UIColor darkBlueColour];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    UITableViewCell *cell;
+    if (indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"BluePlaquesClosestCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] init];
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.backgroundColor = [UIColor darkBlueColour];
+            cell.textLabel.text = NSLocalizedString(@"Find the Plaque closest to me", nil);
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"BluePlaquesLondonSearchCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] init];
+            cell.textLabel.textColor = [UIColor darkBlueColour];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
+        cell.textLabel.text = pm.name;
     }
-    SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
-    cell.textLabel.text = pm.name;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self navigateToPlacemark:[self.model placemarkForRowAtIndexPath:indexPath]];
+    if (indexPath.row == 0) {
+        [self navigateToPlacemark:[self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate]];
+    } else {
+        [self navigateToPlacemark:[self.model placemarkForRowAtIndexPath:indexPath]];
+    }
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
@@ -180,6 +177,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
