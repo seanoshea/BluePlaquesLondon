@@ -56,6 +56,10 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     return self.featureDescription.note;
 }
 
+- (NSString *)councilAndYear
+{
+    return  self.featureDescription.councilAndYear;
+}
 
 - (NSString *)key
 {
