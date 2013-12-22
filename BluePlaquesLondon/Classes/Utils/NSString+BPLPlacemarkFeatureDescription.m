@@ -131,7 +131,13 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     if (startOfEmphasis.location != NSNotFound) {
         NSRange endOfEmphasis = [self rangeOfString:BPLEmphasisNoteClosingTag];
         if (endOfEmphasis.location == NSNotFound) {
-            endOfEmphasis.location = self.length;
+            // some notes don't have the correct closing tag ... search for the starting tag again
+            int locationOfLastEmphasis = [self rangeOfString:BPLEmphasisNoteOpeningTag options:NSBackwardsSearch].location;
+            if (locationOfLastEmphasis != startOfEmphasis.location) {
+                endOfEmphasis.location = self.length - BPLEmphasisNoteOpeningTag.length;
+            } else {
+                endOfEmphasis.location = self.length;
+            }
         }
         note = [self substringWithRange:NSMakeRange(startOfEmphasis.location + BPLEmphasisNoteOpeningTag.length, endOfEmphasis.location - startOfEmphasis.location - BPLEmphasisNoteClosingTag.length + 1)];
         note = [NSString trimWhitespaceFromString:note];
@@ -142,13 +148,11 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 - (NSString *)councilAndYear
 {
     NSString *councilAndYear;
-    
-    NSString *description = description = [self removeNoteFromString:self];
-    NSArray *components = [description componentsSeparatedByString:BPLOverlayTitleDelimiter];
-    if (components.count && components.count > 4) {
-        councilAndYear = [NSString trimWhitespaceFromString:components[components.count - 1]];
+    NSString *withoutNote = [self removeNoteFromString:self];
+    NSArray *components = [withoutNote componentsSeparatedByString:BPLOverlayTitleDelimiter];
+    if (components.count && components.count > 2) {
+        councilAndYear = [NSString trimWhitespaceFromString:[components lastObject]];
     }
-    
     return councilAndYear;
 }
 
@@ -183,10 +187,16 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 - (NSString *)removeNoteFromString:(NSString *)input
 {
     NSString *note = self.note;
-    if (note) {
+    if (note.length) {
+        input = [NSString trimWhitespaceFromString:input];
         input = [input stringByReplacingOccurrencesOfString:BPLEmphasisNoteOpeningTag withString:@""];
         input = [input stringByReplacingOccurrencesOfString:note withString:@""];
         input = [input stringByReplacingOccurrencesOfString:BPLEmphasisNoteClosingTag withString:@""];
+        // check for a trailing delimiter
+        int locationOfFinalDelimiter = [input rangeOfString:BPLOverlayTitleDelimiter options:NSBackwardsSearch].location;
+        if (locationOfFinalDelimiter != NSNotFound && locationOfFinalDelimiter == input.length - BPLOverlayTitleDelimiter.length) {
+            input = [input substringToIndex:locationOfFinalDelimiter];
+        }
     }
     return input;
 }

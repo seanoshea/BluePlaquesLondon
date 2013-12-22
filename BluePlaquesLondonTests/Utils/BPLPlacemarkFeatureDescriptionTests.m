@@ -34,6 +34,9 @@
 @property (nonatomic, copy) NSString *popper;
 @property (nonatomic, copy) NSString *hazlitt;
 @property (nonatomic, copy) NSString *adam;
+@property (nonatomic, copy) NSString *shelley;
+@property (nonatomic, copy) NSString *moore;
+@property (nonatomic, copy) NSString *peltham;
 
 @end
 
@@ -56,6 +59,9 @@
     self.popper = @"POPPER, Karl<br>16 Burlington Rise, EN4<br>London Borough of Barnet";
     self.hazlitt = @"HAZLITT, William (1778-1830) Essayist, died here.<br> 6 Frith Street, W1<br> Westminster 1905";
     self.adam = @"ADAM, Robert (1728-1792), Architect; Thomas HOOD (1799-1845), Poet; John GALSWORTHY (1867-1933), Novelist and Playwright; Sir James BARRIE (1860-1937), Dramatist; and other eminent artists and writers lived here.<br>1-3 Robert Street, Adelphi, WC2<br>Westminster 1950";
+    self.shelley = @"SHELLEY, Percy Bysshe (1792-1822)<br>Poet, lived here, in 1811<br>15 Poland Street, W1<br>Westminster 1979/2000<br><em>Note: Replacement for GLC plaque erected in 1979 but lost during refurbishment work in 1996</em>";
+    self.moore = @"MOORE, Tom (1779-1852)<br>Irish Poet, lived here<br>85 George Street, W1<br>Westminster 1963<br><em>Note: This plaque was removed from 28 Bury Street, St James's Westminster in 1962.<em>";
+    self.peltham = @"PELHAM, Henry (c.1695-1754)<br>Prime Minister, lived here.<br>22 Arlington Street, SW1<br>Westminster 1995<br><em>(Plaque on rear of building overlooking Queen&apos;s Walk, Green Park)</em>";
 }
 
 - (void)testExtractName
@@ -137,8 +143,20 @@
 
 - (void)testExtractNote
 {
-    NSString *occupation = self.gainsborough.note;
-    XCTAssert([occupation isEqualToString:@"Note: Replaces plaque up in 1881 by RSA at No. 80."], @"The note should only include exactly what is in between <em></em> tags");
+    NSString *gainsborough = self.gainsborough.note;
+    NSString *moore = self.moore.note;
+    
+    XCTAssert([gainsborough isEqualToString:@"Note: Replaces plaque up in 1881 by RSA at No. 80."], @"The note should only include exactly what is in between <em></em> tags");
+    XCTAssert([moore isEqualToString:@"Note: This plaque was removed from 28 Bury Street, St James's Westminster in 1962."], @"The note should only include exactly what is in between <em></em> tags");
+}
+
+- (void)testExtractCouncilAndYear
+{
+    NSString *shelley = self.shelley.councilAndYear;
+    NSString *peltham = self.peltham.councilAndYear;
+    
+    XCTAssert([shelley isEqualToString:@"Westminster 1979/2000"], @"The councilAndYear should include both the council that errected the plaque and the year in which it was errected");
+    XCTAssert([peltham isEqualToString:@"Westminster 1995"], @"The councilAndYear should include both the council that errected the plaque and the year in which it was errected");
 }
 
 @end
