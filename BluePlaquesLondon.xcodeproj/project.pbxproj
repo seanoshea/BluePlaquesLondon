@@ -96,6 +96,8 @@
 		76F19BB118675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */; };
 		76F19BB418679AF6002F6A3D /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
 		76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
+		76F19BB81867A138002F6A3D /* BPLStreetViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */; };
+		76F19BB91867A138002F6A3D /* BPLStreetViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */; };
 		76F1F68018472DA70079E033 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */; };
 		76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
@@ -271,6 +273,8 @@
 		76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLDetailChooserViewController.m; sourceTree = "<group>"; };
 		76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLTableViewCell.h; path = View/BPLTableViewCell.h; sourceTree = "<group>"; };
 		76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLTableViewCell.m; path = View/BPLTableViewCell.m; sourceTree = "<group>"; };
+		76F19BB61867A138002F6A3D /* BPLStreetViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLStreetViewViewController.h; sourceTree = "<group>"; };
+		76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStreetViewViewController.m; sourceTree = "<group>"; };
 		76F1F68218472E530079E033 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -315,6 +319,8 @@
 				76289C8218429036008E1391 /* BPLMapViewController.m */,
 				766CD0BF184BBE2300864D6B /* BPLMapViewDetailViewController.h */,
 				766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */,
+				76F19BB61867A138002F6A3D /* BPLStreetViewViewController.h */,
+				76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */,
 				7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */,
 				7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */,
 			);
@@ -851,6 +857,7 @@
 				76F19BB118675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */,
 				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
 				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
+				76F19BB91867A138002F6A3D /* BPLStreetViewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +874,7 @@
 				76289CE21843F4AB008E1391 /* SimpleKMLIconStyle.m in Sources */,
 				76289CCE1843F4AB008E1391 /* SimpleKML_UIImage.m in Sources */,
 				76289C8518429036008E1391 /* BPLAboutViewController.m in Sources */,
+				76F19BB81867A138002F6A3D /* BPLStreetViewViewController.m in Sources */,
 				76289D2E1843F520008E1391 /* CXMLNamespaceNode.m in Sources */,
 				76289CE41843F4AB008E1391 /* SimpleKMLLinearRing.m in Sources */,
 				7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */,
