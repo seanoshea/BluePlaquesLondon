@@ -23,10 +23,10 @@
 
 @interface BPLMapViewDetailViewController()
 
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *occupationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *addressLabel;
 @property (nonatomic, weak) IBOutlet UILabel *noteLabel;
+@property (nonatomic, weak) IBOutlet UILabel *councilAndYearLabel;
 
 @end
 
@@ -35,29 +35,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titleLabel.textColor = [UIColor darkBlueColour];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkBlueColour]}];
     self.occupationLabel.textColor = [UIColor darkBlueColour];
     self.addressLabel.textColor = [UIColor darkBlueColour];
     self.noteLabel.textColor = [UIColor darkBlueColour];
+    self.councilAndYearLabel.textColor = [UIColor darkBlueColour];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     self.navigationController.navigationBarHidden = NO;
     
     SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.markers[0];
     
     self.navigationItem.title = placemark.name;
-    
-    self.titleLabel.text = placemark.title;
     self.occupationLabel.text = placemark.occupation;
     self.addressLabel.text = placemark.address;
+    
+    // not all placemarks have notes
     NSString *note = placemark.note;
     if (note) {
-        self.noteLabel.text = placemark.note;
+        self.noteLabel.text = note;
         self.noteLabel.hidden = NO;
+    } else {
+        self.noteLabel.hidden = YES;
+    }
+    
+    // not all placemarks have council and year data associated with them
+    NSString *councilAndYear = placemark.councilAndYear;
+    if (councilAndYear) {
+        self.councilAndYearLabel.text = councilAndYear;
+        self.councilAndYearLabel.hidden = NO;
     } else {
         self.noteLabel.hidden = YES;
     }

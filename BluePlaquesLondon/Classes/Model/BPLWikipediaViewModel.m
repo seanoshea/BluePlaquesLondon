@@ -42,15 +42,17 @@ static NSString * const BPLWikipediaViewModelPageURLFormat = @"http://en.wikiped
 {
     NSString *strUTF8 = [[NSString stringWithFormat:BPLWikipediaViewModelSearchURLFormat, self.placemark.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:strUTF8]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSError *error = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        if (!error) {
-            NSArray *arr = json[@"query"][@"search"];
-            if (arr.count) {
-                NSString *title = arr[0][@"title"];
-                NSString *urlString = [[NSString stringWithFormat:BPLWikipediaViewModelPageURLFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                if (completionBlock) {
-                    completionBlock([NSURLRequest requestWithURL:[NSURL URLWithString:urlString]], error);
+        if (!connectionError) {
+            NSError *error = nil;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            if (!error) {
+                NSArray *arr = json[@"query"][@"search"];
+                if (arr.count) {
+                    NSString *title = arr[0][@"title"];
+                    NSString *urlString = [[NSString stringWithFormat:BPLWikipediaViewModelPageURLFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                    if (completionBlock) {
+                        completionBlock([NSURLRequest requestWithURL:[NSURL URLWithString:urlString]], error);
+                    }
                 }
             }
         }
