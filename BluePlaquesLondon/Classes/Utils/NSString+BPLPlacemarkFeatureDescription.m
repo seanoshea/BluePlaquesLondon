@@ -55,20 +55,6 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     return [NSString trimWhitespaceFromString:title];
 }
 
-- (NSString *)subtitle
-{
-    NSString *subtitle = self;
-    int location = [self rangeOfString:BPLOverlayTitleDelimiter].location;
-    if (location != NSNotFound) {
-        subtitle = [self substringFromIndex:location];
-        subtitle = [self removeNoteFromString:subtitle];
-        if (self.councilAndYear) {
-            subtitle = [subtitle stringByReplacingOccurrencesOfString:self.councilAndYear withString:@""];
-        }
-    }
-    return [NSString trimWhitespaceFromString:[subtitle stringByReplacingOccurrencesOfString:BPLOverlayTitleDelimiter withString:@" "]];
-}
-
 - (NSString *)occupation
 {
     NSString *occupation = self;

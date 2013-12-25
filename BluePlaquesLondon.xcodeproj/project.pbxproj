@@ -572,7 +572,6 @@
 			isa = PBXGroup;
 			children = (
 				764BD43F185131DF0033E603 /* Utils */,
-				764BD43B185131950033E603 /* Model */,
 				764BD42E185130B50033E603 /* Supporting Files */,
 			);
 			path = BluePlaquesLondonTests;
@@ -586,13 +585,6 @@
 				764BD435185130B50033E603 /* BluePlaquesLondonTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		764BD43B185131950033E603 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		764BD43F185131DF0033E603 /* Utils */ = {

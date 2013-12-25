@@ -36,11 +36,6 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     return self.featureDescription.title;
 }
 
-- (NSString *)subtitle
-{
-    return self.featureDescription.subtitle;
-}
-
 - (NSString *)occupation
 {
     return self.featureDescription.occupation;
@@ -68,7 +63,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name: %@ title: %@ subtitle: %@ occupation: %@ address: %@ note: %@", self.name, self.title, self.subtitle, self.occupation, self.address, self.note];
+    return [NSString stringWithFormat:@"name: %@ title: %@ occupation: %@ address: %@ note: %@ councilAndYear: %@", self.name, self.title, self.occupation, self.address, self.note, self.councilAndYear];
 }
 
 @end

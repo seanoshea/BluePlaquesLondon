@@ -103,8 +103,7 @@
         NSString *snippet;
         NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
         if (numberOfPlacemarksAssociatedWithPlacemark.count == 1) {
-            // ok to simply use the subtitle
-            snippet = placemark.subtitle;
+            snippet = placemark.occupation;
         } else {
             // generic message should suffice
             snippet = NSLocalizedString(@"Multiple Placemarks at this location", @"");
