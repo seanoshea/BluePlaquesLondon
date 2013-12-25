@@ -85,9 +85,13 @@
             [self.keyToArrayPositions setObject:@[@(idx)] forKey:placemark.key];
             [self.massagedData addObject:placemark];
         } else {
-            NSMutableArray *newPlacemarks = [placemarksAssociatedWithKey mutableCopy];
-            [newPlacemarks addObject:@(idx)];
-            [self.keyToArrayPositions setObject:newPlacemarks forKey:placemark.key];
+            NSArray *existingPlacemarks = self.keyToArrayPositions[placemark.key];
+            SimpleKMLPlacemark *existingPlacemark = self.data.flattenedPlacemarks[[existingPlacemarks[0] intValue]];
+            if (![existingPlacemark.title isEqualToString:placemark.key]) {
+                NSMutableArray *newPlacemarks = [placemarksAssociatedWithKey mutableCopy];
+                [newPlacemarks addObject:@(idx)];
+                [self.keyToArrayPositions setObject:newPlacemarks forKey:placemark.key];
+            }
         }
     }];
     
