@@ -58,7 +58,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 - (NSString *)key
 {
-    return [NSString stringWithFormat:@"%.12f%.12f", self.point.coordinate.latitude, self.point.coordinate.longitude];
+    return [NSString stringWithFormat:@"%.5f%.5f", self.point.coordinate.latitude, self.point.coordinate.longitude];
 }
 
 - (NSString *)description

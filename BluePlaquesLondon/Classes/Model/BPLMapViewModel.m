@@ -35,7 +35,6 @@
 @property (nonatomic) SimpleKMLDocument *data;
 @property (nonatomic, copy) NSMutableDictionary *coordinateToMarker;
 @property (nonatomic, copy) NSMutableDictionary *keyToArrayPositions;
-@property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
 
 @end
 
@@ -83,6 +82,7 @@
         NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[placemark.key];
         if (!placemarksAssociatedWithKey) {
             [self.keyToArrayPositions setObject:@[@(idx)] forKey:placemark.key];
+            NSLog(@"plce %@ %@", placemark.title, placemark.key);
             [self.massagedData addObject:placemark];
         } else {
             NSArray *existingPlacemarks = self.keyToArrayPositions[placemark.key];

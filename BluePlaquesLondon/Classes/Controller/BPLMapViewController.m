@@ -197,7 +197,7 @@
 
 - (void)filterDataForSearchText:(NSString *)searchText
 {
-    self.model.filteredData = [self.model.massagedData filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText]];
+    self.model.filteredData = [self.model.alphabeticallySortedPositions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText]];
     [self.tableView reloadData];
 }
 
