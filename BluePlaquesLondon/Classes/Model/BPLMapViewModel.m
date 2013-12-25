@@ -82,12 +82,11 @@
         NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[placemark.key];
         if (!placemarksAssociatedWithKey) {
             [self.keyToArrayPositions setObject:@[@(idx)] forKey:placemark.key];
-            NSLog(@"plce %@ %@", placemark.title, placemark.key);
             [self.massagedData addObject:placemark];
         } else {
             NSArray *existingPlacemarks = self.keyToArrayPositions[placemark.key];
             SimpleKMLPlacemark *existingPlacemark = self.data.flattenedPlacemarks[[existingPlacemarks[0] intValue]];
-            if (![existingPlacemark.title isEqualToString:placemark.key]) {
+            if (![existingPlacemark.title isEqualToString:placemark.title]) {
                 NSMutableArray *newPlacemarks = [placemarksAssociatedWithKey mutableCopy];
                 [newPlacemarks addObject:@(idx)];
                 [self.keyToArrayPositions setObject:newPlacemarks forKey:placemark.key];
@@ -155,8 +154,8 @@
     SimpleKMLPlacemark *placemark;
     CLLocationDistance currentDistance;
     for (SimpleKMLPlacemark *pm in self.alphabeticallySortedPositions) {
-        CLLocation *sean = [[CLLocation alloc] initWithLatitude:pm.point.coordinate.latitude longitude:pm.point.coordinate.longitude];
-        CLLocationDistance distance = [location distanceFromLocation:sean];
+        CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.point.coordinate.latitude longitude:pm.point.coordinate.longitude];
+        CLLocationDistance distance = [location distanceFromLocation:loc];
         if (!placemark) {
             currentDistance = distance;
             placemark = pm;
