@@ -11,7 +11,6 @@
 		76289C7D18429027008E1391 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
 		76289C8518429036008E1391 /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8018429036008E1391 /* BPLAboutViewController.m */; };
 		76289C8718429036008E1391 /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8218429036008E1391 /* BPLMapViewController.m */; };
-		76289C8E1842ADEA008E1391 /* UIFont+BluePlaquestLondon.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8D1842ADEA008E1391 /* UIFont+BluePlaquestLondon.m */; };
 		76289C921842AE04008E1391 /* UIColor+BluePlaquesLondon.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BluePlaquesLondon.m */; };
 		76289C961842AE42008E1391 /* BPLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C951842AE42008E1391 /* BPLConstants.m */; };
 		76289CCE1843F4AB008E1391 /* SimpleKML_UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C9F1843F4AB008E1391 /* SimpleKML_UIImage.m */; };
@@ -84,6 +83,8 @@
 		76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
 		76CBBB65184D33C100A6828C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		76D3CF58186B226000E0D8F3 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
+		76D3CF5B186B2F4000E0D8F3 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
+		76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
 		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
 		76E9083E1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
 		76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
@@ -122,8 +123,6 @@
 		76289C8018429036008E1391 /* BPLAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewController.m; sourceTree = "<group>"; };
 		76289C8118429036008E1391 /* BPLMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewController.h; sourceTree = "<group>"; };
 		76289C8218429036008E1391 /* BPLMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewController.m; sourceTree = "<group>"; };
-		76289C8C1842ADEA008E1391 /* UIFont+BluePlaquestLondon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+BluePlaquestLondon.h"; sourceTree = "<group>"; };
-		76289C8D1842ADEA008E1391 /* UIFont+BluePlaquestLondon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+BluePlaquestLondon.m"; sourceTree = "<group>"; };
 		76289C901842AE04008E1391 /* UIColor+BluePlaquesLondon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BluePlaquesLondon.h"; sourceTree = "<group>"; };
 		76289C911842AE04008E1391 /* UIColor+BluePlaquesLondon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BluePlaquesLondon.m"; sourceTree = "<group>"; };
 		76289C941842AE42008E1391 /* BPLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLConstants.h; sourceTree = "<group>"; };
@@ -261,6 +260,8 @@
 		76CBBB64184D33C100A6828C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		76D3CF56186B226000E0D8F3 /* BPLMapViewDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLMapViewDetailViewModel.h; path = Model/BPLMapViewDetailViewModel.h; sourceTree = "<group>"; };
 		76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLMapViewDetailViewModel.m; path = Model/BPLMapViewDetailViewModel.m; sourceTree = "<group>"; };
+		76D3CF59186B2F4000E0D8F3 /* BPLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLButton.h; path = View/BPLButton.h; sourceTree = "<group>"; };
+		76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLButton.m; path = View/BPLButton.m; sourceTree = "<group>"; };
 		76E908301854B1F900B31DC4 /* BPLMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLMapViewModel.h; path = Model/BPLMapViewModel.h; sourceTree = "<group>"; };
 		76E908311854B1F900B31DC4 /* BPLMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLMapViewModel.m; path = Model/BPLMapViewModel.m; sourceTree = "<group>"; };
 		76E9083C1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SimpleKMLPlacemark+Additions.h"; sourceTree = "<group>"; };
@@ -334,6 +335,8 @@
 			children = (
 				76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */,
 				76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */,
+				76D3CF59186B2F4000E0D8F3 /* BPLButton.h */,
+				76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -379,8 +382,6 @@
 				76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */,
 				76289C901842AE04008E1391 /* UIColor+BluePlaquesLondon.h */,
 				76289C911842AE04008E1391 /* UIColor+BluePlaquesLondon.m */,
-				76289C8C1842ADEA008E1391 /* UIFont+BluePlaquestLondon.h */,
-				76289C8D1842ADEA008E1391 /* UIFont+BluePlaquestLondon.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -846,6 +847,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
@@ -887,7 +889,6 @@
 				76B00EB118427FBB007A5EE0 /* main.m in Sources */,
 				76289CDC1843F4AB008E1391 /* SimpleKMLFolder.m in Sources */,
 				76289CD01843F4AB008E1391 /* SimpleKML.m in Sources */,
-				76289C8E1842ADEA008E1391 /* UIFont+BluePlaquestLondon.m in Sources */,
 				7695D691184B375200E735C4 /* NSUserDefaults+BPLState.m in Sources */,
 				76289CD41843F4AB008E1391 /* SimpleKMLColorStyle.m in Sources */,
 				76289CDE1843F4AB008E1391 /* SimpleKMLGeometry.m in Sources */,
@@ -896,6 +897,7 @@
 				76289CEA1843F4AB008E1391 /* SimpleKMLMultiGeometry.m in Sources */,
 				76289D431843F53B008E1391 /* FileInZipInfo.m in Sources */,
 				76289D471843F53B008E1391 /* ZipFile.m in Sources */,
+				76D3CF5B186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				76B6CE8A184B9C8400479447 /* GTMNSString+HTML.m in Sources */,
 				76289CFA1843F4AB008E1391 /* SimpleKMLStyleSelector.m in Sources */,
 				76289CF21843F4AB008E1391 /* SimpleKMLPoint.m in Sources */,
