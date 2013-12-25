@@ -20,6 +20,8 @@
 #import "UIColor+BluePlaquesLondon.h"
 #import "BPLConstants.h"
 
+static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
+
 @implementation BPLDetailChooserViewController
 
 - (void)viewWillAppear:(BOOL)animated
@@ -40,8 +42,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"BluePlaquesLondonMultipleCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BPLMultipleCell];
     SimpleKMLPlacemark *pm = self.markers[indexPath.row];
     cell.textLabel.text = pm.name;
     return cell;

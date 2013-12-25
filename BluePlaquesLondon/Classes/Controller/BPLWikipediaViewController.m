@@ -34,6 +34,8 @@
 
 @implementation BPLWikipediaViewController
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

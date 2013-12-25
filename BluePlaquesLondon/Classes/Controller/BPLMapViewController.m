@@ -52,14 +52,6 @@
     return self;
 }
 
-- (void)navigateToPlacemark:(SimpleKMLPlacemark *)placemark
-{
-    [self.searchBar resignFirstResponder];
-    [self toggleTableView:NO];
-    [self.mapView animateToLocation:placemark.point.coordinate];
-    self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -74,15 +66,15 @@
 {
     UITableViewCell *cell;
     if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"BluePlaquesClosestCell"];
+        cell = [tableView dequeueReusableCellWithIdentifier:BPLClosestCell];
         if (!cell) {
-            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BluePlaquesClosestCell"];
+            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BPLClosestCell];
         }
         cell.textLabel.text = NSLocalizedString(@"Find the Plaque closest to me", nil);
     } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"BluePlaquesLondonSearchCell"];
+        cell = [tableView dequeueReusableCellWithIdentifier:BPLSearchCell];
         if (!cell) {
-                        cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BluePlaquesLondonSearchCell"];
+            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BPLSearchCell];
         }
         SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
         cell.textLabel.text = pm.name;
@@ -100,65 +92,7 @@
     }
 }
 
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    return YES;
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [self filterDataForSearchText:searchBar.text];
-    [searchBar resignFirstResponder];
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    [self toggleTableView:YES];
-}
-
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
-{
-    return YES;
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-    [self filterDataForSearchText:searchBar.text];
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    [self filterDataForSearchText:searchText];
-}
-
-- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    return YES;
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-    [self toggleTableView:NO];
-}
-
-- (void)filterDataForSearchText:(NSString *)searchText
-{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText];
-    self.model.filteredData = [self.model.massagedData filteredArrayUsingPredicate:predicate];
-    [self.tableView reloadData];
-}
-
-- (void)toggleTableView:(BOOL)show
-{
-    if (show) {
-        [self.view bringSubviewToFront:self.tableView];
-    } else {
-        [self.view sendSubviewToBack:self.tableView];
-    }
-    self.searchBar.showsCancelButton = show;
-    self.tableView.hidden = !show;
-}
+#pragma mark - Lifecycle
 
 - (void)commonInit
 {
@@ -207,8 +141,8 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:BPLMapDetailViewControllerSegue]) {
         BPLMapViewDetailViewController *destinationViewController = (BPLMapViewDetailViewController *)segue.destinationViewController;
         SimpleKMLPlacemark *placemark = self.mapView.selectedMarker.userData;
@@ -217,10 +151,79 @@
     }
 }
 
+#pragma mark - Search
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    return YES;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self filterDataForSearchText:searchBar.text];
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [self toggleTableView:YES];
+}
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    return YES;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [self filterDataForSearchText:searchBar.text];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self filterDataForSearchText:searchText];
+}
+
+- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [self toggleTableView:NO];
+}
+
+- (void)filterDataForSearchText:(NSString *)searchText
+{
+    self.model.filteredData = [self.model.massagedData filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText]];
+    [self.tableView reloadData];
+}
+
+- (void)navigateToPlacemark:(SimpleKMLPlacemark *)placemark
+{
+    [self.searchBar resignFirstResponder];
+    [self toggleTableView:NO];
+    [self.mapView animateToLocation:placemark.point.coordinate];
+    self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
+}
+
+- (void)toggleTableView:(BOOL)show
+{
+    if (show) {
+        [self.view bringSubviewToFront:self.tableView];
+    } else {
+        [self.view sendSubviewToBack:self.tableView];
+    }
+    self.searchBar.showsCancelButton = show;
+    self.tableView.hidden = !show;
+}
+
 #pragma mark - CLLocationManagerDelegate
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
     if (!self.currentLocation) {
         self.currentLocation = [locations lastObject];
     }
@@ -257,8 +260,8 @@
     }
 }
 
-- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
+{
     [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
     [self performSegueWithIdentifier:BPLMapDetailViewControllerSegue sender:self];
 }

@@ -61,6 +61,8 @@
 		76289D5C1843F550008E1391 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 76289D541843F550008E1391 /* zip.c */; };
 		76289D5F1843F5BE008E1391 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 76289D5E1843F5BE008E1391 /* libz.dylib */; };
 		76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76289D601843F5CC008E1391 /* CoreLocation.framework */; };
+		762DC362186B8ADD004CF725 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
+		762DC363186B8ADD004CF725 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
 		764BD42A185130B50033E603 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EC918427FBC007A5EE0 /* XCTest.framework */; };
 		764BD42B185130B50033E603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA418427FBB007A5EE0 /* Foundation.framework */; };
 		764BD42C185130B50033E603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA818427FBB007A5EE0 /* UIKit.framework */; };
@@ -224,6 +226,8 @@
 		76289D551843F550008E1391 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		76289D5E1843F5BE008E1391 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		76289D601843F5CC008E1391 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		762DC360186B8ADD004CF725 /* BPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLLabel.h; path = View/BPLLabel.h; sourceTree = "<group>"; };
+		762DC361186B8ADD004CF725 /* BPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLLabel.m; path = View/BPLLabel.m; sourceTree = "<group>"; };
 		764BD429185130B50033E603 /* BluePlaquesLondonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePlaquesLondonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		764BD42F185130B50033E603 /* BluePlaquesLondonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BluePlaquesLondonTests-Info.plist"; sourceTree = "<group>"; };
 		764BD431185130B50033E603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -337,10 +341,12 @@
 		76289C7418428FEB008E1391 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */,
-				76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */,
 				76D3CF59186B2F4000E0D8F3 /* BPLButton.h */,
 				76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */,
+				762DC360186B8ADD004CF725 /* BPLLabel.h */,
+				762DC361186B8ADD004CF725 /* BPLLabel.m */,
+				76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */,
+				76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */,
 				76D3CF61186B5E0100E0D8F3 /* UIScrollView+Autosizing.h */,
 				76D3CF62186B5E0100E0D8F3 /* UIScrollView+Autosizing.m */,
 			);
@@ -856,6 +862,7 @@
 				76D3CF64186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */,
 				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
+				762DC363186B8ADD004CF725 /* BPLLabel.m in Sources */,
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
@@ -890,6 +897,7 @@
 				76289D241843F520008E1391 /* CXMLDocument.m in Sources */,
 				76289D5A1843F550008E1391 /* unzip.c in Sources */,
 				76289CE01843F4AB008E1391 /* SimpleKMLGroundOverlay.m in Sources */,
+				762DC362186B8ADD004CF725 /* BPLLabel.m in Sources */,
 				76289CDA1843F4AB008E1391 /* SimpleKMLFeature.m in Sources */,
 				76289D561843F550008E1391 /* ioapi.c in Sources */,
 				76289D201843F520008E1391 /* CXMLNode_CreationExtensions.m in Sources */,

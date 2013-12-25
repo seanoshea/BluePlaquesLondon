@@ -18,13 +18,16 @@
 
 #import "UIColor+BluePlaquesLondon.h"
 
+NSString * const BPLClosestCell = @"BluePlaquesClosestCell";
+NSString * const BPLSearchCell = @"BluePlaquesLondonSearchCell";
+
 @implementation BPLTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        if ([reuseIdentifier isEqualToString:@"BluePlaquesClosestCell"]) {
+        if ([reuseIdentifier isEqualToString:BPLClosestCell]) {
             self.textLabel.textColor = [UIColor whiteColor];
             self.textLabel.highlightedTextColor = [UIColor darkBlueColour];
             self.backgroundColor = [UIColor darkBlueColour];

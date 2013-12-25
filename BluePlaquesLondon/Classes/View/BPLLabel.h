@@ -16,9 +16,6 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString * const BPLClosestCell;
-extern NSString * const BPLSearchCell;
-
-@interface BPLTableViewCell : UITableViewCell
+@interface BPLLabel : UILabel
 
 @end

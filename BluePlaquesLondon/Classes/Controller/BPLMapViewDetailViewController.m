@@ -51,16 +51,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
-
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkBlueColour]}];
-    self.occupationLabel.textColor = [UIColor darkBlueColour];
-    self.addressLabel.textColor = [UIColor darkBlueColour];
-    self.noteLabel.textColor = [UIColor darkBlueColour];
-    self.councilAndYearLabel.textColor = [UIColor darkBlueColour];
 }
 
 - (void)viewDidLayoutSubviews
@@ -101,8 +94,8 @@
     self.moreButton.hidden = self.model.markers.count == 1;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:BPLWikipediaViewControllerSegue]) {
         BPLWikipediaViewController *destinationViewController = (BPLWikipediaViewController *)segue.destinationViewController;
         destinationViewController.markers = self.model.markers;
@@ -115,8 +108,8 @@
     }
 }
 
-- (void)detailChooserViewControllerRowSelected:(NSNotification *)notification {
-    
+- (void)detailChooserViewControllerRowSelected:(NSNotification *)notification
+{
     NSNumber *index = [notification object];
     SimpleKMLPlacemark *selectedPlacemark = self.model.markers[[index intValue]];
     NSMutableArray *mutableMarkers = [self.model.markers mutableCopy];

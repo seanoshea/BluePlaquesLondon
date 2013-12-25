@@ -14,11 +14,19 @@
  limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
+#import "BPLLabel.h"
 
-extern NSString * const BPLClosestCell;
-extern NSString * const BPLSearchCell;
+#import "UIColor+BluePlaquesLondon.h"
 
-@interface BPLTableViewCell : UITableViewCell
+@implementation BPLLabel
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setTextColor:[UIColor darkBlueColour]];
+    }
+    return self;
+}
 
 @end
