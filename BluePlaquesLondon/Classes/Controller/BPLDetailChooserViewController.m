@@ -43,7 +43,6 @@
     static NSString *cellIdentifier = @"BluePlaquesLondonMultipleCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     SimpleKMLPlacemark *pm = self.markers[indexPath.row];
-    cell.textLabel.textColor = [UIColor darkBlueColour];
     cell.textLabel.text = pm.name;
     return cell;
 }

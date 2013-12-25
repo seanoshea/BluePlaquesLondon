@@ -14,12 +14,18 @@
  limitations under the License.
  */
 
-#import <GoogleMaps/GoogleMaps.h>
+#import "BPLMapViewDetailViewModel.h"
 
-@class BPLMapViewDetailViewModel;
+@implementation BPLMapViewDetailViewModel
 
-@interface BPLMapViewDetailViewController : UIViewController
-
-@property (nonatomic) BPLMapViewDetailViewModel *model;
+- (instancetype)initWithMarkers:(NSArray *)markers currentLocation:(CLLocation *)currentLocation
+{
+    self = [super init];
+    if (self) {
+        _markers = markers;
+        _currentLocation = currentLocation;
+    }
+    return self;
+}
 
 @end
