@@ -102,9 +102,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-4v-dwU">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-4v-dwU">
                                 <rect key="frame" x="10" y="200" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="izv-hC-qFo"/>
+                                </constraints>
                                 <state key="normal" title="Street View">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -112,7 +115,7 @@
                                     <segue destination="3iC-ih-uur" kind="push" identifier="BPLStreetMapViewControllerSegue" id="MhC-mZ-Pnl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-Ea-nmQ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-Ea-nmQ">
                                 <rect key="frame" x="160" y="200" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Wikipedia Article">
@@ -122,7 +125,7 @@
                                     <segue destination="dot-8M-zRq" kind="push" identifier="BPLWikipediaViewControllerSegue" id="mnE-cG-fxD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-1Y-SZz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-1Y-SZz">
                                 <rect key="frame" x="10" y="482" width="290" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="More People at this Location">
@@ -135,6 +138,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kEG-Ea-nmQ" firstAttribute="leading" secondItem="kNw-4v-dwU" secondAttribute="trailing" constant="10" id="103-NZ-9OD"/>
                             <constraint firstItem="kNw-4v-dwU" firstAttribute="top" secondItem="RTh-4c-VXa" secondAttribute="bottom" constant="9" id="5Z0-9p-xvN"/>
                             <constraint firstItem="RTh-4c-VXa" firstAttribute="leading" secondItem="ZGR-vQ-S1k" secondAttribute="leading" constant="10" id="6Xt-lb-yuq"/>
                             <constraint firstItem="RTh-4c-VXa" firstAttribute="top" secondItem="Gkz-B6-AwZ" secondAttribute="bottom" constant="10" id="8DL-TM-I3G"/>
@@ -142,13 +146,17 @@
                             <constraint firstAttribute="trailing" secondItem="RTh-4c-VXa" secondAttribute="trailing" constant="20" id="DeH-69-3WU"/>
                             <constraint firstAttribute="trailing" secondItem="xEc-Pe-SbB" secondAttribute="trailing" constant="20" id="Oz5-Ii-4mK"/>
                             <constraint firstAttribute="trailing" secondItem="1K8-dP-7Mx" secondAttribute="trailing" constant="20" id="QHp-PR-1fs"/>
+                            <constraint firstItem="EYI-1Y-SZz" firstAttribute="leading" secondItem="kNw-4v-dwU" secondAttribute="leading" id="TsY-ln-Udr"/>
                             <constraint firstItem="Gkz-B6-AwZ" firstAttribute="top" secondItem="xEc-Pe-SbB" secondAttribute="bottom" constant="10" id="Z1C-SH-6pY"/>
                             <constraint firstItem="tBO-dA-2yo" firstAttribute="top" secondItem="EYI-1Y-SZz" secondAttribute="bottom" constant="7" id="b6F-d0-lwz"/>
                             <constraint firstItem="1K8-dP-7Mx" firstAttribute="top" secondItem="uq4-f5-AHc" secondAttribute="bottom" constant="10" id="bws-Gl-eny"/>
                             <constraint firstItem="kEG-Ea-nmQ" firstAttribute="top" secondItem="RTh-4c-VXa" secondAttribute="bottom" constant="9" id="ojC-Jv-WU7"/>
                             <constraint firstItem="1K8-dP-7Mx" firstAttribute="leading" secondItem="ZGR-vQ-S1k" secondAttribute="leading" constant="10" id="peO-Mp-dro"/>
+                            <constraint firstItem="EYI-1Y-SZz" firstAttribute="trailing" secondItem="kEG-Ea-nmQ" secondAttribute="trailing" id="qLu-mW-gCx"/>
+                            <constraint firstAttribute="trailing" secondItem="kEG-Ea-nmQ" secondAttribute="trailing" constant="20" symbolic="YES" id="rR3-gJ-hOO"/>
                             <constraint firstItem="xEc-Pe-SbB" firstAttribute="top" secondItem="1K8-dP-7Mx" secondAttribute="bottom" constant="10" id="tPF-vx-yeg"/>
                             <constraint firstItem="Gkz-B6-AwZ" firstAttribute="leading" secondItem="ZGR-vQ-S1k" secondAttribute="leading" constant="10" id="uvG-nj-Vmy"/>
+                            <constraint firstItem="kNw-4v-dwU" firstAttribute="leading" secondItem="RTh-4c-VXa" secondAttribute="leading" id="vYM-bP-dhY"/>
                             <constraint firstAttribute="trailing" secondItem="Gkz-B6-AwZ" secondAttribute="trailing" constant="20" id="yib-MD-vdc"/>
                         </constraints>
                     </view>
