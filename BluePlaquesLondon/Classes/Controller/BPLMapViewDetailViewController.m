@@ -53,6 +53,8 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
+
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkBlueColour]}];
     self.occupationLabel.textColor = [UIColor darkBlueColour];
