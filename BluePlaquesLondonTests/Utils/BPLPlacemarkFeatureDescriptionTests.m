@@ -97,12 +97,6 @@
     XCTAssert([title isEqualToString:@"WANAMAKER, Sam (1919-1993)"], @"The title should contain the name and birth dates");
 }
 
-- (void)testExtractSubtitle
-{
-    NSString *subtitle = self.wanamaker.subtitle;
-    XCTAssert([subtitle isEqualToString:@"The man behind Shakespeare's Globe  New Globe Buildings, Bankside, SE1  Southwark 2003"], @"The subtitle should only include ancillary information");
-}
-
 - (void)testExtractOccupation
 {
     NSString *wanamaker = self.wanamaker.occupation;

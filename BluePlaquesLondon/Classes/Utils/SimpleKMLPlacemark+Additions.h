@@ -20,7 +20,6 @@
 
 - (NSString *)name;
 - (NSString *)title;
-- (NSString *)subtitle;
 - (NSString *)occupation;
 - (NSString *)address;
 - (NSString *)note;
