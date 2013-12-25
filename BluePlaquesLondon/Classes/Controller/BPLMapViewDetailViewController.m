@@ -28,8 +28,11 @@
 #import "UIColor+BluePlaquesLondon.h"
 #import "NSString+BPLPlacemarkFeatureDescription.h"
 #import "NSUserDefaults+BPLState.h"
+#import "UIScrollView+Autosizing.h"
 
 @interface BPLMapViewDetailViewController()
+
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, weak) IBOutlet UILabel *occupationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *addressLabel;
@@ -56,6 +59,11 @@
     self.addressLabel.textColor = [UIColor darkBlueColour];
     self.noteLabel.textColor = [UIColor darkBlueColour];
     self.councilAndYearLabel.textColor = [UIColor darkBlueColour];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    self.scrollView.contentSize = self.scrollView.sizeThatFitsSubviews;
 }
 
 - (void)viewWillAppear:(BOOL)animated
