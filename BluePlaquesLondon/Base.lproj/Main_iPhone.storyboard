@@ -59,7 +59,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXo-Jr-ymK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXo-Jr-ymK">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
@@ -106,9 +106,12 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-4v-dwU" customClass="BPLButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-4v-dwU" customClass="BPLButton">
                                         <rect key="frame" x="10" y="190" width="140" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="1FZ-Ln-7x0"/>
+                                        </constraints>
                                         <state key="normal" title="Street View">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -116,7 +119,7 @@
                                             <segue destination="3iC-ih-uur" kind="push" identifier="BPLStreetMapViewControllerSegue" id="MhC-mZ-Pnl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-Ea-nmQ" customClass="BPLButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-Ea-nmQ" customClass="BPLButton">
                                         <rect key="frame" x="160" y="190" width="140" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Wikipedia Article">
@@ -126,7 +129,7 @@
                                             <segue destination="dot-8M-zRq" kind="push" identifier="BPLWikipediaViewControllerSegue" id="mnE-cG-fxD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7Y-Mk-fC9" userLabel="Button - Directions" customClass="BPLButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7Y-Mk-fC9" userLabel="Button - Directions" customClass="BPLButton">
                                         <rect key="frame" x="126" y="228" width="69" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Directions">
@@ -137,7 +140,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-1Y-SZz" customClass="BPLButton">
-                                        <rect key="frame" x="10" y="480" width="290" height="30"/>
+                                        <rect key="frame" x="11" y="265" width="290" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="More People at this Location">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,14 +155,27 @@
                                     <constraint firstItem="RTh-4c-VXa" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="10" id="89X-Wo-GEj"/>
                                     <constraint firstItem="Gkz-B6-AwZ" firstAttribute="top" secondItem="xEc-Pe-SbB" secondAttribute="bottom" constant="10" id="IOW-uH-fpZ"/>
                                     <constraint firstItem="1K8-dP-7Mx" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="10" id="K6e-Yk-33N"/>
+                                    <constraint firstAttribute="trailing" secondItem="R7Y-Mk-fC9" secondAttribute="trailing" constant="125" id="M1w-Zk-TGq"/>
+                                    <constraint firstItem="kNw-4v-dwU" firstAttribute="top" secondItem="RTh-4c-VXa" secondAttribute="bottom" constant="9" id="MRQ-ib-cFs"/>
+                                    <constraint firstItem="R7Y-Mk-fC9" firstAttribute="centerX" secondItem="RTh-4c-VXa" secondAttribute="centerX" id="aap-a8-NDP"/>
                                     <constraint firstItem="Gkz-B6-AwZ" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="10" id="d52-Qh-b9Z"/>
+                                    <constraint firstItem="kEG-Ea-nmQ" firstAttribute="leading" secondItem="kNw-4v-dwU" secondAttribute="trailing" constant="10" id="f9c-b1-RRC"/>
+                                    <constraint firstItem="R7Y-Mk-fC9" firstAttribute="centerX" secondItem="zXo-Jr-ymK" secondAttribute="centerX" id="gbv-Nc-XeB"/>
+                                    <constraint firstItem="R7Y-Mk-fC9" firstAttribute="top" secondItem="kNw-4v-dwU" secondAttribute="bottom" constant="8" id="hsi-Y5-Ybq"/>
+                                    <constraint firstItem="kEG-Ea-nmQ" firstAttribute="top" secondItem="RTh-4c-VXa" secondAttribute="bottom" constant="9" id="iHv-AO-8jx"/>
                                     <constraint firstItem="1K8-dP-7Mx" firstAttribute="top" secondItem="zXo-Jr-ymK" secondAttribute="top" constant="10" id="nNv-AR-hZJ"/>
+                                    <constraint firstItem="kNw-4v-dwU" firstAttribute="leading" secondItem="RTh-4c-VXa" secondAttribute="leading" id="rMd-YB-75i"/>
                                     <constraint firstItem="RTh-4c-VXa" firstAttribute="top" secondItem="Gkz-B6-AwZ" secondAttribute="bottom" constant="10" id="uBJ-Os-Ziu"/>
                                     <constraint firstItem="xEc-Pe-SbB" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="10" id="yAd-s4-z3c"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zXo-Jr-ymK" firstAttribute="leading" secondItem="ZGR-vQ-S1k" secondAttribute="leading" id="DKH-IM-agn"/>
+                            <constraint firstAttribute="bottom" secondItem="zXo-Jr-ymK" secondAttribute="bottom" constant="-232" id="EOh-Di-wHi"/>
+                            <constraint firstItem="zXo-Jr-ymK" firstAttribute="top" secondItem="ZGR-vQ-S1k" secondAttribute="top" id="ub2-nd-FOu"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="xEc-Pe-SbB" id="Ppt-JV-XCG"/>
