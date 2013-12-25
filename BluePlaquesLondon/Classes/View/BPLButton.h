@@ -14,8 +14,8 @@
  limitations under the License.
  */
 
-#import "UIFont+BluePlaquestLondon.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIFont (BluePlaquesLondon)
+@interface BPLButton : UIButton
 
 @end

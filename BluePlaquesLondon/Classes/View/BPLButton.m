@@ -14,8 +14,20 @@
  limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
+#import "BPLButton.h"
 
-@interface UIFont (BluePlaquesLondon)
+#import "UIColor+BluePlaquesLondon.h"
+
+@implementation BPLButton
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setTitleColor:[UIColor darkBlueColour] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor lightBlueColour] forState:UIControlStateHighlighted];
+    }
+    return self;
+}
 
 @end
