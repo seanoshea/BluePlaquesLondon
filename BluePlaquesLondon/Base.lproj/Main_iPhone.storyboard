@@ -106,7 +106,7 @@
                                 <rect key="frame" x="10" y="200" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="izv-hC-qFo"/>
+                                    <constraint firstAttribute="width" constant="140" id="ucY-T9-6Wb"/>
                                 </constraints>
                                 <state key="normal" title="Street View">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,6 +123,16 @@
                                 </state>
                                 <connections>
                                     <segue destination="dot-8M-zRq" kind="push" identifier="BPLWikipediaViewControllerSegue" id="mnE-cG-fxD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7Y-Mk-fC9" userLabel="Button - Directions">
+                                <rect key="frame" x="126" y="240" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Directions">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="directionsButtonTapped:" destination="Eph-hh-E1n" eventType="touchUpInside" id="zpJ-2G-Ka5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-1Y-SZz">
@@ -157,12 +167,14 @@
                             <constraint firstItem="xEc-Pe-SbB" firstAttribute="top" secondItem="1K8-dP-7Mx" secondAttribute="bottom" constant="10" id="tPF-vx-yeg"/>
                             <constraint firstItem="Gkz-B6-AwZ" firstAttribute="leading" secondItem="ZGR-vQ-S1k" secondAttribute="leading" constant="10" id="uvG-nj-Vmy"/>
                             <constraint firstItem="kNw-4v-dwU" firstAttribute="leading" secondItem="RTh-4c-VXa" secondAttribute="leading" id="vYM-bP-dhY"/>
+                            <constraint firstItem="R7Y-Mk-fC9" firstAttribute="top" secondItem="kNw-4v-dwU" secondAttribute="bottom" constant="10" id="wwr-jN-BIl"/>
                             <constraint firstAttribute="trailing" secondItem="Gkz-B6-AwZ" secondAttribute="trailing" constant="20" id="yib-MD-vdc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="xEc-Pe-SbB" id="Ppt-JV-XCG"/>
                         <outlet property="councilAndYearLabel" destination="Gkz-B6-AwZ" id="1O9-CR-4bY"/>
+                        <outlet property="directionsButton" destination="R7Y-Mk-fC9" id="L5u-Lm-fco"/>
                         <outlet property="moreButton" destination="EYI-1Y-SZz" id="AUk-f5-nke"/>
                         <outlet property="noteLabel" destination="RTh-4c-VXa" id="rMf-Na-3gc"/>
                         <outlet property="occupationLabel" destination="1K8-dP-7Mx" id="YEc-Xp-5cx"/>
@@ -229,7 +241,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BluePlaquesLondonMultipleCell" id="FHQ-KX-jNu">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="BluePlaquesLondonSearchCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BluePlaquesLondonMultipleCell" id="FHQ-KX-jNu" customClass="BPLTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FHQ-KX-jNu" id="4IG-CJ-WH6">

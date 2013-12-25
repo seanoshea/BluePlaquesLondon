@@ -16,13 +16,18 @@
 
 #import "BPLMapViewDetailViewController.h"
 
+#import <IntentKit/IntentKit.h>
+
 #import "SimpleKMLPlacemark+Additions.h"
+#import "SimpleKMLPoint.h"
 #import "BPLConstants.h"
 #import "BPLWikipediaViewController.h"
 #import "BPLDetailChooserViewController.h"
 #import "BPLStreetViewViewController.h"
-
+#import "BPLMapViewDetailViewModel.h"
 #import "UIColor+BluePlaquesLondon.h"
+#import "NSString+BPLPlacemarkFeatureDescription.h"
+#import "NSUserDefaults+BPLState.h"
 
 @interface BPLMapViewDetailViewController()
 
@@ -32,6 +37,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *councilAndYearLabel;
 
 @property (nonatomic, weak) IBOutlet UIButton *moreButton;
+@property (nonatomic, weak) IBOutlet UIButton *directionsButton;
+
+- (IBAction)directionsButtonTapped:(id)sender;
 
 @end
 
@@ -55,7 +63,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     
-    SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.markers[0];
+    SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.model.markers[0];
     
     self.navigationItem.title = placemark.name;
     self.occupationLabel.text = placemark.occupation;
@@ -80,31 +88,43 @@
     }
     
     // not all placemarks have multiple people associated with them
-    self.moreButton.hidden = self.markers.count == 1;
+    self.moreButton.hidden = self.model.markers.count == 1;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:BPLWikipediaViewControllerSegue]) {
         BPLWikipediaViewController *destinationViewController = (BPLWikipediaViewController *)segue.destinationViewController;
-        destinationViewController.markers = self.markers;
+        destinationViewController.markers = self.model.markers;
     } else if ([segue.identifier isEqualToString:BPLDetailChooserViewControllerSegue]) {
         BPLDetailChooserViewController *destinationViewController = (BPLDetailChooserViewController *)segue.destinationViewController;
-        destinationViewController.markers = self.markers;
+        destinationViewController.markers = self.model.markers;
     } else if ([segue.identifier isEqualToString:BPLStreetMapViewControllerSegue]) {
         BPLStreetViewViewController *destinationViewController = (BPLStreetViewViewController *)segue.destinationViewController;
-        destinationViewController.placemark = self.markers[0];
+        destinationViewController.placemark = self.model.markers[0];
     }
 }
 
 - (void)detailChooserViewControllerRowSelected:(NSNotification *)notification {
     
     NSNumber *index = [notification object];
-    SimpleKMLPlacemark *selectedPlacemark = self.markers[[index intValue]];
-    NSMutableArray *mutableMarkers = [self.markers mutableCopy];
+    SimpleKMLPlacemark *selectedPlacemark = self.model.markers[[index intValue]];
+    NSMutableArray *mutableMarkers = [self.model.markers mutableCopy];
     [mutableMarkers removeObject:selectedPlacemark];
     [mutableMarkers insertObject:selectedPlacemark atIndex:0];
-    self.markers = [mutableMarkers copy];
+    self.model.markers = [mutableMarkers copy];
+}
+
+- (IBAction)directionsButtonTapped:(id)sender
+{
+    INKMapsHandler *mapsHandler = [[INKMapsHandler alloc] init];
+    mapsHandler.center = CLLocationCoordinate2DMake(self.model.currentLocation.coordinate.longitude, self.model.currentLocation.coordinate.latitude);
+    mapsHandler.zoom = [[NSUserDefaults standardUserDefaults] mapZoom];
+    SimpleKMLPlacemark *placemark = self.model.markers[0];
+    NSString *to = [NSString stringWithFormat:@"%.12f, %.12f", placemark.point.coordinate.latitude, placemark.point.coordinate.longitude];
+    NSString *from = [NSString stringWithFormat:@"%.12f, %.12f", self.model.currentLocation.coordinate.latitude, self.model.currentLocation.coordinate.longitude];
+    INKActivityPresenter *presenter = [mapsHandler directionsFrom:from to:to mode:INKMapsHandlerDirectionsModeWalking];
+    [presenter presentActivitySheetFromViewController:self popoverFromRect:self.directionsButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)dealloc

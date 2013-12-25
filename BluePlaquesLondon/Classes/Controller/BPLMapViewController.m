@@ -25,6 +25,7 @@
 #import "BPLConstants.h"
 #import "UIColor+BluePlaquesLondon.h"
 #import "BPLTableViewCell.h"
+#import "BPLMapViewDetailViewModel.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -211,7 +212,8 @@
     if ([segue.identifier isEqualToString:BPLMapDetailViewControllerSegue]) {
         BPLMapViewDetailViewController *destinationViewController = (BPLMapViewDetailViewController *)segue.destinationViewController;
         SimpleKMLPlacemark *placemark = self.mapView.selectedMarker.userData;
-        destinationViewController.markers = [self.model placemarksForKey:placemark.key];
+        BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:[self.model placemarksForKey:placemark.key] currentLocation:self.currentLocation];
+        destinationViewController.model = model;
     }
 }
 
