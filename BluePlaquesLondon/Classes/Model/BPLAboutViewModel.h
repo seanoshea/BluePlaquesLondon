@@ -14,12 +14,10 @@
  limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@class BPLAboutViewModel;
+@interface BPLAboutViewModel : NSObject
 
-@interface BPLAboutViewController : UIViewController
-
-@property (nonatomic) BPLAboutViewModel *model;
+@property (nonatomic, copy) NSString *mapsOpenSourceLicenseInfo;
 
 @end

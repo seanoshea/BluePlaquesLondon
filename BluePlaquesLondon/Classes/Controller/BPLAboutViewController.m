@@ -16,6 +16,59 @@
 
 #import "BPLAboutViewController.h"
 
+#import "BPLAboutViewModel.h"
+#import "BPLLabel.h"
+#import "UIScrollView+Autosizing.h"
+
+@interface BPLAboutViewController()
+
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic, weak) IBOutlet BPLLabel *developerLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *developerDetailsLabel;
+
+@property (nonatomic, weak) IBOutlet BPLLabel *dataLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *dataDetailsLabel;
+
+@property (nonatomic, weak) IBOutlet BPLLabel *googleMapsLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *googleMapsLicenseInfoLabel;
+
+@end
+
 @implementation BPLAboutViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _model = [[BPLAboutViewModel alloc] init];
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    UIFontDescriptor *header = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleHeadline size:20.0f];
+    UIFontDescriptor *runner = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleBody size:14.0f];
+
+    self.developerLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.developerDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.developerLabel.text = NSLocalizedString(@"Developer Details", nil);
+    self.developerDetailsLabel.text = NSLocalizedString(@"Developed by seanoshea", nil);
+    
+    self.dataLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.dataDetailsLabel.font = [UIFont fontWithDescriptor:runner size:14.0f];
+    self.dataLabel.text = NSLocalizedString(@"Map Data Details", nil);
+    self.dataDetailsLabel.text = NSLocalizedString(@"Map Data for this application is maintained by Roy Reed.", nil);
+    
+    self.googleMapsLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.googleMapsLicenseInfoLabel.font = [UIFont fontWithDescriptor:runner size:14.0f];
+    self.googleMapsLabel.text = NSLocalizedString(@"Google Maps Information", nil);
+    self.googleMapsLicenseInfoLabel.text = self.model.mapsOpenSourceLicenseInfo;
+    
+    self.scrollView.contentSize = [self.scrollView sizeThatFitsSubviews];
+}
 
 @end

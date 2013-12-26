@@ -63,6 +63,8 @@
 		76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76289D601843F5CC008E1391 /* CoreLocation.framework */; };
 		762DC362186B8ADD004CF725 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
 		762DC363186B8ADD004CF725 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
+		762DC366186BA21B004CF725 /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC365186BA21B004CF725 /* BPLAboutViewModel.m */; };
+		762DC367186BA21B004CF725 /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC365186BA21B004CF725 /* BPLAboutViewModel.m */; };
 		764BD42A185130B50033E603 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EC918427FBC007A5EE0 /* XCTest.framework */; };
 		764BD42B185130B50033E603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA418427FBB007A5EE0 /* Foundation.framework */; };
 		764BD42C185130B50033E603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA818427FBB007A5EE0 /* UIKit.framework */; };
@@ -228,6 +230,8 @@
 		76289D601843F5CC008E1391 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		762DC360186B8ADD004CF725 /* BPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLLabel.h; path = View/BPLLabel.h; sourceTree = "<group>"; };
 		762DC361186B8ADD004CF725 /* BPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLLabel.m; path = View/BPLLabel.m; sourceTree = "<group>"; };
+		762DC364186BA21B004CF725 /* BPLAboutViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLAboutViewModel.h; path = Model/BPLAboutViewModel.h; sourceTree = "<group>"; };
+		762DC365186BA21B004CF725 /* BPLAboutViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLAboutViewModel.m; path = Model/BPLAboutViewModel.m; sourceTree = "<group>"; };
 		764BD429185130B50033E603 /* BluePlaquesLondonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePlaquesLondonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		764BD42F185130B50033E603 /* BluePlaquesLondonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BluePlaquesLondonTests-Info.plist"; sourceTree = "<group>"; };
 		764BD431185130B50033E603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 				76E908311854B1F900B31DC4 /* BPLMapViewModel.m */,
 				76F19BA21865C5D2002F6A3D /* BPLWikipediaViewModel.h */,
 				76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */,
+				762DC364186BA21B004CF725 /* BPLAboutViewModel.h */,
+				762DC365186BA21B004CF725 /* BPLAboutViewModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -866,6 +872,7 @@
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
+				762DC367186BA21B004CF725 /* BPLAboutViewModel.m in Sources */,
 				76F19BB118675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */,
 				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
 				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
@@ -921,6 +928,7 @@
 				76289C7D18429027008E1391 /* BPLAppDelegate.m in Sources */,
 				76F19BAA186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
 				76289D261843F520008E1391 /* CXMLDocument_PrivateExtensions.m in Sources */,
+				762DC366186BA21B004CF725 /* BPLAboutViewModel.m in Sources */,
 				76289D341843F520008E1391 /* CXMLNode_XPathExtensions.m in Sources */,
 				76289CEC1843F4AB008E1391 /* SimpleKMLObject.m in Sources */,
 				76289CF41843F4AB008E1391 /* SimpleKMLPolygon.m in Sources */,

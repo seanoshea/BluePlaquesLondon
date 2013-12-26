@@ -277,7 +277,7 @@
         <!--About View Controller-->
         <scene sceneID="xtl-vj-pvF">
             <objects>
-                <viewController id="adf-Cf-jfJ" userLabel="About View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BPLAboutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="adf-Cf-jfJ" userLabel="About View Controller" customClass="BPLAboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gfb-oJ-qjA"/>
                         <viewControllerLayoutGuide type="bottom" id="SiV-Jm-YQe"/>
@@ -285,9 +285,62 @@
                     <view key="view" contentMode="scaleToFill" id="Yn9-4V-7A1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-N3-KbI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Developer Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQD-bH-S3G" userLabel="Label - Developer" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="40" width="280" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Developed By ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0O-B9-Sva" userLabel="Label - Developer Details" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="68" width="280" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-or-M42" userLabel="Label - Data" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="115" width="280" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Roy Reed etc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pna-Ua-oXY" userLabel="Label - Data Details" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="147" width="280" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-xa-FBm" userLabel="Label - Google Maps Label" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="193" width="280" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-Zd-Lf9" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="221" width="280" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" id="zyY-Co-lGM"/>
+                    <connections>
+                        <outlet property="dataDetailsLabel" destination="pna-Ua-oXY" id="g9x-uJ-gjy"/>
+                        <outlet property="dataLabel" destination="mdh-or-M42" id="tOv-TX-wg7"/>
+                        <outlet property="developerDetailsLabel" destination="C0O-B9-Sva" id="zqE-h5-hmY"/>
+                        <outlet property="developerLabel" destination="XQD-bH-S3G" id="2k5-Oq-oSH"/>
+                        <outlet property="googleMapsLabel" destination="BIY-xa-FBm" id="RuJ-e8-GVu"/>
+                        <outlet property="googleMapsLicenseInfoLabel" destination="AeP-Zd-Lf9" id="VyN-bS-8x6"/>
+                        <outlet property="scrollView" destination="uZw-N3-KbI" id="Zhc-QF-TKD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAg-Rf-eFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -29,18 +29,20 @@
 #import "NSString+BPLPlacemarkFeatureDescription.h"
 #import "NSUserDefaults+BPLState.h"
 #import "UIScrollView+Autosizing.h"
+#import "BPLLabel.h"
+#import "BPLButton.h"
 
 @interface BPLMapViewDetailViewController()
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-@property (nonatomic, weak) IBOutlet UILabel *occupationLabel;
-@property (nonatomic, weak) IBOutlet UILabel *addressLabel;
-@property (nonatomic, weak) IBOutlet UILabel *noteLabel;
-@property (nonatomic, weak) IBOutlet UILabel *councilAndYearLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *occupationLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *addressLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *noteLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *councilAndYearLabel;
 
-@property (nonatomic, weak) IBOutlet UIButton *moreButton;
-@property (nonatomic, weak) IBOutlet UIButton *directionsButton;
+@property (nonatomic, weak) IBOutlet BPLButton *moreButton;
+@property (nonatomic, weak) IBOutlet BPLButton *directionsButton;
 
 - (IBAction)directionsButtonTapped:(id)sender;
 

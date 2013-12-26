@@ -14,12 +14,19 @@
  limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
+#import "BPLAboutViewModel.h"
 
-@class BPLAboutViewModel;
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface BPLAboutViewController : UIViewController
+@implementation BPLAboutViewModel
 
-@property (nonatomic) BPLAboutViewModel *model;
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _mapsOpenSourceLicenseInfo = [GMSServices openSourceLicenseInfo];
+    }
+    return self;
+}
 
 @end
