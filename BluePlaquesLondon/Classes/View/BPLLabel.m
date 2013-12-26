@@ -24,7 +24,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self setTextColor:[UIColor darkBlueColour]];
+        [self setTextColor:[UIColor BPLBlueColour]];
     }
     return self;
 }

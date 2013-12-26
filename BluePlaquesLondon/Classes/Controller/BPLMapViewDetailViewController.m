@@ -54,8 +54,14 @@
 {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    UIFontDescriptor *runner = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleBody size:13.0f];
+    self.addressLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.noteLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.councilAndYearLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkBlueColour]}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor BPLBlueColour]}];
 }
 
 - (void)viewDidLayoutSubviews

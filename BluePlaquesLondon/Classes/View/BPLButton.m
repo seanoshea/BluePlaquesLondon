@@ -24,8 +24,8 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self setTitleColor:[UIColor darkBlueColour] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor lightBlueColour] forState:UIControlStateHighlighted];
+        [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor BPLBlueColour] forState:UIControlStateHighlighted];
     }
     return self;
 }

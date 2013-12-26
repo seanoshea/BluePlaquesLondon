@@ -55,17 +55,17 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 - (void)initializeStyling
 {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    tabBarController.tabBar.selectedImageTintColor = [UIColor darkBlueColour];
-    [[UISearchBar appearance] setBarTintColor:[UIColor lightGreyColour]];
-    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor darkBlueColour]];
-    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor darkBlueColour]];
+    tabBarController.tabBar.selectedImageTintColor = [UIColor BPLBlueColour];
+    [[UISearchBar appearance] setBarTintColor:[UIColor BPLGreyColour]];
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor BPLBlueColour]];
+    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor BPLBlueColour]];
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage alloc]];
     [[UITabBarItem appearance] setTitleTextAttributes:
-     @{ NSForegroundColorAttributeName: [UIColor darkBlueColour],
+     @{ NSForegroundColorAttributeName: [UIColor BPLBlueColour],
         NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
                                              forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:
-     @{ NSForegroundColorAttributeName: [UIColor darkBlueColour],
+     @{ NSForegroundColorAttributeName: [UIColor BPLBlueColour],
         NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
                                              forState:UIControlStateSelected];
     self.window.tintColor = [UIColor darkBlueColour];

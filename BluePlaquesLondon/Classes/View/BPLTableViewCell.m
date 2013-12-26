@@ -29,13 +29,13 @@ NSString * const BPLSearchCell = @"BluePlaquesLondonSearchCell";
     if (self) {
         if ([reuseIdentifier isEqualToString:BPLClosestCell]) {
             self.textLabel.textColor = [UIColor whiteColor];
-            self.textLabel.highlightedTextColor = [UIColor darkBlueColour];
-            self.backgroundColor = [UIColor darkBlueColour];
+            self.textLabel.highlightedTextColor = [UIColor BPLBlueColour];
+            self.backgroundColor = [UIColor BPLBlueColour];
         } else {
-            self.textLabel.textColor = [UIColor darkBlueColour];
+            self.textLabel.textColor = [UIColor BPLBlueColour];
         }
         UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
-        backgroundView.backgroundColor = [UIColor lightYellowColour];
+        backgroundView.backgroundColor = [UIColor BPLOrangeColour];
         self.selectedBackgroundView = backgroundView;
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }

@@ -18,7 +18,7 @@
 
 @implementation UIColor (BluePlaquesLondon)
 
-+ (UIColor *)darkBlueColour
++ (UIColor *)BPLBlueColour
 {
     static UIColor *darkBlueColour;
     static dispatch_once_t onceToken;
@@ -28,17 +28,7 @@
     return darkBlueColour;
 }
 
-+ (UIColor *)lightBlueColour
-{
-    static UIColor *lightBlueColour;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        lightBlueColour = [UIColor colorWithRed:30.0f/255.0f green:144.0f/255.0f blue:255.0f/255.0f alpha:1.0];
-    });
-    return lightBlueColour;
-}
-
-+ (UIColor *)lightGreyColour
++ (UIColor *)BPLGreyColour
 {
     static UIColor *lightGreyColour;
     static dispatch_once_t onceToken;
@@ -48,12 +38,12 @@
     return lightGreyColour;
 }
 
-+ (UIColor *)lightYellowColour
++ (UIColor *)BPLOrangeColour
 {
     static UIColor *lightYellowColour;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        lightYellowColour = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:18.0f/255.0f alpha:1.0];
+        lightYellowColour = [UIColor colorWithRed:255.0f/255.0f green:153.0f/255.0f blue:0.0f/255.0f alpha:1.0];
     });
     return lightYellowColour;
 }

@@ -42,7 +42,7 @@
     
     self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 140.0f, 40.0f, 40.0f)];
     self.progressView.roundedCorners = YES;
-    self.progressView.trackTintColor = [UIColor darkBlueColour];
+    self.progressView.trackTintColor = [UIColor BPLBlueColour];
     [self.view addSubview:self.progressView];
     
     self.model = [[BPLWikipediaViewModel alloc] initWithPlacemark:self.markers[0]];
