@@ -27,7 +27,7 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.title = NSLocalizedString(@"Choose one", nil);
+    self.title = NSLocalizedString(@"Choose one", nil);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

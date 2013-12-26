@@ -40,15 +40,16 @@ static NSString * const BPLWikipediaViewModelPageURLFormat = @"http://en.wikiped
 
 - (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
 {
-    NSString *strUTF8 = [[NSString stringWithFormat:BPLWikipediaViewModelSearchURLFormat, self.placemark.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:strUTF8]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelSearchURLFormat, self.placemark.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedURLString]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (!connectionError) {
             NSError *error = nil;
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             if (!error) {
-                NSArray *arr = json[@"query"][@"search"];
-                if (arr.count) {
-                    NSString *title = arr[0][@"title"];
+                NSArray *searchResults = json[@"query"][@"search"];
+                if (searchResults.count) {
+                    // take the first result ...
+                    NSString *title = searchResults[0][@"title"];
                     NSString *urlString = [[NSString stringWithFormat:BPLWikipediaViewModelPageURLFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                     if (completionBlock) {
                         completionBlock([NSURLRequest requestWithURL:[NSURL URLWithString:urlString]], error);

@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
      @{ NSForegroundColorAttributeName: [UIColor BPLBlueColour],
         NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
                                              forState:UIControlStateSelected];
-    self.window.tintColor = [UIColor darkBlueColour];
+    self.window.tintColor = [UIColor BPLBlueColour];
 }
 
 - (void)initializeLogging

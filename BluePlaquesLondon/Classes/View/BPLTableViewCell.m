@@ -27,19 +27,33 @@ NSString * const BPLSearchCell = @"BluePlaquesLondonSearchCell";
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        if ([reuseIdentifier isEqualToString:BPLClosestCell]) {
-            self.textLabel.textColor = [UIColor whiteColor];
-            self.textLabel.highlightedTextColor = [UIColor BPLBlueColour];
-            self.backgroundColor = [UIColor BPLBlueColour];
-        } else {
-            self.textLabel.textColor = [UIColor BPLBlueColour];
-        }
-        UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
-        backgroundView.backgroundColor = [UIColor BPLOrangeColour];
-        self.selectedBackgroundView = backgroundView;
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        [self commonInit:reuseIdentifier];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit:BPLSearchCell];
+    }
+    return self;
+}
+
+- (void)commonInit:(NSString *)reuseIdentifier
+{
+    if ([reuseIdentifier isEqualToString:BPLClosestCell]) {
+        self.textLabel.textColor = [UIColor whiteColor];
+        self.textLabel.highlightedTextColor = [UIColor BPLBlueColour];
+        self.backgroundColor = [UIColor BPLBlueColour];
+    } else {
+        self.textLabel.textColor = [UIColor BPLBlueColour];
+    }
+    UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
+    backgroundView.backgroundColor = [UIColor BPLOrangeColour];
+    self.selectedBackgroundView = backgroundView;
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 @end
