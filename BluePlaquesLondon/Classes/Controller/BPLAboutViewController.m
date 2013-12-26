@@ -20,7 +20,7 @@
 #import "BPLLabel.h"
 #import "UIScrollView+Autosizing.h"
 
-@interface BPLAboutViewController()
+@interface BPLAboutViewController () <TTTAttributedLabelDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
@@ -51,24 +51,41 @@
     [super viewDidLoad];
     
     UIFontDescriptor *header = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleHeadline size:20.0f];
-    UIFontDescriptor *runner = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleBody size:14.0f];
+    UIFontDescriptor *runner = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleBody size:13.0f];
 
     self.developerLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
     self.developerDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.developerDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.developerDetailsLabel.delegate = self;
     self.developerLabel.text = NSLocalizedString(@"Developer Details", nil);
-    self.developerDetailsLabel.text = NSLocalizedString(@"Developed by seanoshea", nil);
+    self.developerDetailsLabel.text = NSLocalizedString(@"Developed by Sean O' Shea", nil);
+    NSRange range = [self.developerDetailsLabel.text rangeOfString:@"Sean O' Shea"];
+    [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:@"http://www.twitter.com/seanoshea"] withRange:range];
     
     self.dataLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
-    self.dataDetailsLabel.font = [UIFont fontWithDescriptor:runner size:14.0f];
+    self.dataDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.dataDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.dataDetailsLabel.delegate = self;
     self.dataLabel.text = NSLocalizedString(@"Map Data Details", nil);
-    self.dataDetailsLabel.text = NSLocalizedString(@"Map Data for this application is maintained by Roy Reed.", nil);
+    self.dataDetailsLabel.text = NSLocalizedString(@"Map Data for this application is maintained by Roy Reid", nil);
+    NSRange dataDetailsRange = [self.dataDetailsLabel.text rangeOfString:@"Roy Reid"];
+    [self.dataDetailsLabel addLinkToURL:[NSURL URLWithString:@"http://www.reeddesign.co.uk"] withRange:dataDetailsRange];
     
     self.googleMapsLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
-    self.googleMapsLicenseInfoLabel.font = [UIFont fontWithDescriptor:runner size:14.0f];
+    self.googleMapsLicenseInfoLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.googleMapsLicenseInfoLabel.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.googleMapsLicenseInfoLabel.delegate = self;
     self.googleMapsLabel.text = NSLocalizedString(@"Google Maps Information", nil);
     self.googleMapsLicenseInfoLabel.text = self.model.mapsOpenSourceLicenseInfo;
     
     self.scrollView.contentSize = [self.scrollView sizeThatFitsSubviews];
+}
+
+#pragma mark TTTAttributedLabelDelegate Methods
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
+{
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end

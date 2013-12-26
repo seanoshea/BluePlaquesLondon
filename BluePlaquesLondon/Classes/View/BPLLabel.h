@@ -16,6 +16,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BPLLabel : UILabel
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
+
+@interface BPLLabel : TTTAttributedLabel
 
 @end

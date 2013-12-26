@@ -286,50 +286,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-N3-KbI">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-N3-KbI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Developer Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQD-bH-S3G" userLabel="Label - Developer" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="40" width="280" height="25"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developer Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="XQD-bH-S3G" userLabel="Label - Developer" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="45" width="280" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Developed By ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0O-B9-Sva" userLabel="Label - Developer Details" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="68" width="280" height="20"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developed By ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="C0O-B9-Sva" userLabel="Label - Developer Details" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="69" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-or-M42" userLabel="Label - Data" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="115" width="280" height="25"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Map Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-or-M42" userLabel="Label - Data" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="105" width="280" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Roy Reed etc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pna-Ua-oXY" userLabel="Label - Data Details" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="147" width="280" height="20"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Roy Reed etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="pna-Ua-oXY" userLabel="Label - Data Details" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="130" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-xa-FBm" userLabel="Label - Google Maps Label" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="193" width="280" height="25"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-xa-FBm" userLabel="Label - Google Maps Label" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="164" width="280" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-Zd-Lf9" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="221" width="280" height="20"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-Zd-Lf9" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="192" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="XQD-bH-S3G" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="20" symbolic="YES" id="9X7-XI-3Z8"/>
+                                    <constraint firstAttribute="bottom" secondItem="AeP-Zd-Lf9" secondAttribute="bottom" constant="372" id="CH7-PO-Xva"/>
+                                    <constraint firstItem="mdh-or-M42" firstAttribute="leading" secondItem="pna-Ua-oXY" secondAttribute="leading" id="CbQ-bJ-bDU"/>
+                                    <constraint firstItem="XQD-bH-S3G" firstAttribute="top" secondItem="uZw-N3-KbI" secondAttribute="top" constant="45" id="HLJ-Ws-mWj"/>
+                                    <constraint firstItem="pna-Ua-oXY" firstAttribute="leading" secondItem="BIY-xa-FBm" secondAttribute="leading" id="NRI-Tz-cov"/>
+                                    <constraint firstItem="XQD-bH-S3G" firstAttribute="centerX" secondItem="uZw-N3-KbI" secondAttribute="centerX" id="Np1-oz-Ghe"/>
+                                    <constraint firstItem="mdh-or-M42" firstAttribute="top" secondItem="C0O-B9-Sva" secondAttribute="bottom" constant="20" id="R61-if-c6a"/>
+                                    <constraint firstItem="pna-Ua-oXY" firstAttribute="trailing" secondItem="BIY-xa-FBm" secondAttribute="trailing" id="SnR-Nq-Rya"/>
+                                    <constraint firstAttribute="trailing" secondItem="XQD-bH-S3G" secondAttribute="trailing" constant="20" symbolic="YES" id="VSZ-qf-uwc"/>
+                                    <constraint firstItem="C0O-B9-Sva" firstAttribute="top" secondItem="XQD-bH-S3G" secondAttribute="bottom" id="ViD-6H-1KA"/>
+                                    <constraint firstItem="C0O-B9-Sva" firstAttribute="trailing" secondItem="XQD-bH-S3G" secondAttribute="trailing" id="Zvw-hP-M5s"/>
+                                    <constraint firstItem="mdh-or-M42" firstAttribute="leading" secondItem="C0O-B9-Sva" secondAttribute="leading" id="bhj-lY-2uF"/>
+                                    <constraint firstItem="AeP-Zd-Lf9" firstAttribute="top" secondItem="BIY-xa-FBm" secondAttribute="bottom" constant="4" id="bo2-ZT-5CF"/>
+                                    <constraint firstItem="BIY-xa-FBm" firstAttribute="trailing" secondItem="AeP-Zd-Lf9" secondAttribute="trailing" id="c97-2x-TqX"/>
+                                    <constraint firstItem="mdh-or-M42" firstAttribute="trailing" secondItem="pna-Ua-oXY" secondAttribute="trailing" id="gks-x3-HLk"/>
+                                    <constraint firstItem="pna-Ua-oXY" firstAttribute="top" secondItem="mdh-or-M42" secondAttribute="bottom" constant="1" id="mhC-dd-nui"/>
+                                    <constraint firstItem="C0O-B9-Sva" firstAttribute="leading" secondItem="XQD-bH-S3G" secondAttribute="leading" id="vTA-Od-Bdc"/>
+                                    <constraint firstItem="BIY-xa-FBm" firstAttribute="leading" secondItem="AeP-Zd-Lf9" secondAttribute="leading" id="vvp-av-L1e"/>
+                                    <constraint firstItem="BIY-xa-FBm" firstAttribute="top" secondItem="pna-Ua-oXY" secondAttribute="bottom" constant="18" id="w45-1V-gev"/>
+                                    <constraint firstItem="C0O-B9-Sva" firstAttribute="trailing" secondItem="mdh-or-M42" secondAttribute="trailing" id="xda-lh-3F4"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uZw-N3-KbI" firstAttribute="top" secondItem="Yn9-4V-7A1" secondAttribute="top" id="HUh-y7-6t5"/>
+                            <constraint firstAttribute="trailing" secondItem="uZw-N3-KbI" secondAttribute="trailing" id="PDL-Cq-i0z"/>
+                            <constraint firstAttribute="bottom" secondItem="uZw-N3-KbI" secondAttribute="bottom" constant="-12" id="vvr-rG-Z9m"/>
+                            <constraint firstItem="uZw-N3-KbI" firstAttribute="leading" secondItem="Yn9-4V-7A1" secondAttribute="leading" id="xz7-fA-rLS"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" id="zyY-Co-lGM"/>
                     <connections>
