@@ -43,7 +43,11 @@
     self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 140.0f, 40.0f, 40.0f)];
     self.progressView.roundedCorners = YES;
     self.progressView.trackTintColor = [UIColor BPLBlueColour];
+    self.progressView.progressTintColor = [UIColor BPLOrangeColour];
     [self.view addSubview:self.progressView];
+
+    self.webView.backgroundColor = [UIColor BPLGreyColour];
+    self.webView.opaque = NO;
     
     self.model = [[BPLWikipediaViewModel alloc] initWithPlacemark:self.markers[0]];
     self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
@@ -93,9 +97,9 @@
 
 - (void)progressChange
 {
-    CGFloat progress = ![self.timer isValid] ? 30 / 10.0f : self.progressView.progress + 0.01f;
+    CGFloat progress = !self.timer.isValid ? 30 / 10.0f : self.progressView.progress + 0.01f;
     [self.progressView setProgress:progress animated:YES];
-    if (self.progressView.progress >= 1.0f && [self.timer isValid]) {
+    if (self.progressView.progress >= 1.0f && self.timer.isValid) {
         [self.progressView setProgress:0.f animated:YES];
     }
 }

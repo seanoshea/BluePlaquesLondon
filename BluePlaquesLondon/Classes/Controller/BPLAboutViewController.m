@@ -19,6 +19,7 @@
 #import "BPLAboutViewModel.h"
 #import "BPLLabel.h"
 #import "UIScrollView+Autosizing.h"
+#import "UIColor+BluePlaquesLondon.h"
 
 @interface BPLAboutViewController () <TTTAttributedLabelDelegate>
 
@@ -54,6 +55,7 @@
     UIFontDescriptor *runner = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleBody size:13.0f];
 
     self.developerLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.developerLabel.textColor = [UIColor BPLOrangeColour];
     self.developerDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
     self.developerDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     self.developerDetailsLabel.delegate = self;
@@ -63,6 +65,7 @@
     [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:@"http://www.twitter.com/seanoshea"] withRange:range];
     
     self.dataLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.dataLabel.textColor = [UIColor BPLOrangeColour];
     self.dataDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
     self.dataDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     self.dataDetailsLabel.delegate = self;
@@ -72,6 +75,7 @@
     [self.dataDetailsLabel addLinkToURL:[NSURL URLWithString:@"http://www.reeddesign.co.uk"] withRange:dataDetailsRange];
     
     self.googleMapsLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.googleMapsLabel.textColor = [UIColor BPLOrangeColour];
     self.googleMapsLicenseInfoLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
     self.googleMapsLicenseInfoLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     self.googleMapsLicenseInfoLabel.delegate = self;

@@ -62,9 +62,7 @@
 		76289D5F1843F5BE008E1391 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 76289D5E1843F5BE008E1391 /* libz.dylib */; };
 		76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76289D601843F5CC008E1391 /* CoreLocation.framework */; };
 		762DC362186B8ADD004CF725 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
-		762DC363186B8ADD004CF725 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
 		762DC366186BA21B004CF725 /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC365186BA21B004CF725 /* BPLAboutViewModel.m */; };
-		762DC367186BA21B004CF725 /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC365186BA21B004CF725 /* BPLAboutViewModel.m */; };
 		764BD42A185130B50033E603 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EC918427FBC007A5EE0 /* XCTest.framework */; };
 		764BD42B185130B50033E603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA418427FBB007A5EE0 /* Foundation.framework */; };
 		764BD42C185130B50033E603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA818427FBB007A5EE0 /* UIKit.framework */; };
@@ -868,11 +866,9 @@
 				76D3CF64186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */,
 				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
-				762DC363186B8ADD004CF725 /* BPLLabel.m in Sources */,
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
-				762DC367186BA21B004CF725 /* BPLAboutViewModel.m in Sources */,
 				76F19BB118675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */,
 				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
 				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
