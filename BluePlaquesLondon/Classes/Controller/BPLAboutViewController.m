@@ -70,8 +70,8 @@
     self.dataDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     self.dataDetailsLabel.delegate = self;
     self.dataLabel.text = NSLocalizedString(@"Map Data Details", nil);
-    self.dataDetailsLabel.text = NSLocalizedString(@"Map Data for this application is maintained by Roy Reid", nil);
-    NSRange dataDetailsRange = [self.dataDetailsLabel.text rangeOfString:@"Roy Reid"];
+    self.dataDetailsLabel.text = NSLocalizedString(@"Map Data for this application is maintained by Roy Reed", nil);
+    NSRange dataDetailsRange = [self.dataDetailsLabel.text rangeOfString:@"Roy Reed"];
     [self.dataDetailsLabel addLinkToURL:[NSURL URLWithString:@"http://www.reeddesign.co.uk"] withRange:dataDetailsRange];
     
     self.googleMapsLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
