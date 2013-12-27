@@ -17,6 +17,7 @@
 #import "BPLMapViewDetailViewController.h"
 
 #import <IntentKit/IntentKit.h>
+#import <HCViews/HCChevronView.h>
 
 #import "SimpleKMLPlacemark+Additions.h"
 #import "SimpleKMLPoint.h"
@@ -41,6 +42,8 @@
 @property (nonatomic, weak) IBOutlet BPLLabel *noteLabel;
 @property (nonatomic, weak) IBOutlet BPLLabel *councilAndYearLabel;
 
+@property (nonatomic, weak) IBOutlet BPLButton *streetButton;
+@property (nonatomic, weak) IBOutlet BPLButton *wikipediaButton;
 @property (nonatomic, weak) IBOutlet BPLButton *moreButton;
 @property (nonatomic, weak) IBOutlet BPLButton *directionsButton;
 
@@ -59,6 +62,8 @@
     self.addressLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
     self.noteLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
     self.councilAndYearLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    
+    [self addChevronToButtons:@[self.streetButton, self.wikipediaButton, self.directionsButton, self.moreButton]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor BPLBlueColour]}];
@@ -136,6 +141,17 @@
     NSString *from = [NSString stringWithFormat:@"%.12f, %.12f", self.model.currentLocation.coordinate.latitude, self.model.currentLocation.coordinate.longitude];
     INKActivityPresenter *presenter = [mapsHandler directionsFrom:from to:to mode:INKMapsHandlerDirectionsModeWalking];
     [presenter presentActivitySheetFromViewController:self popoverFromRect:self.directionsButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+- (void)addChevronToButtons:(NSArray *)buttons
+{
+    for (UIButton *button in buttons) {
+        UIView *chevron = [HCChevronView chevronViewWithColor:[UIColor BPLOrangeColour]
+                                             highlightedColor:[UIColor BPLOrangeColour]];
+        chevron.frame = CGRectMake(270, 10, 15, 15);
+        chevron.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        [button addSubview:chevron];
+    }
 }
 
 - (void)dealloc

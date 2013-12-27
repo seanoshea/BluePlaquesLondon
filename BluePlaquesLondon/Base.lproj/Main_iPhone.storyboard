@@ -177,6 +177,8 @@
                         <outlet property="noteLabel" destination="RTh-4c-VXa" id="rMf-Na-3gc"/>
                         <outlet property="occupationLabel" destination="1K8-dP-7Mx" id="YEc-Xp-5cx"/>
                         <outlet property="scrollView" destination="zXo-Jr-ymK" id="i98-3l-5eU"/>
+                        <outlet property="streetButton" destination="kNw-4v-dwU" id="7Ai-Zw-LtS"/>
+                        <outlet property="wikipediaButton" destination="kEG-Ea-nmQ" id="PLX-v8-Gfu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0J-mZ-Sgm" userLabel="First Responder" sceneMemberID="firstResponder"/>

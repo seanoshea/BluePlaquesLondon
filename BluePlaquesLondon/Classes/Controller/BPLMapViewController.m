@@ -237,14 +237,9 @@
 
 #pragma mark - GMSMapViewDelegate
 
-- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)cameraPosition
-{
-
-}
-
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    
+    [self toggleTableView:NO];
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker

@@ -25,9 +25,18 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor BPLBlueColour] forState:UIControlStateHighlighted];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     }
     return self;
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    if (highlighted) {
+        self.backgroundColor = [UIColor BPLBlueColour];
+    } else {
+        self.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 @end
