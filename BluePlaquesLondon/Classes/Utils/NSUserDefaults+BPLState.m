@@ -74,7 +74,7 @@ static NSString *const BPLTrackingEnabled = @"BPLTrackingEnabled";
 - (BOOL)isTrackingEnabled
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:BPLTrackingEnabled] != nil) {
+    if ([userDefaults objectForKey:BPLTrackingEnabled] == nil) {
         [self saveTrackingEnabled:YES];
     }
     return [userDefaults boolForKey:BPLTrackingEnabled];

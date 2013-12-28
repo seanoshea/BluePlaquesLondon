@@ -108,6 +108,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenName = @"Maps Screen";
     
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.automaticallyAdjustsScrollViewInsets = NO;

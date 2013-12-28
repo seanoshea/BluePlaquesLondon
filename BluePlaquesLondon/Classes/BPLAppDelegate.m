@@ -156,11 +156,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     }
 }
 
-- (void)checkSettingsChanges
-{
-    [GAI sharedInstance].optOut = ![BPLConfiguration isAnalyticsEnabled];
-}
-
 - (void)initializeGoogleMapsApi
 {
     [GMSServices provideAPIKey:BPLMapsKey];

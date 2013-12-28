@@ -15,10 +15,10 @@
  */
 
 #import <UIKit/UIKit.h>
-
+#import "GAITrackedViewController.h"
 #import "SimpleKMLPlacemark.h"
 
-@interface BPLStreetViewViewController : UIViewController
+@interface BPLStreetViewViewController : GAITrackedViewController
 
 @property (nonatomic) SimpleKMLPlacemark *placemark;
 

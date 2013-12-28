@@ -15,10 +15,10 @@
  */
 
 #import <UIKit/UIKit.h>
-
+#import "GAITrackedViewController.h"
 @class BPLAboutViewModel;
 
-@interface BPLAboutViewController : UIViewController
+@interface BPLAboutViewController : GAITrackedViewController
 
 @property (nonatomic) BPLAboutViewModel *model;
 

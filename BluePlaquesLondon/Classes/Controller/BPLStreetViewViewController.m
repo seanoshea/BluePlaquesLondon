@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenName = @"Street View Screen";
     self.title = NSLocalizedString(@"Street View", nil);
     GMSPanoramaView *panoView = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:self.placemark.point.coordinate];
     self.view = panoView;

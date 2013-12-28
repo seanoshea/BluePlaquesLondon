@@ -51,6 +51,8 @@
 {
     [super viewDidLoad];
     
+    self.screenName = @"About Screen";
+    
     UIFontDescriptor *header = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleHeadline size:20.0f];
     UIFontDescriptor *runner = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleBody size:13.0f];
 

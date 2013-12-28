@@ -20,6 +20,10 @@
 #import "UIColor+BluePlaquesLondon.h"
 #import "BPLConstants.h"
 
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
+#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+
 static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 
 @implementation BPLDetailChooserViewController
@@ -28,6 +32,13 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 {
     [super viewWillAppear:animated];
     self.title = NSLocalizedString(@"Choose one", nil);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

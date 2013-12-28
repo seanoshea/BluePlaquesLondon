@@ -15,8 +15,9 @@
  */
 
 #import <GoogleMaps/GoogleMaps.h>
+#import "GAITrackedViewController.h"
 
-@interface BPLWikipediaViewController : UIViewController
+@interface BPLWikipediaViewController : GAITrackedViewController
 
 @property (nonatomic, copy) NSArray *markers;
 

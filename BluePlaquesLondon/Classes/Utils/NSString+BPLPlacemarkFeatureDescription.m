@@ -68,7 +68,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
             occupation = [occupation substringWithRange:NSMakeRange(delimiterLength, endRange.location - delimiterLength)];
             // check to see whether we have a valid occupation here or if this is actually a date range
             if ([NSString trimWhitespaceFromString:occupation].length == 9) {
-                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[0-9]{4}-[0-9]{4}" options:0 error:NULL];
+                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[0-9]{4}-[0-9]{4}" options:0 error:nil];
                 NSTextCheckingResult *match = [regex firstMatchInString:occupation options:0 range:NSMakeRange(0, occupation.length)];
                 if (match.range.location != NSNotFound) {
                     NSArray *components = [self componentsSeparatedByString:BPLOverlayTitleDelimiter];
@@ -137,7 +137,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     NSString *withoutNote = [self removeNoteFromString:self];
     NSArray *components = [withoutNote componentsSeparatedByString:BPLOverlayTitleDelimiter];
     if (components.count && components.count > 2) {
-        councilAndYear = [NSString trimWhitespaceFromString:[components lastObject]];
+        councilAndYear = [NSString trimWhitespaceFromString:components.lastObject];
     }
     return councilAndYear;
 }

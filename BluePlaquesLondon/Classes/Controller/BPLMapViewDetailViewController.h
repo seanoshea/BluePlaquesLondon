@@ -15,10 +15,11 @@
  */
 
 #import <GoogleMaps/GoogleMaps.h>
+#import "GAITrackedViewController.h"
 
 @class BPLMapViewDetailViewModel;
 
-@interface BPLMapViewDetailViewController : UIViewController
+@interface BPLMapViewDetailViewController : GAITrackedViewController
 
 @property (nonatomic) BPLMapViewDetailViewModel *model;
 
