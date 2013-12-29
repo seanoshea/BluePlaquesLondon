@@ -123,12 +123,15 @@
                                                                  zoom:mapZoom];
 
     self.mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
+    UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0, 5.0f, 48.0f, 0.0);
+    self.mapView.padding = mapInsets;
     
     self.mapView.delegate = self;
     self.mapView.indoorEnabled = NO;
     self.mapView.settings.myLocationButton = YES;
     self.mapView.settings.compassButton = YES;
     [self.view addSubview:self.mapView];
+
     [self.mapView animateToLocation:lastKnownCoordinate];
     [self.model createMarkersForMap:self.mapView];
     
