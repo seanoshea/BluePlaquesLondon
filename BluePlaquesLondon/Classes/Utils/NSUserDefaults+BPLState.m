@@ -95,7 +95,7 @@ static NSString *const BPLTrackingEnabled = @"BPLTrackingEnabled";
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitudeDegrees, longitudeDegrees);
     // check to see whether this is a valid lat/long coordinate.
     if (![self isValidCoordinate:coordinate]) {
-        coordinate = CLLocationCoordinate2DMake(51.513611, -0.098056);
+        coordinate = CLLocationCoordinate2DMake(51.50016999993306, -0.1814680000049975);
     }
     return coordinate;
 }

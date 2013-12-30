@@ -48,6 +48,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [self initializeLocalization];
     [self initializeTracking];
     [self initializeCrashReporting];
+    
     return YES;
 }
 

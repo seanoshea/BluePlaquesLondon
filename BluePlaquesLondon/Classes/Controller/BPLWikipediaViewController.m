@@ -65,8 +65,13 @@
             [self.webView loadRequest:urlRequest];
         } else {
             [self stopAnimation];
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oooops", nil)
+                                        message:NSLocalizedString(@"There was an error loading this Wikipedia Article", nil)
+                                       delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                              otherButtonTitles:nil] show];
         }
-    }];    
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
