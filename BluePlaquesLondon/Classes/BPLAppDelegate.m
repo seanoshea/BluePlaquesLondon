@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLAboutViewControllerIndex = 1,
 };
 
-@interface BPLAppDelegate() <UITabBarControllerDelegate>
+@interface BPLAppDelegate()
 
 @property (nonatomic) Reachability *internetReach;
 
@@ -48,7 +48,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [self initializeLocalization];
     [self initializeTracking];
     [self initializeCrashReporting];
-    [self initializeDelegate];
     return YES;
 }
 
@@ -159,29 +158,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 - (void)initializeGoogleMapsApi
 {
     [GMSServices provideAPIKey:BPLMapsKey];
-}
-
-- (void)initializeDelegate {
-    id rootViewController = self.window.rootViewController;
-    ((UITabBarController *)rootViewController).delegate = self;
-}
-
-#pragma mark UITabBarControllerDelegate
-
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    NSString *viewControllerIdentifier;
-    switch (viewController.view.tag) {
-        case BPLMapViewControllerIndex:
-            viewControllerIdentifier = BPLMapView;
-            break;
-        case BPLAboutViewControllerIndex:
-            viewControllerIdentifier = BPLAboutView;
-            break;
-    }
-    if (viewControllerIdentifier) {
-        [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:viewControllerIdentifier];
-        [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createAppView]  build]];
-    }
 }
 
 @end

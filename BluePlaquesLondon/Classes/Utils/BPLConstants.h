@@ -36,7 +36,5 @@ extern NSString * const BPLDetailChooserViewControllerRowSelected;
 #pragma mark - Tracking
 
 extern NSString * const BPLApplicationLoaded;
-extern NSString * const BPLMapView;
-extern NSString * const BPLAboutView;
 
 @end

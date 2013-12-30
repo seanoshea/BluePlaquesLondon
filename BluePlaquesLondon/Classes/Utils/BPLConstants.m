@@ -38,7 +38,5 @@ NSString * const BPLDetailChooserViewControllerRowSelected = @"BPLDetailChooserV
 #pragma mark - Tracking
 
 NSString * const BPLApplicationLoaded = @"ApplicationLoaded";
-NSString * const BPLMapView = @"MapView";
-NSString * const BPLAboutView = @"AboutView";
 
 @end
