@@ -16,13 +16,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SimpleKMLPlacemark+Additions.h"
-
-typedef void(^BPLWikipediaViewURLResolutionCompletionBlock)(NSURLRequest *urlRequest, NSError *error);
-
-@interface BPLWikipediaViewModel : NSObject
-
-- (id)initWithName:(NSString *)name;
-- (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
+@interface BPLURLResourceLoader : NSURLProtocol
 
 @end

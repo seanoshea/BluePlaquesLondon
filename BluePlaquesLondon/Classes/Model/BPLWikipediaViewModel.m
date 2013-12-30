@@ -23,24 +23,24 @@ static NSString * const BPLWikipediaViewModelPageURLFormat = @"http://en.wikiped
 
 @interface BPLWikipediaViewModel()
 
-@property (nonatomic) SimpleKMLPlacemark *placemark;
+@property (nonatomic, copy) NSString *name;
 
 @end
 
 @implementation BPLWikipediaViewModel
 
-- (id)initWithPlacemark:(SimpleKMLPlacemark *)placemark
+- (id)initWithName:(NSString *)name
 {
     self = [super init];
     if (self) {
-        _placemark = placemark;
+        _name = name;
     }
     return self;
 }
 
 - (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
 {
-    NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelSearchURLFormat, self.placemark.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelSearchURLFormat, self.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedURLString]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (!connectionError) {
             NSError *error = nil;

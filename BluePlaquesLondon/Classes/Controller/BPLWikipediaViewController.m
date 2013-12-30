@@ -50,7 +50,8 @@
     self.webView.backgroundColor = [UIColor BPLGreyColour];
     self.webView.opaque = NO;
     
-    self.model = [[BPLWikipediaViewModel alloc] initWithPlacemark:self.markers[0]];
+    SimpleKMLPlacemark *placemark = self.markers[0];
+    self.model = [[BPLWikipediaViewModel alloc] initWithName:placemark.name];
     self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
     self.webView.delegate = self;
 }
