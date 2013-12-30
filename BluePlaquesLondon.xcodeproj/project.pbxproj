@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
+		761B7DBD18720A600000DA3B /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 761B7DBC18720A600000DA3B /* BPLMapViewDetailViewModelTest.m */; };
 		76289C7D18429027008E1391 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
 		76289C8518429036008E1391 /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8018429036008E1391 /* BPLAboutViewController.m */; };
 		76289C8718429036008E1391 /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8218429036008E1391 /* BPLMapViewController.m */; };
@@ -123,6 +124,7 @@
 		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A54203EC884337A5D8131D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7618A226184B5430007B493C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		761B7DBC18720A600000DA3B /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
 		76289C7B18429027008E1391 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
 		76289C7C18429027008E1391 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
 		76289C7F18429036008E1391 /* BPLAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAboutViewController.h; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 		76E24AFF18720155004472AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				761B7DBC18720A600000DA3B /* BPLMapViewDetailViewModelTest.m */,
 				76E24AFD1871FF5D004472AC /* BPLWikipediaViewModelTest.m */,
 			);
 			name = Model;
@@ -890,6 +893,7 @@
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
 				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
+				761B7DBD18720A600000DA3B /* BPLMapViewDetailViewModelTest.m in Sources */,
 				76E24AFE1871FF5D004472AC /* BPLWikipediaViewModelTest.m in Sources */,
 				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
 			);

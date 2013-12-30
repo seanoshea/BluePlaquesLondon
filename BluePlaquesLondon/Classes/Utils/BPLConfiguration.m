@@ -20,7 +20,8 @@
 
 @implementation BPLConfiguration
 
-+ (BOOL)isAnalyticsEnabled {
++ (BOOL)isAnalyticsEnabled
+{
 #ifdef ANALYTICS
     return [[NSUserDefaults standardUserDefaults] isTrackingEnabled];
 #else
@@ -28,7 +29,8 @@
 #endif
 }
 
-+ (BOOL)isCrashReportingEnabled {
++ (BOOL)isCrashReportingEnabled
+{
 #ifdef CRASH_REPORTING
     return true;
 #else
@@ -36,7 +38,8 @@
 #endif
 }
 
-+ (BOOL)isDebug {
++ (BOOL)isDebug
+{
 #ifdef DEBUG
     return true;
 #else

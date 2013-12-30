@@ -55,9 +55,7 @@
 - (NSError *)loadBluePlaquesData
 {
     NSError *error;
-    
     SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kmz"] error:&error];
-    
     if (!error) {
         if (kml.feature && [kml.feature isKindOfClass:[SimpleKMLDocument class]]) {
             for (SimpleKMLFeature *feature in ((SimpleKMLContainer *)kml.feature).features) {
@@ -67,10 +65,7 @@
                 }
             }
         }
-    } else {
-        
     }
-    
     return error;
 }
 
@@ -78,7 +73,6 @@
 {
     // make sure there aren't any duplicates
     [self.data.flattenedPlacemarks enumerateObjectsUsingBlock:^(SimpleKMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
-        
         NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[placemark.key];
         if (!placemarksAssociatedWithKey) {
             [self.keyToArrayPositions setObject:@[@(idx)] forKey:placemark.key];
