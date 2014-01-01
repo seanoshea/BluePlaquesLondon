@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
-		761B7DBD18720A600000DA3B /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 761B7DBC18720A600000DA3B /* BPLMapViewDetailViewModelTest.m */; };
 		76289C7D18429027008E1391 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
 		76289C8518429036008E1391 /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8018429036008E1391 /* BPLAboutViewController.m */; };
 		76289C8718429036008E1391 /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8218429036008E1391 /* BPLMapViewController.m */; };
@@ -70,6 +69,10 @@
 		764BD432185130B50033E603 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 764BD430185130B50033E603 /* InfoPlist.strings */; };
 		764BD443185131F30033E603 /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD441185131F30033E603 /* BPLStateTest.m */; };
 		7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
+		765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */; };
+		765762AB18744DB700CD9208 /* BPLWikipediaViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */; };
+		765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762AF18744E0200CD9208 /* BPLButtonTest.m */; };
+		765762B118744E5700CD9208 /* UIColor+BluePlaquesLondon.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BluePlaquesLondon.m */; };
 		766CD0C1184BBE2300864D6B /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
 		766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C4184BE94B00864D6B /* blueplaques.kmz */; };
 		766CD0C8184BE94B00864D6B /* blueplaques.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C5184BE94B00864D6B /* blueplaques.xlsx */; };
@@ -90,7 +93,6 @@
 		76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
 		76D3CF63186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF62186B5E0100E0D8F3 /* UIScrollView+Autosizing.m */; };
 		76D3CF64186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF62186B5E0100E0D8F3 /* UIScrollView+Autosizing.m */; };
-		76E24AFE1871FF5D004472AC /* BPLWikipediaViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E24AFD1871FF5D004472AC /* BPLWikipediaViewModelTest.m */; };
 		76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E24B021872018B004472AC /* BPLURLResourceLoader.m */; };
 		76E24B0518720285004472AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 76E24B0418720285004472AC /* wikipedia.json */; };
 		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
@@ -124,7 +126,6 @@
 		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A54203EC884337A5D8131D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7618A226184B5430007B493C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		761B7DBC18720A600000DA3B /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
 		76289C7B18429027008E1391 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
 		76289C7C18429027008E1391 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
 		76289C7F18429036008E1391 /* BPLAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAboutViewController.h; sourceTree = "<group>"; };
@@ -242,6 +243,9 @@
 		765145B1184B5F2500388E0F /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaViewController.h; sourceTree = "<group>"; };
 		7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewController.m; sourceTree = "<group>"; };
+		765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
+		765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewModelTest.m; sourceTree = "<group>"; };
+		765762AF18744E0200CD9208 /* BPLButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButtonTest.m; sourceTree = "<group>"; };
 		766CD0BF184BBE2300864D6B /* BPLMapViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewDetailViewController.h; sourceTree = "<group>"; };
 		766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewController.m; sourceTree = "<group>"; };
 		766CD0C4184BE94B00864D6B /* blueplaques.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = blueplaques.kmz; sourceTree = "<group>"; };
@@ -276,7 +280,6 @@
 		76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLButton.m; path = View/BPLButton.m; sourceTree = "<group>"; };
 		76D3CF61186B5E0100E0D8F3 /* UIScrollView+Autosizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Autosizing.h"; path = "View/UIScrollView+Autosizing.h"; sourceTree = "<group>"; };
 		76D3CF62186B5E0100E0D8F3 /* UIScrollView+Autosizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Autosizing.m"; path = "View/UIScrollView+Autosizing.m"; sourceTree = "<group>"; };
-		76E24AFD1871FF5D004472AC /* BPLWikipediaViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLWikipediaViewModelTest.m; path = Utils/BPLWikipediaViewModelTest.m; sourceTree = "<group>"; };
 		76E24B011872018B004472AC /* BPLURLResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLURLResourceLoader.h; sourceTree = "<group>"; };
 		76E24B021872018B004472AC /* BPLURLResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLURLResourceLoader.m; sourceTree = "<group>"; };
 		76E24B0418720285004472AC /* wikipedia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia.json; sourceTree = "<group>"; };
@@ -601,8 +604,9 @@
 			isa = PBXGroup;
 			children = (
 				76E24AFF18720155004472AC /* Model */,
-				764BD43F185131DF0033E603 /* Utils */,
 				764BD42E185130B50033E603 /* Supporting Files */,
+				764BD43F185131DF0033E603 /* Utils */,
+				765762AC18744DC100CD9208 /* View */,
 			);
 			path = BluePlaquesLondonTests;
 			sourceTree = "<group>";
@@ -627,6 +631,14 @@
 				764BD441185131F30033E603 /* BPLStateTest.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		765762AC18744DC100CD9208 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				765762AF18744E0200CD9208 /* BPLButtonTest.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		766CD0C3184BE90000864D6B /* Resources */ = {
@@ -728,10 +740,10 @@
 		76E24AFF18720155004472AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				761B7DBC18720A600000DA3B /* BPLMapViewDetailViewModelTest.m */,
-				76E24AFD1871FF5D004472AC /* BPLWikipediaViewModelTest.m */,
+				765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */,
+				765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -886,15 +898,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				76D3CF64186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */,
+				765762AB18744DB700CD9208 /* BPLWikipediaViewModelTest.m in Sources */,
+				765762B118744E5700CD9208 /* UIColor+BluePlaquesLondon.m in Sources */,
 				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
+				765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */,
 				76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
 				76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */,
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
+				765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
 				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
-				761B7DBD18720A600000DA3B /* BPLMapViewDetailViewModelTest.m in Sources */,
-				76E24AFE1871FF5D004472AC /* BPLWikipediaViewModelTest.m in Sources */,
 				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

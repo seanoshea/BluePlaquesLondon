@@ -14,30 +14,36 @@
  limitations under the License.
  */
 
-#import "BPLButton.h"
+#import <XCTest/XCTest.h>
 
+#import "BPLButton.h"
 #import "UIColor+BluePlaquesLondon.h"
 
-@implementation BPLButton
+@interface BPLButtonTest : XCTestCase
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+@property (nonatomic) BPLButton *button;
+
+@end
+
+@implementation BPLButtonTest
+
+- (void)setUp
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    }
-    return self;
+    [super setUp];
+    self.button = [[BPLButton alloc] initWithCoder:nil];
 }
 
-- (void)setHighlighted:(BOOL)highlighted
+- (void)tearDown
 {
-    [super setHighlighted:highlighted];
-    if (highlighted) {
-        self.backgroundColor = [UIColor BPLBlueColour];
-    } else {
-        self.backgroundColor = [UIColor whiteColor];
-    }
+    [super tearDown];
+}
+
+- (void)testHighlightedColours
+{
+    self.button.highlighted = NO;
+    [self.button.backgroundColor isEqual:[UIColor whiteColor]];
+    self.button.highlighted = YES;
+    [self.button.backgroundColor isEqual:[UIColor BPLBlueColour]];
 }
 
 @end
