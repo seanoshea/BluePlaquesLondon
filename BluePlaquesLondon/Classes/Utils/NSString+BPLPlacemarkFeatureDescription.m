@@ -41,7 +41,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 {
     NSString *title = self;
     
-    int location = [self rangeOfString:BPLOverlayTitleDelimiter].location;
+    NSUInteger location = [self rangeOfString:BPLOverlayTitleDelimiter].location;
     if (location != NSNotFound) {
         title = [self substringWithRange:NSMakeRange(0, location)];
     }
@@ -58,12 +58,12 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 - (NSString *)occupation
 {
     NSString *occupation = self;
-    int location = [self rangeOfString:BPLOverlayTitleDelimiter].location;
+    NSUInteger location = [self rangeOfString:BPLOverlayTitleDelimiter].location;
     if (location != NSNotFound) {
         occupation = [self substringFromIndex:location];
         NSRange startRange = [occupation rangeOfString:BPLOverlayTitleDelimiter options:NSCaseInsensitiveSearch range:NSMakeRange(0, occupation.length - 1)];
         if (startRange.location == 0) {
-            int delimiterLength = BPLOverlayTitleDelimiter.length;
+            NSUInteger delimiterLength = BPLOverlayTitleDelimiter.length;
             NSRange endRange = [occupation rangeOfString:BPLOverlayTitleDelimiter options:NSCaseInsensitiveSearch range:NSMakeRange(delimiterLength, occupation.length - delimiterLength - 1)];
             occupation = [occupation substringWithRange:NSMakeRange(delimiterLength, endRange.location - delimiterLength)];
             // check to see whether we have a valid occupation here or if this is actually a date range
@@ -118,7 +118,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
         NSRange endOfEmphasis = [self rangeOfString:BPLEmphasisNoteClosingTag];
         if (endOfEmphasis.location == NSNotFound) {
             // some notes don't have the correct closing tag ... search for the starting tag again
-            int locationOfLastEmphasis = [self rangeOfString:BPLEmphasisNoteOpeningTag options:NSBackwardsSearch].location;
+            NSUInteger locationOfLastEmphasis = [self rangeOfString:BPLEmphasisNoteOpeningTag options:NSBackwardsSearch].location;
             if (locationOfLastEmphasis != startOfEmphasis.location) {
                 endOfEmphasis.location = self.length - BPLEmphasisNoteOpeningTag.length;
             } else {
@@ -179,7 +179,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
         input = [input stringByReplacingOccurrencesOfString:note withString:@""];
         input = [input stringByReplacingOccurrencesOfString:BPLEmphasisNoteClosingTag withString:@""];
         // check for a trailing delimiter
-        int locationOfFinalDelimiter = [input rangeOfString:BPLOverlayTitleDelimiter options:NSBackwardsSearch].location;
+        NSUInteger locationOfFinalDelimiter = [input rangeOfString:BPLOverlayTitleDelimiter options:NSBackwardsSearch].location;
         if (locationOfFinalDelimiter != NSNotFound && locationOfFinalDelimiter == input.length - BPLOverlayTitleDelimiter.length) {
             input = [input substringToIndex:locationOfFinalDelimiter];
         }
