@@ -96,7 +96,12 @@
 
 - (void)commonInit
 {
-    self.model = [[BPLMapViewModel alloc] init];
+    self.model = [[BPLMapViewModel alloc] initWithKMZFileParsedCallback:^{
+        
+        [self.model createMarkersForMap:self.mapView];
+        self.searchBar.userInteractionEnabled = YES;
+        [self.tableView reloadData];
+    }];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -129,14 +134,15 @@
     self.mapView.delegate = self;
     self.mapView.indoorEnabled = NO;
     self.mapView.settings.myLocationButton = YES;
-    self.mapView.settings.compassButton = YES;
+    self.mapView.settings.compassButton = NO;
     [self.view addSubview:self.mapView];
 
     [self.mapView animateToLocation:lastKnownCoordinate];
-    [self.model createMarkersForMap:self.mapView];
     
     self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
+    self.searchBar.userInteractionEnabled = NO;
     [self.view bringSubviewToFront:self.searchBar];
+
     [self toggleTableView:NO];
 }
 

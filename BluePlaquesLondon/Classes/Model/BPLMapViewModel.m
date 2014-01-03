@@ -40,33 +40,38 @@
 
 @implementation BPLMapViewModel
 
-- (id)init
+- (instancetype)initWithKMZFileParsedCallback:(dispatch_block_t)kmzFileParsedCallback
 {
     self = [super init];
     if (self) {
         _coordinateToMarker = [@{} mutableCopy];
         _keyToArrayPositions = [@{} mutableCopy];
         _massagedData = [@[] mutableCopy];
+        _kmzFileParsedCallback = [kmzFileParsedCallback copy];
         [self loadBluePlaquesData];
     }
     return self;
 }
 
-- (NSError *)loadBluePlaquesData
+- (void)loadBluePlaquesData
 {
-    NSError *error;
-    SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kmz"] error:&error];
-    if (!error) {
+    // can take some time to parse the kmz file ...
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kmz"] error:nil];
         if (kml.feature && [kml.feature isKindOfClass:[SimpleKMLDocument class]]) {
             for (SimpleKMLFeature *feature in ((SimpleKMLContainer *)kml.feature).features) {
                 if ([feature isKindOfClass:[SimpleKMLFolder class]]) {
                     self.data = ((SimpleKMLFolder *)feature).document;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (self.kmzFileParsedCallback) {
+                            self.kmzFileParsedCallback();
+                        }
+                    });
                     break;
                 }
             }
         }
-    }
-    return error;
+    });
 }
 
 - (void)createMarkersForMap:(GMSMapView *)mapView

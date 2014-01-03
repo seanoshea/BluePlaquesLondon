@@ -40,7 +40,8 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 @implementation BPLAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     [self initializeGoogleMapsApi];
     [self initializeStyling];
     [self initializeLogging];
@@ -48,7 +49,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [self initializeLocalization];
     [self initializeTracking];
     [self initializeCrashReporting];
-    
     return YES;
 }
 
