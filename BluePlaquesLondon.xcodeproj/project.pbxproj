@@ -69,6 +69,8 @@
 		764BD432185130B50033E603 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 764BD430185130B50033E603 /* InfoPlist.strings */; };
 		764BD443185131F30033E603 /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD441185131F30033E603 /* BPLStateTest.m */; };
 		765081B718776C20009EF6F2 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
+		765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */; };
+		765081BB187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */; };
 		7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
 		765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */; };
 		765762AB18744DB700CD9208 /* BPLWikipediaViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */; };
@@ -127,7 +129,6 @@
 /* Begin PBXFileReference section */
 		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A54203EC884337A5D8131D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		7618A226184B5430007B493C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		76289C7B18429027008E1391 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
 		76289C7C18429027008E1391 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
 		76289C7F18429036008E1391 /* BPLAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAboutViewController.h; sourceTree = "<group>"; };
@@ -242,7 +243,7 @@
 		764BD431185130B50033E603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		764BD435185130B50033E603 /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
 		764BD441185131F30033E603 /* BPLStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStateTest.m; sourceTree = "<group>"; };
-		765145B1184B5F2500388E0F /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "IntentKit-Localizable.strings"; path = "strings/IntentKit-Localizable.strings"; sourceTree = "<group>"; };
 		7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaViewController.h; sourceTree = "<group>"; };
 		7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewController.m; sourceTree = "<group>"; };
 		765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
@@ -272,7 +273,6 @@
 		76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Foundation/GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		76B6CE8C184B9C9E00479447 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		76C37B60184E770E004D229B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		76C37B63184E8DD5004D229B /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		76CBBB5E184D316100A6828C /* BPLConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLConfiguration.h; sourceTree = "<group>"; };
 		76CBBB5F184D316100A6828C /* BPLConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLConfiguration.m; sourceTree = "<group>"; };
 		76CBBB63184D33C100A6828C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -302,7 +302,6 @@
 		76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLTableViewCell.m; path = View/BPLTableViewCell.m; sourceTree = "<group>"; };
 		76F19BB61867A138002F6A3D /* BPLStreetViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLStreetViewViewController.h; sourceTree = "<group>"; };
 		76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStreetViewViewController.m; sourceTree = "<group>"; };
-		76F1F68218472E530079E033 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -636,6 +635,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		765081B8187770A4009EF6F2 /* strings */ = {
+			isa = PBXGroup;
+			children = (
+				765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */,
+			);
+			name = strings;
+			sourceTree = "<group>";
+		};
 		765762AC18744DC100CD9208 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +655,7 @@
 		766CD0C3184BE90000864D6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				765081B8187770A4009EF6F2 /* strings */,
 				766CD0C4184BE94B00864D6B /* blueplaques.kmz */,
 				766CD0C5184BE94B00864D6B /* blueplaques.xlsx */,
 			);
@@ -681,10 +689,6 @@
 				76289D601843F5CC008E1391 /* CoreLocation.framework */,
 				76C37B60184E770E004D229B /* Crashlytics.framework */,
 				76B00EA418427FBB007A5EE0 /* Foundation.framework */,
-				76C37B63184E8DD5004D229B /* libPods.a */,
-				765145B1184B5F2500388E0F /* libPods.a */,
-				7618A226184B5430007B493C /* libPods.a */,
-				76F1F68218472E530079E033 /* libPods.a */,
 				29DA0FE8859948A7976E1811 /* libPods.a */,
 				76289D5E1843F5BE008E1391 /* libz.dylib */,
 				76B00EDF1842866B007A5EE0 /* MapKit.framework */,
@@ -830,6 +834,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				765081BB187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */,
 				764BD432185130B50033E603 /* InfoPlist.strings in Resources */,
 				76E24B0518720285004472AC /* wikipedia.json in Resources */,
 			);
@@ -844,6 +849,7 @@
 				76B00EC318427FBC007A5EE0 /* Images.xcassets in Resources */,
 				766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */,
 				766CD0C8184BE94B00864D6B /* blueplaques.xlsx in Resources */,
+				765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */,
 				76B00EAF18427FBB007A5EE0 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
