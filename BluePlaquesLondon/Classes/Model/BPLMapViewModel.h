@@ -33,6 +33,7 @@
 - (NSInteger)numberOfPlacemarks;
 - (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (SimpleKMLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate;
+- (SimpleKMLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate;
 - (GMSMarker *)markerAtPlacemark:(SimpleKMLPlacemark *)placemark;
 - (NSArray *)placemarksForKey:(NSString *)key;
 

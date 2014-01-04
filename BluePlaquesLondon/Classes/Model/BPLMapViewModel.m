@@ -150,20 +150,32 @@
 - (SimpleKMLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate
 {
     CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-    SimpleKMLPlacemark *placemark;
+    SimpleKMLPlacemark *closestPlacemark;
     CLLocationDistance currentDistance;
-    for (SimpleKMLPlacemark *pm in self.alphabeticallySortedPositions) {
-        CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.point.coordinate.latitude longitude:pm.point.coordinate.longitude];
-        CLLocationDistance distance = [location distanceFromLocation:loc];
-        if (!placemark) {
+    for (SimpleKMLPlacemark *placemark in self.alphabeticallySortedPositions) {
+        CLLocation *placemarkLocation = [[CLLocation alloc] initWithLatitude:placemark.point.coordinate.latitude longitude:placemark.point.coordinate.longitude];
+        CLLocationDistance distance = [location distanceFromLocation:placemarkLocation];
+        if (!closestPlacemark) {
             currentDistance = distance;
-            placemark = pm;
+            closestPlacemark = placemark;
         } else if (distance < currentDistance) {
             currentDistance = distance;
-            placemark = pm;
+            closestPlacemark = placemark;
         }
     }
-    return placemark;
+    return closestPlacemark;
+}
+
+- (SimpleKMLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    SimpleKMLPlacemark *firstPlacemark;
+    for (SimpleKMLPlacemark *placemark in self.alphabeticallySortedPositions) {
+        if (placemark.point.coordinate.latitude == coordinate.latitude &&
+            placemark.point.coordinate.longitude == coordinate.longitude) {
+            firstPlacemark = placemark;
+        }
+    }
+    return firstPlacemark;
 }
 
 - (NSArray *)alphabeticallySortedPositions

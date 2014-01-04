@@ -38,5 +38,13 @@ NSString * const BPLDetailChooserViewControllerRowSelected = @"BPLDetailChooserV
 #pragma mark - Tracking
 
 NSString * const BPLApplicationLoaded = @"ApplicationLoaded";
+NSString * const BPLUIActionCategory = @"BPLUIActionCategory";
+NSString * const BPLDetailsButtonPressedEvent = @"BPLDetailsButtonPressedEvent";
+NSString * const BPLWikipediaButtonPressedEvent = @"BPLWikipediaButtonPressedEvent";
+NSString * const BPLStreetViewButtonPressedEvent = @"BPLStreetViewButtonPressedEvent";
+NSString * const BPLDirectionsButtonPressedEvent = @"BPLDirectionsButtonPressedEvent";
+NSString * const BPLTableRowPressedEvent = @"BPLTableRowPressedEvent";
+NSString * const BPLMarkerPressedEvent = @"BPLMarkerPressedEvent";
+NSString * const BPLMarkerInfoWindowPressedEvent = @"BPLMarkerInfoWindowPressedEvent";
 
 @end

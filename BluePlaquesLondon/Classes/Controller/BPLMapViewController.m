@@ -27,6 +27,10 @@
 #import "BPLTableViewCell.h"
 #import "BPLMapViewDetailViewModel.h"
 
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
+#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
@@ -85,10 +89,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    id tracker = [[GAI sharedInstance] defaultTracker];
     if (indexPath.row == 0) {
-        [self navigateToPlacemark:[self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate]];
+        SimpleKMLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLUIActionCategory
+                                                              action:BPLTableRowPressedEvent
+                                                               label:closestPlacemark.name
+                                                               value:nil] build]];
+        [self navigateToPlacemark:closestPlacemark];
     } else {
-        [self navigateToPlacemark:[self.model placemarkForRowAtIndexPath:indexPath]];
+        SimpleKMLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLUIActionCategory
+                                                              action:BPLTableRowPressedEvent
+                                                               label:placemarkAtIndexPath.name
+                                                               value:nil] build]];
+        [self navigateToPlacemark:placemarkAtIndexPath];
     }
 }
 
@@ -255,6 +270,7 @@
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
 {
     [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
+    [self markerTapped:marker withAction:BPLMarkerPressedEvent];
     return NO;
 }
 
@@ -268,7 +284,22 @@
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
     [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
+    [self markerTapped:marker withAction:BPLMarkerInfoWindowPressedEvent];
     [self performSegueWithIdentifier:BPLMapDetailViewControllerSegue sender:self];
+}
+
+- (void)markerTapped:(GMSMarker *)marker withAction:(NSString *)action
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        SimpleKMLPlacemark *placemarkForMarker = [self.model firstPlacemarkAtCoordinate:marker.position];
+        if (placemarkForMarker) {
+            id tracker = [[GAI sharedInstance] defaultTracker];
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLUIActionCategory
+                                                                  action:BPLMarkerPressedEvent
+                                                                   label:placemarkForMarker.name
+                                                                   value:nil] build]];
+        }
+    });
 }
 
 @end

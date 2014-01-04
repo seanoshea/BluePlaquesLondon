@@ -33,6 +33,10 @@
 #import "BPLLabel.h"
 #import "BPLButton.h"
 
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
+#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+
 @interface BPLMapViewDetailViewController()
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
@@ -110,15 +114,26 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    SimpleKMLPlacemark *placemark;
+    NSString *action;
     if ([segue.identifier isEqualToString:BPLWikipediaViewControllerSegue]) {
         BPLWikipediaViewController *destinationViewController = (BPLWikipediaViewController *)segue.destinationViewController;
         destinationViewController.markers = self.model.markers;
+        placemark = self.model.markers[0];
+        action = BPLWikipediaButtonPressedEvent;
     } else if ([segue.identifier isEqualToString:BPLDetailChooserViewControllerSegue]) {
         BPLDetailChooserViewController *destinationViewController = (BPLDetailChooserViewController *)segue.destinationViewController;
         destinationViewController.markers = self.model.markers;
+        placemark = self.model.markers[0];
+        action = BPLDetailsButtonPressedEvent;
     } else if ([segue.identifier isEqualToString:BPLStreetMapViewControllerSegue]) {
         BPLStreetViewViewController *destinationViewController = (BPLStreetViewViewController *)segue.destinationViewController;
         destinationViewController.placemark = self.model.markers[0];
+        placemark = self.model.markers[0];
+        action = BPLStreetViewButtonPressedEvent;
+    }
+    if (placemark && action) {
+        [self buttonTappedForPlacemark:placemark withAction:action];
     }
 }
 
@@ -142,6 +157,7 @@
     NSString *from = [NSString stringWithFormat:@"%.12f, %.12f", self.model.currentLocation.coordinate.latitude, self.model.currentLocation.coordinate.longitude];
     INKActivityPresenter *presenter = [mapsHandler directionsFrom:from to:to mode:INKMapsHandlerDirectionsModeWalking];
     [presenter presentActivitySheetFromViewController:self popoverFromRect:self.directionsButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self buttonTappedForPlacemark:placemark withAction:BPLDirectionsButtonPressedEvent];
 }
 
 - (void)addChevronToButtons:(NSArray *)buttons
@@ -153,6 +169,15 @@
         chevron.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         [button addSubview:chevron];
     }
+}
+
+- (void)buttonTappedForPlacemark:(SimpleKMLPlacemark *)placemark withAction:(NSString *)action
+{
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLUIActionCategory
+                                                          action:action
+                                                           label:placemark.name
+                                                           value:nil] build]];
 }
 
 - (void)dealloc

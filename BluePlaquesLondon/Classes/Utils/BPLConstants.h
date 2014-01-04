@@ -36,5 +36,13 @@ extern NSString * const BPLDetailChooserViewControllerRowSelected;
 #pragma mark - Tracking
 
 extern NSString * const BPLApplicationLoaded;
+extern NSString * const BPLUIActionCategory;
+extern NSString * const BPLDetailsButtonPressedEvent;
+extern NSString * const BPLWikipediaButtonPressedEvent;
+extern NSString * const BPLStreetViewButtonPressedEvent;
+extern NSString * const BPLDirectionsButtonPressedEvent;
+extern NSString * const BPLTableRowPressedEvent;
+extern NSString * const BPLMarkerPressedEvent;
+extern NSString * const BPLMarkerInfoWindowPressedEvent;
 
 @end
