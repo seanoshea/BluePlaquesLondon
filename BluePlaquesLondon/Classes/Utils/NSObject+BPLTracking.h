@@ -14,10 +14,10 @@
  limitations under the License.
  */
 
-@interface BPLConfiguration : NSObject
+#import <Foundation/Foundation.h>
 
-+ (BOOL)isTrackingEnabled;
-+ (BOOL)isCrashReportingEnabled;
-+ (BOOL)isDebug;
+@interface NSObject (BPLTracking)
+
+- (void)trackCategory:(NSString *)category action:(NSString *)action label:(NSString *)label;
 
 @end

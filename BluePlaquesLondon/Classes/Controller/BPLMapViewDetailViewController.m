@@ -32,10 +32,7 @@
 #import "UIScrollView+Autosizing.h"
 #import "BPLLabel.h"
 #import "BPLButton.h"
-
-#import <GoogleAnalytics-iOS-SDK/GAI.h>
-#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
-#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+#import "NSObject+BPLTracking.h"
 
 @interface BPLMapViewDetailViewController()
 
@@ -173,11 +170,7 @@
 
 - (void)buttonTappedForPlacemark:(SimpleKMLPlacemark *)placemark withAction:(NSString *)action
 {
-    id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLUIActionCategory
-                                                          action:action
-                                                           label:placemark.name
-                                                           value:nil] build]];
+    [self trackCategory:BPLUIActionCategory action:action label:placemark.name];
 }
 
 - (void)dealloc

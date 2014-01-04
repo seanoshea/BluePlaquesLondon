@@ -20,7 +20,7 @@
 
 @implementation BPLConfiguration
 
-+ (BOOL)isAnalyticsEnabled
++ (BOOL)isTrackingEnabled
 {
 #ifdef ANALYTICS
     return [[NSUserDefaults standardUserDefaults] isTrackingEnabled];

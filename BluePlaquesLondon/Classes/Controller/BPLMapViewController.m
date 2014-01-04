@@ -26,10 +26,7 @@
 #import "UIColor+BluePlaquesLondon.h"
 #import "BPLTableViewCell.h"
 #import "BPLMapViewDetailViewModel.h"
-
-#import <GoogleAnalytics-iOS-SDK/GAI.h>
-#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
-#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+#import "NSObject+BPLTracking.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -89,20 +86,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    id tracker = [[GAI sharedInstance] defaultTracker];
     if (indexPath.row == 0) {
         SimpleKMLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
-        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLUIActionCategory
-                                                              action:BPLTableRowPressedEvent
-                                                               label:closestPlacemark.name
-                                                               value:nil] build]];
+        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.name];
         [self navigateToPlacemark:closestPlacemark];
     } else {
         SimpleKMLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
-        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLUIActionCategory
-                                                              action:BPLTableRowPressedEvent
-                                                               label:placemarkAtIndexPath.name
-                                                               value:nil] build]];
+        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.name];
         [self navigateToPlacemark:placemarkAtIndexPath];
     }
 }
@@ -293,11 +283,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         SimpleKMLPlacemark *placemarkForMarker = [self.model firstPlacemarkAtCoordinate:marker.position];
         if (placemarkForMarker) {
-            id tracker = [[GAI sharedInstance] defaultTracker];
-            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLUIActionCategory
-                                                                  action:BPLMarkerPressedEvent
-                                                                   label:placemarkForMarker.name
-                                                                   value:nil] build]];
+            [self trackCategory:BPLUIActionCategory action:action label:placemarkForMarker.name];
         }
     });
 }

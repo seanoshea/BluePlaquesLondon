@@ -17,15 +17,16 @@
 #import "BPLAppDelegate.h"
 
 #import <GoogleMaps/GoogleMaps.h>
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
+#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
 #import <Crashlytics/Crashlytics.h>
 #import "Reachability.h"
-#import "GAI.h"
-#import "GAIDictionaryBuilder.h"
-#import "GAIFields.h"
 
 #import "BPLConfiguration.h"
 #import "BPLConstants.h"
 #import "UIColor+BluePlaquesLondon.h"
+#import "NSObject+BPLTracking.h"
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLMapViewControllerIndex = 0,
@@ -136,16 +137,12 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeTracking
 {
-    if ([BPLConfiguration isAnalyticsEnabled]) {
+    if ([BPLConfiguration isTrackingEnabled]) {
         NSString *shortVersionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
         [GAI sharedInstance].trackUncaughtExceptions = YES;
         [GAI sharedInstance].dispatchInterval = 20;
         [[[GAI sharedInstance] logger] setLogLevel:[BPLConfiguration isDebug] ? kGAILogLevelVerbose : kGAILogLevelWarning];
-        id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:BPLAnalyticsKey];
-        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:BPLApplicationLoaded
-                                                              action:[NSString stringWithFormat:@"Application Version: %@", shortVersionString]
-                                                               label:[NSString stringWithFormat:@"iOS Version %@", [[UIDevice currentDevice] systemVersion]]
-                                                               value:nil] build]];
+        [self trackCategory:BPLApplicationLoaded action:[NSString stringWithFormat:@"Application Version: %@", shortVersionString] label:[NSString stringWithFormat:@"iOS Version %@", [[UIDevice currentDevice] systemVersion]]];
     }
 }
 
