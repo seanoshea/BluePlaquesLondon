@@ -22,7 +22,7 @@
 
 + (BOOL)isTrackingEnabled
 {
-#ifdef ANALYTICS
+#ifdef TRACKING
     return [[NSUserDefaults standardUserDefaults] isTrackingEnabled];
 #else
     return false;
