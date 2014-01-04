@@ -25,7 +25,7 @@ extern NSString * const BPLStreetMapViewControllerSegue;
 #pragma mark - 3rd Party Keys
 
 extern NSString * const BPLCrashReportingKey;
-extern NSString * const BPLAnalyticsKey;
+extern NSString * const BPLTrackingKey;
 extern NSString * const BPLMapsKey;
 
 #pragma mark - NSNotificationCenter Keys

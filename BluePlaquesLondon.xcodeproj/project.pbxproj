@@ -1200,7 +1200,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
-					"ANALYTICS=1",
+					"TRACKING=1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers\"",
@@ -1272,7 +1272,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
-					"ANALYTICS=1",
+					"TRACKING=1",
 					"CRASH_REPORTING=1",
 				);
 				HEADER_SEARCH_PATHS = (

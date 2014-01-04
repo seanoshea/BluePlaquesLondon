@@ -22,13 +22,14 @@
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
 
 #import "BPLConfiguration.h"
+#import "BPLConstants.h"
 
 @implementation NSObject (BPLTracking)
 
 - (void)trackCategory:(NSString *)category action:(NSString *)action label:(NSString *)label
 {
     if ([BPLConfiguration isTrackingEnabled]) {
-        id tracker = [[GAI sharedInstance] defaultTracker];
+        id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:BPLTrackingKey];
         [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
                                                               action:action
                                                                label:label

@@ -138,10 +138,11 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 - (void)initializeTracking
 {
     if ([BPLConfiguration isTrackingEnabled]) {
-        NSString *shortVersionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+        
         [GAI sharedInstance].trackUncaughtExceptions = YES;
         [GAI sharedInstance].dispatchInterval = 20;
         [[[GAI sharedInstance] logger] setLogLevel:[BPLConfiguration isDebug] ? kGAILogLevelVerbose : kGAILogLevelWarning];
+        NSString *shortVersionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
         [self trackCategory:BPLApplicationLoaded action:[NSString stringWithFormat:@"Application Version: %@", shortVersionString] label:[NSString stringWithFormat:@"iOS Version %@", [[UIDevice currentDevice] systemVersion]]];
     }
 }
