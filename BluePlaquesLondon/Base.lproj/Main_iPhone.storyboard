@@ -286,31 +286,44 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developed By ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="C0O-B9-Sva" userLabel="Label - Developer Details" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="69" width="280" height="16"/>
+                                        <rect key="frame" x="20" y="70" width="280" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Designer Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-jY-OaL" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="95" width="280" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Designed by ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFm-gZ-3NG" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="120" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Map Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-or-M42" userLabel="Label - Data" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="105" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="145" width="280" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Roy Reed etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="pna-Ua-oXY" userLabel="Label - Data Details" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="130" width="280" height="16"/>
+                                        <rect key="frame" x="20" y="170" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-xa-FBm" userLabel="Label - Google Maps Label" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="164" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="195" width="280" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-Zd-Lf9" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="192" width="280" height="16"/>
+                                        <rect key="frame" x="20" y="220" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
@@ -318,24 +331,24 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="XQD-bH-S3G" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="20" symbolic="YES" id="9X7-XI-3Z8"/>
-                                    <constraint firstAttribute="bottom" secondItem="AeP-Zd-Lf9" secondAttribute="bottom" constant="372" id="CH7-PO-Xva"/>
+                                    <constraint firstAttribute="bottom" secondItem="AeP-Zd-Lf9" secondAttribute="bottom" constant="344" id="CH7-PO-Xva"/>
                                     <constraint firstItem="mdh-or-M42" firstAttribute="leading" secondItem="pna-Ua-oXY" secondAttribute="leading" id="CbQ-bJ-bDU"/>
                                     <constraint firstItem="XQD-bH-S3G" firstAttribute="top" secondItem="uZw-N3-KbI" secondAttribute="top" constant="45" id="HLJ-Ws-mWj"/>
                                     <constraint firstItem="pna-Ua-oXY" firstAttribute="leading" secondItem="BIY-xa-FBm" secondAttribute="leading" id="NRI-Tz-cov"/>
                                     <constraint firstItem="XQD-bH-S3G" firstAttribute="centerX" secondItem="uZw-N3-KbI" secondAttribute="centerX" id="Np1-oz-Ghe"/>
-                                    <constraint firstItem="mdh-or-M42" firstAttribute="top" secondItem="C0O-B9-Sva" secondAttribute="bottom" constant="20" id="R61-if-c6a"/>
+                                    <constraint firstItem="mdh-or-M42" firstAttribute="top" secondItem="C0O-B9-Sva" secondAttribute="bottom" constant="59" id="R61-if-c6a"/>
                                     <constraint firstItem="pna-Ua-oXY" firstAttribute="trailing" secondItem="BIY-xa-FBm" secondAttribute="trailing" id="SnR-Nq-Rya"/>
                                     <constraint firstAttribute="trailing" secondItem="XQD-bH-S3G" secondAttribute="trailing" constant="20" symbolic="YES" id="VSZ-qf-uwc"/>
-                                    <constraint firstItem="C0O-B9-Sva" firstAttribute="top" secondItem="XQD-bH-S3G" secondAttribute="bottom" id="ViD-6H-1KA"/>
+                                    <constraint firstItem="C0O-B9-Sva" firstAttribute="top" secondItem="XQD-bH-S3G" secondAttribute="bottom" constant="1" id="ViD-6H-1KA"/>
                                     <constraint firstItem="C0O-B9-Sva" firstAttribute="trailing" secondItem="XQD-bH-S3G" secondAttribute="trailing" id="Zvw-hP-M5s"/>
                                     <constraint firstItem="mdh-or-M42" firstAttribute="leading" secondItem="C0O-B9-Sva" secondAttribute="leading" id="bhj-lY-2uF"/>
-                                    <constraint firstItem="AeP-Zd-Lf9" firstAttribute="top" secondItem="BIY-xa-FBm" secondAttribute="bottom" constant="4" id="bo2-ZT-5CF"/>
+                                    <constraint firstItem="AeP-Zd-Lf9" firstAttribute="top" secondItem="BIY-xa-FBm" secondAttribute="bottom" constant="1" id="bo2-ZT-5CF"/>
                                     <constraint firstItem="BIY-xa-FBm" firstAttribute="trailing" secondItem="AeP-Zd-Lf9" secondAttribute="trailing" id="c97-2x-TqX"/>
                                     <constraint firstItem="mdh-or-M42" firstAttribute="trailing" secondItem="pna-Ua-oXY" secondAttribute="trailing" id="gks-x3-HLk"/>
                                     <constraint firstItem="pna-Ua-oXY" firstAttribute="top" secondItem="mdh-or-M42" secondAttribute="bottom" constant="1" id="mhC-dd-nui"/>
                                     <constraint firstItem="C0O-B9-Sva" firstAttribute="leading" secondItem="XQD-bH-S3G" secondAttribute="leading" id="vTA-Od-Bdc"/>
                                     <constraint firstItem="BIY-xa-FBm" firstAttribute="leading" secondItem="AeP-Zd-Lf9" secondAttribute="leading" id="vvp-av-L1e"/>
-                                    <constraint firstItem="BIY-xa-FBm" firstAttribute="top" secondItem="pna-Ua-oXY" secondAttribute="bottom" constant="18" id="w45-1V-gev"/>
+                                    <constraint firstItem="BIY-xa-FBm" firstAttribute="top" secondItem="pna-Ua-oXY" secondAttribute="bottom" constant="9" id="w45-1V-gev"/>
                                     <constraint firstItem="C0O-B9-Sva" firstAttribute="trailing" secondItem="mdh-or-M42" secondAttribute="trailing" id="xda-lh-3F4"/>
                                 </constraints>
                             </scrollView>
@@ -352,6 +365,8 @@
                     <connections>
                         <outlet property="dataDetailsLabel" destination="pna-Ua-oXY" id="g9x-uJ-gjy"/>
                         <outlet property="dataLabel" destination="mdh-or-M42" id="tOv-TX-wg7"/>
+                        <outlet property="designerDetailsLabel" destination="XFm-gZ-3NG" id="jIh-zp-zXg"/>
+                        <outlet property="designerLabel" destination="vSQ-jY-OaL" id="RYL-Ep-cmw"/>
                         <outlet property="developerDetailsLabel" destination="C0O-B9-Sva" id="zqE-h5-hmY"/>
                         <outlet property="developerLabel" destination="XQD-bH-S3G" id="2k5-Oq-oSH"/>
                         <outlet property="googleMapsLabel" destination="BIY-xa-FBm" id="RuJ-e8-GVu"/>

@@ -28,6 +28,9 @@
 @property (nonatomic, weak) IBOutlet BPLLabel *developerLabel;
 @property (nonatomic, weak) IBOutlet BPLLabel *developerDetailsLabel;
 
+@property (nonatomic, weak) IBOutlet BPLLabel *designerLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *designerDetailsLabel;
+
 @property (nonatomic, weak) IBOutlet BPLLabel *dataLabel;
 @property (nonatomic, weak) IBOutlet BPLLabel *dataDetailsLabel;
 
@@ -66,6 +69,14 @@
     NSRange range = [self.developerDetailsLabel.text rangeOfString:@"Sean O' Shea"];
     [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:@"http://www.twitter.com/seanoshea"] withRange:range];
     
+    self.designerLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.designerLabel.textColor = [UIColor BPLOrangeColour];
+    self.designerDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.designerDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.designerDetailsLabel.delegate = self;
+    self.designerLabel.text = NSLocalizedString(@"Designer Details", nil);
+    self.designerDetailsLabel.text = NSLocalizedString(@"Designed by ...", nil);
+
     self.dataLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
     self.dataLabel.textColor = [UIColor BPLOrangeColour];
     self.dataDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
