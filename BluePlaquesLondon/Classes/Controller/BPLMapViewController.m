@@ -132,8 +132,8 @@
                                                             longitude:lastKnownCoordinate.longitude
                                                                  zoom:mapZoom];
 
-    self.mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
-    UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0, 5.0f, 48.0f, 0.0);
+    self.mapView = [GMSMapView mapWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
+    UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0f, 5.0f, 48.0f, 0.0f);
     self.mapView.padding = mapInsets;
     
     self.mapView.delegate = self;
@@ -239,14 +239,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    if (!self.currentLocation) {
-        self.currentLocation = [locations lastObject];
-    }
-    for (CLLocation *recordedLocation in locations) {
-        if (recordedLocation.horizontalAccuracy < self.currentLocation.horizontalAccuracy) {
-            self.currentLocation = recordedLocation;
-        }
-    }
+    self.currentLocation = locations.lastObject;
     [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
 }
 
