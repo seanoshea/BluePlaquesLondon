@@ -34,12 +34,13 @@
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-
-@property (nonatomic) BPLMapViewModel *model;
-
-@property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) GMSMapView *mapView;
 
+@property (nonatomic) BPLMapViewModel *model;
+@property (nonatomic) NSTimer *loadingTimer;
+@property (nonatomic) NSUInteger loadingTicks;
+
+@property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) CLLocation *currentLocation;
 
 @end
@@ -105,7 +106,7 @@
 {
     self.model = [[BPLMapViewModel alloc] initWithKMZFileParsedCallback:^{
         
-        [SVProgressHUD dismiss];
+        [self dismissHUDAndInvalidateTimer];
         
         [self.model createMarkersForMap:self.mapView];
         self.searchBar.userInteractionEnabled = YES;
@@ -139,22 +140,25 @@
     self.mapView = [GMSMapView mapWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
     UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0f, 5.0f, 48.0f, 0.0f);
     self.mapView.padding = mapInsets;
-    
     self.mapView.delegate = self;
     self.mapView.indoorEnabled = NO;
     self.mapView.settings.myLocationButton = YES;
     self.mapView.settings.compassButton = NO;
     [self.view addSubview:self.mapView];
-
     [self.mapView animateToLocation:lastKnownCoordinate];
     
     self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
     self.searchBar.userInteractionEnabled = NO;
     [self.view bringSubviewToFront:self.searchBar];
-    
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
-    
     [self toggleTableView:NO];
+    
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"") maskType:SVProgressHUDMaskTypeGradient];
+    self.loadingTicks = 0;
+    self.loadingTimer = [NSTimer scheduledTimerWithTimeInterval:1.5f
+                                                         target:self
+                                                       selector:@selector(updateLoadingMessage)
+                                                       userInfo:nil
+                                                        repeats:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -165,7 +169,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [SVProgressHUD dismiss];
+    [self dismissHUDAndInvalidateTimer];
     [super viewWillDisappear:animated];
 }
 
@@ -292,6 +296,36 @@
             [self trackCategory:BPLUIActionCategory action:action label:placemarkForMarker.name];
         }
     });
+}
+
+#pragma mark - Loading
+
+- (void)updateLoadingMessage
+{
+    static NSArray *loadingMessages;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        loadingMessages = @[NSLocalizedString(@"Loading .", nil),
+                            NSLocalizedString(@"Loading ..", nil),
+                            NSLocalizedString(@"Loading ...", nil),
+                            NSLocalizedString(@"Loading ....", nil),
+                            NSLocalizedString(@"Nearly ready .....", nil)];
+    });
+    NSString *message;
+    if (loadingMessages.count > self.loadingTicks) {
+        message = loadingMessages[self.loadingTicks];
+    } else {
+        message = loadingMessages[loadingMessages.count - 1];
+    }
+    self.loadingTicks++;
+    [SVProgressHUD showWithStatus:message maskType:SVProgressHUDMaskTypeGradient];
+}
+
+- (void)dismissHUDAndInvalidateTimer
+{
+    [SVProgressHUD dismiss];
+    [self.loadingTimer invalidate];
+    self.loadingTimer = nil;
 }
 
 @end
