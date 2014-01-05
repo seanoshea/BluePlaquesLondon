@@ -6,9 +6,9 @@ pod 'TTTAttributedLabel', '~> 1.6.3'
 pod 'CocoaLumberjack', '~> 1.6.2'
 pod 'GoogleAnalytics-iOS-SDK', '~> 3.0'
 pod 'Google-Maps-iOS-SDK', '~> 1.6.0'
-pod 'DACircularProgress', '~> 2.1.0'
 pod 'IntentKit'
 pod 'HCViews'
+pod 'SVProgressHUD'
 
 post_install do |installer|
   installer.project.targets.each do |target|

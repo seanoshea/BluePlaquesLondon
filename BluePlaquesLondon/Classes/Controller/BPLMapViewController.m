@@ -28,6 +28,8 @@
 #import "BPLMapViewDetailViewModel.h"
 #import "NSObject+BPLTracking.h"
 
+#import <SVProgressHUD/SVProgressHUD.h>
+
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
@@ -103,6 +105,8 @@
 {
     self.model = [[BPLMapViewModel alloc] initWithKMZFileParsedCallback:^{
         
+        [SVProgressHUD dismiss];
+        
         [self.model createMarkersForMap:self.mapView];
         self.searchBar.userInteractionEnabled = YES;
         [self.tableView reloadData];
@@ -147,13 +151,22 @@
     self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
     self.searchBar.userInteractionEnabled = NO;
     [self.view bringSubviewToFront:self.searchBar];
-
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    
     [self toggleTableView:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [SVProgressHUD dismiss];
+    [super viewWillDisappear:animated];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

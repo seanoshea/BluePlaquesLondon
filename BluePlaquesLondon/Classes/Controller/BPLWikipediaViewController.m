@@ -16,7 +16,7 @@
 
 #import "BPLWikipediaViewController.h"
 
-#import <DACircularProgress/DACircularProgressView.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #import "SimpleKMLPlacemark+Additions.h"
 #import "BPLWikipediaViewModel.h"
@@ -25,8 +25,6 @@
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) DACircularProgressView *progressView;
-@property (strong, nonatomic) NSTimer *timer;
 
 @property (nonatomic) BPLWikipediaViewModel *model;
 
@@ -40,12 +38,6 @@
 {
     [super viewDidLoad];
     self.screenName = @"Wikipedia Screen";
-    
-    self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 140.0f, 40.0f, 40.0f)];
-    self.progressView.roundedCorners = YES;
-    self.progressView.trackTintColor = [UIColor BPLBlueColour];
-    self.progressView.progressTintColor = [UIColor BPLOrangeColour];
-    [self.view addSubview:self.progressView];
 
     self.webView.backgroundColor = [UIColor BPLGreyColour];
     self.webView.opaque = NO;
@@ -59,12 +51,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self startAnimation];
+    [SVProgressHUD show];
+    
     [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
         if (!error) {
             [self.webView loadRequest:urlRequest];
         } else {
-            [self stopAnimation];
+            [SVProgressHUD dismiss];
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oooops", nil)
                                         message:NSLocalizedString(@"There was an error loading this Wikipedia Article", nil)
                                        delegate:nil
@@ -76,7 +69,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self stopAnimation];
+    [SVProgressHUD dismiss];
     [super viewWillDisappear:animated];
 }
 
@@ -94,32 +87,12 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self stopAnimation];
+    [SVProgressHUD dismiss];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [self stopAnimation];
-}
-
-- (void)progressChange
-{
-    CGFloat progress = !self.timer.isValid ? 30 / 10.0f : self.progressView.progress + 0.01f;
-    [self.progressView setProgress:progress animated:YES];
-    if (self.progressView.progress >= 1.0f && self.timer.isValid) {
-        [self.progressView setProgress:0.f animated:YES];
-    }
-}
-
-- (void)startAnimation
-{
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
-}
-
-- (void)stopAnimation
-{
-    [self.timer invalidate];
-    self.progressView.hidden = YES;
+    [SVProgressHUD dismiss];
 }
 
 - (void)dealloc
