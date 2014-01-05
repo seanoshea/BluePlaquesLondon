@@ -142,6 +142,7 @@
     self.mapView.padding = mapInsets;
     self.mapView.delegate = self;
     self.mapView.indoorEnabled = NO;
+    self.mapView.myLocationEnabled = YES;
     self.mapView.settings.myLocationButton = YES;
     self.mapView.settings.compassButton = NO;
     [self.view addSubview:self.mapView];
