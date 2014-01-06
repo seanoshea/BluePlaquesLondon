@@ -36,6 +36,7 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];

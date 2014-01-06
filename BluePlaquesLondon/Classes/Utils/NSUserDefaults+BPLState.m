@@ -28,6 +28,10 @@ static float const BPLStateMapZoomDefault = 15.0f;
 
 static NSString *const BPLTrackingEnabled = @"BPLTrackingEnabled";
 
+// Winston Churchill's lat/long
+static CGFloat const BPLDefaultLatitude = 51.50016999993306f;
+static CGFloat const BPLDefaultLongitude = -0.1814680000049975f;
+
 @implementation NSUserDefaults (BPLState)
 
 - (CLLocationCoordinate2D)lastKnownBPLCoordinate
@@ -95,7 +99,7 @@ static NSString *const BPLTrackingEnabled = @"BPLTrackingEnabled";
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitudeDegrees, longitudeDegrees);
     // check to see whether this is a valid lat/long coordinate.
     if (![self isValidCoordinate:coordinate]) {
-        coordinate = CLLocationCoordinate2DMake(51.50016999993306, -0.1814680000049975);
+        coordinate = CLLocationCoordinate2DMake(BPLDefaultLatitude, BPLDefaultLongitude);
     }
     return coordinate;
 }

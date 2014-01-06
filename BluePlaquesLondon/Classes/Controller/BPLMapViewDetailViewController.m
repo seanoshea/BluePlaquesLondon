@@ -73,6 +73,7 @@
 
 - (void)viewDidLayoutSubviews
 {
+    [super viewDidLayoutSubviews];
     self.scrollView.contentSize = self.scrollView.sizeThatFitsSubviews;
 }
 
