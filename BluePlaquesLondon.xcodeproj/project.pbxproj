@@ -72,7 +72,6 @@
 		765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */; };
 		765081BB187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */; };
 		765081C318786C3D009EF6F2 /* NSObject+BPLTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */; };
-		765081C418786C3D009EF6F2 /* NSObject+BPLTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */; };
 		7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
 		765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */; };
 		765762AB18744DB700CD9208 /* BPLWikipediaViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */; };
@@ -918,7 +917,6 @@
 				765762B118744E5700CD9208 /* UIColor+BluePlaquesLondon.m in Sources */,
 				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */,
-				765081C418786C3D009EF6F2 /* NSObject+BPLTracking.m in Sources */,
 				765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */,
 				76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
 				76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */,
