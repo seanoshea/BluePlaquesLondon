@@ -26,7 +26,7 @@
 #import "BPLDetailChooserViewController.h"
 #import "BPLStreetViewViewController.h"
 #import "BPLMapViewDetailViewModel.h"
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 #import "NSString+BPLPlacemarkFeatureDescription.h"
 #import "NSUserDefaults+BPLState.h"
 #import "UIScrollView+Autosizing.h"

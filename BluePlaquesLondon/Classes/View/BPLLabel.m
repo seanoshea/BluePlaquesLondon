@@ -16,7 +16,7 @@
 
 #import "BPLLabel.h"
 
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 
 @implementation BPLLabel
 

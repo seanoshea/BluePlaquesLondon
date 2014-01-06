@@ -17,7 +17,7 @@
 #import "BPLDetailChooserViewController.h"
 
 #import "SimpleKMLPlacemark.h"
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 #import "BPLConstants.h"
 
 #import <GoogleAnalytics-iOS-SDK/GAI.h>

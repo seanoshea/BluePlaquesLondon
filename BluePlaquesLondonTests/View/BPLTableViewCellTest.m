@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 
 #import "BPLTableViewCell.h"
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 
 @interface BPLTableViewCellTest : XCTestCase
 

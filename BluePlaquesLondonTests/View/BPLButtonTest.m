@@ -17,7 +17,7 @@
 #import <XCTest/XCTest.h>
 
 #import "BPLButton.h"
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 
 @interface BPLButtonTest : XCTestCase
 

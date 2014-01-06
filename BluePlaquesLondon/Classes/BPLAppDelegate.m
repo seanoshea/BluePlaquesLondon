@@ -25,7 +25,7 @@
 
 #import "BPLConfiguration.h"
 #import "BPLConstants.h"
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {

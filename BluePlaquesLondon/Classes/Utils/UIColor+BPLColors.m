@@ -14,9 +14,9 @@
  limitations under the License.
  */
 
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 
-@implementation UIColor (BluePlaquesLondon)
+@implementation UIColor (BPLColors)
 
 + (UIColor *)BPLBlueColour
 {

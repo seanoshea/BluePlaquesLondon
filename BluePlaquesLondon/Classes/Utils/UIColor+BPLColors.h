@@ -16,7 +16,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (BluePlaquesLondon)
+@interface UIColor (BPLColors)
 
 + (UIColor *)BPLBlueColour;
 + (UIColor *)BPLGreyColour;

@@ -16,7 +16,7 @@
 
 #import "BPLButton.h"
 
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 
 @implementation BPLButton
 

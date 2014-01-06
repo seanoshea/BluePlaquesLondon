@@ -19,7 +19,7 @@
 #import "BPLAboutViewModel.h"
 #import "BPLLabel.h"
 #import "UIScrollView+Autosizing.h"
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 #import "BPLConstants.h"
 #import "NSObject+BPLTracking.h"
 

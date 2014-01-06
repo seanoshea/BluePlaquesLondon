@@ -20,7 +20,7 @@
 
 #import "SimpleKMLPlacemark+BPLAdditions.h"
 #import "BPLWikipediaViewModel.h"
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 

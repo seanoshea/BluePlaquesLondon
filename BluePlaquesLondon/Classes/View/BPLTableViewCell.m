@@ -16,7 +16,7 @@
 
 #import "BPLTableViewCell.h"
 
-#import "UIColor+BluePlaquesLondon.h"
+#import "UIColor+BPLColors.h"
 
 NSString * const BPLClosestCell = @"BluePlaquesClosestCell";
 NSString * const BPLSearchCell = @"BluePlaquesLondonSearchCell";
