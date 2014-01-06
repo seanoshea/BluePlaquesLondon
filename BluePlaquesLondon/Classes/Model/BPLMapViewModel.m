@@ -28,7 +28,7 @@
 #import "SimpleKMLBalloonStyle.h"
 #import "SimpleKMLFolder.h"
 
-#import "SimpleKMLPlacemark+Additions.h"
+#import "SimpleKMLPlacemark+BPLAdditions.h"
 
 @interface BPLMapViewModel()
 

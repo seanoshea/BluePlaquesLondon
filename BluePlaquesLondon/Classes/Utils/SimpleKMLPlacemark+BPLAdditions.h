@@ -16,7 +16,7 @@
 
 #import "SimpleKMLPlacemark.h"
 
-@interface SimpleKMLPlacemark (Additions)
+@interface SimpleKMLPlacemark (BPLAdditions)
 
 - (NSString *)name;
 - (NSString *)title;

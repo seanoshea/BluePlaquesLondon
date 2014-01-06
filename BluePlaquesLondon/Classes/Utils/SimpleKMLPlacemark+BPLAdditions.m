@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-#import "SimpleKMLPlacemark+Additions.h"
+#import "SimpleKMLPlacemark+BPLAdditions.h"
 
 #import "NSString+BPLPlacemarkFeatureDescription.h"
 #import "SimpleKMLPoint.h"
@@ -24,7 +24,7 @@ static NSString *const BPLNameDelimiter = @"(";
 static NSString *const BPLEmphasisNoteOpeningTag = @"<em>";
 static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
-@implementation SimpleKMLPlacemark (Additions)
+@implementation SimpleKMLPlacemark (BPLAdditions)
 
 - (NSString *)name
 {

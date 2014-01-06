@@ -102,8 +102,8 @@
 		76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E24B021872018B004472AC /* BPLURLResourceLoader.m */; };
 		76E24B0518720285004472AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 76E24B0418720285004472AC /* wikipedia.json */; };
 		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
-		76E9083E1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
-		76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */; };
+		76E9083E1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m */; };
+		76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m */; };
 		76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
 		76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
 		76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F19BA61865DA90002F6A3D /* QuartzCore.framework */; };
@@ -292,8 +292,8 @@
 		76E24B0418720285004472AC /* wikipedia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia.json; sourceTree = "<group>"; };
 		76E908301854B1F900B31DC4 /* BPLMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLMapViewModel.h; path = Model/BPLMapViewModel.h; sourceTree = "<group>"; };
 		76E908311854B1F900B31DC4 /* BPLMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLMapViewModel.m; path = Model/BPLMapViewModel.m; sourceTree = "<group>"; };
-		76E9083C1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SimpleKMLPlacemark+Additions.h"; sourceTree = "<group>"; };
-		76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SimpleKMLPlacemark+Additions.m"; sourceTree = "<group>"; };
+		76E9083C1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SimpleKMLPlacemark+BPLAdditions.h"; sourceTree = "<group>"; };
+		76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SimpleKMLPlacemark+BPLAdditions.m"; sourceTree = "<group>"; };
 		76F19BA21865C5D2002F6A3D /* BPLWikipediaViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLWikipediaViewModel.h; path = Model/BPLWikipediaViewModel.h; sourceTree = "<group>"; };
 		76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLWikipediaViewModel.m; path = Model/BPLWikipediaViewModel.m; sourceTree = "<group>"; };
 		76F19BA61865DA90002F6A3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -413,8 +413,8 @@
 				76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */,
 				7695D68F184B375200E735C4 /* NSUserDefaults+BPLState.h */,
 				7695D690184B375200E735C4 /* NSUserDefaults+BPLState.m */,
-				76E9083C1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.h */,
-				76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m */,
+				76E9083C1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.h */,
+				76E9083D1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m */,
 				76289C901842AE04008E1391 /* UIColor+BluePlaquesLondon.h */,
 				76289C911842AE04008E1391 /* UIColor+BluePlaquesLondon.m */,
 			);
@@ -927,7 +927,7 @@
 				765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */,
 				765081B718776C20009EF6F2 /* BPLMapViewDetailViewModel.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
-				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
+				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m in Sources */,
 				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -970,7 +970,7 @@
 				76289CD41843F4AB008E1391 /* SimpleKMLColorStyle.m in Sources */,
 				76289CDE1843F4AB008E1391 /* SimpleKMLGeometry.m in Sources */,
 				76289D321843F520008E1391 /* CXMLNode_PrivateExtensions.m in Sources */,
-				76E9083E1854D9BA00B31DC4 /* SimpleKMLPlacemark+Additions.m in Sources */,
+				76E9083E1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m in Sources */,
 				76289CEA1843F4AB008E1391 /* SimpleKMLMultiGeometry.m in Sources */,
 				76289D431843F53B008E1391 /* FileInZipInfo.m in Sources */,
 				76289D471843F53B008E1391 /* ZipFile.m in Sources */,

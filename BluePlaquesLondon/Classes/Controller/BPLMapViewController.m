@@ -18,7 +18,7 @@
 
 #import "BPLMapViewModel.h"
 
-#import "SimpleKMLPlacemark+Additions.h"
+#import "SimpleKMLPlacemark+BPLAdditions.h"
 #import "SimpleKMLPoint.h"
 #import "NSUserDefaults+BPLState.h"
 #import "BPLMapViewDetailViewController.h"

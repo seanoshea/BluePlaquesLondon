@@ -19,7 +19,7 @@
 #import <IntentKit/IntentKit.h>
 #import <HCViews/HCChevronView.h>
 
-#import "SimpleKMLPlacemark+Additions.h"
+#import "SimpleKMLPlacemark+BPLAdditions.h"
 #import "SimpleKMLPoint.h"
 #import "BPLConstants.h"
 #import "BPLWikipediaViewController.h"
