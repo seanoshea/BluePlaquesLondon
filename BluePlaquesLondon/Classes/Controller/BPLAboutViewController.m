@@ -20,6 +20,12 @@
 #import "BPLLabel.h"
 #import "UIScrollView+Autosizing.h"
 #import "UIColor+BluePlaquesLondon.h"
+#import "BPLConstants.h"
+#import "NSObject+BPLTracking.h"
+
+static NSString *const BPLDeveloperURLString = @"http://www.twitter.com/seanoshea";
+static NSString *const BPLDesignerURLString = @"";
+static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 @interface BPLAboutViewController () <TTTAttributedLabelDelegate>
 
@@ -41,8 +47,8 @@
 
 @implementation BPLAboutViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
     self = [super initWithCoder:aDecoder];
     if (self) {
         _model = [[BPLAboutViewModel alloc] init];
@@ -67,7 +73,7 @@
     self.developerLabel.text = NSLocalizedString(@"Developer Details", nil);
     self.developerDetailsLabel.text = NSLocalizedString(@"Developed by Sean O' Shea", nil);
     NSRange range = [self.developerDetailsLabel.text rangeOfString:@"Sean O' Shea"];
-    [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:@"http://www.twitter.com/seanoshea"] withRange:range];
+    [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDeveloperURLString] withRange:range];
     
     self.designerLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
     self.designerLabel.textColor = [UIColor BPLOrangeColour];
@@ -85,7 +91,7 @@
     self.dataLabel.text = NSLocalizedString(@"Map Data Details", nil);
     self.dataDetailsLabel.text = NSLocalizedString(@"Map Data for this application is maintained by Roy Reed", nil);
     NSRange dataDetailsRange = [self.dataDetailsLabel.text rangeOfString:@"Roy Reed"];
-    [self.dataDetailsLabel addLinkToURL:[NSURL URLWithString:@"http://www.reeddesign.co.uk"] withRange:dataDetailsRange];
+    [self.dataDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDataURLString] withRange:dataDetailsRange];
     
     self.googleMapsLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
     self.googleMapsLabel.textColor = [UIColor BPLOrangeColour];
@@ -102,6 +108,12 @@
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
+    // tracking
+    if ([url.absoluteString isEqualToString:BPLDeveloperURLString] ||
+        [url.absoluteString isEqualToString:BPLDesignerURLString] ||
+        [url.absoluteString isEqualToString:BPLDataURLString]) {
+        [self trackCategory:BPLUIActionCategory action:BPLAboutLinkPressedEvent label:url.absoluteString];
+    }
     [[UIApplication sharedApplication] openURL:url];
 }
 

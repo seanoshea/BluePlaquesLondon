@@ -46,5 +46,6 @@ NSString * const BPLDirectionsButtonPressedEvent = @"BPLDirectionsButtonPressedE
 NSString * const BPLTableRowPressedEvent = @"BPLTableRowPressedEvent";
 NSString * const BPLMarkerPressedEvent = @"BPLMarkerPressedEvent";
 NSString * const BPLMarkerInfoWindowPressedEvent = @"BPLMarkerInfoWindowPressedEvent";
+NSString * const BPLAboutLinkPressedEvent = @"BPLAboutLinkPressedEvent";
 
 @end

@@ -44,5 +44,6 @@ extern NSString * const BPLDirectionsButtonPressedEvent;
 extern NSString * const BPLTableRowPressedEvent;
 extern NSString * const BPLMarkerPressedEvent;
 extern NSString * const BPLMarkerInfoWindowPressedEvent;
+extern NSString * const BPLAboutLinkPressedEvent;
 
 @end
