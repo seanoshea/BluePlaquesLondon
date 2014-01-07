@@ -45,7 +45,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 {
     [self initializeGoogleMapsApi];
     [self initializeStyling];
-    [self initializeLogging];
     [self initializeReachability];
     [self initializeLocalization];
     [self initializeTracking];
@@ -72,16 +71,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     self.window.tintColor = [UIColor BPLBlueColour];
 }
 
-- (void)initializeLogging
-{
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    NSString *productName =  [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
-    NSString *shortVersionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
-    DDLogInfo(@"Application Loaded");
-    DDLogInfo(@"%@ v%@", productName, shortVersionString);
-}
-
 #pragma mark Reachability
 
 - (void)initializeReachability
@@ -91,7 +80,8 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [self.internetReach startNotifier];
 }
 
-- (BOOL)hasInternetConnection {
+- (BOOL)hasInternetConnection
+{
     BOOL hasInternetConnection = NO;
     if (self.internetReach) {
         NetworkStatus netStatus = [self.internetReach currentReachabilityStatus];
@@ -100,15 +90,16 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     return hasInternetConnection;
 }
 
-- (void)reachabilityChanged:(NSNotification *)notification {
+- (void)reachabilityChanged:(NSNotification *)notification
+{
     // check to see whether the device was previously offline & whether the new reachability is online
     if (self.internetReach && [self.internetReach currentReachabilityStatus] != NotReachable) {
-        DDLogInfo(@"Reachability changed back to reachable");
         [[NSNotificationCenter defaultCenter] postNotificationName:BPLNetworkAvailable object:nil];
     }
 }
 
-- (void)initializeLocalization {
+- (void)initializeLocalization
+{
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     NSArray *viewControllers = tabBarController.viewControllers;
     // Ensure each view controller has a unique identifier
