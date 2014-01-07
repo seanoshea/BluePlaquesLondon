@@ -18,6 +18,13 @@
 
 #import "GMSPanoramaView.h"
 #import "SimpleKMLPoint.h"
+#import "GMSPanorama.h"
+
+@interface BPLStreetViewViewController() <GMSPanoramaViewDelegate>
+
+@property (nonatomic, copy) NSString *firstPanoramaId;
+
+@end
 
 @implementation BPLStreetViewViewController
 
@@ -27,7 +34,28 @@
     self.screenName = @"Street View Screen";
     self.title = NSLocalizedString(@"Street View", nil);
     GMSPanoramaView *panoView = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:self.placemark.point.coordinate];
+    panoView.delegate = self;
     self.view = panoView;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.firstPanoramaId = nil;
+    [super viewWillAppear:animated];
+}
+
+- (void)panoramaView:(GMSPanoramaView *)view didMoveToPanorama:(GMSPanorama *)panorama
+{
+    if (!self.firstPanoramaId) {
+        self.firstPanoramaId = panorama.panoramaID;
+    }
+    if (!self.firstPanoramaId) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Ooooops ...", nil)
+                                   message:NSLocalizedString(@"Could not load Street View", nil)
+                                  delegate:nil
+                         cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                         otherButtonTitles:nil, nil] show];
+    }
 }
 
 @end
