@@ -21,6 +21,8 @@
 #import "SimpleKMLPlacemark+BPLAdditions.h"
 #import "BPLWikipediaViewModel.h"
 #import "UIColor+BPLColors.h"
+#import "NSObject+BPLTracking.h"
+#import "BPLConstants.h"
 
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 
@@ -52,17 +54,11 @@
 {
     [super viewWillAppear:animated];
     [SVProgressHUD show];
-    
     [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
         if (!error) {
             [self.webView loadRequest:urlRequest];
         } else {
-            [SVProgressHUD dismiss];
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oooops", nil)
-                                        message:NSLocalizedString(@"There was an error loading this Wikipedia Article", nil)
-                                       delegate:nil
-                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                              otherButtonTitles:nil] show];
+            [self displayErrorAlert];
         }
     }];
 }
@@ -92,13 +88,27 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+    [self displayErrorAlert];
+}
+
+- (void)displayErrorAlert
+{
     [SVProgressHUD dismiss];
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oooops", nil)
+                                message:NSLocalizedString(@"There was an error loading this Wikipedia Article", nil)
+                               delegate:nil
+                      cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                      otherButtonTitles:nil] show];
+    if (self.markers.count) {
+        SimpleKMLPlacemark *placemark = self.markers[0];
+        [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
+    }
 }
 
 - (void)dealloc
 {
-    [self.webView stopLoading];
     self.webView.delegate = nil;
+    [self.webView stopLoading];
 }
 
 @end

@@ -129,8 +129,10 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 - (void)initializeTracking
 {
     if ([BPLConfiguration isTrackingEnabled]) {
-        
-        [GAI sharedInstance].trackUncaughtExceptions = YES;
+        // don't bother sending analytics for debug builds.
+        if ([BPLConfiguration isDebug]) {
+            [GAI sharedInstance].dryRun = YES;
+        }
         [GAI sharedInstance].dispatchInterval = 20;
         [[[GAI sharedInstance] logger] setLogLevel:[BPLConfiguration isDebug] ? kGAILogLevelVerbose : kGAILogLevelWarning];
         NSString *shortVersionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
@@ -142,6 +144,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 {
     if ([BPLConfiguration isCrashReportingEnabled]) {
         [Crashlytics startWithAPIKey:BPLCrashReportingKey];
+        [GAI sharedInstance].trackUncaughtExceptions = YES;
     }
 }
 

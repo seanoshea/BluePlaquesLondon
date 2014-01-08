@@ -19,6 +19,8 @@
 #import "GMSPanoramaView.h"
 #import "SimpleKMLPoint.h"
 #import "GMSPanorama.h"
+#import "NSObject+BPLTracking.h"
+#import "BPLConstants.h"
 
 @interface BPLStreetViewViewController() <GMSPanoramaViewDelegate>
 
@@ -55,6 +57,7 @@
                                   delegate:nil
                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
                          otherButtonTitles:nil, nil] show];
+        [self trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:self.placemark.name];
     }
 }
 
