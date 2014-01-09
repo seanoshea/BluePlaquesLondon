@@ -28,6 +28,9 @@
 #import "SimpleKMLBalloonStyle.h"
 #import "SimpleKMLFolder.h"
 
+#import "NSObject+BPLTracking.h"
+#import "BPLConstants.h"
+
 #import "SimpleKMLPlacemark+BPLAdditions.h"
 
 @interface BPLMapViewModel()
@@ -57,7 +60,13 @@
 {
     // can take some time to parse the kmz file ...
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSDate *methodStart = [NSDate date];
+        
         SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kmz"] error:nil];
+        
+        [self trackCategory:BPLKMZFileParsing action:BPLKMZFileParsing label:[NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSinceDate:methodStart]]];
+
         if (kml.feature && [kml.feature isKindOfClass:[SimpleKMLDocument class]]) {
             for (SimpleKMLFeature *feature in ((SimpleKMLContainer *)kml.feature).features) {
                 if ([feature isKindOfClass:[SimpleKMLFolder class]]) {

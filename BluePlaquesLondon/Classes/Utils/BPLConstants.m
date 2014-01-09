@@ -40,6 +40,7 @@ NSString * const BPLDetailChooserViewControllerRowSelected = @"BPLDetailChooserV
 NSString * const BPLApplicationLoaded = @"ApplicationLoaded";
 NSString * const BPLUIActionCategory = @"BPLUIActionCategory";
 NSString * const BPLErrorCategory = @"BPLErrorCategory";
+NSString * const BPLKMZFileParsing = @"BPLKMZFileParsing";
 
 NSString * const BPLDetailsButtonPressedEvent = @"BPLDetailsButtonPressedEvent";
 NSString * const BPLWikipediaButtonPressedEvent = @"BPLWikipediaButtonPressedEvent";
@@ -51,5 +52,6 @@ NSString * const BPLMarkerInfoWindowPressedEvent = @"BPLMarkerInfoWindowPressedE
 NSString * const BPLAboutLinkPressedEvent = @"BPLAboutLinkPressedEvent";
 NSString * const BPLWikipediaPageLoadErrorEvent = @"BPLWikipediaPageLoadErrorEvent";
 NSString * const BPLStreetMapsPageLoadErrorEvent = @"BPLStreetMapsPageLoadErrorEvent";
+NSString * const BPLKMZFileParsingEvent = @"BPLKMZFileParsingEvent";
 
 @end

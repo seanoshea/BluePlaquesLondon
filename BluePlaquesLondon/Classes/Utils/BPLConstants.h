@@ -38,6 +38,7 @@ extern NSString * const BPLDetailChooserViewControllerRowSelected;
 extern NSString * const BPLApplicationLoaded;
 extern NSString * const BPLUIActionCategory;
 extern NSString * const BPLErrorCategory;
+extern NSString * const BPLKMZFileParsing;
 
 extern NSString * const BPLDetailsButtonPressedEvent;
 extern NSString * const BPLWikipediaButtonPressedEvent;
@@ -49,5 +50,6 @@ extern NSString * const BPLMarkerInfoWindowPressedEvent;
 extern NSString * const BPLAboutLinkPressedEvent;
 extern NSString * const BPLWikipediaPageLoadErrorEvent;
 extern NSString * const BPLStreetMapsPageLoadErrorEvent;
+extern NSString * const BPLKMZFileParsingEvent;
 
 @end

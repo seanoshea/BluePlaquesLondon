@@ -105,9 +105,7 @@
 - (void)commonInit
 {
     self.model = [[BPLMapViewModel alloc] initWithKMZFileParsedCallback:^{
-        
         [self dismissHUDAndInvalidateTimer];
-        
         [self.model createMarkersForMap:self.mapView];
         self.searchBar.userInteractionEnabled = YES;
         [self.tableView reloadData];
@@ -307,6 +305,10 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         loadingMessages = @[NSLocalizedString(@"Loading .", nil),
+                            NSLocalizedString(@"Loading ..", nil),
+                            NSLocalizedString(@"Loading ...", nil),
+                            NSLocalizedString(@"Loading ....", nil),
+                            NSLocalizedString(@"Loading .", nil),
                             NSLocalizedString(@"Loading ..", nil),
                             NSLocalizedString(@"Loading ...", nil),
                             NSLocalizedString(@"Loading ....", nil),
