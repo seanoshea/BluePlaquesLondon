@@ -30,6 +30,8 @@
 
 @implementation BPLStreetViewViewController
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,6 +47,8 @@
     self.firstPanoramaId = nil;
     [super viewWillAppear:animated];
 }
+
+#pragma mark GMSPanoramaViewDelegate
 
 - (void)panoramaView:(GMSPanoramaView *)view didMoveToPanorama:(GMSPanorama *)panorama
 {

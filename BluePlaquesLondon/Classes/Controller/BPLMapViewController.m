@@ -47,6 +47,8 @@
 
 @implementation BPLMapViewController
 
+#pragma mark Lifecycle
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
     
     self = [super initWithCoder:aDecoder];
@@ -55,52 +57,6 @@
     }
     return self;
 }
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.model.numberOfPlacemarks + 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell;
-    if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:BPLClosestCell];
-        if (!cell) {
-            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BPLClosestCell];
-        }
-        cell.textLabel.text = NSLocalizedString(@"Find the Plaque closest to me", nil);
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:BPLSearchCell];
-        if (!cell) {
-            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BPLSearchCell];
-        }
-        SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
-        cell.textLabel.text = pm.name;
-    }
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 0) {
-        SimpleKMLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
-        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.name];
-        [self navigateToPlacemark:closestPlacemark];
-    } else {
-        SimpleKMLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
-        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.name];
-        [self navigateToPlacemark:placemarkAtIndexPath];
-    }
-}
-
-#pragma mark - Lifecycle
 
 - (void)commonInit
 {
@@ -182,6 +138,54 @@
     }
 }
 
+#pragma UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.model.numberOfPlacemarks + 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell;
+    if (indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:BPLClosestCell];
+        if (!cell) {
+            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BPLClosestCell];
+        }
+        cell.textLabel.text = NSLocalizedString(@"Find the Plaque closest to me", nil);
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:BPLSearchCell];
+        if (!cell) {
+            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BPLSearchCell];
+        }
+        SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
+        cell.textLabel.text = pm.name;
+    }
+    return cell;
+}
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        SimpleKMLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
+        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.name];
+        [self navigateToPlacemark:closestPlacemark];
+    } else {
+        SimpleKMLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
+        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.name];
+        [self navigateToPlacemark:placemarkAtIndexPath];
+    }
+}
+
 #pragma mark - Search
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
@@ -251,7 +255,7 @@
     self.tableView.hidden = !show;
 }
 
-#pragma mark - CLLocationManagerDelegate
+#pragma mark CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
@@ -259,7 +263,7 @@
     [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
 }
 
-#pragma mark - GMSMapViewDelegate
+#pragma mark GMSMapViewDelegate
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
@@ -297,7 +301,7 @@
     });
 }
 
-#pragma mark - Loading
+#pragma mark Loading
 
 - (void)updateLoadingMessage
 {

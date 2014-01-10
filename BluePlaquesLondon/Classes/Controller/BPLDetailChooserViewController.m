@@ -28,6 +28,8 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 
 @implementation BPLDetailChooserViewController
 
+#pragma mark Lifecycle
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -41,6 +43,8 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
     [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
+
+#pragma mark UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -59,6 +63,8 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
     cell.textLabel.text = pm.name;
     return cell;
 }
+
+#pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

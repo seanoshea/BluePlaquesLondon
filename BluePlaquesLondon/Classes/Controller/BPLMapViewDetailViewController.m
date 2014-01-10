@@ -54,6 +54,8 @@
 
 @implementation BPLMapViewDetailViewController
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -134,6 +136,8 @@
         [self buttonTappedForPlacemark:placemark withAction:action];
     }
 }
+
+#pragma mark IBActions
 
 - (void)detailChooserViewControllerRowSelected:(NSNotification *)notification
 {

@@ -91,6 +91,8 @@
     [self displayErrorAlert];
 }
 
+#pragma mark Errors
+
 - (void)displayErrorAlert
 {
     [SVProgressHUD dismiss];

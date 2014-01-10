@@ -47,6 +47,8 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 @implementation BPLAboutViewController
 
+#pragma mark Lifecycle
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -104,7 +106,7 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     self.scrollView.contentSize = [self.scrollView sizeThatFitsSubviews];
 }
 
-#pragma mark TTTAttributedLabelDelegate Methods
+#pragma mark TTTAttributedLabelDelegate
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
