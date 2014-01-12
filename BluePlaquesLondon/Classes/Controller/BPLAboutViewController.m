@@ -16,6 +16,9 @@
 
 #import "BPLAboutViewController.h"
 
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
+
 #import "BPLAboutViewModel.h"
 #import "BPLLabel.h"
 #import "UIScrollView+Autosizing.h"
@@ -110,13 +113,22 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
+    BOOL developerURLClicked = [url.absoluteString isEqualToString:BPLDeveloperURLString];
     // tracking
-    if ([url.absoluteString isEqualToString:BPLDeveloperURLString] ||
+    if (developerURLClicked ||
         [url.absoluteString isEqualToString:BPLDesignerURLString] ||
         [url.absoluteString isEqualToString:BPLDataURLString]) {
         [self trackCategory:BPLUIActionCategory action:BPLAboutLinkPressedEvent label:url.absoluteString];
     }
-    [[UIApplication sharedApplication] openURL:url];
+    if (developerURLClicked && [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:@"Hi there!"];
+        [self presentViewController:tweetSheet animated:YES completion:^{
+            [self trackCategory:BPLUIActionCategory action:BPLTweetSent label:url.absoluteString];
+        }];
+    } else {
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 @end

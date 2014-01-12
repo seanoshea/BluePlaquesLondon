@@ -63,6 +63,7 @@
 		76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76289D601843F5CC008E1391 /* CoreLocation.framework */; };
 		762DC362186B8ADD004CF725 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
 		762DC366186BA21B004CF725 /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC365186BA21B004CF725 /* BPLAboutViewModel.m */; };
+		764990761882B20300FF5878 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764990751882B20300FF5878 /* Social.framework */; };
 		764BD42A185130B50033E603 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EC918427FBC007A5EE0 /* XCTest.framework */; };
 		764BD42B185130B50033E603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA418427FBB007A5EE0 /* Foundation.framework */; };
 		764BD42C185130B50033E603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA818427FBB007A5EE0 /* UIKit.framework */; };
@@ -239,6 +240,7 @@
 		762DC361186B8ADD004CF725 /* BPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLLabel.m; path = View/BPLLabel.m; sourceTree = "<group>"; };
 		762DC364186BA21B004CF725 /* BPLAboutViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLAboutViewModel.h; path = Model/BPLAboutViewModel.h; sourceTree = "<group>"; };
 		762DC365186BA21B004CF725 /* BPLAboutViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLAboutViewModel.m; path = Model/BPLAboutViewModel.m; sourceTree = "<group>"; };
+		764990751882B20300FF5878 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		764BD429185130B50033E603 /* BluePlaquesLondonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePlaquesLondonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		764BD42F185130B50033E603 /* BluePlaquesLondonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BluePlaquesLondonTests-Info.plist"; sourceTree = "<group>"; };
 		764BD431185130B50033E603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				764990761882B20300FF5878 /* Social.framework in Frameworks */,
 				76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */,
 				76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */,
 				76289D5F1843F5BE008E1391 /* libz.dylib in Frameworks */,
@@ -690,6 +693,7 @@
 		76B00EA318427FBB007A5EE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				764990751882B20300FF5878 /* Social.framework */,
 				76B00EA618427FBB007A5EE0 /* CoreGraphics.framework */,
 				76289D601843F5CC008E1391 /* CoreLocation.framework */,
 				76C37B60184E770E004D229B /* Crashlytics.framework */,

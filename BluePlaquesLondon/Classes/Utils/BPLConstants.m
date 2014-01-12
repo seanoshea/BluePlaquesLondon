@@ -52,6 +52,7 @@ NSString * const BPLMarkerInfoWindowPressedEvent = @"BPLMarkerInfoWindowPressedE
 NSString * const BPLAboutLinkPressedEvent = @"BPLAboutLinkPressedEvent";
 NSString * const BPLWikipediaPageLoadErrorEvent = @"BPLWikipediaPageLoadErrorEvent";
 NSString * const BPLStreetMapsPageLoadErrorEvent = @"BPLStreetMapsPageLoadErrorEvent";
+NSString * const BPLTweetSent = @"BPLTweetSent";
 NSString * const BPLKMZFileParsingEvent = @"BPLKMZFileParsingEvent";
 
 @end

@@ -50,6 +50,7 @@ extern NSString * const BPLMarkerInfoWindowPressedEvent;
 extern NSString * const BPLAboutLinkPressedEvent;
 extern NSString * const BPLWikipediaPageLoadErrorEvent;
 extern NSString * const BPLStreetMapsPageLoadErrorEvent;
+extern NSString * const BPLTweetSent;
 extern NSString * const BPLKMZFileParsingEvent;
 
 @end
