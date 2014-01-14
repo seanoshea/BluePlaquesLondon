@@ -27,7 +27,7 @@
 #import "NSObject+BPLTracking.h"
 
 static NSString *const BPLDeveloperURLString = @"http://www.twitter.com/seanoshea";
-static NSString *const BPLDesignerURLString = @"";
+static NSString *const BPLDesignerURLString = @"http://www.andydale.info";
 static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 @interface BPLAboutViewController () <TTTAttributedLabelDelegate>
@@ -86,7 +86,9 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     self.designerDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     self.designerDetailsLabel.delegate = self;
     self.designerLabel.text = NSLocalizedString(@"Designer Details", nil);
-    self.designerDetailsLabel.text = NSLocalizedString(@"Designed by ...", nil);
+    self.designerDetailsLabel.text = NSLocalizedString(@"Application designed by Andy Dale", nil);
+    NSRange designerDetailsRange = [self.designerDetailsLabel.text rangeOfString:@"Andy Dale"];
+    [self.designerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDesignerURLString] withRange:designerDetailsRange];
 
     self.dataLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
     self.dataLabel.textColor = [UIColor BPLOrangeColour];
