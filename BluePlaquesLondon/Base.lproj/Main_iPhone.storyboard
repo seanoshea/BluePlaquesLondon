@@ -361,7 +361,7 @@
                             <constraint firstItem="uZw-N3-KbI" firstAttribute="leading" secondItem="Yn9-4V-7A1" secondAttribute="leading" id="xz7-fA-rLS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" id="zyY-Co-lGM"/>
+                    <tabBarItem key="tabBarItem" title="About" image="first" id="zyY-Co-lGM"/>
                     <connections>
                         <outlet property="dataDetailsLabel" destination="pna-Ua-oXY" id="g9x-uJ-gjy"/>
                         <outlet property="dataLabel" destination="mdh-or-M42" id="tOv-TX-wg7"/>
