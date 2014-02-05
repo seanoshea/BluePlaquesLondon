@@ -28,8 +28,8 @@
             <objects>
                 <viewController storyboardIdentifier="BPLMapViewController" title="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GCc-Mx-6Ax" userLabel="Map View Controller" customClass="BPLMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yPB-uz-pjR"/>
-                        <viewControllerLayoutGuide type="bottom" id="aaW-oi-W4W"/>
+                        <viewControllerLayoutGuide type="top" id="xCY-5P-k5v"/>
+                        <viewControllerLayoutGuide type="bottom" id="c0f-Sr-PWE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v5S-Ws-Xui">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -71,46 +71,46 @@
             <objects>
                 <viewController storyboardIdentifier="BPLMapViewDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rpr-LR-JTY" userLabel="Detail View Controller" customClass="BPLMapViewDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2eC-Ax-AcQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Yr0-Lg-UgH"/>
+                        <viewControllerLayoutGuide type="top" id="cJK-u3-H2S"/>
+                        <viewControllerLayoutGuide type="bottom" id="osG-FB-vv0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ilb-mF-SEY">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-Ur-j8O">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-Ur-j8O">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Occupation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="749" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-xs-Puz" userLabel="Label - Occupation" customClass="BPLLabel">
-                                        <rect key="frame" x="10" y="70" width="749" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Occupation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-xs-Puz" userLabel="Label - Occupation" customClass="BPLLabel">
+                                        <rect key="frame" x="10" y="70" width="748" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="749" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-ND-Zbg" userLabel="Label - Address" customClass="BPLLabel">
-                                        <rect key="frame" x="10" y="100" width="749" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Council and Year" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="749" translatesAutoresizingMaskIntoConstraints="NO" id="3y7-8n-NOa" userLabel="Label - Council and Year" customClass="BPLLabel">
-                                        <rect key="frame" x="10" y="130" width="749" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-ND-Zbg" userLabel="Label - Address" customClass="BPLLabel">
+                                        <rect key="frame" x="10" y="100" width="748" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Note" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="749" translatesAutoresizingMaskIntoConstraints="NO" id="5Xm-v5-df5" customClass="BPLLabel">
-                                        <rect key="frame" x="10" y="160" width="749" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Council and Year" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="3y7-8n-NOa" userLabel="Label - Council and Year" customClass="BPLLabel">
+                                        <rect key="frame" x="10" y="130" width="748" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wng-SY-MaV" customClass="BPLButton">
-                                        <rect key="frame" x="20" y="189" width="729" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Note" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="5Xm-v5-df5" customClass="BPLLabel">
+                                        <rect key="frame" x="10" y="160" width="748" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wng-SY-MaV" customClass="BPLButton">
+                                        <rect key="frame" x="10" y="189" width="748" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Street View">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,8 +119,8 @@
                                             <segue destination="SDE-oU-emj" kind="push" identifier="BPLStreetMapViewControllerSegue" id="h6f-Zt-acx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXv-6q-IL2" customClass="BPLButton">
-                                        <rect key="frame" x="20" y="227" width="729" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXv-6q-IL2" customClass="BPLButton">
+                                        <rect key="frame" x="10" y="227" width="748" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Wikipedia Article">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -129,8 +129,8 @@
                                             <segue destination="exv-IQ-Orr" kind="push" identifier="BPLWikipediaViewControllerSegue" id="gUb-nJ-pfH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpB-RP-1XK" userLabel="Button - Directions" customClass="BPLButton">
-                                        <rect key="frame" x="20" y="265" width="729" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpB-RP-1XK" userLabel="Button - Directions" customClass="BPLButton">
+                                        <rect key="frame" x="10" y="265" width="748" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Directions">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,8 +139,8 @@
                                             <action selector="directionsButtonTapped:" destination="rpr-LR-JTY" eventType="touchUpInside" id="lsA-dw-ydz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyy-v8-PCh" customClass="BPLButton">
-                                        <rect key="frame" x="20" y="303" width="729" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyy-v8-PCh" customClass="BPLButton">
+                                        <rect key="frame" x="10" y="303" width="748" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="More People at this Location">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -150,43 +150,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="5Xm-v5-df5" firstAttribute="trailing" secondItem="3y7-8n-NOa" secondAttribute="trailing" id="7tX-qi-IT5"/>
-                                    <constraint firstItem="Wng-SY-MaV" firstAttribute="top" secondItem="5Xm-v5-df5" secondAttribute="bottom" constant="8" symbolic="YES" id="FDa-aw-gZn"/>
-                                    <constraint firstItem="mpB-RP-1XK" firstAttribute="top" secondItem="DXv-6q-IL2" secondAttribute="bottom" constant="8" symbolic="YES" id="IiS-JR-z6r"/>
-                                    <constraint firstItem="DXv-6q-IL2" firstAttribute="leading" secondItem="Wng-SY-MaV" secondAttribute="leading" id="KQu-KB-XSO"/>
-                                    <constraint firstItem="Xyy-v8-PCh" firstAttribute="trailing" secondItem="mpB-RP-1XK" secondAttribute="trailing" id="Nlf-Ot-3gK"/>
-                                    <constraint firstItem="mpB-RP-1XK" firstAttribute="leading" secondItem="Xyy-v8-PCh" secondAttribute="leading" id="PfF-Nm-zbQ"/>
-                                    <constraint firstItem="Wng-SY-MaV" firstAttribute="trailing" secondItem="DXv-6q-IL2" secondAttribute="trailing" id="TUn-lM-vcD"/>
-                                    <constraint firstItem="mpB-RP-1XK" firstAttribute="trailing" secondItem="DXv-6q-IL2" secondAttribute="trailing" id="TWw-p4-5zS"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wng-SY-MaV" secondAttribute="trailing" constant="19" id="V4v-k7-Hwz"/>
-                                    <constraint firstItem="Wng-SY-MaV" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="20" symbolic="YES" id="YaA-Cb-nqF"/>
-                                    <constraint firstItem="3y7-8n-NOa" firstAttribute="top" secondItem="Udp-ND-Zbg" secondAttribute="bottom" constant="9" id="bLY-Tg-dSe"/>
-                                    <constraint firstItem="cEG-xs-Puz" firstAttribute="leading" secondItem="Udp-ND-Zbg" secondAttribute="leading" id="cWI-bZ-pqj"/>
-                                    <constraint firstItem="mpB-RP-1XK" firstAttribute="leading" secondItem="DXv-6q-IL2" secondAttribute="leading" id="ks0-MQ-tGg"/>
-                                    <constraint firstItem="cEG-xs-Puz" firstAttribute="centerX" secondItem="sqK-Ur-j8O" secondAttribute="centerX" id="ldt-wn-HwN"/>
-                                    <constraint firstAttribute="bottom" secondItem="Xyy-v8-PCh" secondAttribute="bottom" constant="467" id="ls3-7k-fII"/>
-                                    <constraint firstItem="5Xm-v5-df5" firstAttribute="top" secondItem="3y7-8n-NOa" secondAttribute="bottom" constant="9" id="lyE-zS-o19"/>
-                                    <constraint firstItem="Udp-ND-Zbg" firstAttribute="top" secondItem="cEG-xs-Puz" secondAttribute="bottom" constant="9" id="m4q-nq-89S"/>
-                                    <constraint firstItem="DXv-6q-IL2" firstAttribute="top" secondItem="Wng-SY-MaV" secondAttribute="bottom" constant="8" symbolic="YES" id="mCj-M5-LNf"/>
-                                    <constraint firstItem="Udp-ND-Zbg" firstAttribute="leading" secondItem="3y7-8n-NOa" secondAttribute="leading" id="nR9-CK-C2V"/>
-                                    <constraint firstItem="5Xm-v5-df5" firstAttribute="centerX" secondItem="Wng-SY-MaV" secondAttribute="centerX" id="nbI-dC-lq5"/>
-                                    <constraint firstItem="3y7-8n-NOa" firstAttribute="trailing" secondItem="Udp-ND-Zbg" secondAttribute="trailing" id="omP-hF-IeZ"/>
-                                    <constraint firstItem="cEG-xs-Puz" firstAttribute="trailing" secondItem="Udp-ND-Zbg" secondAttribute="trailing" id="pAr-NY-O1t"/>
-                                    <constraint firstItem="cEG-xs-Puz" firstAttribute="top" secondItem="sqK-Ur-j8O" secondAttribute="top" constant="70" id="rwh-kL-LOF"/>
-                                    <constraint firstItem="cEG-xs-Puz" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="10" id="tpx-Ys-ogx"/>
-                                    <constraint firstItem="5Xm-v5-df5" firstAttribute="leading" secondItem="3y7-8n-NOa" secondAttribute="leading" id="twZ-mK-htM"/>
-                                    <constraint firstItem="Xyy-v8-PCh" firstAttribute="top" secondItem="mpB-RP-1XK" secondAttribute="bottom" constant="8" symbolic="YES" id="zNs-0x-cMl"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="sqK-Ur-j8O" secondAttribute="bottom" constant="-232" id="857-Mr-Wno"/>
-                            <constraint firstAttribute="trailing" secondItem="sqK-Ur-j8O" secondAttribute="trailing" id="hPG-7S-xO3"/>
-                            <constraint firstItem="sqK-Ur-j8O" firstAttribute="leading" secondItem="Ilb-mF-SEY" secondAttribute="leading" id="s4g-EU-bUM"/>
-                            <constraint firstItem="sqK-Ur-j8O" firstAttribute="top" secondItem="Ilb-mF-SEY" secondAttribute="top" id="wlK-k1-HOV"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BlR-6T-iYW"/>
                     <connections>
@@ -210,8 +176,8 @@
             <objects>
                 <viewController id="SDE-oU-emj" customClass="BPLStreetViewViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NsI-7I-pce"/>
-                        <viewControllerLayoutGuide type="bottom" id="dYd-Cn-YL5"/>
+                        <viewControllerLayoutGuide type="top" id="dsV-mJ-81o"/>
+                        <viewControllerLayoutGuide type="bottom" id="B4r-FD-6q2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qik-AH-6lB">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -229,8 +195,8 @@
             <objects>
                 <viewController storyboardIdentifier="BPLWikipediaViewController" id="exv-IQ-Orr" userLabel="Wikipedia View Controller" customClass="BPLWikipediaViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1j0-Hc-3aH"/>
-                        <viewControllerLayoutGuide type="bottom" id="kpO-2e-0B8"/>
+                        <viewControllerLayoutGuide type="top" id="eVA-Bl-qTA"/>
+                        <viewControllerLayoutGuide type="bottom" id="MGm-cN-DHK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="G2g-P4-Nvl">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -307,24 +273,24 @@
             <objects>
                 <viewController storyboardIdentifier="BPLAboutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SDS-7j-tjt" userLabel="About View Controller" customClass="BPLAboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hLU-Xe-012"/>
-                        <viewControllerLayoutGuide type="bottom" id="pj5-Hy-RrQ"/>
+                        <viewControllerLayoutGuide type="top" id="LGS-5f-jEA"/>
+                        <viewControllerLayoutGuide type="bottom" id="etv-hP-do6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="goS-Ds-vMC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5m-ro-cR7">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j5m-ro-cR7">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1036"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developer Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="ag4-1M-XSd" userLabel="Label - Developer" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Developer Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="ag4-1M-XSd" userLabel="Label - Developer" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="45" width="728" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developed By ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-pS-mi9" userLabel="Label - Developer Details" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Developed By ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-pS-mi9" userLabel="Label - Developer Details" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="70" width="728" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -343,62 +309,34 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Map Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="oVR-0w-x2w" userLabel="Label - Data" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Map Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="oVR-0w-x2w" userLabel="Label - Data" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="145" width="728" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Roy Reed etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="X5t-13-yiT" userLabel="Label - Data Details" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Roy Reed etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="X5t-13-yiT" userLabel="Label - Data Details" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="170" width="728" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="ddW-Cr-cpX" userLabel="Label - Google Maps Label" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="ddW-Cr-cpX" userLabel="Label - Google Maps Label" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="195" width="728" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-6j-GST" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-6j-GST" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="220" width="728" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="ag4-1M-XSd" firstAttribute="leading" secondItem="j5m-ro-cR7" secondAttribute="leading" constant="20" symbolic="YES" id="3Lw-ec-oUt"/>
-                                    <constraint firstItem="ag4-1M-XSd" firstAttribute="top" secondItem="j5m-ro-cR7" secondAttribute="top" constant="45" id="4H8-50-zhv"/>
-                                    <constraint firstItem="rWa-pS-mi9" firstAttribute="top" secondItem="ag4-1M-XSd" secondAttribute="bottom" constant="1" id="5ke-74-A65"/>
-                                    <constraint firstItem="rWa-pS-mi9" firstAttribute="leading" secondItem="ag4-1M-XSd" secondAttribute="leading" id="7EE-1c-cbw"/>
-                                    <constraint firstAttribute="bottom" secondItem="GZg-6j-GST" secondAttribute="bottom" constant="344" id="AuE-wM-8xl"/>
-                                    <constraint firstItem="ddW-Cr-cpX" firstAttribute="top" secondItem="X5t-13-yiT" secondAttribute="bottom" constant="9" id="C7V-z5-V1E"/>
-                                    <constraint firstItem="ddW-Cr-cpX" firstAttribute="trailing" secondItem="GZg-6j-GST" secondAttribute="trailing" id="Kdz-WQ-fDi"/>
-                                    <constraint firstItem="rWa-pS-mi9" firstAttribute="trailing" secondItem="ag4-1M-XSd" secondAttribute="trailing" id="LP5-V2-e8c"/>
-                                    <constraint firstItem="oVR-0w-x2w" firstAttribute="leading" secondItem="rWa-pS-mi9" secondAttribute="leading" id="Qmn-rD-Pzh"/>
-                                    <constraint firstItem="rWa-pS-mi9" firstAttribute="trailing" secondItem="oVR-0w-x2w" secondAttribute="trailing" id="VR3-Ub-kIx"/>
-                                    <constraint firstItem="oVR-0w-x2w" firstAttribute="trailing" secondItem="X5t-13-yiT" secondAttribute="trailing" id="ZBb-pR-yph"/>
-                                    <constraint firstItem="ag4-1M-XSd" firstAttribute="centerX" secondItem="j5m-ro-cR7" secondAttribute="centerX" id="bFl-ky-EKO"/>
-                                    <constraint firstItem="X5t-13-yiT" firstAttribute="trailing" secondItem="ddW-Cr-cpX" secondAttribute="trailing" id="fSz-rf-cwV"/>
-                                    <constraint firstAttribute="trailing" secondItem="ag4-1M-XSd" secondAttribute="trailing" constant="20" symbolic="YES" id="id0-eI-agA"/>
-                                    <constraint firstItem="oVR-0w-x2w" firstAttribute="leading" secondItem="X5t-13-yiT" secondAttribute="leading" id="jfB-Wj-l2q"/>
-                                    <constraint firstItem="GZg-6j-GST" firstAttribute="top" secondItem="ddW-Cr-cpX" secondAttribute="bottom" constant="1" id="lFy-HV-G0l"/>
-                                    <constraint firstItem="oVR-0w-x2w" firstAttribute="top" secondItem="rWa-pS-mi9" secondAttribute="bottom" constant="59" id="niG-IM-8e3"/>
-                                    <constraint firstItem="X5t-13-yiT" firstAttribute="leading" secondItem="ddW-Cr-cpX" secondAttribute="leading" id="sdS-d5-dO9"/>
-                                    <constraint firstItem="X5t-13-yiT" firstAttribute="top" secondItem="oVR-0w-x2w" secondAttribute="bottom" constant="1" id="z46-a3-4bY"/>
-                                    <constraint firstItem="ddW-Cr-cpX" firstAttribute="leading" secondItem="GZg-6j-GST" secondAttribute="leading" id="zTD-L4-Jxg"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="j5m-ro-cR7" firstAttribute="leading" secondItem="goS-Ds-vMC" secondAttribute="leading" id="NXG-Rw-eUp"/>
-                            <constraint firstAttribute="trailing" secondItem="j5m-ro-cR7" secondAttribute="trailing" id="hv7-o6-5zu"/>
-                            <constraint firstItem="j5m-ro-cR7" firstAttribute="top" secondItem="goS-Ds-vMC" secondAttribute="top" id="nkG-qV-2xl"/>
-                            <constraint firstAttribute="bottom" secondItem="j5m-ro-cR7" secondAttribute="bottom" constant="-12" id="ysz-2N-fqn"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" id="Jtl-Dz-eiS"/>
                     <connections>
