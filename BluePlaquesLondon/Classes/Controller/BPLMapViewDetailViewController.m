@@ -167,7 +167,8 @@
     for (UIButton *button in buttons) {
         UIView *chevron = [HCChevronView chevronViewWithColor:[UIColor BPLOrangeColour]
                                              highlightedColor:[UIColor BPLOrangeColour]];
-        chevron.frame = CGRectMake(270, 10, 15, 15);
+
+        chevron.frame = CGRectMake(button.frame.size.width - 20, 10, 15, 15);
         chevron.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         [button addSubview:chevron];
     }
