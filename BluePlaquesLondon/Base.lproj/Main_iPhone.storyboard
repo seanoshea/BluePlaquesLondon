@@ -361,7 +361,7 @@
                             <constraint firstItem="uZw-N3-KbI" firstAttribute="leading" secondItem="Yn9-4V-7A1" secondAttribute="leading" id="xz7-fA-rLS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="first" id="zyY-Co-lGM"/>
+                    <tabBarItem key="tabBarItem" title="About" image="about_icon" id="zyY-Co-lGM"/>
                     <connections>
                         <outlet property="dataDetailsLabel" destination="pna-Ua-oXY" id="g9x-uJ-gjy"/>
                         <outlet property="dataLabel" destination="mdh-or-M42" id="tOv-TX-wg7"/>
@@ -401,7 +401,7 @@
         <scene sceneID="nTL-io-Xf4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jrM-RT-oaE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map_icon" id="u1e-5L-l1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARK-Lc-4KO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -418,7 +418,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="about_icon" width="30" height="30"/>
+        <image name="map_icon" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
