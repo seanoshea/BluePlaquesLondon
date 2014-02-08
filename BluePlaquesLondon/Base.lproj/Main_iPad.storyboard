@@ -253,7 +253,7 @@
         <scene sceneID="cru-U1-MrD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P7o-Md-Haz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="first" id="Dmh-f1-cih"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map_icon" id="Dmh-f1-cih"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n1L-de-QZT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -338,7 +338,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="first" id="Jtl-Dz-eiS"/>
+                    <tabBarItem key="tabBarItem" title="About" image="about_icon" id="Jtl-Dz-eiS"/>
                     <connections>
                         <outlet property="dataDetailsLabel" destination="X5t-13-yiT" id="wlS-lX-sOQ"/>
                         <outlet property="dataLabel" destination="oVR-0w-x2w" id="cof-8c-ewK"/>
@@ -357,7 +357,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="about_icon" width="60" height="60"/>
+        <image name="map_icon" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
