@@ -28,6 +28,7 @@
 
 static NSString *const BPLDeveloperURLString = @"http://www.twitter.com/seanoshea";
 static NSString *const BPLDesignerURLString = @"http://www.andydale.info";
+static NSString *const BPLNounProjectURLString = @"http://www.thenounproject.com";
 static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 @interface BPLAboutViewController () <TTTAttributedLabelDelegate>
@@ -99,7 +100,9 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     self.nounProjectDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
     self.nounProjectDetailsLabel.delegate = self;
     self.nounProjectLabel.text = NSLocalizedString(@"Noun Project", nil);
-    self.nounProjectDetailsLabel.text = NSLocalizedString(@"Some of the icons in this application are freely downloadable from The Noun Project. Information by Creatorid'immagine from The Noun Project & Map by Stefan Zoll from The Noun Project", nil);
+    self.nounProjectDetailsLabel.text = NSLocalizedString(@"Some of the icons in this application are freely downloadable from The Noun Project. Information Icon by Creatorid'immagine & Map Icon by Stefan Zoll", nil);
+    NSRange nounProjectRange = [self.nounProjectDetailsLabel.text rangeOfString:@"The Noun Project"];
+    [self.nounProjectDetailsLabel addLinkToURL:[NSURL URLWithString:BPLNounProjectURLString] withRange:nounProjectRange];
     
     self.dataLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
     self.dataLabel.textColor = [UIColor BPLOrangeColour];
@@ -130,7 +133,8 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     // tracking
     if (developerURLClicked ||
         [url.absoluteString isEqualToString:BPLDesignerURLString] ||
-        [url.absoluteString isEqualToString:BPLDataURLString]) {
+        [url.absoluteString isEqualToString:BPLDataURLString] ||
+        [url.absoluteString isEqualToString:BPLNounProjectURLString]) {
         [self trackCategory:BPLUIActionCategory action:BPLAboutLinkPressedEvent label:url.absoluteString];
     }
     if (developerURLClicked && [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
