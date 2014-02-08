@@ -39,6 +39,7 @@ extern NSString * const BPLApplicationLoaded;
 extern NSString * const BPLUIActionCategory;
 extern NSString * const BPLErrorCategory;
 extern NSString * const BPLKMZFileParsing;
+extern NSString * const BPLRateAppStoreOpened;
 
 extern NSString * const BPLDetailsButtonPressedEvent;
 extern NSString * const BPLWikipediaButtonPressedEvent;
@@ -52,5 +53,9 @@ extern NSString * const BPLWikipediaPageLoadErrorEvent;
 extern NSString * const BPLStreetMapsPageLoadErrorEvent;
 extern NSString * const BPLTweetSent;
 extern NSString * const BPLKMZFileParsingEvent;
+extern NSString * const BPLRateAppButtonPressedEvent;
+extern NSString * const BPLDeclineRateAppButtonPressedEvent;
+extern NSString * const BPLRemindRateAppButtonPressedEvent;
+extern NSString * const BPLRateAppStoreOpenedEvent;
 
 @end

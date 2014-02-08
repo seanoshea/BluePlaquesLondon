@@ -8,6 +8,7 @@ pod 'Google-Maps-iOS-SDK', '~> 1.6.0'
 pod 'IntentKit'
 pod 'HCViews'
 pod 'SVProgressHUD', :head
+pod 'iRate'
 
 post_install do |installer|
   installer.project.targets.each do |target|

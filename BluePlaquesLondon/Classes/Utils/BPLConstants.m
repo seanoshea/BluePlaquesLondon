@@ -41,6 +41,7 @@ NSString * const BPLApplicationLoaded = @"ApplicationLoaded";
 NSString * const BPLUIActionCategory = @"BPLUIActionCategory";
 NSString * const BPLErrorCategory = @"BPLErrorCategory";
 NSString * const BPLKMZFileParsing = @"BPLKMZFileParsing";
+NSString * const BPLRateAppStoreOpened = @"BPLRateAppStoreOpened";
 
 NSString * const BPLDetailsButtonPressedEvent = @"BPLDetailsButtonPressedEvent";
 NSString * const BPLWikipediaButtonPressedEvent = @"BPLWikipediaButtonPressedEvent";
@@ -54,5 +55,9 @@ NSString * const BPLWikipediaPageLoadErrorEvent = @"BPLWikipediaPageLoadErrorEve
 NSString * const BPLStreetMapsPageLoadErrorEvent = @"BPLStreetMapsPageLoadErrorEvent";
 NSString * const BPLTweetSent = @"BPLTweetSent";
 NSString * const BPLKMZFileParsingEvent = @"BPLKMZFileParsingEvent";
+NSString * const BPLRateAppButtonPressedEvent = @"BPLRateAppButtonPressedEvent";
+NSString * const BPLDeclineRateAppButtonPressedEvent = @"BPLDeclineRateAppButtonPressedEvent";
+NSString * const BPLRemindRateAppButtonPressedEvent = @"BPLRemindRateAppButtonPressedEvent";
+NSString * const BPLRateAppStoreOpenedEvent = @"BPLRateAppStoreOpenedEvent";
 
 @end

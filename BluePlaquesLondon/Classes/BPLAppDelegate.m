@@ -22,6 +22,7 @@
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
 #import <Crashlytics/Crashlytics.h>
 #import "Reachability.h"
+#import "iRate.h"
 
 #import "BPLConfiguration.h"
 #import "BPLConstants.h"
@@ -33,7 +34,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLAboutViewControllerIndex = 1,
 };
 
-@interface BPLAppDelegate()
+@interface BPLAppDelegate() <iRateDelegate>
 
 @property (nonatomic) Reachability *internetReach;
 
@@ -49,7 +50,13 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [self initializeLocalization];
     [self initializeTracking];
     [self initializeCrashReporting];
+    [self initializeRating];
     return YES;
+}
+
+- (void)initializeGoogleMapsApi
+{
+    [GMSServices provideAPIKey:BPLMapsKey];
 }
 
 - (void)initializeStyling
@@ -148,9 +155,36 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     }
 }
 
-- (void)initializeGoogleMapsApi
+- (void)initializeRating
 {
-    [GMSServices provideAPIKey:BPLMapsKey];
+    [iRate sharedInstance].delegate = self;
+    [iRate sharedInstance].messageTitle = NSLocalizedString(@"Rate Blue Plaques London", nil);
+    [iRate sharedInstance].message = NSLocalizedString(@"If you enjoy using this application, would you mind taking a moment to rate it?", nil);
+    [iRate sharedInstance].applicationName = NSLocalizedString(@"Blue Plaques London", nil);
+    [iRate sharedInstance].daysUntilPrompt = 5;
+    [iRate sharedInstance].usesUntilPrompt = 15;
+}
+
+#pragma mark iRateDelegate
+
+- (void)iRateUserDidAttemptToRateApp
+{
+    [self trackCategory:BPLUIActionCategory action:BPLRateAppButtonPressedEvent label:nil];
+}
+
+- (void)iRateUserDidDeclineToRateApp
+{
+    [self trackCategory:BPLUIActionCategory action:BPLDeclineRateAppButtonPressedEvent label:nil];
+}
+
+- (void)iRateUserDidRequestReminderToRateApp
+{
+    [self trackCategory:BPLUIActionCategory action:BPLRemindRateAppButtonPressedEvent label:nil];
+}
+
+- (void)iRateDidOpenAppStore
+{
+    [self trackCategory:BPLRateAppStoreOpened action:nil label:nil];
 }
 
 @end
