@@ -40,6 +40,9 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 @property (nonatomic, weak) IBOutlet BPLLabel *designerLabel;
 @property (nonatomic, weak) IBOutlet BPLLabel *designerDetailsLabel;
 
+@property (nonatomic, weak) IBOutlet BPLLabel *nounProjectLabel;
+@property (nonatomic, weak) IBOutlet BPLLabel *nounProjectDetailsLabel;
+
 @property (nonatomic, weak) IBOutlet BPLLabel *dataLabel;
 @property (nonatomic, weak) IBOutlet BPLLabel *dataDetailsLabel;
 
@@ -90,6 +93,14 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     NSRange designerDetailsRange = [self.designerDetailsLabel.text rangeOfString:@"Andy Dale"];
     [self.designerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDesignerURLString] withRange:designerDetailsRange];
 
+    self.nounProjectLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.nounProjectLabel.textColor = [UIColor BPLOrangeColour];
+    self.nounProjectDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.nounProjectDetailsLabel.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.nounProjectDetailsLabel.delegate = self;
+    self.nounProjectLabel.text = NSLocalizedString(@"Noun Project", nil);
+    self.nounProjectDetailsLabel.text = NSLocalizedString(@"Some of the icons in this application are freely downloadable from The Noun Project. Information by Creatorid'immagine from The Noun Project & Map by Stefan Zoll from The Noun Project", nil);
+    
     self.dataLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
     self.dataLabel.textColor = [UIColor BPLOrangeColour];
     self.dataDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];

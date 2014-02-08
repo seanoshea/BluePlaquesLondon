@@ -291,39 +291,52 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Designer Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-jY-OaL" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Designer Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-jY-OaL" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="95" width="280" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Designed by ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFm-gZ-3NG" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Designed by ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="XFm-gZ-3NG" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="120" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Map Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-or-M42" userLabel="Label - Data" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Noun Project" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8NO-jV-9xR" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="145" width="280" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Roy Reed etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="pna-Ua-oXY" userLabel="Label - Data Details" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Noun Project Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="APl-Z6-kOV" userLabel="Label - Noun Project Details" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="170" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-xa-FBm" userLabel="Label - Google Maps Label" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Map Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-or-M42" userLabel="Label - Data" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="195" width="280" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-Zd-Lf9" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Roy Reed etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="pna-Ua-oXY" userLabel="Label - Data Details" customClass="BPLLabel">
                                         <rect key="frame" x="20" y="220" width="280" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-xa-FBm" userLabel="Label - Google Maps Label" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="245" width="280" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-Zd-Lf9" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
+                                        <rect key="frame" x="20" y="270" width="280" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
@@ -331,12 +344,12 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="XQD-bH-S3G" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="20" symbolic="YES" id="9X7-XI-3Z8"/>
-                                    <constraint firstAttribute="bottom" secondItem="AeP-Zd-Lf9" secondAttribute="bottom" constant="344" id="CH7-PO-Xva"/>
+                                    <constraint firstAttribute="bottom" secondItem="AeP-Zd-Lf9" secondAttribute="bottom" constant="294" id="CH7-PO-Xva"/>
                                     <constraint firstItem="mdh-or-M42" firstAttribute="leading" secondItem="pna-Ua-oXY" secondAttribute="leading" id="CbQ-bJ-bDU"/>
                                     <constraint firstItem="XQD-bH-S3G" firstAttribute="top" secondItem="uZw-N3-KbI" secondAttribute="top" constant="45" id="HLJ-Ws-mWj"/>
                                     <constraint firstItem="pna-Ua-oXY" firstAttribute="leading" secondItem="BIY-xa-FBm" secondAttribute="leading" id="NRI-Tz-cov"/>
                                     <constraint firstItem="XQD-bH-S3G" firstAttribute="centerX" secondItem="uZw-N3-KbI" secondAttribute="centerX" id="Np1-oz-Ghe"/>
-                                    <constraint firstItem="mdh-or-M42" firstAttribute="top" secondItem="C0O-B9-Sva" secondAttribute="bottom" constant="59" id="R61-if-c6a"/>
+                                    <constraint firstItem="mdh-or-M42" firstAttribute="top" secondItem="C0O-B9-Sva" secondAttribute="bottom" constant="109" id="R61-if-c6a"/>
                                     <constraint firstItem="pna-Ua-oXY" firstAttribute="trailing" secondItem="BIY-xa-FBm" secondAttribute="trailing" id="SnR-Nq-Rya"/>
                                     <constraint firstAttribute="trailing" secondItem="XQD-bH-S3G" secondAttribute="trailing" constant="20" symbolic="YES" id="VSZ-qf-uwc"/>
                                     <constraint firstItem="C0O-B9-Sva" firstAttribute="top" secondItem="XQD-bH-S3G" secondAttribute="bottom" constant="1" id="ViD-6H-1KA"/>
@@ -371,6 +384,8 @@
                         <outlet property="developerLabel" destination="XQD-bH-S3G" id="2k5-Oq-oSH"/>
                         <outlet property="googleMapsLabel" destination="BIY-xa-FBm" id="RuJ-e8-GVu"/>
                         <outlet property="googleMapsLicenseInfoLabel" destination="AeP-Zd-Lf9" id="VyN-bS-8x6"/>
+                        <outlet property="nounProjectDetailsLabel" destination="APl-Z6-kOV" id="YEF-oN-2ZT"/>
+                        <outlet property="nounProjectLabel" destination="8NO-jV-9xR" id="jf1-kV-4VI"/>
                         <outlet property="scrollView" destination="uZw-N3-KbI" id="Zhc-QF-TKD"/>
                     </connections>
                 </viewController>
