@@ -78,40 +78,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-Ur-j8O">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-Ur-j8O">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Occupation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-xs-Puz" userLabel="Label - Occupation" customClass="BPLLabel">
-                                        <rect key="frame" x="50" y="88" width="658" height="20"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Occupation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-xs-Puz" userLabel="Label - Occupation" customClass="BPLLabel">
+                                        <rect key="frame" x="50" y="90" width="658" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="658" id="Et9-aE-yDs"/>
+                                            <constraint firstAttribute="height" priority="500" constant="21" id="Gkt-Fu-Ehg"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-ND-Zbg" userLabel="Label - Address" customClass="BPLLabel">
-                                        <rect key="frame" x="50" y="118" width="658" height="20"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-ND-Zbg" userLabel="Label - Address" customClass="BPLLabel">
+                                        <rect key="frame" x="50" y="118" width="658" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Council and Year" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="3y7-8n-NOa" userLabel="Label - Council and Year" customClass="BPLLabel">
-                                        <rect key="frame" x="50" y="148" width="658" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Note" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="5Xm-v5-df5" customClass="BPLLabel">
-                                        <rect key="frame" x="50" y="178" width="658" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="500" constant="21" id="Qcl-PN-CHa"/>
+                                            <constraint firstAttribute="width" constant="658" id="UIB-jR-Pga"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wng-SY-MaV" customClass="BPLButton">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Council and Year" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="3y7-8n-NOa" userLabel="Label - Council and Year" customClass="BPLLabel">
+                                        <rect key="frame" x="50" y="148" width="658" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="500" constant="21" id="2X9-jE-ZmV"/>
+                                            <constraint firstAttribute="width" constant="658" id="BWZ-9N-9SF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Note" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="5Xm-v5-df5" customClass="BPLLabel">
+                                        <rect key="frame" x="50" y="178" width="658" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="500" constant="21" id="SjP-Zr-nsI"/>
+                                            <constraint firstAttribute="width" constant="658" id="vZU-9J-Or5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wng-SY-MaV" customClass="BPLButton">
                                         <rect key="frame" x="60" y="207" width="650" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="650" id="kaG-pj-Ij3"/>
+                                            <constraint firstAttribute="height" constant="30" id="q4D-AL-hfO"/>
+                                        </constraints>
                                         <state key="normal" title="Street View">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -119,9 +139,13 @@
                                             <segue destination="SDE-oU-emj" kind="push" identifier="BPLStreetMapViewControllerSegue" id="h6f-Zt-acx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXv-6q-IL2" customClass="BPLButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXv-6q-IL2" customClass="BPLButton">
                                         <rect key="frame" x="60" y="245" width="650" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="650" id="MOZ-Rd-Y2S"/>
+                                            <constraint firstAttribute="height" constant="30" id="Poe-EA-RmS"/>
+                                        </constraints>
                                         <state key="normal" title="Wikipedia Article">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -129,9 +153,13 @@
                                             <segue destination="exv-IQ-Orr" kind="push" identifier="BPLWikipediaViewControllerSegue" id="gUb-nJ-pfH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpB-RP-1XK" userLabel="Button - Directions" customClass="BPLButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpB-RP-1XK" userLabel="Button - Directions" customClass="BPLButton">
                                         <rect key="frame" x="60" y="283" width="650" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="650" id="E0B-FD-4ZR"/>
+                                            <constraint firstAttribute="height" constant="30" id="JtX-Dv-Xs5"/>
+                                        </constraints>
                                         <state key="normal" title="Directions">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -139,9 +167,13 @@
                                             <action selector="directionsButtonTapped:" destination="rpr-LR-JTY" eventType="touchUpInside" id="lsA-dw-ydz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyy-v8-PCh" customClass="BPLButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyy-v8-PCh" customClass="BPLButton">
                                         <rect key="frame" x="60" y="321" width="650" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="650" id="HTB-PX-gs3"/>
+                                            <constraint firstAttribute="height" constant="30" id="J8Y-Pd-cSP"/>
+                                        </constraints>
                                         <state key="normal" title="More People at this Location">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -150,9 +182,35 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Wng-SY-MaV" secondAttribute="trailing" constant="58" id="0Xf-Ix-aEc"/>
+                                    <constraint firstItem="3y7-8n-NOa" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="50" id="2ZU-gg-bym"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xyy-v8-PCh" secondAttribute="bottom" constant="905" id="3Qa-Kz-4eq"/>
+                                    <constraint firstItem="Udp-ND-Zbg" firstAttribute="top" secondItem="cEG-xs-Puz" secondAttribute="bottom" constant="7" id="Bhu-rs-uAp"/>
+                                    <constraint firstItem="DXv-6q-IL2" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="60" id="Egb-4C-DRx"/>
+                                    <constraint firstItem="Wng-SY-MaV" firstAttribute="top" secondItem="5Xm-v5-df5" secondAttribute="bottom" constant="8" id="Fhj-Es-gw4"/>
+                                    <constraint firstItem="DXv-6q-IL2" firstAttribute="top" secondItem="Wng-SY-MaV" secondAttribute="bottom" constant="8" id="H75-kH-YGl"/>
+                                    <constraint firstItem="cEG-xs-Puz" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="50" id="LIU-Qn-LEU"/>
+                                    <constraint firstItem="Xyy-v8-PCh" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="60" id="R34-w9-NYc"/>
+                                    <constraint firstItem="5Xm-v5-df5" firstAttribute="top" secondItem="3y7-8n-NOa" secondAttribute="bottom" constant="9" id="VSr-0m-cJY"/>
+                                    <constraint firstItem="cEG-xs-Puz" firstAttribute="top" secondItem="sqK-Ur-j8O" secondAttribute="top" constant="90" id="VqF-SP-adO"/>
+                                    <constraint firstItem="Udp-ND-Zbg" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="50" id="bZc-mR-dh9"/>
+                                    <constraint firstItem="Wng-SY-MaV" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="60" id="g8W-Qo-k94"/>
+                                    <constraint firstItem="5Xm-v5-df5" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="50" id="lh0-7D-ezH"/>
+                                    <constraint firstItem="mpB-RP-1XK" firstAttribute="leading" secondItem="sqK-Ur-j8O" secondAttribute="leading" constant="60" id="mtA-6o-lCb"/>
+                                    <constraint firstItem="mpB-RP-1XK" firstAttribute="top" secondItem="DXv-6q-IL2" secondAttribute="bottom" constant="8" id="obl-IQ-KXh"/>
+                                    <constraint firstItem="Xyy-v8-PCh" firstAttribute="top" secondItem="mpB-RP-1XK" secondAttribute="bottom" constant="8" id="p5g-n5-fcT"/>
+                                    <constraint firstItem="3y7-8n-NOa" firstAttribute="top" secondItem="Udp-ND-Zbg" secondAttribute="bottom" constant="9" id="zQ0-7o-RJi"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sqK-Ur-j8O" secondAttribute="trailing" id="Aj0-57-TCt"/>
+                            <constraint firstAttribute="bottom" secondItem="sqK-Ur-j8O" secondAttribute="bottom" constant="-232" id="MzX-sP-IUP"/>
+                            <constraint firstItem="sqK-Ur-j8O" firstAttribute="leading" secondItem="Ilb-mF-SEY" secondAttribute="leading" id="R8s-69-yrW"/>
+                            <constraint firstItem="sqK-Ur-j8O" firstAttribute="top" secondItem="Ilb-mF-SEY" secondAttribute="top" id="gI3-Wh-Xlj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BlR-6T-iYW"/>
                     <connections>
