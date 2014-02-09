@@ -16,6 +16,8 @@
 
 #import "BPLMapViewController.h"
 
+@import MapKit;
+
 #import "BPLMapViewModel.h"
 
 #import "SimpleKMLPlacemark+BPLAdditions.h"
@@ -162,9 +164,20 @@
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:BPLSearchCell];
         if (!cell) {
-            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BPLSearchCell];
+            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:BPLSearchCell];
         }
         SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
+        
+        if (self.currentLocation) {
+            
+            CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.point.coordinate.latitude longitude:pm.point.coordinate.longitude];
+            CLLocationDistance distance = [loc distanceFromLocation:self.currentLocation];
+            
+            MKDistanceFormatter *formatter = [[MKDistanceFormatter alloc] init];
+            formatter.units = MKDistanceFormatterUnitsMetric;
+            cell.detailTextLabel.text = [formatter stringFromDistance:distance];
+        }
+        
         cell.textLabel.text = pm.name;
     }
     return cell;

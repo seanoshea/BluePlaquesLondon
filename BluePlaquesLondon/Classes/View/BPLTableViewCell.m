@@ -49,6 +49,7 @@ NSString * const BPLSearchCell = @"BluePlaquesLondonSearchCell";
         self.backgroundColor = [UIColor BPLBlueColour];
     } else {
         self.textLabel.textColor = [UIColor BPLBlueColour];
+        self.detailTextLabel.textColor = [UIColor BPLBlueColour];
     }
     UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
     backgroundView.backgroundColor = [UIColor BPLOrangeColour];
