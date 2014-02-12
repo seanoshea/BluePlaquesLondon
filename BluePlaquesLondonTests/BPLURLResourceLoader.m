@@ -23,7 +23,7 @@ static NSDictionary *responses;
 + (BOOL)canInitWithRequest:(NSURLRequest *)request
 {
     if (!responses) {
-        responses = @{ @"http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=CHURCHILL,%20Sir%20Winston,%20KG&srprop=timestamp&format=json": @"wikipedia.json" };
+        responses = @{ @"http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json": @"wikipedia.json" };
     }
     return responses[request.URL.absoluteString] != nil;
 }
