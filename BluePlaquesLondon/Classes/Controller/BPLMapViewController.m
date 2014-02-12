@@ -270,6 +270,8 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.currentLocation = locations.lastObject;
+    // ensure that the search table always has the latest known distances updated.
+    [self.tableView reloadData];
     [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
 }
 
