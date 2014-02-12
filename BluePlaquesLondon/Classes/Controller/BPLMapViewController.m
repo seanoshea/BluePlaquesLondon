@@ -29,6 +29,7 @@
 #import "BPLTableViewCell.h"
 #import "BPLMapViewDetailViewModel.h"
 #import "NSObject+BPLTracking.h"
+#import "MKDistanceFormatter+BPLAdditions.h"
 
 #import <SVProgressHUD/SVProgressHUD.h>
 
@@ -169,13 +170,9 @@
         SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
         
         if (self.currentLocation) {
-            
-            CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.point.coordinate.latitude longitude:pm.point.coordinate.longitude];
-            CLLocationDistance distance = [loc distanceFromLocation:self.currentLocation];
-            
-            MKDistanceFormatter *formatter = [[MKDistanceFormatter alloc] init];
-            formatter.units = MKDistanceFormatterUnitsMetric;
-            cell.detailTextLabel.text = [formatter stringFromDistance:distance];
+            CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.point.coordinate.latitude
+                                                         longitude:pm.point.coordinate.longitude];
+            cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
         }
         
         cell.textLabel.text = pm.name;
