@@ -95,6 +95,12 @@
 		76B00EB118427FBB007A5EE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B00EB018427FBB007A5EE0 /* main.m */; };
 		76B00EC318427FBC007A5EE0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EC218427FBC007A5EE0 /* Images.xcassets */; };
 		76B00EE01842866B007A5EE0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EDF1842866B007A5EE0 /* MapKit.framework */; };
+		76B1770818AE438A00FC6D09 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */; };
+		76B1770918AE438A00FC6D09 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */; };
+		76B1770C18AE445200FC6D09 /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770B18AE445200FC6D09 /* BPLPlacemark.m */; };
+		76B1770D18AE445200FC6D09 /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770B18AE445200FC6D09 /* BPLPlacemark.m */; };
+		76B1771018AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
+		76B1771118AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
 		76B6CE8A184B9C8400479447 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		76C37B61184E770E004D229B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C37B60184E770E004D229B /* Crashlytics.framework */; };
 		76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
@@ -283,6 +289,11 @@
 		76B00EC218427FBC007A5EE0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		76B00EC918427FBC007A5EE0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		76B00EDF1842866B007A5EE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		76B1770718AE438A00FC6D09 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		76B1770A18AE445200FC6D09 /* BPLPlacemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLPlacemark.h; sourceTree = "<group>"; };
+		76B1770B18AE445200FC6D09 /* BPLPlacemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemark.m; sourceTree = "<group>"; };
+		76B1770E18AE45BA00FC6D09 /* BPLPlacemark+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BPLPlacemark+Additions.h"; sourceTree = "<group>"; };
+		76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BPLPlacemark+Additions.m"; sourceTree = "<group>"; };
 		76B6CE88184B9C8400479447 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "Foundation/GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Foundation/GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		76B6CE8C184B9C9E00479447 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -404,6 +415,7 @@
 				76289C7B18429027008E1391 /* BPLAppDelegate.h */,
 				76289C7C18429027008E1391 /* BPLAppDelegate.m */,
 				76289C7318428FE5008E1391 /* Controller */,
+				76B1770518AE437000FC6D09 /* Domain */,
 				76289C7518428FF0008E1391 /* Model */,
 				76289C8B1842ADB0008E1391 /* Utils */,
 				76289C7418428FEB008E1391 /* View */,
@@ -418,6 +430,8 @@
 				76CBBB5F184D316100A6828C /* BPLConfiguration.m */,
 				76289C941842AE42008E1391 /* BPLConstants.h */,
 				76289C951842AE42008E1391 /* BPLConstants.m */,
+				76B1770E18AE45BA00FC6D09 /* BPLPlacemark+Additions.h */,
+				76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */,
 				766D524318AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.h */,
 				766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */,
 				765081C118786C3D009EF6F2 /* NSObject+BPLTracking.h */,
@@ -746,6 +760,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		76B1770518AE437000FC6D09 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				76B1770A18AE445200FC6D09 /* BPLPlacemark.h */,
+				76B1770B18AE445200FC6D09 /* BPLPlacemark.m */,
+				76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		76B6CE87184B9BDA00479447 /* google-toolbox-for-mac */ = {
 			isa = PBXGroup;
 			children = (
@@ -939,14 +963,17 @@
 				765762B118744E5700CD9208 /* UIColor+BPLColors.m in Sources */,
 				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */,
+				76B1770918AE438A00FC6D09 /* Model.xcdatamodeld in Sources */,
 				765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */,
 				76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
 				766D524818AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m in Sources */,
 				76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */,
+				76B1770D18AE445200FC6D09 /* BPLPlacemark.m in Sources */,
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */,
 				765081B718776C20009EF6F2 /* BPLMapViewDetailViewModel.m in Sources */,
+				76B1771118AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */,
 				766D524618AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */,
 				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
 				76E9083F1854D9BA00B31DC4 /* SimpleKMLPlacemark+BPLAdditions.m in Sources */,
@@ -979,6 +1006,7 @@
 				76289D4B1843F53B008E1391 /* ZipWriteStream.m in Sources */,
 				76289D241843F520008E1391 /* CXMLDocument.m in Sources */,
 				76289D5A1843F550008E1391 /* unzip.c in Sources */,
+				76B1770C18AE445200FC6D09 /* BPLPlacemark.m in Sources */,
 				76289CE01843F4AB008E1391 /* SimpleKMLGroundOverlay.m in Sources */,
 				762DC362186B8ADD004CF725 /* BPLLabel.m in Sources */,
 				76289CDA1843F4AB008E1391 /* SimpleKMLFeature.m in Sources */,
@@ -987,6 +1015,7 @@
 				76B00EB118427FBB007A5EE0 /* main.m in Sources */,
 				76289CDC1843F4AB008E1391 /* SimpleKMLFolder.m in Sources */,
 				76289CD01843F4AB008E1391 /* SimpleKML.m in Sources */,
+				76B1771018AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */,
 				7695D691184B375200E735C4 /* NSUserDefaults+BPLState.m in Sources */,
 				76D3CF63186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */,
 				76289CD41843F4AB008E1391 /* SimpleKMLColorStyle.m in Sources */,
@@ -1019,6 +1048,7 @@
 				76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
 				76289CEE1843F4AB008E1391 /* SimpleKMLOverlay.m in Sources */,
 				76CBBB65184D33C100A6828C /* Reachability.m in Sources */,
+				76B1770818AE438A00FC6D09 /* Model.xcdatamodeld in Sources */,
 				76289CD61843F4AB008E1391 /* SimpleKMLContainer.m in Sources */,
 				76289CD21843F4AB008E1391 /* SimpleKMLBalloonStyle.m in Sources */,
 				76289D281843F520008E1391 /* CXMLElement.m in Sources */,
@@ -1386,6 +1416,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				76B1770718AE438A00FC6D09 /* Model.xcdatamodel */,
+			);
+			currentVersion = 76B1770718AE438A00FC6D09 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 76B00E9918427FBB007A5EE0 /* Project object */;
 }

@@ -20,7 +20,6 @@
 
 #import "BPLMapViewModel.h"
 
-#import "SimpleKMLPlacemark+BPLAdditions.h"
 #import "SimpleKMLPoint.h"
 #import "NSUserDefaults+BPLState.h"
 #import "BPLMapViewDetailViewController.h"
@@ -30,6 +29,7 @@
 #import "BPLMapViewDetailViewModel.h"
 #import "NSObject+BPLTracking.h"
 #import "MKDistanceFormatter+BPLAdditions.h"
+#import "BPLPlacemark+Additions.h"
 
 #import <SVProgressHUD/SVProgressHUD.h>
 
@@ -135,7 +135,7 @@
 {
     if ([segue.identifier isEqualToString:BPLMapDetailViewControllerSegue]) {
         BPLMapViewDetailViewController *destinationViewController = (BPLMapViewDetailViewController *)segue.destinationViewController;
-        SimpleKMLPlacemark *placemark = self.mapView.selectedMarker.userData;
+        BPLPlacemark *placemark = self.mapView.selectedMarker.userData;
         BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:[self.model placemarksForKey:placemark.key] currentLocation:self.currentLocation];
         destinationViewController.model = model;
     }
@@ -167,11 +167,11 @@
         if (!cell) {
             cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:BPLSearchCell];
         }
-        SimpleKMLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
+        BPLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
         
         if (self.currentLocation) {
-            CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.point.coordinate.latitude
-                                                         longitude:pm.point.coordinate.longitude];
+            CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.coordinate.latitude
+                                                         longitude:pm.coordinate.longitude];
             cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
         }
         
@@ -186,11 +186,11 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        SimpleKMLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
+        BPLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
         [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.name];
         [self navigateToPlacemark:closestPlacemark];
     } else {
-        SimpleKMLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
+        BPLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
         [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.name];
         [self navigateToPlacemark:placemarkAtIndexPath];
     }
@@ -246,11 +246,11 @@
     [self.tableView reloadData];
 }
 
-- (void)navigateToPlacemark:(SimpleKMLPlacemark *)placemark
+- (void)navigateToPlacemark:(BPLPlacemark *)placemark
 {
     [self.searchBar resignFirstResponder];
     [self toggleTableView:NO];
-    [self.mapView animateToLocation:placemark.point.coordinate];
+    [self.mapView animateToLocation:placemark.coordinate];
     self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
 }
 
@@ -306,7 +306,7 @@
 - (void)markerTapped:(GMSMarker *)marker withAction:(NSString *)action
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        SimpleKMLPlacemark *placemarkForMarker = [self.model firstPlacemarkAtCoordinate:marker.position];
+        BPLPlacemark *placemarkForMarker = [self.model firstPlacemarkAtCoordinate:marker.position];
         if (placemarkForMarker) {
             [self trackCategory:BPLUIActionCategory action:action label:placemarkForMarker.name];
         }

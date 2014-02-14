@@ -27,11 +27,12 @@
 #import "SimpleKMLPolyStyle.h"
 #import "SimpleKMLBalloonStyle.h"
 #import "SimpleKMLFolder.h"
+#import "BPLPlacemark.h"
 
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
 
-#import "SimpleKMLPlacemark+BPLAdditions.h"
+#import "BPLPlacemark+Additions.h"
 
 @interface BPLMapViewModel()
 
@@ -88,28 +89,28 @@
 {
     // make sure there aren't any duplicates
     [self.data.flattenedPlacemarks enumerateObjectsUsingBlock:^(SimpleKMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
-        NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[placemark.key];
+        BPLPlacemark *bplPlacemark = [self placemarkFromSimpleKMLPlacemark:placemark];
+        NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[bplPlacemark.key];
         if (!placemarksAssociatedWithKey) {
-            [self.keyToArrayPositions setObject:@[@(idx)] forKey:placemark.key];
-            [self.massagedData addObject:placemark];
+            [self.keyToArrayPositions setObject:@[@(idx)] forKey:bplPlacemark.key];
+            [self.massagedData addObject:bplPlacemark];
         } else {
-            NSArray *existingPlacemarks = self.keyToArrayPositions[placemark.key];
-            SimpleKMLPlacemark *existingPlacemark = self.data.flattenedPlacemarks[[existingPlacemarks[0] intValue]];
-            if (![existingPlacemark.title isEqualToString:placemark.title]) {
+            NSArray *existingPlacemarks = self.keyToArrayPositions[bplPlacemark.key];
+            BPLPlacemark *existingPlacemark = self.data.flattenedPlacemarks[[existingPlacemarks[0] intValue]];
+            if (![existingPlacemark.title isEqualToString:bplPlacemark.title]) {
                 NSMutableArray *newPlacemarks = [placemarksAssociatedWithKey mutableCopy];
                 [newPlacemarks addObject:@(idx)];
-                [self.keyToArrayPositions setObject:newPlacemarks forKey:placemark.key];
+                [self.keyToArrayPositions setObject:newPlacemarks forKey:bplPlacemark.key];
             }
         }
     }];
     
     // pop the markers on the map
-    for (SimpleKMLPlacemark *placemark in self.massagedData) {
-        SimpleKMLPoint *point = placemark.point;
+    for (BPLPlacemark *placemark in self.massagedData) {
         
-        GMSMarker *marker = [GMSMarker markerWithPosition:point.coordinate];
+        GMSMarker *marker = [GMSMarker markerWithPosition:placemark.coordinate];
         marker.userData = placemark;
-        marker.icon = placemark.style.iconStyle.icon;
+//        marker.icon = placemark.style.iconStyle.icon;
         marker.title = placemark.title;
         // check to see if the regular subtitle would be too big to pop into the snippet
         NSString *snippet;
@@ -133,7 +134,7 @@
     return self.filteredData.count ?: self.massagedData.count;
 }
 
-- (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
+- (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.filteredData.count) {
         return self.filteredData[indexPath.row - 1];
@@ -142,7 +143,7 @@
     }
 }
 
-- (GMSMarker *)markerAtPlacemark:(SimpleKMLPlacemark *)placemark
+- (GMSMarker *)markerAtPlacemark:(BPLPlacemark *)placemark
 {
     return self.coordinateToMarker[placemark.key];
 }
@@ -157,13 +158,14 @@
     return placemarks;
 }
 
-- (SimpleKMLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate
+- (BPLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate
 {
     CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-    SimpleKMLPlacemark *closestPlacemark;
+    BPLPlacemark *closestPlacemark;
     CLLocationDistance currentDistance;
-    for (SimpleKMLPlacemark *placemark in self.alphabeticallySortedPositions) {
-        CLLocation *placemarkLocation = [[CLLocation alloc] initWithLatitude:placemark.point.coordinate.latitude longitude:placemark.point.coordinate.longitude];
+    for (BPLPlacemark *placemark in self.alphabeticallySortedPositions) {
+        
+        CLLocation *placemarkLocation = [[CLLocation alloc] initWithLatitude:placemark.coordinate.latitude longitude:placemark.coordinate.longitude];
         CLLocationDistance distance = [location distanceFromLocation:placemarkLocation];
         if (!closestPlacemark) {
             currentDistance = distance;
@@ -176,12 +178,12 @@
     return closestPlacemark;
 }
 
-- (SimpleKMLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate
+- (BPLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    SimpleKMLPlacemark *firstPlacemark;
-    for (SimpleKMLPlacemark *placemark in self.alphabeticallySortedPositions) {
-        if (placemark.point.coordinate.latitude == coordinate.latitude &&
-            placemark.point.coordinate.longitude == coordinate.longitude) {
+    BPLPlacemark *firstPlacemark;
+    for (BPLPlacemark *placemark in self.alphabeticallySortedPositions) {
+        if (placemark.coordinate.latitude == coordinate.latitude &&
+            placemark.coordinate.longitude == coordinate.longitude) {
             firstPlacemark = placemark;
         }
     }
@@ -196,6 +198,21 @@
         }];
     }
     return _alphabeticallySortedPositions;
+}
+
+- (BPLPlacemark *)placemarkFromSimpleKMLPlacemark:(SimpleKMLPlacemark *)placemark
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"BPLPlacemark" inManagedObjectContext:nil];
+
+    BPLPlacemark *bplPlacemark = [[BPLPlacemark alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+    
+    bplPlacemark.featureDescription = placemark.featureDescription;
+    bplPlacemark.name = placemark.name;
+//    bplPlacemark.title = placemark.title;
+    bplPlacemark.latitude = [[NSNumber alloc] initWithDouble: placemark.point.coordinate.latitude];
+    bplPlacemark.longitude = [[NSNumber alloc] initWithDouble: placemark.point.coordinate.longitude];
+    
+    return bplPlacemark;
 }
 
 @end

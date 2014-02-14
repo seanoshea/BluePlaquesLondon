@@ -17,7 +17,7 @@
 #import <Foundation/Foundation.h>
 
 #import <GoogleMaps/GoogleMaps.h>
-#import "SimpleKMLPlacemark.h"
+#import "BPLPlacemark.h"
 
 @interface BPLMapViewModel : NSObject
 
@@ -31,10 +31,10 @@
 - (void)createMarkersForMap:(GMSMapView *)mapView;
 
 - (NSInteger)numberOfPlacemarks;
-- (SimpleKMLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (SimpleKMLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate;
-- (SimpleKMLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate;
-- (GMSMarker *)markerAtPlacemark:(SimpleKMLPlacemark *)placemark;
+- (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BPLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate;
+- (BPLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate;
+- (GMSMarker *)markerAtPlacemark:(BPLPlacemark *)placemark;
 - (NSArray *)placemarksForKey:(NSString *)key;
 
 @end

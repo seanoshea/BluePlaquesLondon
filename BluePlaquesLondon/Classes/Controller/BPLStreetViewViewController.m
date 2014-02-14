@@ -21,6 +21,7 @@
 #import "GMSPanorama.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
+#import "BPLPlacemark+Additions.h"
 
 @interface BPLStreetViewViewController() <GMSPanoramaViewDelegate>
 
@@ -37,7 +38,7 @@
     [super viewDidLoad];
     self.screenName = @"Street View Screen";
     self.title = NSLocalizedString(@"Street View", nil);
-    GMSPanoramaView *panoView = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:self.placemark.point.coordinate];
+    GMSPanoramaView *panoView = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:self.placemark.coordinate];
     panoView.delegate = self;
     self.view = panoView;
 }

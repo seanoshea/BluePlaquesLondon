@@ -19,7 +19,6 @@
 #import <IntentKit/IntentKit.h>
 #import <HCViews/HCChevronView.h>
 
-#import "SimpleKMLPlacemark+BPLAdditions.h"
 #import "SimpleKMLPoint.h"
 #import "BPLConstants.h"
 #import "BPLWikipediaViewController.h"
@@ -33,6 +32,7 @@
 #import "BPLLabel.h"
 #import "BPLButton.h"
 #import "NSObject+BPLTracking.h"
+#import "BPLPlacemark+Additions.h"
 
 @interface BPLMapViewDetailViewController()
 
@@ -84,7 +84,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     
-    SimpleKMLPlacemark *placemark = (SimpleKMLPlacemark *)self.model.markers[0];
+    BPLPlacemark *placemark = (BPLPlacemark *)self.model.markers[0];
     
     self.navigationItem.title = placemark.name;
     self.occupationLabel.text = placemark.occupation;
@@ -114,7 +114,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SimpleKMLPlacemark *placemark;
+    BPLPlacemark *placemark;
     NSString *action;
     if ([segue.identifier isEqualToString:BPLWikipediaViewControllerSegue]) {
         BPLWikipediaViewController *destinationViewController = (BPLWikipediaViewController *)segue.destinationViewController;
@@ -142,7 +142,7 @@
 - (void)detailChooserViewControllerRowSelected:(NSNotification *)notification
 {
     NSNumber *index = [notification object];
-    SimpleKMLPlacemark *selectedPlacemark = self.model.markers[[index intValue]];
+    BPLPlacemark *selectedPlacemark = self.model.markers[[index intValue]];
     NSMutableArray *mutableMarkers = [self.model.markers mutableCopy];
     [mutableMarkers removeObject:selectedPlacemark];
     [mutableMarkers insertObject:selectedPlacemark atIndex:0];
@@ -154,8 +154,8 @@
     INKMapsHandler *mapsHandler = [[INKMapsHandler alloc] init];
     mapsHandler.center = CLLocationCoordinate2DMake(self.model.currentLocation.coordinate.longitude, self.model.currentLocation.coordinate.latitude);
     mapsHandler.zoom = [[NSUserDefaults standardUserDefaults] mapZoom];
-    SimpleKMLPlacemark *placemark = self.model.markers[0];
-    NSString *to = [NSString stringWithFormat:@"%.12f, %.12f", placemark.point.coordinate.latitude, placemark.point.coordinate.longitude];
+    BPLPlacemark *placemark = self.model.markers[0];
+    NSString *to = [NSString stringWithFormat:@"%.12f, %.12f", placemark.coordinate.latitude, placemark.coordinate.longitude];
     NSString *from = [NSString stringWithFormat:@"%.12f, %.12f", self.model.currentLocation.coordinate.latitude, self.model.currentLocation.coordinate.longitude];
     INKActivityPresenter *presenter = [mapsHandler directionsFrom:from to:to mode:INKMapsHandlerDirectionsModeWalking];
     [presenter presentActivitySheetFromViewController:self popoverFromRect:self.directionsButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
@@ -174,7 +174,7 @@
     }
 }
 
-- (void)buttonTappedForPlacemark:(SimpleKMLPlacemark *)placemark withAction:(NSString *)action
+- (void)buttonTappedForPlacemark:(BPLPlacemark *)placemark withAction:(NSString *)action
 {
     [self trackCategory:BPLUIActionCategory action:action label:placemark.name];
 }

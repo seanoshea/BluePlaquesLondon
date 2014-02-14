@@ -16,8 +16,6 @@
 
 #import "BPLWikipediaViewModel.h"
 
-#import "SimpleKMLPlacemark+BPLAdditions.h"
-
 static NSString * const BPLWikipediaViewModelSearchURLFormat = @"http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=%@&srprop=timestamp&format=json";
 static NSString * const BPLWikipediaViewModelPageURLFormat = @"http://en.wikipedia.org/wiki/%@";
 

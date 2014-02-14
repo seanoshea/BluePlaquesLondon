@@ -16,9 +16,9 @@
 
 #import "BPLDetailChooserViewController.h"
 
-#import "SimpleKMLPlacemark.h"
 #import "UIColor+BPLColors.h"
 #import "BPLConstants.h"
+#import "BPLPlacemark.h"
 
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
 #import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
@@ -59,7 +59,7 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BPLMultipleCell];
-    SimpleKMLPlacemark *pm = self.markers[indexPath.row];
+    BPLPlacemark *pm = self.markers[indexPath.row];
     cell.textLabel.text = pm.name;
     return cell;
 }

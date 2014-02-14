@@ -18,7 +18,6 @@
 
 #import <SVProgressHUD/SVProgressHUD.h>
 
-#import "SimpleKMLPlacemark+BPLAdditions.h"
 #import "BPLWikipediaViewModel.h"
 #import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"

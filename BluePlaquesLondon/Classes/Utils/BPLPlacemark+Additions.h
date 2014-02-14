@@ -14,12 +14,19 @@
  limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
-#import "GAITrackedViewController.h"
 #import "BPLPlacemark.h"
 
-@interface BPLStreetViewViewController : GAITrackedViewController
+#import <CoreLocation/CoreLocation.h>
 
-@property (nonatomic) BPLPlacemark *placemark;
+@interface BPLPlacemark (Additions)
+
+- (CLLocationCoordinate2D)coordinate;
+- (NSString *)name;
+- (NSString *)title;
+- (NSString *)occupation;
+- (NSString *)address;
+- (NSString *)note;
+- (NSString *)councilAndYear;
+- (NSString *)key;
 
 @end
