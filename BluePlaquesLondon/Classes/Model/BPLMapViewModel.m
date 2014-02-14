@@ -65,7 +65,8 @@
         
         SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kmz"] error:nil];
         
-        [self trackCategory:BPLKMZFileParsing action:BPLKMZFileParsing label:[NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSinceDate:methodStart]]];
+        NSNumber *number = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSinceDate:methodStart]];
+        [self trackCategory:BPLKMZFileParsing action:BPLKMZFileParsingEvent label:BPLKMZFileParsing value:number];
 
         if (kml.feature && [kml.feature isKindOfClass:[SimpleKMLDocument class]]) {
             for (SimpleKMLFeature *feature in ((SimpleKMLContainer *)kml.feature).features) {
