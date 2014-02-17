@@ -81,6 +81,7 @@
 		765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762AF18744E0200CD9208 /* BPLButtonTest.m */; };
 		765762B118744E5700CD9208 /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BPLColors.m */; };
 		765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762B21874647600CD9208 /* BPLTableViewCellTest.m */; };
+		7668B55B18B2BE200095B101 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7668B55A18B2BE1F0095B101 /* CoreData.framework */; };
 		766CD0C1184BBE2300864D6B /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
 		766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C4184BE94B00864D6B /* blueplaques.kmz */; };
 		766CD0C8184BE94B00864D6B /* blueplaques.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C5184BE94B00864D6B /* blueplaques.xlsx */; };
@@ -267,6 +268,7 @@
 		765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewModelTest.m; sourceTree = "<group>"; };
 		765762AF18744E0200CD9208 /* BPLButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButtonTest.m; sourceTree = "<group>"; };
 		765762B21874647600CD9208 /* BPLTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCellTest.m; sourceTree = "<group>"; };
+		7668B55A18B2BE1F0095B101 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		766CD0BF184BBE2300864D6B /* BPLMapViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewDetailViewController.h; sourceTree = "<group>"; };
 		766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewController.m; sourceTree = "<group>"; };
 		766CD0C4184BE94B00864D6B /* blueplaques.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = blueplaques.kmz; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7668B55B18B2BE200095B101 /* CoreData.framework in Frameworks */,
 				764990761882B20300FF5878 /* Social.framework in Frameworks */,
 				76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */,
 				76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */,
@@ -720,6 +723,7 @@
 		76B00EA318427FBB007A5EE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7668B55A18B2BE1F0095B101 /* CoreData.framework */,
 				764990751882B20300FF5878 /* Social.framework */,
 				76B00EA618427FBB007A5EE0 /* CoreGraphics.framework */,
 				76289D601843F5CC008E1391 /* CoreLocation.framework */,
