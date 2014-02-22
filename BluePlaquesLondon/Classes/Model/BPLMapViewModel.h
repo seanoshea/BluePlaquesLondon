@@ -28,9 +28,9 @@
 @property (nonatomic, copy) NSMutableArray *massagedData;
 @property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
 @property (nonatomic, copy) NSArray *filteredData;
-@property (nonatomic, copy) dispatch_block_t kmzFileParsedCallback;
+@property (nonatomic, copy) dispatch_block_t kmlFileParsedCallback;
 
-- (instancetype)initWithKMZFileParsedCallback:(dispatch_block_t)kmzFileParsedCallback;
+- (instancetype)initWithKMLFileParsedCallback:(dispatch_block_t)kmlFileParsedCallback;
 
 - (void)createMarkersForMap:(GMSMapView *)mapView;
 

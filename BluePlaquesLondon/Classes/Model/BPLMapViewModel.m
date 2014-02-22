@@ -32,14 +32,14 @@
 
 @implementation BPLMapViewModel
 
-- (instancetype)initWithKMZFileParsedCallback:(dispatch_block_t)kmzFileParsedCallback
+- (instancetype)initWithKMLFileParsedCallback:(dispatch_block_t)kmlFileParsedCallback
 {
     self = [super init];
     if (self) {
         _coordinateToMarker = [@{} mutableCopy];
         _keyToArrayPositions = [@{} mutableCopy];
         _massagedData = [@[] mutableCopy];
-        _kmzFileParsedCallback = [kmzFileParsedCallback copy];
+        _kmlFileParsedCallback = [_kmlFileParsedCallback copy];
         [self loadBluePlaquesData];
     }
     return self;
@@ -49,12 +49,10 @@
 {
     // can take some time to parse the kmz file ...
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
         NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kml"]];
         self.data = [KMLParser parseKMLAtURL:url];
-
-        if (self.kmzFileParsedCallback) {
-            self.kmzFileParsedCallback();
+        if (self.kmlFileParsedCallback) {
+            self.kmlFileParsedCallback();
         }
     });
 }

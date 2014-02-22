@@ -62,7 +62,7 @@
 
 - (void)commonInit
 {
-    self.model = [[BPLMapViewModel alloc] initWithKMZFileParsedCallback:^{
+    self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
