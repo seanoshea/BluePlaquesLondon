@@ -326,11 +326,6 @@
         loadingMessages = @[NSLocalizedString(@"Loading .", nil),
                             NSLocalizedString(@"Loading ..", nil),
                             NSLocalizedString(@"Loading ...", nil),
-                            NSLocalizedString(@"Loading ....", nil),
-                            NSLocalizedString(@"Loading .", nil),
-                            NSLocalizedString(@"Loading ..", nil),
-                            NSLocalizedString(@"Loading ...", nil),
-                            NSLocalizedString(@"Loading ....", nil),
                             NSLocalizedString(@"Nearly ready .....", nil)];
     });
     NSString *message;
