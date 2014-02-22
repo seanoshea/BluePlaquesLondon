@@ -25,7 +25,6 @@
 @interface BPLMapViewModel()
 
 @property (nonatomic) KMLRoot *data;
-@property (nonatomic) NSMutableArray *flattenedPlacemarks;
 @property (nonatomic, copy) NSMutableDictionary *coordinateToMarker;
 @property (nonatomic, copy) NSMutableDictionary *keyToArrayPositions;
 
@@ -40,7 +39,6 @@
         _coordinateToMarker = [@{} mutableCopy];
         _keyToArrayPositions = [@{} mutableCopy];
         _massagedData = [@[] mutableCopy];
-        _flattenedPlacemarks = [@[] mutableCopy];
         _kmzFileParsedCallback = [kmzFileParsedCallback copy];
         [self loadBluePlaquesData];
     }
@@ -52,14 +50,8 @@
     // can take some time to parse the kmz file ...
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        NSDate *methodStart = [NSDate date];
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kml"];
-        NSURL *url = [NSURL fileURLWithPath:path];
+        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kml"]];
         self.data = [KMLParser parseKMLAtURL:url];
-        
-        NSNumber *number = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSinceDate:methodStart]];
-        [self trackCategory:BPLKMZFileParsing action:BPLKMZFileParsingEvent label:BPLKMZFileParsing value:number];
 
         if (self.kmzFileParsedCallback) {
             self.kmzFileParsedCallback();
@@ -70,7 +62,7 @@
 - (void)createMarkersForMap:(GMSMapView *)mapView
 {
     // make sure there aren't any duplicates
-    [self.flattenedPlacemarks enumerateObjectsUsingBlock:^(KMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
+    [self.data.placemarks enumerateObjectsUsingBlock:^(KMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
         BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:placemark];
         NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[bplPlacemark.key];
         if (!placemarksAssociatedWithKey) {
@@ -78,7 +70,7 @@
             [self.massagedData addObject:bplPlacemark];
         } else {
             NSArray *existingPlacemarks = self.keyToArrayPositions[bplPlacemark.key];
-            BPLPlacemark *existingPlacemark = self.flattenedPlacemarks[[existingPlacemarks[0] intValue]];
+            BPLPlacemark *existingPlacemark = self.data.placemarks[[existingPlacemarks[0] intValue]];
             if (![existingPlacemark.title isEqualToString:bplPlacemark.title]) {
                 NSMutableArray *newPlacemarks = [placemarksAssociatedWithKey mutableCopy];
                 [newPlacemarks addObject:@(idx)];
@@ -87,31 +79,28 @@
         }
     }];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
+    // pop the markers on the map
+    for (BPLPlacemark *placemark in self.massagedData) {
         
-        // pop the markers on the map
-        for (BPLPlacemark *placemark in self.massagedData) {
-            
-            GMSMarker *marker = [GMSMarker markerWithPosition:placemark.coordinate];
-            marker.userData = placemark;
-            //        marker.icon = placemark.style.iconStyle.icon;
-            marker.title = placemark.title;
-            // check to see if the regular subtitle would be too big to pop into the snippet
-            NSString *snippet;
-            NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
-            if (numberOfPlacemarksAssociatedWithPlacemark.count == 1) {
-                snippet = placemark.occupation;
-            } else {
-                // generic message should suffice
-                snippet = NSLocalizedString(@"Multiple Placemarks at this location", @"");
-            }
-            
-            marker.snippet = snippet;
-            marker.map = mapView;
-            
-            self.coordinateToMarker[placemark.key] = marker;
+        GMSMarker *marker = [GMSMarker markerWithPosition:placemark.coordinate];
+        marker.userData = placemark;
+        marker.icon = [UIImage imageNamed:[placemark.styleUrl isEqualToString:@"#myDefaultStyles"] ? @"blue" : @"green"];
+        marker.title = placemark.title;
+        // check to see if the regular subtitle would be too big to pop into the snippet
+        NSString *snippet;
+        NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
+        if (numberOfPlacemarksAssociatedWithPlacemark.count == 1) {
+            snippet = placemark.occupation;
+        } else {
+            // generic message should suffice
+            snippet = NSLocalizedString(@"Multiple Placemarks at this location", @"");
         }
-    });
+        
+        marker.snippet = snippet;
+        marker.map = mapView;
+        
+        self.coordinateToMarker[placemark.key] = marker;
+    }
 }
 
 - (NSInteger)numberOfPlacemarks
@@ -138,7 +127,8 @@
     NSArray *indices = self.keyToArrayPositions[key];
     NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:indices.count];
     for (NSNumber *index in indices) {
-        [placemarks addObject:self.flattenedPlacemarks[[index intValue]]];
+        BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:self.data.placemarks[[index intValue]]];
+        [placemarks addObject:bplPlacemark];
     }
     return placemarks;
 }
@@ -178,9 +168,9 @@
 - (NSArray *)alphabeticallySortedPositions
 {
     if (!_alphabeticallySortedPositions) {
-//        _alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(KMLPlacemark* one, KMLPlacemark* two) {
-//            return [one.name compare:two.name];
-//        }];
+        _alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(KMLPlacemark* one, KMLPlacemark* two) {
+            return [one.name compare:two.name];
+        }];
     }
     return _alphabeticallySortedPositions;
 }
@@ -188,12 +178,11 @@
 - (BPLPlacemark *)bplPlacemarkFromKMLPlacemark:(KMLPlacemark *)placemark
 {
     BPLPlacemark *bplPlacemark = [[BPLPlacemark alloc] init];
-    
     KMLPoint *geometry = (KMLPoint *)placemark.geometry;
     
     bplPlacemark.featureDescription = placemark.descriptionValue;
     bplPlacemark.name = placemark.name;
-//    bplPlacemark.title = placemark.title;
+    bplPlacemark.styleUrl = placemark.styleUrl;
     bplPlacemark.latitude = [[NSNumber alloc] initWithDouble: geometry.coordinate.latitude];
     bplPlacemark.longitude = [[NSNumber alloc] initWithDouble: geometry.coordinate.longitude];
     

@@ -63,10 +63,14 @@
 - (void)commonInit
 {
     self.model = [[BPLMapViewModel alloc] initWithKMZFileParsedCallback:^{
-        [self dismissHUDAndInvalidateTimer];
-        [self.model createMarkersForMap:self.mapView];
-        self.searchBar.userInteractionEnabled = YES;
-        [self.tableView reloadData];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self dismissHUDAndInvalidateTimer];
+            [self.model createMarkersForMap:self.mapView];
+            self.searchBar.userInteractionEnabled = YES;
+            [self.tableView reloadData];
+        });
     }];
     
     self.locationManager = [[CLLocationManager alloc] init];

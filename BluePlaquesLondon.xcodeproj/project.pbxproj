@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
+		76060E8218B94BE3009DD5CD /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 76060E8118B94BE3009DD5CD /* blueplaques.kml */; };
+		76060E8318B94BE3009DD5CD /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 76060E8118B94BE3009DD5CD /* blueplaques.kml */; };
 		7613A85F1884988C00736C21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7613A85E1884988C00736C21 /* Localizable.strings */; };
 		7613A8601884988C00736C21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7613A85E1884988C00736C21 /* Localizable.strings */; };
 		76289C7D18429027008E1391 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
@@ -97,6 +99,7 @@
 /* Begin PBXFileReference section */
 		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A54203EC884337A5D8131D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		76060E8118B94BE3009DD5CD /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
 		7613A85E1884988C00736C21 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = strings/Localizable.strings; sourceTree = "<group>"; };
 		76289C7B18429027008E1391 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
 		76289C7C18429027008E1391 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
@@ -376,9 +379,10 @@
 		766CD0C3184BE90000864D6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				765081B8187770A4009EF6F2 /* strings */,
+				76060E8118B94BE3009DD5CD /* blueplaques.kml */,
 				766CD0C4184BE94B00864D6B /* blueplaques.kmz */,
 				766CD0C5184BE94B00864D6B /* blueplaques.xlsx */,
+				765081B8187770A4009EF6F2 /* strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -572,6 +576,7 @@
 			files = (
 				765081BB187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */,
 				7613A8601884988C00736C21 /* Localizable.strings in Resources */,
+				76060E8318B94BE3009DD5CD /* blueplaques.kml in Resources */,
 				764BD432185130B50033E603 /* InfoPlist.strings in Resources */,
 				76E24B0518720285004472AC /* wikipedia.json in Resources */,
 			);
@@ -586,6 +591,7 @@
 				76B00EC318427FBC007A5EE0 /* Images.xcassets in Resources */,
 				766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */,
 				766CD0C8184BE94B00864D6B /* blueplaques.xlsx in Resources */,
+				76060E8218B94BE3009DD5CD /* blueplaques.kml in Resources */,
 				7613A85F1884988C00736C21 /* Localizable.strings in Resources */,
 				765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */,
 				76B00EAF18427FBB007A5EE0 /* InfoPlist.strings in Resources */,

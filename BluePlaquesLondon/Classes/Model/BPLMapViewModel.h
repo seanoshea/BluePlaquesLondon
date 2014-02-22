@@ -22,12 +22,6 @@
 #import <MapKit/MapKit.h>
 #import <zlib.h>
 #import "KML.h"
-//#import "ZipFile.h"
-//#import "ZipException.h"
-//#import "FileInZipInfo.h"
-//#import "ZipWriteStream.h"
-//#import "ZipReadStream.h"
-//#import "SVProgressHUD.h"
 
 @interface BPLMapViewModel : NSObject
 
