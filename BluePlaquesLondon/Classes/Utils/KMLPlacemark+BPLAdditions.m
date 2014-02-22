@@ -14,51 +14,52 @@
  limitations under the License.
  */
 
-#import "SimpleKMLPlacemark+BPLAdditions.h"
-
+#import "KMLPlacemark+BPLAdditions.h"
+#import <MapKit/MapKit.h>
+#import "KML.h"
 #import "NSString+BPLPlacemarkFeatureDescription.h"
-#import "SimpleKMLPoint.h"
 
 static NSString *const BPLOverlayTitleDelimiter = @"<br>";
 static NSString *const BPLNameDelimiter = @"(";
 static NSString *const BPLEmphasisNoteOpeningTag = @"<em>";
 static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
-@implementation SimpleKMLPlacemark (BPLAdditions)
+@implementation KMLPlacemark (BPLAdditions)
 
 - (NSString *)name
 {
-    return self.featureDescription.name;
+    return self.descriptionValue.name;
 }
 
 - (NSString *)title
 {
-    return self.featureDescription.title;
+    return self.descriptionValue.title;
 }
 
 - (NSString *)occupation
 {
-    return self.featureDescription.occupation;
+    return self.descriptionValue.occupation;
 }
 
 - (NSString *)address
 {
-    return self.featureDescription.address;
+    return self.descriptionValue.address;
 }
 
 - (NSString *)note
 {
-    return self.featureDescription.note;
+    return self.descriptionValue.note;
 }
 
 - (NSString *)councilAndYear
 {
-    return  self.featureDescription.councilAndYear;
+    return self.descriptionValue.councilAndYear;
 }
 
 - (NSString *)key
 {
-    return [NSString stringWithFormat:@"%.5f%.5f", self.point.coordinate.latitude, self.point.coordinate.longitude];
+    KMLPoint *geometry = (KMLPoint *)self.geometry;
+    return [NSString stringWithFormat:@"%.5f%.5f", geometry.coordinate.latitude, geometry.coordinate.longitude];
 }
 
 - (NSString *)description

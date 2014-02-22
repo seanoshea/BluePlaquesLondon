@@ -43,7 +43,7 @@
     self.webView.backgroundColor = [UIColor BPLGreyColour];
     self.webView.opaque = NO;
     
-    SimpleKMLPlacemark *placemark = self.markers[0];
+    KMLPlacemark *placemark = self.markers[0];
     self.model = [[BPLWikipediaViewModel alloc] initWithName:placemark.name];
     self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
     self.webView.delegate = self;
@@ -101,7 +101,7 @@
                       cancelButtonTitle:NSLocalizedString(@"OK", nil)
                       otherButtonTitles:nil] show];
     if (self.markers.count) {
-        SimpleKMLPlacemark *placemark = self.markers[0];
+        KMLPlacemark *placemark = self.markers[0];
         [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
     }
 }

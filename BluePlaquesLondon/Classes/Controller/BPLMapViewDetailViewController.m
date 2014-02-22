@@ -19,7 +19,6 @@
 #import <IntentKit/IntentKit.h>
 #import <HCViews/HCChevronView.h>
 
-#import "SimpleKMLPoint.h"
 #import "BPLConstants.h"
 #import "BPLWikipediaViewController.h"
 #import "BPLDetailChooserViewController.h"

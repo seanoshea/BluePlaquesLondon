@@ -15,9 +15,8 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
-@interface BPLPlacemark : NSManagedObject
+@interface BPLPlacemark : NSObject
 
 @property (nonatomic, retain) NSString * featureDescription;
 @property (nonatomic, retain) NSString * name;

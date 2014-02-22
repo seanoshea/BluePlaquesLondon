@@ -14,9 +14,9 @@
  limitations under the License.
  */
 
-#import "SimpleKMLPlacemark.h"
+#import "KMLPlacemark.h"
 
-@interface SimpleKMLPlacemark (BPLAdditions)
+@interface KMLPlacemark (BPLAdditions)
 
 - (NSString *)name;
 - (NSString *)title;

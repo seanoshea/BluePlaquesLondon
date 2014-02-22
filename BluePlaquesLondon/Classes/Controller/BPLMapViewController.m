@@ -20,7 +20,6 @@
 
 #import "BPLMapViewModel.h"
 
-#import "SimpleKMLPoint.h"
 #import "NSUserDefaults+BPLState.h"
 #import "BPLMapViewDetailViewController.h"
 #import "BPLConstants.h"

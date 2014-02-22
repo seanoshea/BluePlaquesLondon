@@ -17,7 +17,6 @@
 #import "BPLStreetViewViewController.h"
 
 #import "GMSPanoramaView.h"
-#import "SimpleKMLPoint.h"
 #import "GMSPanorama.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"

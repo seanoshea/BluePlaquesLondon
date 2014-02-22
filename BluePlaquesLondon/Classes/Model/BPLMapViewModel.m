@@ -17,26 +17,15 @@
 #import "BPLMapViewModel.h"
 
 #import "BPLConstants.h"
-
-#import "SimpleKMLDocument.h"
-#import "SimpleKMLPlacemark.h"
-#import "SimpleKMLPoint.h"
-#import "SimpleKMLStyle.h"
-#import "SimpleKMLIconStyle.h"
-#import "SimpleKMLLineStyle.h"
-#import "SimpleKMLPolyStyle.h"
-#import "SimpleKMLBalloonStyle.h"
-#import "SimpleKMLFolder.h"
 #import "BPLPlacemark.h"
-
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
-
 #import "BPLPlacemark+Additions.h"
 
 @interface BPLMapViewModel()
 
-@property (nonatomic) SimpleKMLDocument *data;
+@property (nonatomic) KMLRoot *data;
+@property (nonatomic) NSMutableArray *flattenedPlacemarks;
 @property (nonatomic, copy) NSMutableDictionary *coordinateToMarker;
 @property (nonatomic, copy) NSMutableDictionary *keyToArrayPositions;
 
@@ -51,6 +40,7 @@
         _coordinateToMarker = [@{} mutableCopy];
         _keyToArrayPositions = [@{} mutableCopy];
         _massagedData = [@[] mutableCopy];
+        _flattenedPlacemarks = [@[] mutableCopy];
         _kmzFileParsedCallback = [kmzFileParsedCallback copy];
         [self loadBluePlaquesData];
     }
@@ -64,23 +54,15 @@
         
         NSDate *methodStart = [NSDate date];
         
-        SimpleKML *kml = [SimpleKML KMLWithContentsOfFile:[[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kmz"] error:nil];
+        NSString *path = [[NSBundle mainBundle] pathForResource:BPLKMZFilename ofType:@"kml"];
+        NSURL *url = [NSURL fileURLWithPath:path];
+        self.data = [KMLParser parseKMLAtURL:url];
         
         NSNumber *number = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSinceDate:methodStart]];
         [self trackCategory:BPLKMZFileParsing action:BPLKMZFileParsingEvent label:BPLKMZFileParsing value:number];
 
-        if (kml.feature && [kml.feature isKindOfClass:[SimpleKMLDocument class]]) {
-            for (SimpleKMLFeature *feature in ((SimpleKMLContainer *)kml.feature).features) {
-                if ([feature isKindOfClass:[SimpleKMLFolder class]]) {
-                    self.data = ((SimpleKMLFolder *)feature).document;
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if (self.kmzFileParsedCallback) {
-                            self.kmzFileParsedCallback();
-                        }
-                    });
-                    break;
-                }
-            }
+        if (self.kmzFileParsedCallback) {
+            self.kmzFileParsedCallback();
         }
     });
 }
@@ -88,15 +70,15 @@
 - (void)createMarkersForMap:(GMSMapView *)mapView
 {
     // make sure there aren't any duplicates
-    [self.data.flattenedPlacemarks enumerateObjectsUsingBlock:^(SimpleKMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
-        BPLPlacemark *bplPlacemark = [self placemarkFromSimpleKMLPlacemark:placemark];
+    [self.flattenedPlacemarks enumerateObjectsUsingBlock:^(KMLPlacemark *placemark, NSUInteger idx, BOOL *stop) {
+        BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:placemark];
         NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[bplPlacemark.key];
         if (!placemarksAssociatedWithKey) {
             [self.keyToArrayPositions setObject:@[@(idx)] forKey:bplPlacemark.key];
             [self.massagedData addObject:bplPlacemark];
         } else {
             NSArray *existingPlacemarks = self.keyToArrayPositions[bplPlacemark.key];
-            BPLPlacemark *existingPlacemark = self.data.flattenedPlacemarks[[existingPlacemarks[0] intValue]];
+            BPLPlacemark *existingPlacemark = self.flattenedPlacemarks[[existingPlacemarks[0] intValue]];
             if (![existingPlacemark.title isEqualToString:bplPlacemark.title]) {
                 NSMutableArray *newPlacemarks = [placemarksAssociatedWithKey mutableCopy];
                 [newPlacemarks addObject:@(idx)];
@@ -105,28 +87,31 @@
         }
     }];
     
-    // pop the markers on the map
-    for (BPLPlacemark *placemark in self.massagedData) {
+    dispatch_async(dispatch_get_main_queue(), ^{
         
-        GMSMarker *marker = [GMSMarker markerWithPosition:placemark.coordinate];
-        marker.userData = placemark;
-//        marker.icon = placemark.style.iconStyle.icon;
-        marker.title = placemark.title;
-        // check to see if the regular subtitle would be too big to pop into the snippet
-        NSString *snippet;
-        NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
-        if (numberOfPlacemarksAssociatedWithPlacemark.count == 1) {
-            snippet = placemark.occupation;
-        } else {
-            // generic message should suffice
-            snippet = NSLocalizedString(@"Multiple Placemarks at this location", @"");
+        // pop the markers on the map
+        for (BPLPlacemark *placemark in self.massagedData) {
+            
+            GMSMarker *marker = [GMSMarker markerWithPosition:placemark.coordinate];
+            marker.userData = placemark;
+            //        marker.icon = placemark.style.iconStyle.icon;
+            marker.title = placemark.title;
+            // check to see if the regular subtitle would be too big to pop into the snippet
+            NSString *snippet;
+            NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
+            if (numberOfPlacemarksAssociatedWithPlacemark.count == 1) {
+                snippet = placemark.occupation;
+            } else {
+                // generic message should suffice
+                snippet = NSLocalizedString(@"Multiple Placemarks at this location", @"");
+            }
+            
+            marker.snippet = snippet;
+            marker.map = mapView;
+            
+            self.coordinateToMarker[placemark.key] = marker;
         }
-        
-        marker.snippet = snippet;
-        marker.map = mapView;
-        
-        self.coordinateToMarker[placemark.key] = marker;
-    }
+    });
 }
 
 - (NSInteger)numberOfPlacemarks
@@ -153,7 +138,7 @@
     NSArray *indices = self.keyToArrayPositions[key];
     NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:indices.count];
     for (NSNumber *index in indices) {
-        [placemarks addObject:self.data.flattenedPlacemarks[[index intValue]]];
+        [placemarks addObject:self.flattenedPlacemarks[[index intValue]]];
     }
     return placemarks;
 }
@@ -193,24 +178,24 @@
 - (NSArray *)alphabeticallySortedPositions
 {
     if (!_alphabeticallySortedPositions) {
-        _alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(SimpleKMLPlacemark* one, SimpleKMLPlacemark* two) {
-            return [one.name compare:two.name];
-        }];
+//        _alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(KMLPlacemark* one, KMLPlacemark* two) {
+//            return [one.name compare:two.name];
+//        }];
     }
     return _alphabeticallySortedPositions;
 }
 
-- (BPLPlacemark *)placemarkFromSimpleKMLPlacemark:(SimpleKMLPlacemark *)placemark
+- (BPLPlacemark *)bplPlacemarkFromKMLPlacemark:(KMLPlacemark *)placemark
 {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"BPLPlacemark" inManagedObjectContext:nil];
-
-    BPLPlacemark *bplPlacemark = [[BPLPlacemark alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+    BPLPlacemark *bplPlacemark = [[BPLPlacemark alloc] init];
     
-    bplPlacemark.featureDescription = placemark.featureDescription;
+    KMLPoint *geometry = (KMLPoint *)placemark.geometry;
+    
+    bplPlacemark.featureDescription = placemark.descriptionValue;
     bplPlacemark.name = placemark.name;
 //    bplPlacemark.title = placemark.title;
-    bplPlacemark.latitude = [[NSNumber alloc] initWithDouble: placemark.point.coordinate.latitude];
-    bplPlacemark.longitude = [[NSNumber alloc] initWithDouble: placemark.point.coordinate.longitude];
+    bplPlacemark.latitude = [[NSNumber alloc] initWithDouble: geometry.coordinate.latitude];
+    bplPlacemark.longitude = [[NSNumber alloc] initWithDouble: geometry.coordinate.longitude];
     
     return bplPlacemark;
 }
