@@ -39,7 +39,7 @@
         _coordinateToMarker = [@{} mutableCopy];
         _keyToArrayPositions = [@{} mutableCopy];
         _massagedData = [@[] mutableCopy];
-        _kmlFileParsedCallback = [_kmlFileParsedCallback copy];
+        _kmlFileParsedCallback = [kmlFileParsedCallback copy];
         [self loadBluePlaquesData];
     }
     return self;
