@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
+		711FDAE71947442D004ED6DA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711FDAE61947442D004ED6DA /* Crashlytics.framework */; };
 		76060E8218B94BE3009DD5CD /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 76060E8118B94BE3009DD5CD /* blueplaques.kml */; };
 		76060E8318B94BE3009DD5CD /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 76060E8118B94BE3009DD5CD /* blueplaques.kml */; };
 		7613A85F1884988C00736C21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7613A85E1884988C00736C21 /* Localizable.strings */; };
@@ -59,7 +60,6 @@
 		76B1771018AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
 		76B1771118AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
 		76B6CE8A184B9C8400479447 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		76C37B61184E770E004D229B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C37B60184E770E004D229B /* Crashlytics.framework */; };
 		76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
 		76CBBB65184D33C100A6828C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		76D3CF58186B226000E0D8F3 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
@@ -99,6 +99,7 @@
 /* Begin PBXFileReference section */
 		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A54203EC884337A5D8131D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		711FDAE61947442D004ED6DA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		76060E8118B94BE3009DD5CD /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
 		7613A85E1884988C00736C21 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = strings/Localizable.strings; sourceTree = "<group>"; };
 		76289C7B18429027008E1391 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		76B6CE88184B9C8400479447 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "Foundation/GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Foundation/GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		76B6CE8C184B9C9E00479447 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		76C37B60184E770E004D229B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		76CBBB5E184D316100A6828C /* BPLConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLConfiguration.h; sourceTree = "<group>"; };
 		76CBBB5F184D316100A6828C /* BPLConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLConfiguration.m; sourceTree = "<group>"; };
 		76CBBB63184D33C100A6828C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -210,12 +210,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				711FDAE71947442D004ED6DA /* Crashlytics.framework in Frameworks */,
 				7668B55B18B2BE200095B101 /* CoreData.framework in Frameworks */,
 				764990761882B20300FF5878 /* Social.framework in Frameworks */,
 				76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */,
 				76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */,
 				76289D5F1843F5BE008E1391 /* libz.dylib in Frameworks */,
-				76C37B61184E770E004D229B /* Crashlytics.framework in Frameworks */,
 				76B00EE01842866B007A5EE0 /* MapKit.framework in Frameworks */,
 				76B00EA718427FBB007A5EE0 /* CoreGraphics.framework in Frameworks */,
 				76B00EA918427FBB007A5EE0 /* UIKit.framework in Frameworks */,
@@ -411,15 +411,15 @@
 			isa = PBXGroup;
 			children = (
 				7668B55A18B2BE1F0095B101 /* CoreData.framework */,
-				764990751882B20300FF5878 /* Social.framework */,
 				76B00EA618427FBB007A5EE0 /* CoreGraphics.framework */,
 				76289D601843F5CC008E1391 /* CoreLocation.framework */,
-				76C37B60184E770E004D229B /* Crashlytics.framework */,
+				711FDAE61947442D004ED6DA /* Crashlytics.framework */,
 				76B00EA418427FBB007A5EE0 /* Foundation.framework */,
 				29DA0FE8859948A7976E1811 /* libPods.a */,
 				76289D5E1843F5BE008E1391 /* libz.dylib */,
 				76B00EDF1842866B007A5EE0 /* MapKit.framework */,
 				76F19BA61865DA90002F6A3D /* QuartzCore.framework */,
+				764990751882B20300FF5878 /* Social.framework */,
 				76B00EA818427FBB007A5EE0 /* UIKit.framework */,
 				76B00EC918427FBC007A5EE0 /* XCTest.framework */,
 			);
@@ -612,7 +612,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 8aa2986353e21d6181e23a9360cd528dca68aafb";
+			shellScript = "./Crashlytics.framework/run 8aa2986353e21d6181e23a9360cd528dca68aafb 5769576e5978757dbd9058df640a5f116b6c94ab6e35b7321786486fc8bff94f";
 		};
 		A1E5CD2BAB6B41189BA1C82A /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -895,6 +895,7 @@
 					"$(inherited)",
 					/Users/osheas/dev/github/BluePlaquesLondon,
 					/Users/osheas/dev/github/BluePlaquesLondon/BluePlaquesLondon/Dependencies,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
@@ -970,6 +971,7 @@
 					"$(inherited)",
 					/Users/osheas/dev/github/BluePlaquesLondon,
 					/Users/osheas/dev/github/BluePlaquesLondon/BluePlaquesLondon/Dependencies,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";

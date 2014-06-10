@@ -33,6 +33,9 @@
 #import "NSObject+BPLTracking.h"
 #import "BPLPlacemark+Additions.h"
 
+#import "INKMapsHandler.h"
+#import "INKActivityPresenter.h"
+
 @interface BPLMapViewDetailViewController()
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
@@ -157,7 +160,9 @@
     NSString *to = [NSString stringWithFormat:@"%.12f, %.12f", placemark.coordinate.latitude, placemark.coordinate.longitude];
     NSString *from = [NSString stringWithFormat:@"%.12f, %.12f", self.model.currentLocation.coordinate.latitude, self.model.currentLocation.coordinate.longitude];
     INKActivityPresenter *presenter = [mapsHandler directionsFrom:from to:to mode:INKMapsHandlerDirectionsModeWalking];
-    [presenter presentActivitySheetFromViewController:self popoverFromRect:self.directionsButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [presenter presentModalActivitySheetFromViewController:self completion:^{
+
+    }];
     [self buttonTappedForPlacemark:placemark withAction:BPLDirectionsButtonPressedEvent];
 }
 
