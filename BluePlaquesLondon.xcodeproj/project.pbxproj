@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
 		711FDAE71947442D004ED6DA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711FDAE61947442D004ED6DA /* Crashlytics.framework */; };
+		7128DC6C194746DD00F46CD3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */; };
 		76060E8218B94BE3009DD5CD /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 76060E8118B94BE3009DD5CD /* blueplaques.kml */; };
 		76060E8318B94BE3009DD5CD /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 76060E8118B94BE3009DD5CD /* blueplaques.kml */; };
 		7613A85F1884988C00736C21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7613A85E1884988C00736C21 /* Localizable.strings */; };
@@ -41,7 +42,6 @@
 		7668B55B18B2BE200095B101 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7668B55A18B2BE1F0095B101 /* CoreData.framework */; };
 		766CD0C1184BBE2300864D6B /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
 		766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C4184BE94B00864D6B /* blueplaques.kmz */; };
-		766CD0C8184BE94B00864D6B /* blueplaques.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C5184BE94B00864D6B /* blueplaques.xlsx */; };
 		766D524518AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */; };
 		766D524618AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */; };
 		766D524818AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524718AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m */; };
@@ -100,6 +100,7 @@
 		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A54203EC884337A5D8131D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		711FDAE61947442D004ED6DA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		76060E8118B94BE3009DD5CD /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
 		7613A85E1884988C00736C21 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = strings/Localizable.strings; sourceTree = "<group>"; };
 		76289C7B18429027008E1391 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
@@ -137,7 +138,6 @@
 		766CD0BF184BBE2300864D6B /* BPLMapViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewDetailViewController.h; sourceTree = "<group>"; };
 		766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewController.m; sourceTree = "<group>"; };
 		766CD0C4184BE94B00864D6B /* blueplaques.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = blueplaques.kmz; sourceTree = "<group>"; };
-		766CD0C5184BE94B00864D6B /* blueplaques.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = blueplaques.xlsx; sourceTree = "<group>"; };
 		766D524318AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKDistanceFormatter+BPLAdditions.h"; sourceTree = "<group>"; };
 		766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKDistanceFormatter+BPLAdditions.m"; sourceTree = "<group>"; };
 		766D524718AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMKDistanceFormatterAdditionsTest.m; sourceTree = "<group>"; };
@@ -210,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7128DC6C194746DD00F46CD3 /* libsqlite3.dylib in Frameworks */,
 				711FDAE71947442D004ED6DA /* Crashlytics.framework in Frameworks */,
 				7668B55B18B2BE200095B101 /* CoreData.framework in Frameworks */,
 				764990761882B20300FF5878 /* Social.framework in Frameworks */,
@@ -381,7 +382,6 @@
 			children = (
 				76060E8118B94BE3009DD5CD /* blueplaques.kml */,
 				766CD0C4184BE94B00864D6B /* blueplaques.kmz */,
-				766CD0C5184BE94B00864D6B /* blueplaques.xlsx */,
 				765081B8187770A4009EF6F2 /* strings */,
 			);
 			path = Resources;
@@ -416,6 +416,7 @@
 				711FDAE61947442D004ED6DA /* Crashlytics.framework */,
 				76B00EA418427FBB007A5EE0 /* Foundation.framework */,
 				29DA0FE8859948A7976E1811 /* libPods.a */,
+				7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */,
 				76289D5E1843F5BE008E1391 /* libz.dylib */,
 				76B00EDF1842866B007A5EE0 /* MapKit.framework */,
 				76F19BA61865DA90002F6A3D /* QuartzCore.framework */,
@@ -590,7 +591,6 @@
 				76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */,
 				76B00EC318427FBC007A5EE0 /* Images.xcassets in Resources */,
 				766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */,
-				766CD0C8184BE94B00864D6B /* blueplaques.xlsx in Resources */,
 				76060E8218B94BE3009DD5CD /* blueplaques.kml in Resources */,
 				7613A85F1884988C00736C21 /* Localizable.strings in Resources */,
 				765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */,
