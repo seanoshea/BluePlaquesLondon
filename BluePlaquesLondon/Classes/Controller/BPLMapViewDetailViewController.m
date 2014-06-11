@@ -88,7 +88,7 @@
     
     BPLPlacemark *placemark = (BPLPlacemark *)self.model.markers[0];
     
-    self.navigationItem.title = placemark.name;
+    self.navigationItem.title = placemark.placemarkName;
     self.occupationLabel.text = placemark.occupation;
     self.addressLabel.text = placemark.address;
     
@@ -180,7 +180,7 @@
 
 - (void)buttonTappedForPlacemark:(BPLPlacemark *)placemark withAction:(NSString *)action
 {
-    [self trackCategory:BPLUIActionCategory action:action label:placemark.name];
+    [self trackCategory:BPLUIActionCategory action:action label:placemark.placemarkName];
 }
 
 - (void)dealloc

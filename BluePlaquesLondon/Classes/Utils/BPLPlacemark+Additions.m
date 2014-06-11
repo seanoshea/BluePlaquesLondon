@@ -30,7 +30,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
 }
 
-- (NSString *)name
+- (NSString *)placemarkName
 {
     return self.featureDescription.name;
 }
@@ -67,7 +67,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name: %@ title: %@ occupation: %@ address: %@ note: %@ councilAndYear: %@", self.name, self.title, self.occupation, self.address, self.note, self.councilAndYear];
+    return [NSString stringWithFormat:@"name: %@ title: %@ occupation: %@ address: %@ note: %@ councilAndYear: %@", self.placemarkName, self.placemarkTitle, self.occupation, self.address, self.note, self.councilAndYear];
 }
 
 @end

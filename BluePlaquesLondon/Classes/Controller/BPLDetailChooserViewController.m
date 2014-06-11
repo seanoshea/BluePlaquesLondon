@@ -19,6 +19,7 @@
 #import "UIColor+BPLColors.h"
 #import "BPLConstants.h"
 #import "BPLPlacemark.h"
+#import "BPLPlacemark+Additions.h"
 
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
 #import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
@@ -60,7 +61,7 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BPLMultipleCell];
     BPLPlacemark *pm = self.markers[indexPath.row];
-    cell.textLabel.text = pm.name;
+    cell.textLabel.text = pm.placemarkName;
     return cell;
 }
 

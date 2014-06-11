@@ -21,7 +21,7 @@
 @interface BPLPlacemark (Additions)
 
 - (CLLocationCoordinate2D)coordinate;
-- (NSString *)name;
+- (NSString *)placemarkName;
 - (NSString *)placemarkTitle;
 - (NSString *)occupation;
 - (NSString *)address;

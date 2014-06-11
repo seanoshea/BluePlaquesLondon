@@ -178,7 +178,7 @@
             cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
         }
         
-        cell.textLabel.text = pm.name;
+        cell.textLabel.text = pm.placemarkName;
     }
     return cell;
 }
@@ -190,11 +190,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
         BPLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
-        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.name];
+        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.placemarkName];
         [self navigateToPlacemark:closestPlacemark];
     } else {
         BPLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
-        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.name];
+        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.placemarkName];
         [self navigateToPlacemark:placemarkAtIndexPath];
     }
 }
@@ -311,7 +311,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         BPLPlacemark *placemarkForMarker = [self.model firstPlacemarkAtCoordinate:marker.position];
         if (placemarkForMarker) {
-            [self trackCategory:BPLUIActionCategory action:action label:placemarkForMarker.name];
+            [self trackCategory:BPLUIActionCategory action:action label:placemarkForMarker.placemarkName];
         }
     });
 }
