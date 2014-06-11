@@ -22,7 +22,7 @@
 
 - (CLLocationCoordinate2D)coordinate;
 - (NSString *)name;
-- (NSString *)title;
+- (NSString *)placemarkTitle;
 - (NSString *)occupation;
 - (NSString *)address;
 - (NSString *)note;

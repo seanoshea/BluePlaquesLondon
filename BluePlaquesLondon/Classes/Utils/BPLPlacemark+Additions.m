@@ -35,7 +35,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     return self.featureDescription.name;
 }
 
-- (NSString *)title
+- (NSString *)placemarkTitle
 {
     return self.featureDescription.title;
 }

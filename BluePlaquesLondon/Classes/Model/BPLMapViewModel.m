@@ -83,7 +83,7 @@
         GMSMarker *marker = [GMSMarker markerWithPosition:placemark.coordinate];
         marker.userData = placemark;
         marker.icon = [UIImage imageNamed:[placemark.styleUrl isEqualToString:@"#myDefaultStyles"] ? @"blue" : @"green"];
-        marker.title = placemark.title;
+        marker.title = placemark.placemarkTitle;
         // check to see if the regular subtitle would be too big to pop into the snippet
         NSString *snippet;
         NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
