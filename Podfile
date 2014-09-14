@@ -11,10 +11,3 @@ pod 'SVProgressHUD', :head
 pod 'iRate'
 pod 'iOS-KML-Framework', :git => 'https://github.com/FLCLjp/iOS-KML-Framework.git'
 
-post_install do |installer|
-  installer.project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['ARCHS'] = "$(ARCHS_STANDARD_INCLUDING_64_BIT)"
-    end
-  end
-end

@@ -35,7 +35,6 @@
 		765081C318786C3D009EF6F2 /* NSObject+BPLTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */; };
 		7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
 		765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */; };
-		765762AB18744DB700CD9208 /* BPLWikipediaViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */; };
 		765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762AF18744E0200CD9208 /* BPLButtonTest.m */; };
 		765762B118744E5700CD9208 /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BPLColors.m */; };
 		765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762B21874647600CD9208 /* BPLTableViewCellTest.m */; };
@@ -71,9 +70,7 @@
 		76E24B0518720285004472AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 76E24B0418720285004472AC /* wikipedia.json */; };
 		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
 		76E9083E1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m */; };
-		76E9083F1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m */; };
 		76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
-		76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
 		76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F19BA61865DA90002F6A3D /* QuartzCore.framework */; };
 		76F19BAA186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
 		76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
@@ -131,7 +128,6 @@
 		7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaViewController.h; sourceTree = "<group>"; };
 		7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewController.m; sourceTree = "<group>"; };
 		765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
-		765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewModelTest.m; sourceTree = "<group>"; };
 		765762AF18744E0200CD9208 /* BPLButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButtonTest.m; sourceTree = "<group>"; };
 		765762B21874647600CD9208 /* BPLTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCellTest.m; sourceTree = "<group>"; };
 		7668B55A18B2BE1F0095B101 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -487,7 +483,6 @@
 			isa = PBXGroup;
 			children = (
 				765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */,
-				765762A918744DB700CD9208 /* BPLWikipediaViewModelTest.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -652,7 +647,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76D3CF64186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */,
-				765762AB18744DB700CD9208 /* BPLWikipediaViewModelTest.m in Sources */,
 				765762B118744E5700CD9208 /* UIColor+BPLColors.m in Sources */,
 				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */,
@@ -668,8 +662,6 @@
 				765081B718776C20009EF6F2 /* BPLMapViewDetailViewModel.m in Sources */,
 				76B1771118AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */,
 				766D524618AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */,
-				76F19BA51865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
-				76E9083F1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m in Sources */,
 				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -777,6 +769,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "BluePlaquesLondonTests/BluePlaquesLondonTests-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
