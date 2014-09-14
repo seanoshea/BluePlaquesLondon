@@ -24,8 +24,3 @@ DerivedData
 # CocoaPods
 Podfile.lock
 Pods
-
-# KML
-*.kml
-*.xlsx
-*.kmz
