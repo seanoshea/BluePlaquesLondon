@@ -6,3 +6,5 @@ before_install:
   - git submodule update --init --recursive
 before_script: travis/before_script.sh
 script: travis/script.sh
+after_success:
+  - travis/coveralls.rb --extension m --exclude-folder BluePlaquesLondonTests

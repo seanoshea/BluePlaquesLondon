@@ -757,6 +757,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondonTests/BluePlaquesLondonTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -885,6 +886,7 @@
 					/Users/osheas/dev/github/BluePlaquesLondon/BluePlaquesLondon/Dependencies,
 					"$(PROJECT_DIR)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
