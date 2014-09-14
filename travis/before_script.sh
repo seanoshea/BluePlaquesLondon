@@ -2,7 +2,8 @@
 
 env
 
-xcodebuild -list -workspace BluePlaquesLondon.xcworkspace
-
 brew update
-brew install xctool ios-sim
+sudo easy_install cpp-coveralls
+
+gem install cocoapods
+pod install
