@@ -22,8 +22,8 @@
 @property (nonatomic, copy) NSString * name;
 @property (nonatomic, copy) NSString * title;
 @property (nonatomic, copy) NSString * styleUrl;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSNumber * placemarkPinType;
+@property (nonatomic) NSNumber * longitude;
+@property (nonatomic) NSNumber * latitude;
+@property (nonatomic) NSNumber * placemarkPinType;
 
 @end

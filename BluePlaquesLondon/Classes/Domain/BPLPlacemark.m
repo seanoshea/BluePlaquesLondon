@@ -18,11 +18,4 @@
 
 @implementation BPLPlacemark
 
-@synthesize featureDescription;
-@synthesize name;
-@synthesize title;
-@synthesize longitude;
-@synthesize latitude;
-@synthesize placemarkPinType;
-
 @end
