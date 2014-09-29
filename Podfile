@@ -1,5 +1,7 @@
 platform :ios, '7.0'
 
+inhibit_all_warnings!
+
 xcodeproj 'BluePlaquesLondon.xcodeproj'
 
 pod 'TTTAttributedLabel', '~> 1.10.1'
