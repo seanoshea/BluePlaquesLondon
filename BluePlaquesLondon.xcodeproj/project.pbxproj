@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14B918A01A06975900F157F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B9189F1A06975900F157F2 /* LaunchScreen.xib */; };
 		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
 		711FDAE71947442D004ED6DA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711FDAE61947442D004ED6DA /* Crashlytics.framework */; };
 		7128DC6C194746DD00F46CD3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */; };
@@ -95,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		14B9189F1A06975900F157F2 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		711FDAE61947442D004ED6DA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -389,6 +391,7 @@
 				76060E8118B94BE3009DD5CD /* blueplaques.kml */,
 				766CD0C4184BE94B00864D6B /* blueplaques.kmz */,
 				765081B8187770A4009EF6F2 /* strings */,
+				14B9189F1A06975900F157F2 /* LaunchScreen.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				76060E8218B94BE3009DD5CD /* blueplaques.kml in Resources */,
 				7613A85F1884988C00736C21 /* Localizable.strings in Resources */,
 				765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */,
+				14B918A01A06975900F157F2 /* LaunchScreen.xib in Resources */,
 				76B00EAF18427FBB007A5EE0 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
