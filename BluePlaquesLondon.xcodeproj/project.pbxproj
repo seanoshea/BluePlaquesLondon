@@ -94,8 +94,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		46A54203EC884337A5D8131D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		711FDAE61947442D004ED6DA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		76060E8118B94BE3009DD5CD /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
@@ -189,6 +189,7 @@
 		76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLTableViewCell.m; path = View/BPLTableViewCell.m; sourceTree = "<group>"; };
 		76F19BB61867A138002F6A3D /* BPLStreetViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLStreetViewViewController.h; sourceTree = "<group>"; };
 		76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStreetViewViewController.m; sourceTree = "<group>"; };
+		90BD52DB1D76584C46533500 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +225,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		476AF6AB597FC9509C13DE62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */,
+				90BD52DB1D76584C46533500 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		76289C7318428FE5008E1391 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,7 +400,7 @@
 				764BD42D185130B50033E603 /* BluePlaquesLondonTests */,
 				76B00EA318427FBB007A5EE0 /* Frameworks */,
 				76B00EA218427FBB007A5EE0 /* Products */,
-				46A54203EC884337A5D8131D /* Pods.xcconfig */,
+				476AF6AB597FC9509C13DE62 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -621,7 +631,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D522B9B9D49A4314AC2C0502 /* Check Pods Manifest.lock */ = {
@@ -876,7 +886,7 @@
 		};
 		76B00EDA18427FBC007A5EE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46A54203EC884337A5D8131D /* Pods.xcconfig */;
+			baseConfigurationReference = 11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -896,53 +906,9 @@
 					"COCOAPODS=1",
 					"TRACKING=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/CocoaLumberjack\"",
-					"\"${PODS_ROOT}/Headers/Google-Maps-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/Google-Maps-iOS-SDK/GoogleMaps\"",
-					"\"${PODS_ROOT}/Headers/GoogleAnalytics-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/TTTAttributedLabel\"",
-					"$(SDKROOT)/usr/include/libz",
-					/usr/include/libxml2,
-				);
 				INFOPLIST_FILE = "BluePlaquesLondon/BluePlaquesLondon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lGoogleAnalyticsServices",
-					"-lc++",
-					"-licucore",
-					"-lz",
-					"-framework",
-					AVFoundation,
-					"-framework",
-					CFNetwork,
-					"-framework",
-					CoreData,
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					CoreLocation,
-					"-framework",
-					CoreText,
-					"-framework",
-					GLKit,
-					"-framework",
-					GoogleMaps,
-					"-framework",
-					ImageIO,
-					"-framework",
-					OpenGLES,
-					"-framework",
-					QuartzCore,
-					"-framework",
-					SystemConfiguration,
-					"-weak_framework",
-					AdSupport,
-					"-lxml2",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -953,7 +919,7 @@
 		};
 		76B00EDB18427FBC007A5EE0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46A54203EC884337A5D8131D /* Pods.xcconfig */;
+			baseConfigurationReference = 90BD52DB1D76584C46533500 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -973,53 +939,9 @@
 					"TRACKING=1",
 					"CRASH_REPORTING=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/CocoaLumberjack\"",
-					"\"${PODS_ROOT}/Headers/Google-Maps-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/Google-Maps-iOS-SDK/GoogleMaps\"",
-					"\"${PODS_ROOT}/Headers/GoogleAnalytics-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/TTTAttributedLabel\"",
-					"$(SDKROOT)/usr/include/libz",
-					/usr/include/libxml2,
-				);
 				INFOPLIST_FILE = "BluePlaquesLondon/BluePlaquesLondon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lGoogleAnalyticsServices",
-					"-lc++",
-					"-licucore",
-					"-lz",
-					"-framework",
-					AVFoundation,
-					"-framework",
-					CFNetwork,
-					"-framework",
-					CoreData,
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					CoreLocation,
-					"-framework",
-					CoreText,
-					"-framework",
-					GLKit,
-					"-framework",
-					GoogleMaps,
-					"-framework",
-					ImageIO,
-					"-framework",
-					OpenGLES,
-					"-framework",
-					QuartzCore,
-					"-framework",
-					SystemConfiguration,
-					"-weak_framework",
-					AdSupport,
-					"-lxml2",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
