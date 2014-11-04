@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -35,9 +37,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nba-XI-I1N">
-                                <rect key="frame" x="0.0" y="20" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="nba-XI-I1N">
+                                <rect key="frame" x="20" y="20" width="728" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="GCc-Mx-6Ax" id="wTT-uO-S5Q"/>
@@ -45,7 +46,6 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DgR-Qu-vPN">
                                 <rect key="frame" x="0.0" y="59" width="768" height="918"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="GCc-Mx-6Ax" id="4il-fD-KcI"/>
@@ -54,6 +54,11 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nba-XI-I1N" firstAttribute="leading" secondItem="v5S-Ws-Xui" secondAttribute="leadingMargin" id="CRz-85-8H1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nba-XI-I1N" secondAttribute="trailing" id="jNg-g6-kBy"/>
+                            <constraint firstItem="nba-XI-I1N" firstAttribute="top" secondItem="v5S-Ws-Xui" secondAttribute="topMargin" constant="20" id="s0i-pR-gZt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HGu-2v-DDG"/>
                     <connections>
@@ -80,11 +85,9 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-Ur-j8O">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1256"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Occupation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-xs-Puz" userLabel="Label - Occupation" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="90" width="658" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="658" id="Et9-aE-yDs"/>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="Gkt-Fu-Ehg"/>
@@ -94,7 +97,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-ND-Zbg" userLabel="Label - Address" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="118" width="658" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="Qcl-PN-CHa"/>
                                             <constraint firstAttribute="width" constant="658" id="UIB-jR-Pga"/>
@@ -105,7 +107,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Council and Year" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="3y7-8n-NOa" userLabel="Label - Council and Year" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="148" width="658" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="2X9-jE-ZmV"/>
                                             <constraint firstAttribute="width" constant="658" id="BWZ-9N-9SF"/>
@@ -116,7 +117,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Note" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="658" translatesAutoresizingMaskIntoConstraints="NO" id="5Xm-v5-df5" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="178" width="658" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="SjP-Zr-nsI"/>
                                             <constraint firstAttribute="width" constant="658" id="vZU-9J-Or5"/>
@@ -127,7 +127,6 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wng-SY-MaV" customClass="BPLButton">
                                         <rect key="frame" x="60" y="207" width="650" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="650" id="kaG-pj-Ij3"/>
                                             <constraint firstAttribute="height" constant="30" id="q4D-AL-hfO"/>
@@ -141,7 +140,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXv-6q-IL2" customClass="BPLButton">
                                         <rect key="frame" x="60" y="245" width="650" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="650" id="MOZ-Rd-Y2S"/>
                                             <constraint firstAttribute="height" constant="30" id="Poe-EA-RmS"/>
@@ -155,7 +153,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpB-RP-1XK" userLabel="Button - Directions" customClass="BPLButton">
                                         <rect key="frame" x="60" y="283" width="650" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="650" id="E0B-FD-4ZR"/>
                                             <constraint firstAttribute="height" constant="30" id="JtX-Dv-Xs5"/>
@@ -169,7 +166,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyy-v8-PCh" customClass="BPLButton">
                                         <rect key="frame" x="60" y="321" width="650" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="650" id="HTB-PX-gs3"/>
                                             <constraint firstAttribute="height" constant="30" id="J8Y-Pd-cSP"/>
@@ -262,7 +258,6 @@
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IoO-pf-gob">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
@@ -307,7 +302,7 @@
             </objects>
             <point key="canvasLocation" x="4814" y="1934"/>
         </scene>
-        <!--Navigation Controller - Map-->
+        <!--Map-->
         <scene sceneID="cru-U1-MrD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P7o-Md-Haz" sceneMemberID="viewController">
@@ -340,11 +335,9 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5m-ro-cR7">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1036"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developer Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="ag4-1M-XSd" userLabel="Label - Developer" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="45" width="650" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="24" id="p23-As-QQE"/>
                                             <constraint firstAttribute="width" constant="650" id="zcu-za-GJ5"/>
@@ -354,7 +347,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developed By ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-pS-mi9" userLabel="Label - Developer Details" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="70" width="650" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="650" id="Wbb-we-Qa9"/>
                                             <constraint firstAttribute="height" priority="500" constant="16" id="rBc-UR-v8q"/>
@@ -364,7 +356,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Designer Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="lEI-jD-GuP" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="105" width="650" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="650" id="EjU-xZ-Zhl"/>
                                             <constraint firstAttribute="height" priority="500" constant="24" id="Wv2-W8-DPV"/>
@@ -375,7 +366,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Designed by ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="Zuj-0d-VoW" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="130" width="650" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="16" id="UEg-oO-tzD"/>
                                             <constraint firstAttribute="width" constant="650" id="UNr-nI-h0E"/>
@@ -385,7 +375,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="The Noun Project" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="bUa-KF-kUB" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="165" width="650" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="24" id="5IY-pC-79D"/>
                                             <constraint firstAttribute="width" constant="650" id="q77-zp-hv3"/>
@@ -396,7 +385,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="The noun project details ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="Ddf-kL-19V" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="189" width="650" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="16" id="a7k-gp-Z88"/>
                                             <constraint firstAttribute="width" constant="650" id="wif-KE-lx7"/>
@@ -406,7 +394,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Map Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="oVR-0w-x2w" userLabel="Label - Data" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="225" width="650" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="24" id="1QF-FG-47C"/>
                                             <constraint firstAttribute="width" constant="650" id="PIU-x4-iXd"/>
@@ -416,7 +403,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Roy Reed etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="X5t-13-yiT" userLabel="Label - Data Details" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="250" width="650" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="650" id="Loz-Ue-PSE"/>
                                             <constraint firstAttribute="height" priority="500" constant="16" id="a55-hf-23t"/>
@@ -426,7 +412,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="ddW-Cr-cpX" userLabel="Label - Google Maps Label" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="285" width="650" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="24" id="Ccy-2g-Is6"/>
                                             <constraint firstAttribute="width" constant="650" id="j9c-TD-PR9"/>
@@ -436,7 +421,6 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="650" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-6j-GST" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
                                         <rect key="frame" x="50" y="310" width="650" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="650" id="Kje-NB-BYG"/>
                                             <constraint firstAttribute="height" priority="500" constant="16" id="Yfz-Wo-X64"/>
