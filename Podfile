@@ -1,12 +1,14 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
 
 inhibit_all_warnings!
 
 xcodeproj 'BluePlaquesLondon.xcodeproj'
 
-pod 'TTTAttributedLabel', '~> 1.10.1'
-pod 'GoogleAnalytics-iOS-SDK', '~> 3.0.9'
-pod 'Google-Maps-iOS-SDK', '~> 1.8.1'
+pod 'TTTAttributedLabel', '~> 1.13.0'
+pod 'GoogleAnalytics-iOS-SDK', '~> 3.10'
+pod 'Google-Maps-iOS-SDK', '~> 1.9.1'
 pod 'IntentKit'
 pod 'HCViews'
 pod 'SVProgressHUD', :head
