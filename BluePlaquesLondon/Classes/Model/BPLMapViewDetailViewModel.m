@@ -22,7 +22,7 @@
 {
     self = [super init];
     if (self) {
-        _markers = markers;
+        _markers = [markers copy];
         _currentLocation = currentLocation;
     }
     return self;

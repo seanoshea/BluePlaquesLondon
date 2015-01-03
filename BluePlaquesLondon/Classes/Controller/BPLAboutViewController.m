@@ -55,7 +55,7 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 #pragma mark Lifecycle
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {

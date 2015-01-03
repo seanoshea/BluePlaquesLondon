@@ -20,13 +20,13 @@
 
 @interface BPLPlacemark (Additions)
 
-- (CLLocationCoordinate2D)coordinate;
-- (NSString *)placemarkName;
-- (NSString *)placemarkTitle;
-- (NSString *)occupation;
-- (NSString *)address;
-- (NSString *)note;
-- (NSString *)councilAndYear;
-- (NSString *)key;
+@property (NS_NONATOMIC_IOSONLY, readonly) CLLocationCoordinate2D coordinate;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *placemarkName;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *placemarkTitle;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *occupation;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *address;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *note;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *councilAndYear;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *key;
 
 @end

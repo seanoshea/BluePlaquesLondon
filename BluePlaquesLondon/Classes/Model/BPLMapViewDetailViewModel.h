@@ -23,6 +23,6 @@
 @property (nonatomic) CLLocation *currentLocation;
 @property (nonatomic, copy) NSArray *markers;
 
-- (instancetype)initWithMarkers:(NSArray *)markers currentLocation:(CLLocation *)currentLocation;
+- (instancetype)initWithMarkers:(NSArray *)markers currentLocation:(CLLocation *)currentLocation NS_DESIGNATED_INITIALIZER;
 
 @end

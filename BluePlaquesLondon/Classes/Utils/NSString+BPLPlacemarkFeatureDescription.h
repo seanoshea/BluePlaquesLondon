@@ -18,13 +18,13 @@
 
 @interface NSString (BPLPlacemarkFeatureDescription)
 
-- (NSString *)name;
-- (NSString *)title;
-- (NSString *)occupation;
-- (NSString *)address;
-- (NSString *)note;
-- (NSString *)councilAndYear;
-- (NSString *)council;
-- (NSString *)yearErrected;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *name;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *title;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *occupation;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *address;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *note;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *councilAndYear;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *council;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *yearErrected;
 
 @end
