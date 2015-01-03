@@ -64,7 +64,7 @@
         BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:placemark];
         NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[bplPlacemark.key];
         if (!placemarksAssociatedWithKey) {
-            [self.keyToArrayPositions setObject:@[@(idx)] forKey:bplPlacemark.key];
+            (self.keyToArrayPositions)[bplPlacemark.key] = @[@(idx)];
             [self.massagedData addObject:bplPlacemark];
         } else {
             NSArray *existingPlacemarks = self.keyToArrayPositions[bplPlacemark.key];
@@ -72,7 +72,7 @@
             if (![existingPlacemark.title isEqualToString:bplPlacemark.title]) {
                 NSMutableArray *newPlacemarks = [placemarksAssociatedWithKey mutableCopy];
                 [newPlacemarks addObject:@(idx)];
-                [self.keyToArrayPositions setObject:newPlacemarks forKey:bplPlacemark.key];
+                (self.keyToArrayPositions)[bplPlacemark.key] = newPlacemarks;
             }
         }
     }];

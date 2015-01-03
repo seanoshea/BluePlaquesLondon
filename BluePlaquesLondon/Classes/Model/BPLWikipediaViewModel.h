@@ -22,7 +22,7 @@ typedef void(^BPLWikipediaViewURLResolutionCompletionBlock)(NSURLRequest *urlReq
 
 @interface BPLWikipediaViewModel : NSObject
 
-- (id)initWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)name NS_DESIGNATED_INITIALIZER;
 - (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
 
 @end

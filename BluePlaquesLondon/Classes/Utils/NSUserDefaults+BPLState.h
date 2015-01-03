@@ -18,16 +18,16 @@
 
 @interface NSUserDefaults (BPLState)
 
-- (CLLocationCoordinate2D)lastKnownBPLCoordinate;
+@property (NS_NONATOMIC_IOSONLY, readonly) CLLocationCoordinate2D lastKnownBPLCoordinate;
 - (void)saveLastKnownBPLCoordinate:(CLLocationCoordinate2D)coordinate;
 
-- (CLLocationCoordinate2D)lastKnownCoordinate;
+@property (NS_NONATOMIC_IOSONLY, readonly) CLLocationCoordinate2D lastKnownCoordinate;
 - (void)saveLastKnownCoordinate:(CLLocationCoordinate2D)coordinate;
 
-- (float)mapZoom;
+@property (NS_NONATOMIC_IOSONLY, readonly) float mapZoom;
 - (void)saveMapZoom:(float)zoom;
 
-- (BOOL)isTrackingEnabled;
+@property (NS_NONATOMIC_IOSONLY, getter=isTrackingEnabled, readonly) BOOL trackingEnabled;
 - (void)saveTrackingEnabled:(BOOL)trackingEnabled;
 
 @end

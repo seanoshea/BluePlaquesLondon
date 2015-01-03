@@ -27,7 +27,7 @@ static NSString * const BPLWikipediaViewModelPageURLFormat = @"http://en.wikiped
 
 @implementation BPLWikipediaViewModel
 
-- (id)initWithName:(NSString *)name
+- (instancetype)initWithName:(NSString *)name
 {
     self = [super init];
     if (self) {

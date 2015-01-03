@@ -30,11 +30,11 @@
 @property (nonatomic, copy) NSArray *filteredData;
 @property (nonatomic, copy) dispatch_block_t kmlFileParsedCallback;
 
-- (instancetype)initWithKMLFileParsedCallback:(dispatch_block_t)kmlFileParsedCallback;
+- (instancetype)initWithKMLFileParsedCallback:(dispatch_block_t)kmlFileParsedCallback NS_DESIGNATED_INITIALIZER;
 
 - (void)createMarkersForMap:(GMSMapView *)mapView;
 
-- (NSInteger)numberOfPlacemarks;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger numberOfPlacemarks;
 - (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (BPLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate;
 - (BPLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate;
