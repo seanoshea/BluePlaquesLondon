@@ -3800,7 +3800,7 @@
 				<description><![CDATA[SIM, Alastair (1900-1976)<br>
 				Actor, lived here, 1953-1975<br>
 				8 Frognal Gardens, NW3<br>
-				Hampstead 2008]]></description>
+				Camden 2008]]></description>
 				<LookAt>
 					<longitude>-0.1811770001939084</longitude>
 					<latitude>51.55610599888222</latitude>
@@ -3872,6 +3872,26 @@
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
 					<coordinates>-0.1471020001136691,51.5579109997306,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MEDAWAR, Sir Peter</name>
+				<description><![CDATA[MEDAWAR, Sir Peter (1915-1987)<br>
+				Pioneer of Transplantation Immunology lived here<br>
+				25 Downshire Hill, Hampstead, NW3 1NT<br>
+				Camden 2014]]></description>
+				<LookAt>
+					<longitude>-0.1694331224168599</longitude>
+					<latitude>51.55653094026627</latitude>
+					<altitude>0</altitude>
+					<heading>-1.813766008768791e-006</heading>
+					<tilt>0</tilt>
+					<range>425.0058648509705</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.1694253722868322,51.55647151094304,0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>
@@ -4046,6 +4066,26 @@
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
 					<coordinates>-0.08310599998335988,51.41480500012685,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>CHANDLER, Raymond</name>
+				<description><![CDATA[CHANDLER, Raymond (1888-1959)<br>
+				Writer lived here<br>
+				110 Auckland Road, West Norwood, SE27<br>
+				Croydon 2014]]></description>
+				<LookAt>
+					<longitude>-0.09816300031085133</longitude>
+					<latitude>51.43044499988592</latitude>
+					<altitude>0</altitude>
+					<heading>-2.511517301311797e-010</heading>
+					<tilt>0</tilt>
+					<range>1000.000011613456</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#m_ylw-pushpin</styleUrl>
+				<Point>
+					<coordinates>-0.09816300031085135,51.43044499988592,0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>
@@ -19280,6 +19320,46 @@ Westminster 1938]]></description>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
 					<coordinates>-0.1560221502836301,51.52274006603687,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>O&apos;CONNELL, Daniel</name>
+				<description><![CDATA[O&apos;CONNELL, Daniel (1775-1847)<br>
+				&apos;The Liberator&apos; Irish leader and champion of civil rights lived here in 1833<br>
+				14 Albmarle Street, Mayfair, W1S 4HL<br>
+				Westminster 2014]]></description>
+				<LookAt>
+					<longitude>-0.1418725097694684</longitude>
+					<latitude>51.50912813822476</latitude>
+					<altitude>0</altitude>
+					<heading>3.870888429230318e-006</heading>
+					<tilt>0</tilt>
+					<range>469.7689315086717</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.1418725097694684,51.50912813822476,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>WARE, Sir Fabian</name>
+				<description><![CDATA[WARE, Sir Fabian (1869-1949)<br>
+				Founder of the Imperial War Graves Commission lived here 1911-1919<br>
+				14 Wyndham Place, Marylebone, W1H<br>
+				Westminster 2014]]></description>
+				<LookAt>
+					<longitude>-0.1617099926423937</longitude>
+					<latitude>51.51897624686399</latitude>
+					<altitude>0</altitude>
+					<heading>-2.470037106988885e-006</heading>
+					<tilt>0</tilt>
+					<range>472.9701947291511</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.1617071221507094,51.51892444767537,0</coordinates>
 				</Point>
 			</Placemark>			
 		</Folder>
