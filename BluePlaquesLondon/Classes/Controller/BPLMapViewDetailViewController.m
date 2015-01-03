@@ -27,7 +27,6 @@
 #import "UIColor+BPLColors.h"
 #import "NSString+BPLPlacemarkFeatureDescription.h"
 #import "NSUserDefaults+BPLState.h"
-#import "UIScrollView+Autosizing.h"
 #import "BPLLabel.h"
 #import "BPLButton.h"
 #import "NSObject+BPLTracking.h"
@@ -73,12 +72,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor BPLBlueColour]}];
-}
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    self.scrollView.contentSize = self.scrollView.sizeThatFitsSubviews;
 }
 
 - (void)viewWillAppear:(BOOL)animated

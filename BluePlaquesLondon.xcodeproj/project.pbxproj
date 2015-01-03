@@ -65,8 +65,6 @@
 		76D3CF58186B226000E0D8F3 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
 		76D3CF5B186B2F4000E0D8F3 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
 		76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
-		76D3CF63186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF62186B5E0100E0D8F3 /* UIScrollView+Autosizing.m */; };
-		76D3CF64186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF62186B5E0100E0D8F3 /* UIScrollView+Autosizing.m */; };
 		76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E24B021872018B004472AC /* BPLURLResourceLoader.m */; };
 		76E24B0518720285004472AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 76E24B0418720285004472AC /* wikipedia.json */; };
 		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
@@ -170,8 +168,6 @@
 		76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLMapViewDetailViewModel.m; path = Model/BPLMapViewDetailViewModel.m; sourceTree = "<group>"; };
 		76D3CF59186B2F4000E0D8F3 /* BPLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLButton.h; path = View/BPLButton.h; sourceTree = "<group>"; };
 		76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLButton.m; path = View/BPLButton.m; sourceTree = "<group>"; };
-		76D3CF61186B5E0100E0D8F3 /* UIScrollView+Autosizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Autosizing.h"; path = "View/UIScrollView+Autosizing.h"; sourceTree = "<group>"; };
-		76D3CF62186B5E0100E0D8F3 /* UIScrollView+Autosizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Autosizing.m"; path = "View/UIScrollView+Autosizing.m"; sourceTree = "<group>"; };
 		76E24B011872018B004472AC /* BPLURLResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLURLResourceLoader.h; sourceTree = "<group>"; };
 		76E24B021872018B004472AC /* BPLURLResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLURLResourceLoader.m; sourceTree = "<group>"; };
 		76E24B0418720285004472AC /* wikipedia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia.json; sourceTree = "<group>"; };
@@ -264,8 +260,6 @@
 				762DC361186B8ADD004CF725 /* BPLLabel.m */,
 				76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */,
 				76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */,
-				76D3CF61186B5E0100E0D8F3 /* UIScrollView+Autosizing.h */,
-				76D3CF62186B5E0100E0D8F3 /* UIScrollView+Autosizing.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -660,7 +654,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76D3CF64186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */,
 				765762B118744E5700CD9208 /* UIColor+BPLColors.m in Sources */,
 				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */,
@@ -698,7 +691,6 @@
 				76B00EB118427FBB007A5EE0 /* main.m in Sources */,
 				76B1771018AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */,
 				7695D691184B375200E735C4 /* NSUserDefaults+BPLState.m in Sources */,
-				76D3CF63186B5E0100E0D8F3 /* UIScrollView+Autosizing.m in Sources */,
 				76E9083E1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m in Sources */,
 				76D3CF5B186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				76B6CE8A184B9C8400479447 /* GTMNSString+HTML.m in Sources */,

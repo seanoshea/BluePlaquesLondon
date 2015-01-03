@@ -21,7 +21,6 @@
 
 #import "BPLAboutViewModel.h"
 #import "BPLLabel.h"
-#import "UIScrollView+Autosizing.h"
 #import "UIColor+BPLColors.h"
 #import "BPLConstants.h"
 #import "NSObject+BPLTracking.h"
@@ -121,8 +120,6 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     self.googleMapsLicenseInfoLabel.delegate = self;
     self.googleMapsLabel.text = NSLocalizedString(@"Google Maps Information", nil);
     self.googleMapsLicenseInfoLabel.text = self.model.mapsOpenSourceLicenseInfo;
-    
-    self.scrollView.contentSize = [self.scrollView sizeThatFitsSubviews];
 }
 
 #pragma mark TTTAttributedLabelDelegate
