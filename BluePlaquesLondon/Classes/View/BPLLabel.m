@@ -1,5 +1,5 @@
 /*
- Copyright 2013 - 2014 Sean O' Shea
+ Copyright 2013 - 2015 Sean O'Shea
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
