@@ -5,4 +5,4 @@ Application for finding Blue Plaques through London.
 ### Build Status
 
 [![Build Status](https://travis-ci.org/seanoshea/BluePlaquesLondon.svg?branch=master)]
-[![Coverage Status](https://img.shields.io/coveralls/BluePlaquesLondon.svg)]
+[![Coverage Status](https://coveralls.io/repos/seanoshea/BluePlaquesLondon/badge.png?branch=master)]
