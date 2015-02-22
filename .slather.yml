@@ -3,3 +3,4 @@ xcodeproj: BluePlaquesLondon.xcodeproj
 source_directory: BluePlaquesLondon
 ignore:
   - BluePlaquesLondonTests/*
+  - BluePlaquesLondon/Dependencies/*
