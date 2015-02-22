@@ -7,7 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1499A1711A9A401300AA1B99 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
+		1499A1721A9A401300AA1B99 /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8018429036008E1391 /* BPLAboutViewController.m */; };
+		1499A1731A9A401300AA1B99 /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */; };
+		1499A1741A9A401300AA1B99 /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8218429036008E1391 /* BPLMapViewController.m */; };
+		1499A1751A9A401300AA1B99 /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
+		1499A1761A9A401300AA1B99 /* BPLStreetViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */; };
+		1499A1771A9A401300AA1B99 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
+		1499A1781A9A401300AA1B99 /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770B18AE445200FC6D09 /* BPLPlacemark.m */; };
+		1499A1791A9A401300AA1B99 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
+		1499A17A1A9A401300AA1B99 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
+		1499A17B1A9A401300AA1B99 /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
+		1499A17C1A9A401300AA1B99 /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC365186BA21B004CF725 /* BPLAboutViewModel.m */; };
+		1499A17D1A9A401300AA1B99 /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
+		1499A17E1A9A401300AA1B99 /* BPLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C951842AE42008E1391 /* BPLConstants.m */; };
+		1499A17F1A9A401300AA1B99 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
+		1499A1801A9A401300AA1B99 /* KMLPlacemark+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m */; };
+		1499A1811A9A401300AA1B99 /* MKDistanceFormatter+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */; };
+		1499A1821A9A401300AA1B99 /* NSObject+BPLTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */; };
+		1499A1831A9A401300AA1B99 /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
+		1499A1841A9A401300AA1B99 /* NSUserDefaults+BPLState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7695D690184B375200E735C4 /* NSUserDefaults+BPLState.m */; };
+		1499A1851A9A401300AA1B99 /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BPLColors.m */; };
+		1499A1861A9A401300AA1B99 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
+		1499A1871A9A401300AA1B99 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
+		1499A1881A9A401300AA1B99 /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
+		1499A1891A9A417000AA1B99 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1499A18A1A9A417000AA1B99 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14B918A01A06975900F157F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B9189F1A06975900F157F2 /* LaunchScreen.xib */; };
+		4AEE3B8DE48001EE5EDC54AE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
 		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
 		711FDAE71947442D004ED6DA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711FDAE61947442D004ED6DA /* Crashlytics.framework */; };
 		7128DC6C194746DD00F46CD3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */; };
@@ -30,20 +57,17 @@
 		764BD42C185130B50033E603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA818427FBB007A5EE0 /* UIKit.framework */; };
 		764BD432185130B50033E603 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 764BD430185130B50033E603 /* InfoPlist.strings */; };
 		764BD443185131F30033E603 /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD441185131F30033E603 /* BPLStateTest.m */; };
-		765081B718776C20009EF6F2 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
 		765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */; };
 		765081BB187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */; };
 		765081C318786C3D009EF6F2 /* NSObject+BPLTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */; };
 		7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
 		765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */; };
 		765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762AF18744E0200CD9208 /* BPLButtonTest.m */; };
-		765762B118744E5700CD9208 /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BPLColors.m */; };
 		765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762B21874647600CD9208 /* BPLTableViewCellTest.m */; };
 		7668B55B18B2BE200095B101 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7668B55A18B2BE1F0095B101 /* CoreData.framework */; };
 		766CD0C1184BBE2300864D6B /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
 		766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C4184BE94B00864D6B /* blueplaques.kmz */; };
 		766D524518AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */; };
-		766D524618AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */; };
 		766D524818AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524718AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		7695D691184B375200E735C4 /* NSUserDefaults+BPLState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7695D690184B375200E735C4 /* NSUserDefaults+BPLState.m */; };
 		76B00EA518427FBB007A5EE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA418427FBB007A5EE0 /* Foundation.framework */; };
@@ -56,15 +80,12 @@
 		76B1770818AE438A00FC6D09 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */; };
 		76B1770918AE438A00FC6D09 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */; };
 		76B1770C18AE445200FC6D09 /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770B18AE445200FC6D09 /* BPLPlacemark.m */; };
-		76B1770D18AE445200FC6D09 /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770B18AE445200FC6D09 /* BPLPlacemark.m */; };
 		76B1771018AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
-		76B1771118AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
 		76B6CE8A184B9C8400479447 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
 		76CBBB65184D33C100A6828C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		76D3CF58186B226000E0D8F3 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
 		76D3CF5B186B2F4000E0D8F3 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
-		76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
 		76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E24B021872018B004472AC /* BPLURLResourceLoader.m */; };
 		76E24B0518720285004472AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 76E24B0418720285004472AC /* wikipedia.json */; };
 		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
@@ -72,11 +93,9 @@
 		76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
 		76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F19BA61865DA90002F6A3D /* QuartzCore.framework */; };
 		76F19BAA186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
-		76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
 		76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		76F19BB018675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */; };
 		76F19BB418679AF6002F6A3D /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
-		76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
 		76F19BB81867A138002F6A3D /* BPLStreetViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */; };
 		76F1F68018472DA70079E033 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */; };
 		76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */; };
@@ -198,6 +217,7 @@
 				764BD42A185130B50033E603 /* XCTest.framework in Frameworks */,
 				764BD42C185130B50033E603 /* UIKit.framework in Frameworks */,
 				764BD42B185130B50033E603 /* Foundation.framework in Frameworks */,
+				4AEE3B8DE48001EE5EDC54AE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,9 +521,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 764BD438185130B50033E603 /* Build configuration list for PBXNativeTarget "BluePlaquesLondonTests" */;
 			buildPhases = (
+				A7DCF0520B71F5BBCAEB9C88 /* Check Pods Manifest.lock */,
 				764BD425185130B50033E603 /* Sources */,
 				764BD426185130B50033E603 /* Frameworks */,
 				764BD427185130B50033E603 /* Resources */,
+				C05199741B6A5EB016C4E18B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -632,6 +654,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A7DCF0520B71F5BBCAEB9C88 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C05199741B6A5EB016C4E18B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D522B9B9D49A4314AC2C0502 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -654,22 +706,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				765762B118744E5700CD9208 /* UIColor+BPLColors.m in Sources */,
-				76D3CF5C186B2F4000E0D8F3 /* BPLButton.m in Sources */,
 				765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */,
 				76B1770918AE438A00FC6D09 /* Model.xcdatamodeld in Sources */,
 				765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */,
-				76F19BB518679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
+				1499A1711A9A401300AA1B99 /* BPLAppDelegate.m in Sources */,
+				1499A1741A9A401300AA1B99 /* BPLMapViewController.m in Sources */,
 				766D524818AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m in Sources */,
+				1499A1791A9A401300AA1B99 /* BPLMapViewDetailViewModel.m in Sources */,
+				1499A1771A9A401300AA1B99 /* BPLWikipediaViewController.m in Sources */,
+				1499A1831A9A401300AA1B99 /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
+				1499A1851A9A401300AA1B99 /* UIColor+BPLColors.m in Sources */,
+				1499A17E1A9A401300AA1B99 /* BPLConstants.m in Sources */,
+				1499A1781A9A401300AA1B99 /* BPLPlacemark.m in Sources */,
+				1499A1801A9A401300AA1B99 /* KMLPlacemark+BPLAdditions.m in Sources */,
+				1499A1821A9A401300AA1B99 /* NSObject+BPLTracking.m in Sources */,
+				1499A1881A9A401300AA1B99 /* BPLTableViewCell.m in Sources */,
+				1499A1721A9A401300AA1B99 /* BPLAboutViewController.m in Sources */,
+				1499A18A1A9A417000AA1B99 /* Reachability.m in Sources */,
+				1499A1731A9A401300AA1B99 /* BPLDetailChooserViewController.m in Sources */,
+				1499A17F1A9A401300AA1B99 /* BPLPlacemark+Additions.m in Sources */,
+				1499A17B1A9A401300AA1B99 /* BPLWikipediaViewModel.m in Sources */,
+				1499A1861A9A401300AA1B99 /* BPLButton.m in Sources */,
 				76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */,
-				76B1770D18AE445200FC6D09 /* BPLPlacemark.m in Sources */,
+				1499A17A1A9A401300AA1B99 /* BPLMapViewModel.m in Sources */,
 				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
+				1499A17C1A9A401300AA1B99 /* BPLAboutViewModel.m in Sources */,
+				1499A1811A9A401300AA1B99 /* MKDistanceFormatter+BPLAdditions.m in Sources */,
+				1499A1841A9A401300AA1B99 /* NSUserDefaults+BPLState.m in Sources */,
+				1499A1891A9A417000AA1B99 /* GTMNSString+HTML.m in Sources */,
+				1499A17D1A9A401300AA1B99 /* BPLConfiguration.m in Sources */,
 				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
+				1499A1761A9A401300AA1B99 /* BPLStreetViewViewController.m in Sources */,
 				765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */,
-				765081B718776C20009EF6F2 /* BPLMapViewDetailViewModel.m in Sources */,
-				76B1771118AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */,
-				766D524618AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */,
-				76F19BAB186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
+				1499A1751A9A401300AA1B99 /* BPLMapViewDetailViewController.m in Sources */,
+				1499A1871A9A401300AA1B99 /* BPLLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +826,7 @@
 /* Begin XCBuildConfiguration section */
 		764BD439185130B50033E603 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -786,6 +857,7 @@
 		};
 		764BD43A185130B50033E603 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90BD52DB1D76584C46533500 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 				FRAMEWORK_SEARCH_PATHS = (

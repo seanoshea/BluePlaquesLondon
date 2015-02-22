@@ -45,6 +45,7 @@
 #import "BPLPlacemark+Additions.h"
 
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "GAITrackedViewController.h"
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 

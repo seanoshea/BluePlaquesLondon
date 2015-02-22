@@ -34,7 +34,11 @@
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
 #import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+
+#ifndef DEBUG
 #import <Crashlytics/Crashlytics.h>
+#endif
+
 #import "Reachability.h"
 #import "iRate.h"
 
@@ -163,10 +167,12 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeCrashReporting
 {
+#ifndef DEBUG
     if ([BPLConfiguration isCrashReportingEnabled]) {
         [Crashlytics startWithAPIKey:BPLCrashReportingKey];
         [GAI sharedInstance].trackUncaughtExceptions = YES;
     }
+#endif
 }
 
 - (void)initializeRating

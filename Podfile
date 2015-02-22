@@ -4,6 +4,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 inhibit_all_warnings!
 
+link_with 'BluePlaquesLondon', 'BluePlaquesLondonTests'
+
 xcodeproj 'BluePlaquesLondon.xcodeproj'
 
 pod 'TTTAttributedLabel', '~> 1.13.0'
