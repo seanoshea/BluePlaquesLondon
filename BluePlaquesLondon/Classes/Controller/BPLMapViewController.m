@@ -350,10 +350,10 @@
                             NSLocalizedString(@"Nearly ready .....", nil)];
     });
     NSString *message;
-    if (loadingMessages.count > self.loadingTicks) {
+    if ([loadingMessages count] > self.loadingTicks) {
         message = loadingMessages[self.loadingTicks];
     } else {
-        message = loadingMessages[loadingMessages.count - 1];
+        message = loadingMessages[[loadingMessages count] - 1];
     }
     self.loadingTicks++;
     [SVProgressHUD showWithStatus:message maskType:SVProgressHUDMaskTypeGradient];

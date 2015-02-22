@@ -118,7 +118,7 @@
     }
     
     // not all placemarks have multiple people associated with them
-    self.moreButton.hidden = self.model.markers.count == 1;
+    self.moreButton.hidden = [self.model.markers count] == 1;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

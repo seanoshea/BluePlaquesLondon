@@ -128,13 +128,13 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     NSArray *viewControllers = tabBarController.viewControllers;
     // Ensure each view controller has a unique identifier
-    for (int i = 0; i < viewControllers.count; i++) {
+    for (int i = 0; i < [viewControllers count]; i++) {
         UIViewController *viewController = viewControllers[i];
         viewController.view.tag = i;
     }
     // Localize the tab names (they're stored in the storyboards)
     NSArray *items = tabBarController.tabBar.items;
-    for (int i = 0; i < items.count; i++) {
+    for (int i = 0; i < [items count]; i++) {
         UITabBarItem *item = items[i];
         NSString *title;
         switch (i) {

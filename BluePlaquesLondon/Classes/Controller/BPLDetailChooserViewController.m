@@ -68,7 +68,7 @@ static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.markers.count;
+    return [self.markers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
