@@ -195,8 +195,8 @@
     bplPlacemark.featureDescription = placemark.descriptionValue;
     bplPlacemark.name = placemark.name;
     bplPlacemark.styleUrl = placemark.styleUrl;
-    bplPlacemark.latitude = [[NSNumber alloc] initWithDouble: geometry.coordinate.latitude];
-    bplPlacemark.longitude = [[NSNumber alloc] initWithDouble: geometry.coordinate.longitude];
+    bplPlacemark.latitude = [[NSNumber alloc] initWithFloat:geometry.coordinate.latitude];
+    bplPlacemark.longitude = [[NSNumber alloc] initWithFloat:geometry.coordinate.longitude];
     
     return bplPlacemark;
 }

@@ -1,0 +1,5 @@
+coverage_service: coveralls
+xcodeproj: BluePlaquesLondon.xcodeproj
+source_directory: BluePlaquesLondon
+ignore:
+  - BluePlaquesLondonTests/*
