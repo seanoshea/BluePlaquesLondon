@@ -7,546 +7,430 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1499A1711A9A401300AA1B99 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
-		1499A1721A9A401300AA1B99 /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8018429036008E1391 /* BPLAboutViewController.m */; };
-		1499A1731A9A401300AA1B99 /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */; };
-		1499A1741A9A401300AA1B99 /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8218429036008E1391 /* BPLMapViewController.m */; };
-		1499A1751A9A401300AA1B99 /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
-		1499A1761A9A401300AA1B99 /* BPLStreetViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */; };
-		1499A1771A9A401300AA1B99 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
-		1499A1781A9A401300AA1B99 /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770B18AE445200FC6D09 /* BPLPlacemark.m */; };
-		1499A1791A9A401300AA1B99 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
-		1499A17A1A9A401300AA1B99 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
-		1499A17B1A9A401300AA1B99 /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
-		1499A17C1A9A401300AA1B99 /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC365186BA21B004CF725 /* BPLAboutViewModel.m */; };
-		1499A17D1A9A401300AA1B99 /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
-		1499A17E1A9A401300AA1B99 /* BPLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C951842AE42008E1391 /* BPLConstants.m */; };
-		1499A17F1A9A401300AA1B99 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
-		1499A1801A9A401300AA1B99 /* KMLPlacemark+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m */; };
-		1499A1811A9A401300AA1B99 /* MKDistanceFormatter+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */; };
-		1499A1821A9A401300AA1B99 /* NSObject+BPLTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */; };
-		1499A1831A9A401300AA1B99 /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
-		1499A1841A9A401300AA1B99 /* NSUserDefaults+BPLState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7695D690184B375200E735C4 /* NSUserDefaults+BPLState.m */; };
-		1499A1851A9A401300AA1B99 /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BPLColors.m */; };
-		1499A1861A9A401300AA1B99 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
-		1499A1871A9A401300AA1B99 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
-		1499A1881A9A401300AA1B99 /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
-		1499A1891A9A417000AA1B99 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1499A18A1A9A417000AA1B99 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		14B918A01A06975900F157F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B9189F1A06975900F157F2 /* LaunchScreen.xib */; };
-		4AEE3B8DE48001EE5EDC54AE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
-		4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA0FE8859948A7976E1811 /* libPods.a */; };
-		711FDAE71947442D004ED6DA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711FDAE61947442D004ED6DA /* Crashlytics.framework */; };
-		7128DC6C194746DD00F46CD3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */; };
-		76060E8218B94BE3009DD5CD /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 76060E8118B94BE3009DD5CD /* blueplaques.kml */; };
-		76060E8318B94BE3009DD5CD /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 76060E8118B94BE3009DD5CD /* blueplaques.kml */; };
-		7613A85F1884988C00736C21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7613A85E1884988C00736C21 /* Localizable.strings */; };
-		7613A8601884988C00736C21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7613A85E1884988C00736C21 /* Localizable.strings */; };
-		76289C7D18429027008E1391 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C7C18429027008E1391 /* BPLAppDelegate.m */; };
-		76289C8518429036008E1391 /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8018429036008E1391 /* BPLAboutViewController.m */; };
-		76289C8718429036008E1391 /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C8218429036008E1391 /* BPLMapViewController.m */; };
-		76289C921842AE04008E1391 /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C911842AE04008E1391 /* UIColor+BPLColors.m */; };
-		76289C961842AE42008E1391 /* BPLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 76289C951842AE42008E1391 /* BPLConstants.m */; };
-		76289D5F1843F5BE008E1391 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 76289D5E1843F5BE008E1391 /* libz.dylib */; };
-		76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76289D601843F5CC008E1391 /* CoreLocation.framework */; };
-		762DC362186B8ADD004CF725 /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC361186B8ADD004CF725 /* BPLLabel.m */; };
-		762DC366186BA21B004CF725 /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 762DC365186BA21B004CF725 /* BPLAboutViewModel.m */; };
-		764990761882B20300FF5878 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764990751882B20300FF5878 /* Social.framework */; };
-		764BD42A185130B50033E603 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EC918427FBC007A5EE0 /* XCTest.framework */; };
-		764BD42B185130B50033E603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA418427FBB007A5EE0 /* Foundation.framework */; };
-		764BD42C185130B50033E603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA818427FBB007A5EE0 /* UIKit.framework */; };
-		764BD432185130B50033E603 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 764BD430185130B50033E603 /* InfoPlist.strings */; };
-		764BD443185131F30033E603 /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 764BD441185131F30033E603 /* BPLStateTest.m */; };
-		765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */; };
-		765081BB187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */; };
-		765081C318786C3D009EF6F2 /* NSObject+BPLTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */; };
-		7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */; };
-		765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */; };
-		765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762AF18744E0200CD9208 /* BPLButtonTest.m */; };
-		765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 765762B21874647600CD9208 /* BPLTableViewCellTest.m */; };
-		7668B55B18B2BE200095B101 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7668B55A18B2BE1F0095B101 /* CoreData.framework */; };
-		766CD0C1184BBE2300864D6B /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */; };
-		766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 766CD0C4184BE94B00864D6B /* blueplaques.kmz */; };
-		766D524518AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */; };
-		766D524818AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 766D524718AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m */; };
-		7695D691184B375200E735C4 /* NSUserDefaults+BPLState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7695D690184B375200E735C4 /* NSUserDefaults+BPLState.m */; };
-		76B00EA518427FBB007A5EE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA418427FBB007A5EE0 /* Foundation.framework */; };
-		76B00EA718427FBB007A5EE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA618427FBB007A5EE0 /* CoreGraphics.framework */; };
-		76B00EA918427FBB007A5EE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EA818427FBB007A5EE0 /* UIKit.framework */; };
-		76B00EAF18427FBB007A5EE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EAD18427FBB007A5EE0 /* InfoPlist.strings */; };
-		76B00EB118427FBB007A5EE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B00EB018427FBB007A5EE0 /* main.m */; };
-		76B00EC318427FBC007A5EE0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EC218427FBC007A5EE0 /* Images.xcassets */; };
-		76B00EE01842866B007A5EE0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B00EDF1842866B007A5EE0 /* MapKit.framework */; };
-		76B1770818AE438A00FC6D09 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */; };
-		76B1770918AE438A00FC6D09 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */; };
-		76B1770C18AE445200FC6D09 /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770B18AE445200FC6D09 /* BPLPlacemark.m */; };
-		76B1771018AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */; };
-		76B6CE8A184B9C8400479447 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB5F184D316100A6828C /* BPLConfiguration.m */; };
-		76CBBB65184D33C100A6828C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CBBB64184D33C100A6828C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		76D3CF58186B226000E0D8F3 /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */; };
-		76D3CF5B186B2F4000E0D8F3 /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */; };
-		76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E24B021872018B004472AC /* BPLURLResourceLoader.m */; };
-		76E24B0518720285004472AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 76E24B0418720285004472AC /* wikipedia.json */; };
-		76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E908311854B1F900B31DC4 /* BPLMapViewModel.m */; };
-		76E9083E1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E9083D1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m */; };
-		76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */; };
-		76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F19BA61865DA90002F6A3D /* QuartzCore.framework */; };
-		76F19BAA186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */; };
-		76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */; };
-		76F19BB018675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */; };
-		76F19BB418679AF6002F6A3D /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */; };
-		76F19BB81867A138002F6A3D /* BPLStreetViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */; };
-		76F1F68018472DA70079E033 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */; };
-		76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */; };
+		146C5F971A9D09EB00E88761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C5F961A9D09EB00E88761 /* main.m */; };
+		146C5FA51A9D09EB00E88761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA41A9D09EB00E88761 /* Images.xcassets */; };
+		146C5FA81A9D09EB00E88761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */; };
+		146C5FBF1A9D0BD700E88761 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */; };
+		14F003071A9D0D3100AEE2AC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003061A9D0D3100AEE2AC /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F0032C1A9D0DE700AEE2AC /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003211A9D0DE700AEE2AC /* BPLAboutViewController.m */; };
+		14F0032D1A9D0DE700AEE2AC /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003231A9D0DE700AEE2AC /* BPLDetailChooserViewController.m */; };
+		14F0032E1A9D0DE700AEE2AC /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003251A9D0DE700AEE2AC /* BPLMapViewController.m */; };
+		14F0032F1A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003271A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m */; };
+		14F003301A9D0DE700AEE2AC /* BPLStreetViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003291A9D0DE700AEE2AC /* BPLStreetViewViewController.m */; };
+		14F003311A9D0DE700AEE2AC /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0032B1A9D0DE700AEE2AC /* BPLWikipediaViewController.m */; };
+		14F003341A9D0DF700AEE2AC /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003331A9D0DF700AEE2AC /* BPLPlacemark.m */; };
+		14F0033D1A9D0E0600AEE2AC /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003361A9D0E0600AEE2AC /* BPLAboutViewModel.m */; };
+		14F0033E1A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003381A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m */; };
+		14F0033F1A9D0E0600AEE2AC /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0033A1A9D0E0600AEE2AC /* BPLMapViewModel.m */; };
+		14F003401A9D0E0600AEE2AC /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0033C1A9D0E0600AEE2AC /* BPLWikipediaViewModel.m */; };
+		14F003531A9D0E1300AEE2AC /* BPLConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003421A9D0E1300AEE2AC /* BPLConfiguration.m */; };
+		14F003541A9D0E1300AEE2AC /* BPLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003441A9D0E1300AEE2AC /* BPLConstants.m */; };
+		14F003551A9D0E1300AEE2AC /* BPLPlacemark+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003461A9D0E1300AEE2AC /* BPLPlacemark+Additions.m */; };
+		14F003561A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003481A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m */; };
+		14F003571A9D0E1300AEE2AC /* MKDistanceFormatter+BPLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0034A1A9D0E1300AEE2AC /* MKDistanceFormatter+BPLAdditions.m */; };
+		14F003581A9D0E1300AEE2AC /* NSObject+BPLTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0034C1A9D0E1300AEE2AC /* NSObject+BPLTracking.m */; };
+		14F003591A9D0E1300AEE2AC /* NSString+BPLPlacemarkFeatureDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0034E1A9D0E1300AEE2AC /* NSString+BPLPlacemarkFeatureDescription.m */; };
+		14F0035A1A9D0E1300AEE2AC /* NSUserDefaults+BPLState.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003501A9D0E1300AEE2AC /* NSUserDefaults+BPLState.m */; };
+		14F0035B1A9D0E1300AEE2AC /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003521A9D0E1300AEE2AC /* UIColor+BPLColors.m */; };
+		14F003621A9D0E2500AEE2AC /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035D1A9D0E2500AEE2AC /* BPLButton.m */; };
+		14F003631A9D0E2500AEE2AC /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */; };
+		14F003641A9D0E2500AEE2AC /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */; };
+		14F0036A1A9D1D8400AEE2AC /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003691A9D1D8400AEE2AC /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F0036F1A9D1E7700AEE2AC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */; };
+		14F003701A9D1E7700AEE2AC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */; };
+		14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 14F003721A9D1F2B00AEE2AC /* blueplaques.kml */; };
+		14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */; };
+		14F003791A9D1F3C00AEE2AC /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14F003771A9D1F3C00AEE2AC /* IntentKit-Localizable.strings */; };
+		14F0037A1A9D1F3C00AEE2AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14F003781A9D1F3C00AEE2AC /* Localizable.strings */; };
+		14F0037D1A9D1FD600AEE2AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F0037C1A9D1FD600AEE2AC /* wikipedia.json */; };
+		14F003821A9D1FF200AEE2AC /* BPLButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */; };
+		14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */; };
+		14F003861A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003841A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m */; };
+		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
+		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
+		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
+		14F003901A9D202600AEE2AC /* BPLURLResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038F1A9D202600AEE2AC /* BPLURLResourceLoader.m */; };
+		9A7809062F365438DD7EB76A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6EFBFD38A2533B61651EC7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		764BD436185130B50033E603 /* PBXContainerItemProxy */ = {
+		146C5FAE1A9D09EB00E88761 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 76B00E9918427FBB007A5EE0 /* Project object */;
+			containerPortal = 146C5F891A9D09EB00E88761 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 76B00EA018427FBB007A5EE0;
+			remoteGlobalIDString = 146C5F901A9D09EB00E88761;
 			remoteInfo = BluePlaquesLondon;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		14B9189F1A06975900F157F2 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		29DA0FE8859948A7976E1811 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		711FDAE61947442D004ED6DA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		76060E8118B94BE3009DD5CD /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
-		7613A85E1884988C00736C21 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = strings/Localizable.strings; sourceTree = "<group>"; };
-		76289C7B18429027008E1391 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
-		76289C7C18429027008E1391 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
-		76289C7F18429036008E1391 /* BPLAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAboutViewController.h; sourceTree = "<group>"; };
-		76289C8018429036008E1391 /* BPLAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewController.m; sourceTree = "<group>"; };
-		76289C8118429036008E1391 /* BPLMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewController.h; sourceTree = "<group>"; };
-		76289C8218429036008E1391 /* BPLMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewController.m; sourceTree = "<group>"; };
-		76289C901842AE04008E1391 /* UIColor+BPLColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BPLColors.h"; sourceTree = "<group>"; };
-		76289C911842AE04008E1391 /* UIColor+BPLColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BPLColors.m"; sourceTree = "<group>"; };
-		76289C941842AE42008E1391 /* BPLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLConstants.h; sourceTree = "<group>"; };
-		76289C951842AE42008E1391 /* BPLConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLConstants.m; sourceTree = "<group>"; };
-		76289D5E1843F5BE008E1391 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		76289D601843F5CC008E1391 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		762DC360186B8ADD004CF725 /* BPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLLabel.h; path = View/BPLLabel.h; sourceTree = "<group>"; };
-		762DC361186B8ADD004CF725 /* BPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLLabel.m; path = View/BPLLabel.m; sourceTree = "<group>"; };
-		762DC364186BA21B004CF725 /* BPLAboutViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLAboutViewModel.h; path = Model/BPLAboutViewModel.h; sourceTree = "<group>"; };
-		762DC365186BA21B004CF725 /* BPLAboutViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLAboutViewModel.m; path = Model/BPLAboutViewModel.m; sourceTree = "<group>"; };
-		764990751882B20300FF5878 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		764BD429185130B50033E603 /* BluePlaquesLondonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePlaquesLondonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		764BD42F185130B50033E603 /* BluePlaquesLondonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BluePlaquesLondonTests-Info.plist"; sourceTree = "<group>"; };
-		764BD431185130B50033E603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		764BD435185130B50033E603 /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
-		764BD441185131F30033E603 /* BPLStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStateTest.m; sourceTree = "<group>"; };
-		765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "IntentKit-Localizable.strings"; path = "strings/IntentKit-Localizable.strings"; sourceTree = "<group>"; };
-		765081C118786C3D009EF6F2 /* NSObject+BPLTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BPLTracking.h"; sourceTree = "<group>"; };
-		765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BPLTracking.m"; sourceTree = "<group>"; };
-		7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaViewController.h; sourceTree = "<group>"; };
-		7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewController.m; sourceTree = "<group>"; };
-		765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
-		765762AF18744E0200CD9208 /* BPLButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButtonTest.m; sourceTree = "<group>"; };
-		765762B21874647600CD9208 /* BPLTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCellTest.m; sourceTree = "<group>"; };
-		7668B55A18B2BE1F0095B101 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		766CD0BF184BBE2300864D6B /* BPLMapViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewDetailViewController.h; sourceTree = "<group>"; };
-		766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewController.m; sourceTree = "<group>"; };
-		766CD0C4184BE94B00864D6B /* blueplaques.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = blueplaques.kmz; sourceTree = "<group>"; };
-		766D524318AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKDistanceFormatter+BPLAdditions.h"; sourceTree = "<group>"; };
-		766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKDistanceFormatter+BPLAdditions.m"; sourceTree = "<group>"; };
-		766D524718AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMKDistanceFormatterAdditionsTest.m; sourceTree = "<group>"; };
-		7695D68F184B375200E735C4 /* NSUserDefaults+BPLState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+BPLState.h"; sourceTree = "<group>"; };
-		7695D690184B375200E735C4 /* NSUserDefaults+BPLState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+BPLState.m"; sourceTree = "<group>"; };
-		76B00EA118427FBB007A5EE0 /* BluePlaquesLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluePlaquesLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		76B00EA418427FBB007A5EE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		76B00EA618427FBB007A5EE0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		76B00EA818427FBB007A5EE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		76B00EAC18427FBB007A5EE0 /* BluePlaquesLondon-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BluePlaquesLondon-Info.plist"; sourceTree = "<group>"; };
-		76B00EAE18427FBB007A5EE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		76B00EB018427FBB007A5EE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		76B00EB218427FBB007A5EE0 /* BluePlaquesLondon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondon-Prefix.pch"; sourceTree = "<group>"; };
-		76B00EB718427FBB007A5EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		76B00EBA18427FBB007A5EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		76B00EC218427FBC007A5EE0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		76B00EC918427FBC007A5EE0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		76B00EDF1842866B007A5EE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		76B1770718AE438A00FC6D09 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		76B1770A18AE445200FC6D09 /* BPLPlacemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLPlacemark.h; sourceTree = "<group>"; };
-		76B1770B18AE445200FC6D09 /* BPLPlacemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemark.m; sourceTree = "<group>"; };
-		76B1770E18AE45BA00FC6D09 /* BPLPlacemark+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BPLPlacemark+Additions.h"; sourceTree = "<group>"; };
-		76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BPLPlacemark+Additions.m"; sourceTree = "<group>"; };
-		76B6CE88184B9C8400479447 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "Foundation/GTMNSString+HTML.h"; sourceTree = "<group>"; };
-		76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Foundation/GTMNSString+HTML.m"; sourceTree = "<group>"; };
-		76B6CE8C184B9C9E00479447 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		76CBBB5E184D316100A6828C /* BPLConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLConfiguration.h; sourceTree = "<group>"; };
-		76CBBB5F184D316100A6828C /* BPLConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLConfiguration.m; sourceTree = "<group>"; };
-		76CBBB63184D33C100A6828C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		76CBBB64184D33C100A6828C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		76D3CF56186B226000E0D8F3 /* BPLMapViewDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLMapViewDetailViewModel.h; path = Model/BPLMapViewDetailViewModel.h; sourceTree = "<group>"; };
-		76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLMapViewDetailViewModel.m; path = Model/BPLMapViewDetailViewModel.m; sourceTree = "<group>"; };
-		76D3CF59186B2F4000E0D8F3 /* BPLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLButton.h; path = View/BPLButton.h; sourceTree = "<group>"; };
-		76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLButton.m; path = View/BPLButton.m; sourceTree = "<group>"; };
-		76E24B011872018B004472AC /* BPLURLResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLURLResourceLoader.h; sourceTree = "<group>"; };
-		76E24B021872018B004472AC /* BPLURLResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLURLResourceLoader.m; sourceTree = "<group>"; };
-		76E24B0418720285004472AC /* wikipedia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia.json; sourceTree = "<group>"; };
-		76E908301854B1F900B31DC4 /* BPLMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLMapViewModel.h; path = Model/BPLMapViewModel.h; sourceTree = "<group>"; };
-		76E908311854B1F900B31DC4 /* BPLMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLMapViewModel.m; path = Model/BPLMapViewModel.m; sourceTree = "<group>"; };
-		76E9083C1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KMLPlacemark+BPLAdditions.h"; sourceTree = "<group>"; };
-		76E9083D1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KMLPlacemark+BPLAdditions.m"; sourceTree = "<group>"; };
-		76F19BA21865C5D2002F6A3D /* BPLWikipediaViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLWikipediaViewModel.h; path = Model/BPLWikipediaViewModel.h; sourceTree = "<group>"; };
-		76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLWikipediaViewModel.m; path = Model/BPLWikipediaViewModel.m; sourceTree = "<group>"; };
-		76F19BA61865DA90002F6A3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		76F19BA8186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BPLPlacemarkFeatureDescription.h"; sourceTree = "<group>"; };
-		76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BPLPlacemarkFeatureDescription.m"; sourceTree = "<group>"; };
-		76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkFeatureDescriptionTests.m; sourceTree = "<group>"; };
-		76F19BAE18675A49002F6A3D /* BPLDetailChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLDetailChooserViewController.h; sourceTree = "<group>"; };
-		76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLDetailChooserViewController.m; sourceTree = "<group>"; };
-		76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPLTableViewCell.h; path = View/BPLTableViewCell.h; sourceTree = "<group>"; };
-		76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPLTableViewCell.m; path = View/BPLTableViewCell.m; sourceTree = "<group>"; };
-		76F19BB61867A138002F6A3D /* BPLStreetViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLStreetViewViewController.h; sourceTree = "<group>"; };
-		76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStreetViewViewController.m; sourceTree = "<group>"; };
-		90BD52DB1D76584C46533500 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		146C5F911A9D09EB00E88761 /* BluePlaquesLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluePlaquesLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		146C5F951A9D09EB00E88761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		146C5F961A9D09EB00E88761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		146C5FA41A9D09EB00E88761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		146C5FA71A9D09EB00E88761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		146C5FAD1A9D09EB00E88761 /* BluePlaquesLondonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluePlaquesLondonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		146C5FB21A9D09EB00E88761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		146C5FBD1A9D0BD700E88761 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
+		146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
+		14F003051A9D0D3100AEE2AC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		14F003061A9D0D3100AEE2AC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		14F003201A9D0DE700AEE2AC /* BPLAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAboutViewController.h; sourceTree = "<group>"; };
+		14F003211A9D0DE700AEE2AC /* BPLAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewController.m; sourceTree = "<group>"; };
+		14F003221A9D0DE700AEE2AC /* BPLDetailChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLDetailChooserViewController.h; sourceTree = "<group>"; };
+		14F003231A9D0DE700AEE2AC /* BPLDetailChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLDetailChooserViewController.m; sourceTree = "<group>"; };
+		14F003241A9D0DE700AEE2AC /* BPLMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewController.h; sourceTree = "<group>"; };
+		14F003251A9D0DE700AEE2AC /* BPLMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewController.m; sourceTree = "<group>"; };
+		14F003261A9D0DE700AEE2AC /* BPLMapViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewDetailViewController.h; sourceTree = "<group>"; };
+		14F003271A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewController.m; sourceTree = "<group>"; };
+		14F003281A9D0DE700AEE2AC /* BPLStreetViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLStreetViewViewController.h; sourceTree = "<group>"; };
+		14F003291A9D0DE700AEE2AC /* BPLStreetViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStreetViewViewController.m; sourceTree = "<group>"; };
+		14F0032A1A9D0DE700AEE2AC /* BPLWikipediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaViewController.h; sourceTree = "<group>"; };
+		14F0032B1A9D0DE700AEE2AC /* BPLWikipediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewController.m; sourceTree = "<group>"; };
+		14F003321A9D0DF700AEE2AC /* BPLPlacemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLPlacemark.h; sourceTree = "<group>"; };
+		14F003331A9D0DF700AEE2AC /* BPLPlacemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemark.m; sourceTree = "<group>"; };
+		14F003351A9D0E0600AEE2AC /* BPLAboutViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAboutViewModel.h; sourceTree = "<group>"; };
+		14F003361A9D0E0600AEE2AC /* BPLAboutViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewModel.m; sourceTree = "<group>"; };
+		14F003371A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewDetailViewModel.h; sourceTree = "<group>"; };
+		14F003381A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModel.m; sourceTree = "<group>"; };
+		14F003391A9D0E0600AEE2AC /* BPLMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewModel.h; sourceTree = "<group>"; };
+		14F0033A1A9D0E0600AEE2AC /* BPLMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewModel.m; sourceTree = "<group>"; };
+		14F0033B1A9D0E0600AEE2AC /* BPLWikipediaViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaViewModel.h; sourceTree = "<group>"; };
+		14F0033C1A9D0E0600AEE2AC /* BPLWikipediaViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewModel.m; sourceTree = "<group>"; };
+		14F003411A9D0E1300AEE2AC /* BPLConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLConfiguration.h; sourceTree = "<group>"; };
+		14F003421A9D0E1300AEE2AC /* BPLConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLConfiguration.m; sourceTree = "<group>"; };
+		14F003431A9D0E1300AEE2AC /* BPLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLConstants.h; sourceTree = "<group>"; };
+		14F003441A9D0E1300AEE2AC /* BPLConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLConstants.m; sourceTree = "<group>"; };
+		14F003451A9D0E1300AEE2AC /* BPLPlacemark+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BPLPlacemark+Additions.h"; sourceTree = "<group>"; };
+		14F003461A9D0E1300AEE2AC /* BPLPlacemark+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BPLPlacemark+Additions.m"; sourceTree = "<group>"; };
+		14F003471A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KMLPlacemark+BPLAdditions.h"; sourceTree = "<group>"; };
+		14F003481A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KMLPlacemark+BPLAdditions.m"; sourceTree = "<group>"; };
+		14F003491A9D0E1300AEE2AC /* MKDistanceFormatter+BPLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKDistanceFormatter+BPLAdditions.h"; sourceTree = "<group>"; };
+		14F0034A1A9D0E1300AEE2AC /* MKDistanceFormatter+BPLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKDistanceFormatter+BPLAdditions.m"; sourceTree = "<group>"; };
+		14F0034B1A9D0E1300AEE2AC /* NSObject+BPLTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BPLTracking.h"; sourceTree = "<group>"; };
+		14F0034C1A9D0E1300AEE2AC /* NSObject+BPLTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BPLTracking.m"; sourceTree = "<group>"; };
+		14F0034D1A9D0E1300AEE2AC /* NSString+BPLPlacemarkFeatureDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BPLPlacemarkFeatureDescription.h"; sourceTree = "<group>"; };
+		14F0034E1A9D0E1300AEE2AC /* NSString+BPLPlacemarkFeatureDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BPLPlacemarkFeatureDescription.m"; sourceTree = "<group>"; };
+		14F0034F1A9D0E1300AEE2AC /* NSUserDefaults+BPLState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+BPLState.h"; sourceTree = "<group>"; };
+		14F003501A9D0E1300AEE2AC /* NSUserDefaults+BPLState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+BPLState.m"; sourceTree = "<group>"; };
+		14F003511A9D0E1300AEE2AC /* UIColor+BPLColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BPLColors.h"; sourceTree = "<group>"; };
+		14F003521A9D0E1300AEE2AC /* UIColor+BPLColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BPLColors.m"; sourceTree = "<group>"; };
+		14F0035C1A9D0E2500AEE2AC /* BPLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLButton.h; sourceTree = "<group>"; };
+		14F0035D1A9D0E2500AEE2AC /* BPLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButton.m; sourceTree = "<group>"; };
+		14F0035E1A9D0E2500AEE2AC /* BPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLLabel.h; sourceTree = "<group>"; };
+		14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLLabel.m; sourceTree = "<group>"; };
+		14F003601A9D0E2500AEE2AC /* BPLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLTableViewCell.h; sourceTree = "<group>"; };
+		14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCell.m; sourceTree = "<group>"; };
+		14F003651A9D1CB700AEE2AC /* BluePlaquesLondon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondon-Prefix.pch"; sourceTree = "<group>"; };
+		14F003671A9D1D6500AEE2AC /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		14F003681A9D1D8400AEE2AC /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "Foundation/GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		14F003691A9D1D8400AEE2AC /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Foundation/GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		14F0036C1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		14F0036E1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		14F003721A9D1F2B00AEE2AC /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
+		14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = blueplaques.kmz; sourceTree = "<group>"; };
+		14F003771A9D1F3C00AEE2AC /* IntentKit-Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = "IntentKit-Localizable.strings"; sourceTree = "<group>"; };
+		14F003781A9D1F3C00AEE2AC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		14F0037C1A9D1FD600AEE2AC /* wikipedia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia.json; sourceTree = "<group>"; };
+		14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButtonTest.m; sourceTree = "<group>"; };
+		14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCellTest.m; sourceTree = "<group>"; };
+		14F003841A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
+		14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMKDistanceFormatterAdditionsTest.m; sourceTree = "<group>"; };
+		14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkFeatureDescriptionTests.m; sourceTree = "<group>"; };
+		14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStateTest.m; sourceTree = "<group>"; };
+		14F0038E1A9D202600AEE2AC /* BPLURLResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLURLResourceLoader.h; sourceTree = "<group>"; };
+		14F0038F1A9D202600AEE2AC /* BPLURLResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLURLResourceLoader.m; sourceTree = "<group>"; };
+		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
+		2C5E6DBCBBDDDE8944B4E4CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BD6EFBFD38A2533B61651EC7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE264D50B8FF0D11E5640BA5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		764BD426185130B50033E603 /* Frameworks */ = {
+		146C5F8E1A9D09EB00E88761 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				764BD42A185130B50033E603 /* XCTest.framework in Frameworks */,
-				764BD42C185130B50033E603 /* UIKit.framework in Frameworks */,
-				764BD42B185130B50033E603 /* Foundation.framework in Frameworks */,
-				4AEE3B8DE48001EE5EDC54AE /* libPods.a in Frameworks */,
+				9A7809062F365438DD7EB76A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76B00E9E18427FBB007A5EE0 /* Frameworks */ = {
+		146C5FAA1A9D09EB00E88761 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7128DC6C194746DD00F46CD3 /* libsqlite3.dylib in Frameworks */,
-				711FDAE71947442D004ED6DA /* Crashlytics.framework in Frameworks */,
-				7668B55B18B2BE200095B101 /* CoreData.framework in Frameworks */,
-				764990761882B20300FF5878 /* Social.framework in Frameworks */,
-				76F19BA71865DA90002F6A3D /* QuartzCore.framework in Frameworks */,
-				76289D611843F5CC008E1391 /* CoreLocation.framework in Frameworks */,
-				76289D5F1843F5BE008E1391 /* libz.dylib in Frameworks */,
-				76B00EE01842866B007A5EE0 /* MapKit.framework in Frameworks */,
-				76B00EA718427FBB007A5EE0 /* CoreGraphics.framework in Frameworks */,
-				76B00EA918427FBB007A5EE0 /* UIKit.framework in Frameworks */,
-				76B00EA518427FBB007A5EE0 /* Foundation.framework in Frameworks */,
-				4D3434E81D784F97900A3BCC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		476AF6AB597FC9509C13DE62 /* Pods */ = {
+		0881CF2E622A2E854CB722C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */,
-				90BD52DB1D76584C46533500 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		76289C7318428FE5008E1391 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				76289C7F18429036008E1391 /* BPLAboutViewController.h */,
-				76289C8018429036008E1391 /* BPLAboutViewController.m */,
-				76F19BAE18675A49002F6A3D /* BPLDetailChooserViewController.h */,
-				76F19BAF18675A49002F6A3D /* BPLDetailChooserViewController.m */,
-				76289C8118429036008E1391 /* BPLMapViewController.h */,
-				76289C8218429036008E1391 /* BPLMapViewController.m */,
-				766CD0BF184BBE2300864D6B /* BPLMapViewDetailViewController.h */,
-				766CD0C0184BBE2300864D6B /* BPLMapViewDetailViewController.m */,
-				76F19BB61867A138002F6A3D /* BPLStreetViewViewController.h */,
-				76F19BB71867A138002F6A3D /* BPLStreetViewViewController.m */,
-				7653BF07186541BE005BC7E5 /* BPLWikipediaViewController.h */,
-				7653BF08186541BE005BC7E5 /* BPLWikipediaViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		76289C7418428FEB008E1391 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				76D3CF59186B2F4000E0D8F3 /* BPLButton.h */,
-				76D3CF5A186B2F4000E0D8F3 /* BPLButton.m */,
-				762DC360186B8ADD004CF725 /* BPLLabel.h */,
-				762DC361186B8ADD004CF725 /* BPLLabel.m */,
-				76F19BB218679AF6002F6A3D /* BPLTableViewCell.h */,
-				76F19BB318679AF6002F6A3D /* BPLTableViewCell.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		76289C7518428FF0008E1391 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				76D3CF56186B226000E0D8F3 /* BPLMapViewDetailViewModel.h */,
-				76D3CF57186B226000E0D8F3 /* BPLMapViewDetailViewModel.m */,
-				76E908301854B1F900B31DC4 /* BPLMapViewModel.h */,
-				76E908311854B1F900B31DC4 /* BPLMapViewModel.m */,
-				76F19BA21865C5D2002F6A3D /* BPLWikipediaViewModel.h */,
-				76F19BA31865C5D2002F6A3D /* BPLWikipediaViewModel.m */,
-				762DC364186BA21B004CF725 /* BPLAboutViewModel.h */,
-				762DC365186BA21B004CF725 /* BPLAboutViewModel.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		76289C7618429000008E1391 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				76289C7B18429027008E1391 /* BPLAppDelegate.h */,
-				76289C7C18429027008E1391 /* BPLAppDelegate.m */,
-				76289C7318428FE5008E1391 /* Controller */,
-				76B1770518AE437000FC6D09 /* Domain */,
-				76289C7518428FF0008E1391 /* Model */,
-				76289C8B1842ADB0008E1391 /* Utils */,
-				76289C7418428FEB008E1391 /* View */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		76289C8B1842ADB0008E1391 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				76CBBB5E184D316100A6828C /* BPLConfiguration.h */,
-				76CBBB5F184D316100A6828C /* BPLConfiguration.m */,
-				76289C941842AE42008E1391 /* BPLConstants.h */,
-				76289C951842AE42008E1391 /* BPLConstants.m */,
-				76B1770E18AE45BA00FC6D09 /* BPLPlacemark+Additions.h */,
-				76B1770F18AE45BA00FC6D09 /* BPLPlacemark+Additions.m */,
-				76E9083C1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.h */,
-				76E9083D1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m */,
-				766D524318AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.h */,
-				766D524418AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m */,
-				765081C118786C3D009EF6F2 /* NSObject+BPLTracking.h */,
-				765081C218786C3D009EF6F2 /* NSObject+BPLTracking.m */,
-				76F19BA8186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.h */,
-				76F19BA9186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m */,
-				7695D68F184B375200E735C4 /* NSUserDefaults+BPLState.h */,
-				7695D690184B375200E735C4 /* NSUserDefaults+BPLState.m */,
-				76289C901842AE04008E1391 /* UIColor+BPLColors.h */,
-				76289C911842AE04008E1391 /* UIColor+BPLColors.m */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		76289C9A1843F462008E1391 /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				76B6CE87184B9BDA00479447 /* google-toolbox-for-mac */,
-				76CBBB62184D338B00A6828C /* Reachability */,
-			);
-			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		764BD42D185130B50033E603 /* BluePlaquesLondonTests */ = {
-			isa = PBXGroup;
-			children = (
-				76E24AFF18720155004472AC /* Model */,
-				764BD42E185130B50033E603 /* Supporting Files */,
-				764BD43F185131DF0033E603 /* Utils */,
-				765762AC18744DC100CD9208 /* View */,
-			);
-			path = BluePlaquesLondonTests;
-			sourceTree = "<group>";
-		};
-		764BD42E185130B50033E603 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				764BD42F185130B50033E603 /* BluePlaquesLondonTests-Info.plist */,
-				764BD430185130B50033E603 /* InfoPlist.strings */,
-				764BD435185130B50033E603 /* BluePlaquesLondonTests-Prefix.pch */,
-				76E24B011872018B004472AC /* BPLURLResourceLoader.h */,
-				76E24B021872018B004472AC /* BPLURLResourceLoader.m */,
-				76E24B0418720285004472AC /* wikipedia.json */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		764BD43F185131DF0033E603 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				766D524718AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m */,
-				76F19BAC186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m */,
-				764BD441185131F30033E603 /* BPLStateTest.m */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		765081B8187770A4009EF6F2 /* strings */ = {
-			isa = PBXGroup;
-			children = (
-				765081B9187770C0009EF6F2 /* IntentKit-Localizable.strings */,
-				7613A85E1884988C00736C21 /* Localizable.strings */,
-			);
-			name = strings;
-			sourceTree = "<group>";
-		};
-		765762AC18744DC100CD9208 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				765762AF18744E0200CD9208 /* BPLButtonTest.m */,
-				765762B21874647600CD9208 /* BPLTableViewCellTest.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		766CD0C3184BE90000864D6B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				76060E8118B94BE3009DD5CD /* blueplaques.kml */,
-				766CD0C4184BE94B00864D6B /* blueplaques.kmz */,
-				765081B8187770A4009EF6F2 /* strings */,
-				14B9189F1A06975900F157F2 /* LaunchScreen.xib */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		76B00E9818427FBB007A5EE0 = {
-			isa = PBXGroup;
-			children = (
-				76B00EAA18427FBB007A5EE0 /* BluePlaquesLondon */,
-				764BD42D185130B50033E603 /* BluePlaquesLondonTests */,
-				76B00EA318427FBB007A5EE0 /* Frameworks */,
-				76B00EA218427FBB007A5EE0 /* Products */,
-				476AF6AB597FC9509C13DE62 /* Pods */,
-			);
-			sourceTree = "<group>";
-		};
-		76B00EA218427FBB007A5EE0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				76B00EA118427FBB007A5EE0 /* BluePlaquesLondon.app */,
-				764BD429185130B50033E603 /* BluePlaquesLondonTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		76B00EA318427FBB007A5EE0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7668B55A18B2BE1F0095B101 /* CoreData.framework */,
-				76B00EA618427FBB007A5EE0 /* CoreGraphics.framework */,
-				76289D601843F5CC008E1391 /* CoreLocation.framework */,
-				711FDAE61947442D004ED6DA /* Crashlytics.framework */,
-				76B00EA418427FBB007A5EE0 /* Foundation.framework */,
-				29DA0FE8859948A7976E1811 /* libPods.a */,
-				7128DC6B194746DC00F46CD3 /* libsqlite3.dylib */,
-				76289D5E1843F5BE008E1391 /* libz.dylib */,
-				76B00EDF1842866B007A5EE0 /* MapKit.framework */,
-				76F19BA61865DA90002F6A3D /* QuartzCore.framework */,
-				764990751882B20300FF5878 /* Social.framework */,
-				76B00EA818427FBB007A5EE0 /* UIKit.framework */,
-				76B00EC918427FBC007A5EE0 /* XCTest.framework */,
+				BD6EFBFD38A2533B61651EC7 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		76B00EAA18427FBB007A5EE0 /* BluePlaquesLondon */ = {
+		146C5F881A9D09EB00E88761 = {
 			isa = PBXGroup;
 			children = (
-				76289C7618429000008E1391 /* Classes */,
-				76289C9A1843F462008E1391 /* Dependencies */,
-				76B00EC218427FBC007A5EE0 /* Images.xcassets */,
-				76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */,
-				76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */,
-				766CD0C3184BE90000864D6B /* Resources */,
-				76B00EAB18427FBB007A5EE0 /* Supporting Files */,
+				146C5F931A9D09EB00E88761 /* BluePlaquesLondon */,
+				146C5FB01A9D09EB00E88761 /* BluePlaquesLondonTests */,
+				146C5F921A9D09EB00E88761 /* Products */,
+				FF64725CE8A33BFBDB5DA302 /* Pods */,
+				0881CF2E622A2E854CB722C0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		146C5F921A9D09EB00E88761 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				146C5F911A9D09EB00E88761 /* BluePlaquesLondon.app */,
+				146C5FAD1A9D09EB00E88761 /* BluePlaquesLondonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		146C5F931A9D09EB00E88761 /* BluePlaquesLondon */ = {
+			isa = PBXGroup;
+			children = (
+				146C5FBD1A9D0BD700E88761 /* BPLAppDelegate.h */,
+				146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */,
+				14F003081A9D0D6800AEE2AC /* Classes */,
+				14F003031A9D0CFC00AEE2AC /* Dependencies */,
+				146C5FA41A9D09EB00E88761 /* Images.xcassets */,
+				146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */,
+				14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */,
+				14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */,
+				14F003711A9D1F1700AEE2AC /* Resources */,
+				146C5F941A9D09EB00E88761 /* Supporting Files */,
 			);
 			path = BluePlaquesLondon;
 			sourceTree = "<group>";
 		};
-		76B00EAB18427FBB007A5EE0 /* Supporting Files */ = {
+		146C5F941A9D09EB00E88761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				76B00EAC18427FBB007A5EE0 /* BluePlaquesLondon-Info.plist */,
-				76B00EAD18427FBB007A5EE0 /* InfoPlist.strings */,
-				76B00EB018427FBB007A5EE0 /* main.m */,
-				76B00EB218427FBB007A5EE0 /* BluePlaquesLondon-Prefix.pch */,
+				14F003651A9D1CB700AEE2AC /* BluePlaquesLondon-Prefix.pch */,
+				146C5F951A9D09EB00E88761 /* Info.plist */,
+				146C5F961A9D09EB00E88761 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		76B1770518AE437000FC6D09 /* Domain */ = {
+		146C5FB01A9D09EB00E88761 /* BluePlaquesLondonTests */ = {
 			isa = PBXGroup;
 			children = (
-				76B1770A18AE445200FC6D09 /* BPLPlacemark.h */,
-				76B1770B18AE445200FC6D09 /* BPLPlacemark.m */,
-				76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */,
+				14F0037B1A9D1FBF00AEE2AC /* Model */,
+				146C5FB11A9D09EB00E88761 /* Supporting Files */,
+				14F0037F1A9D1FE500AEE2AC /* Utils */,
+				14F0037E1A9D1FDB00AEE2AC /* View */,
+			);
+			path = BluePlaquesLondonTests;
+			sourceTree = "<group>";
+		};
+		146C5FB11A9D09EB00E88761 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */,
+				14F0038E1A9D202600AEE2AC /* BPLURLResourceLoader.h */,
+				14F0038F1A9D202600AEE2AC /* BPLURLResourceLoader.m */,
+				146C5FB21A9D09EB00E88761 /* Info.plist */,
+				14F0037C1A9D1FD600AEE2AC /* wikipedia.json */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14F003031A9D0CFC00AEE2AC /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				14F003661A9D1D4800AEE2AC /* google-toolbox-for-mac */,
+				14F003041A9D0D0B00AEE2AC /* Reachability */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		14F003041A9D0D0B00AEE2AC /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				14F003051A9D0D3100AEE2AC /* Reachability.h */,
+				14F003061A9D0D3100AEE2AC /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		14F003081A9D0D6800AEE2AC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				14F003091A9D0D9400AEE2AC /* Controller */,
+				14F0030A1A9D0D9C00AEE2AC /* Domain */,
+				14F0030B1A9D0DA500AEE2AC /* Model */,
+				14F0030C1A9D0DAC00AEE2AC /* Utils */,
+				14F0030D1A9D0DBF00AEE2AC /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		14F003091A9D0D9400AEE2AC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14F003201A9D0DE700AEE2AC /* BPLAboutViewController.h */,
+				14F003211A9D0DE700AEE2AC /* BPLAboutViewController.m */,
+				14F003221A9D0DE700AEE2AC /* BPLDetailChooserViewController.h */,
+				14F003231A9D0DE700AEE2AC /* BPLDetailChooserViewController.m */,
+				14F003241A9D0DE700AEE2AC /* BPLMapViewController.h */,
+				14F003251A9D0DE700AEE2AC /* BPLMapViewController.m */,
+				14F003261A9D0DE700AEE2AC /* BPLMapViewDetailViewController.h */,
+				14F003271A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m */,
+				14F003281A9D0DE700AEE2AC /* BPLStreetViewViewController.h */,
+				14F003291A9D0DE700AEE2AC /* BPLStreetViewViewController.m */,
+				14F0032A1A9D0DE700AEE2AC /* BPLWikipediaViewController.h */,
+				14F0032B1A9D0DE700AEE2AC /* BPLWikipediaViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		14F0030A1A9D0D9C00AEE2AC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				14F003321A9D0DF700AEE2AC /* BPLPlacemark.h */,
+				14F003331A9D0DF700AEE2AC /* BPLPlacemark.m */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		76B6CE87184B9BDA00479447 /* google-toolbox-for-mac */ = {
+		14F0030B1A9D0DA500AEE2AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				76B6CE8C184B9C9E00479447 /* GTMDefines.h */,
-				76B6CE88184B9C8400479447 /* GTMNSString+HTML.h */,
-				76B6CE89184B9C8400479447 /* GTMNSString+HTML.m */,
-			);
-			name = "google-toolbox-for-mac";
-			path = "Dependencies/google-toolbox-for-mac";
-			sourceTree = "<group>";
-		};
-		76CBBB62184D338B00A6828C /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				76CBBB63184D33C100A6828C /* Reachability.h */,
-				76CBBB64184D33C100A6828C /* Reachability.m */,
-			);
-			name = Reachability;
-			path = Dependencies/Reachability;
-			sourceTree = "<group>";
-		};
-		76E24AFF18720155004472AC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				765762A818744DB700CD9208 /* BPLMapViewDetailViewModelTest.m */,
+				14F003351A9D0E0600AEE2AC /* BPLAboutViewModel.h */,
+				14F003361A9D0E0600AEE2AC /* BPLAboutViewModel.m */,
+				14F003371A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.h */,
+				14F003381A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m */,
+				14F003391A9D0E0600AEE2AC /* BPLMapViewModel.h */,
+				14F0033A1A9D0E0600AEE2AC /* BPLMapViewModel.m */,
+				14F0033B1A9D0E0600AEE2AC /* BPLWikipediaViewModel.h */,
+				14F0033C1A9D0E0600AEE2AC /* BPLWikipediaViewModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		14F0030C1A9D0DAC00AEE2AC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				14F003411A9D0E1300AEE2AC /* BPLConfiguration.h */,
+				14F003421A9D0E1300AEE2AC /* BPLConfiguration.m */,
+				14F003431A9D0E1300AEE2AC /* BPLConstants.h */,
+				14F003441A9D0E1300AEE2AC /* BPLConstants.m */,
+				14F003451A9D0E1300AEE2AC /* BPLPlacemark+Additions.h */,
+				14F003461A9D0E1300AEE2AC /* BPLPlacemark+Additions.m */,
+				14F003471A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.h */,
+				14F003481A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m */,
+				14F003491A9D0E1300AEE2AC /* MKDistanceFormatter+BPLAdditions.h */,
+				14F0034A1A9D0E1300AEE2AC /* MKDistanceFormatter+BPLAdditions.m */,
+				14F0034B1A9D0E1300AEE2AC /* NSObject+BPLTracking.h */,
+				14F0034C1A9D0E1300AEE2AC /* NSObject+BPLTracking.m */,
+				14F0034D1A9D0E1300AEE2AC /* NSString+BPLPlacemarkFeatureDescription.h */,
+				14F0034E1A9D0E1300AEE2AC /* NSString+BPLPlacemarkFeatureDescription.m */,
+				14F0034F1A9D0E1300AEE2AC /* NSUserDefaults+BPLState.h */,
+				14F003501A9D0E1300AEE2AC /* NSUserDefaults+BPLState.m */,
+				14F003511A9D0E1300AEE2AC /* UIColor+BPLColors.h */,
+				14F003521A9D0E1300AEE2AC /* UIColor+BPLColors.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		14F0030D1A9D0DBF00AEE2AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14F0035C1A9D0E2500AEE2AC /* BPLButton.h */,
+				14F0035D1A9D0E2500AEE2AC /* BPLButton.m */,
+				14F0035E1A9D0E2500AEE2AC /* BPLLabel.h */,
+				14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */,
+				14F003601A9D0E2500AEE2AC /* BPLTableViewCell.h */,
+				14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14F003661A9D1D4800AEE2AC /* google-toolbox-for-mac */ = {
+			isa = PBXGroup;
+			children = (
+				14F003671A9D1D6500AEE2AC /* GTMDefines.h */,
+				14F003681A9D1D8400AEE2AC /* GTMNSString+HTML.h */,
+				14F003691A9D1D8400AEE2AC /* GTMNSString+HTML.m */,
+			);
+			path = "google-toolbox-for-mac";
+			sourceTree = "<group>";
+		};
+		14F003711A9D1F1700AEE2AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				14F003761A9D1F2E00AEE2AC /* strings */,
+				14F003721A9D1F2B00AEE2AC /* blueplaques.kml */,
+				14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		14F003761A9D1F2E00AEE2AC /* strings */ = {
+			isa = PBXGroup;
+			children = (
+				14F003771A9D1F3C00AEE2AC /* IntentKit-Localizable.strings */,
+				14F003781A9D1F3C00AEE2AC /* Localizable.strings */,
+			);
+			path = strings;
+			sourceTree = "<group>";
+		};
+		14F0037B1A9D1FBF00AEE2AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14F003841A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		14F0037E1A9D1FDB00AEE2AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */,
+				14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14F0037F1A9D1FE500AEE2AC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */,
+				14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */,
+				14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FF64725CE8A33BFBDB5DA302 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C5E6DBCBBDDDE8944B4E4CD /* Pods.debug.xcconfig */,
+				BE264D50B8FF0D11E5640BA5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		764BD428185130B50033E603 /* BluePlaquesLondonTests */ = {
+		146C5F901A9D09EB00E88761 /* BluePlaquesLondon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 764BD438185130B50033E603 /* Build configuration list for PBXNativeTarget "BluePlaquesLondonTests" */;
+			buildConfigurationList = 146C5FB71A9D09EB00E88761 /* Build configuration list for PBXNativeTarget "BluePlaquesLondon" */;
 			buildPhases = (
-				A7DCF0520B71F5BBCAEB9C88 /* Check Pods Manifest.lock */,
-				764BD425185130B50033E603 /* Sources */,
-				764BD426185130B50033E603 /* Frameworks */,
-				764BD427185130B50033E603 /* Resources */,
-				C05199741B6A5EB016C4E18B /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				764BD437185130B50033E603 /* PBXTargetDependency */,
-			);
-			name = BluePlaquesLondonTests;
-			productName = BluePlaquesLondonTests;
-			productReference = 764BD429185130B50033E603 /* BluePlaquesLondonTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		76B00EA018427FBB007A5EE0 /* BluePlaquesLondon */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 76B00ED918427FBC007A5EE0 /* Build configuration list for PBXNativeTarget "BluePlaquesLondon" */;
-			buildPhases = (
-				D522B9B9D49A4314AC2C0502 /* Check Pods Manifest.lock */,
-				76B00E9D18427FBB007A5EE0 /* Sources */,
-				76B00E9E18427FBB007A5EE0 /* Frameworks */,
-				76B00E9F18427FBB007A5EE0 /* Resources */,
-				A1E5CD2BAB6B41189BA1C82A /* Copy Pods Resources */,
-				76CBBB67184D346300A6828C /* ShellScript */,
+				4BB9DB748270BB0173DA7CA8 /* Check Pods Manifest.lock */,
+				146C5F8D1A9D09EB00E88761 /* Sources */,
+				146C5F8E1A9D09EB00E88761 /* Frameworks */,
+				146C5F8F1A9D09EB00E88761 /* Resources */,
+				89201BD03B4F3893BEF66EAF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -554,28 +438,47 @@
 			);
 			name = BluePlaquesLondon;
 			productName = BluePlaquesLondon;
-			productReference = 76B00EA118427FBB007A5EE0 /* BluePlaquesLondon.app */;
+			productReference = 146C5F911A9D09EB00E88761 /* BluePlaquesLondon.app */;
 			productType = "com.apple.product-type.application";
+		};
+		146C5FAC1A9D09EB00E88761 /* BluePlaquesLondonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 146C5FBA1A9D09EB00E88761 /* Build configuration list for PBXNativeTarget "BluePlaquesLondonTests" */;
+			buildPhases = (
+				146C5FA91A9D09EB00E88761 /* Sources */,
+				146C5FAA1A9D09EB00E88761 /* Frameworks */,
+				146C5FAB1A9D09EB00E88761 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				146C5FAF1A9D09EB00E88761 /* PBXTargetDependency */,
+			);
+			name = BluePlaquesLondonTests;
+			productName = BluePlaquesLondonTests;
+			productReference = 146C5FAD1A9D09EB00E88761 /* BluePlaquesLondonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		76B00E9918427FBB007A5EE0 /* Project object */ = {
+		146C5F891A9D09EB00E88761 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = BPL;
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = UpwardsNorthwards;
+				ORGANIZATIONNAME = "Sean O'Shea";
 				TargetAttributes = {
-					764BD428185130B50033E603 = {
-						TestTargetID = 76B00EA018427FBB007A5EE0;
-					};
-					76B00EA018427FBB007A5EE0 = {
+					146C5F901A9D09EB00E88761 = {
+						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 3TQU8WFYZ9;
+					};
+					146C5FAC1A9D09EB00E88761 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 146C5F901A9D09EB00E88761;
 					};
 				};
 			};
-			buildConfigurationList = 76B00E9C18427FBB007A5EE0 /* Build configuration list for PBXProject "BluePlaquesLondon" */;
+			buildConfigurationList = 146C5F8C1A9D09EB00E88761 /* Build configuration list for PBXProject "BluePlaquesLondon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -583,78 +486,45 @@
 				en,
 				Base,
 			);
-			mainGroup = 76B00E9818427FBB007A5EE0;
-			productRefGroup = 76B00EA218427FBB007A5EE0 /* Products */;
+			mainGroup = 146C5F881A9D09EB00E88761;
+			productRefGroup = 146C5F921A9D09EB00E88761 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76B00EA018427FBB007A5EE0 /* BluePlaquesLondon */,
-				764BD428185130B50033E603 /* BluePlaquesLondonTests */,
+				146C5F901A9D09EB00E88761 /* BluePlaquesLondon */,
+				146C5FAC1A9D09EB00E88761 /* BluePlaquesLondonTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		764BD427185130B50033E603 /* Resources */ = {
+		146C5F8F1A9D09EB00E88761 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				765081BB187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */,
-				7613A8601884988C00736C21 /* Localizable.strings in Resources */,
-				76060E8318B94BE3009DD5CD /* blueplaques.kml in Resources */,
-				764BD432185130B50033E603 /* InfoPlist.strings in Resources */,
-				76E24B0518720285004472AC /* wikipedia.json in Resources */,
+				14F003701A9D1E7700AEE2AC /* Main_iPhone.storyboard in Resources */,
+				14F0036F1A9D1E7700AEE2AC /* Main_iPad.storyboard in Resources */,
+				14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */,
+				14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */,
+				146C5FA81A9D09EB00E88761 /* LaunchScreen.xib in Resources */,
+				14F0037A1A9D1F3C00AEE2AC /* Localizable.strings in Resources */,
+				14F003791A9D1F3C00AEE2AC /* IntentKit-Localizable.strings in Resources */,
+				146C5FA51A9D09EB00E88761 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76B00E9F18427FBB007A5EE0 /* Resources */ = {
+		146C5FAB1A9D09EB00E88761 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76F1F68018472DA70079E033 /* Main_iPad.storyboard in Resources */,
-				76F1F68118472DA70079E033 /* Main_iPhone.storyboard in Resources */,
-				76B00EC318427FBC007A5EE0 /* Images.xcassets in Resources */,
-				766CD0C6184BE94B00864D6B /* blueplaques.kmz in Resources */,
-				76060E8218B94BE3009DD5CD /* blueplaques.kml in Resources */,
-				7613A85F1884988C00736C21 /* Localizable.strings in Resources */,
-				765081BA187770C0009EF6F2 /* IntentKit-Localizable.strings in Resources */,
-				14B918A01A06975900F157F2 /* LaunchScreen.xib in Resources */,
-				76B00EAF18427FBB007A5EE0 /* InfoPlist.strings in Resources */,
+				14F0037D1A9D1FD600AEE2AC /* wikipedia.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		76CBBB67184D346300A6828C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 8aa2986353e21d6181e23a9360cd528dca68aafb 5769576e5978757dbd9058df640a5f116b6c94ab6e35b7321786486fc8bff94f";
-		};
-		A1E5CD2BAB6B41189BA1C82A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7DCF0520B71F5BBCAEB9C88 /* Check Pods Manifest.lock */ = {
+		4BB9DB748270BB0173DA7CA8 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -669,7 +539,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C05199741B6A5EB016C4E18B /* Copy Pods Resources */ = {
+		89201BD03B4F3893BEF66EAF /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -682,205 +552,98 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D522B9B9D49A4314AC2C0502 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		764BD425185130B50033E603 /* Sources */ = {
+		146C5F8D1A9D09EB00E88761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				765762B31874647600CD9208 /* BPLTableViewCellTest.m in Sources */,
-				76B1770918AE438A00FC6D09 /* Model.xcdatamodeld in Sources */,
-				765762AA18744DB700CD9208 /* BPLMapViewDetailViewModelTest.m in Sources */,
-				1499A1711A9A401300AA1B99 /* BPLAppDelegate.m in Sources */,
-				1499A1741A9A401300AA1B99 /* BPLMapViewController.m in Sources */,
-				766D524818AB888B00BAEC70 /* BPLMKDistanceFormatterAdditionsTest.m in Sources */,
-				1499A1791A9A401300AA1B99 /* BPLMapViewDetailViewModel.m in Sources */,
-				1499A1771A9A401300AA1B99 /* BPLWikipediaViewController.m in Sources */,
-				1499A1831A9A401300AA1B99 /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
-				1499A1851A9A401300AA1B99 /* UIColor+BPLColors.m in Sources */,
-				1499A17E1A9A401300AA1B99 /* BPLConstants.m in Sources */,
-				1499A1781A9A401300AA1B99 /* BPLPlacemark.m in Sources */,
-				1499A1801A9A401300AA1B99 /* KMLPlacemark+BPLAdditions.m in Sources */,
-				1499A1821A9A401300AA1B99 /* NSObject+BPLTracking.m in Sources */,
-				1499A1881A9A401300AA1B99 /* BPLTableViewCell.m in Sources */,
-				1499A1721A9A401300AA1B99 /* BPLAboutViewController.m in Sources */,
-				1499A18A1A9A417000AA1B99 /* Reachability.m in Sources */,
-				1499A1731A9A401300AA1B99 /* BPLDetailChooserViewController.m in Sources */,
-				1499A17F1A9A401300AA1B99 /* BPLPlacemark+Additions.m in Sources */,
-				1499A17B1A9A401300AA1B99 /* BPLWikipediaViewModel.m in Sources */,
-				1499A1861A9A401300AA1B99 /* BPLButton.m in Sources */,
-				76E24B031872018B004472AC /* BPLURLResourceLoader.m in Sources */,
-				1499A17A1A9A401300AA1B99 /* BPLMapViewModel.m in Sources */,
-				764BD443185131F30033E603 /* BPLStateTest.m in Sources */,
-				1499A17C1A9A401300AA1B99 /* BPLAboutViewModel.m in Sources */,
-				1499A1811A9A401300AA1B99 /* MKDistanceFormatter+BPLAdditions.m in Sources */,
-				1499A1841A9A401300AA1B99 /* NSUserDefaults+BPLState.m in Sources */,
-				1499A1891A9A417000AA1B99 /* GTMNSString+HTML.m in Sources */,
-				1499A17D1A9A401300AA1B99 /* BPLConfiguration.m in Sources */,
-				76F19BAD186607AA002F6A3D /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
-				1499A1761A9A401300AA1B99 /* BPLStreetViewViewController.m in Sources */,
-				765762B018744E0200CD9208 /* BPLButtonTest.m in Sources */,
-				1499A1751A9A401300AA1B99 /* BPLMapViewDetailViewController.m in Sources */,
-				1499A1871A9A401300AA1B99 /* BPLLabel.m in Sources */,
+				14F003621A9D0E2500AEE2AC /* BPLButton.m in Sources */,
+				146C5F971A9D09EB00E88761 /* main.m in Sources */,
+				14F0036A1A9D1D8400AEE2AC /* GTMNSString+HTML.m in Sources */,
+				14F003401A9D0E0600AEE2AC /* BPLWikipediaViewModel.m in Sources */,
+				14F003631A9D0E2500AEE2AC /* BPLLabel.m in Sources */,
+				14F003571A9D0E1300AEE2AC /* MKDistanceFormatter+BPLAdditions.m in Sources */,
+				14F003551A9D0E1300AEE2AC /* BPLPlacemark+Additions.m in Sources */,
+				14F003071A9D0D3100AEE2AC /* Reachability.m in Sources */,
+				14F003581A9D0E1300AEE2AC /* NSObject+BPLTracking.m in Sources */,
+				14F0035B1A9D0E1300AEE2AC /* UIColor+BPLColors.m in Sources */,
+				14F0032D1A9D0DE700AEE2AC /* BPLDetailChooserViewController.m in Sources */,
+				14F003541A9D0E1300AEE2AC /* BPLConstants.m in Sources */,
+				14F003341A9D0DF700AEE2AC /* BPLPlacemark.m in Sources */,
+				14F003311A9D0DE700AEE2AC /* BPLWikipediaViewController.m in Sources */,
+				14F0033F1A9D0E0600AEE2AC /* BPLMapViewModel.m in Sources */,
+				14F003591A9D0E1300AEE2AC /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
+				14F0035A1A9D0E1300AEE2AC /* NSUserDefaults+BPLState.m in Sources */,
+				146C5FBF1A9D0BD700E88761 /* BPLAppDelegate.m in Sources */,
+				14F0032E1A9D0DE700AEE2AC /* BPLMapViewController.m in Sources */,
+				14F0033D1A9D0E0600AEE2AC /* BPLAboutViewModel.m in Sources */,
+				14F003531A9D0E1300AEE2AC /* BPLConfiguration.m in Sources */,
+				14F0033E1A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m in Sources */,
+				14F0032C1A9D0DE700AEE2AC /* BPLAboutViewController.m in Sources */,
+				14F0032F1A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m in Sources */,
+				14F003561A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m in Sources */,
+				14F003641A9D0E2500AEE2AC /* BPLTableViewCell.m in Sources */,
+				14F003301A9D0DE700AEE2AC /* BPLStreetViewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76B00E9D18427FBB007A5EE0 /* Sources */ = {
+		146C5FA91A9D09EB00E88761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76289C8718429036008E1391 /* BPLMapViewController.m in Sources */,
-				76D3CF58186B226000E0D8F3 /* BPLMapViewDetailViewModel.m in Sources */,
-				766CD0C1184BBE2300864D6B /* BPLMapViewDetailViewController.m in Sources */,
-				76E908321854B1F900B31DC4 /* BPLMapViewModel.m in Sources */,
-				76289C8518429036008E1391 /* BPLAboutViewController.m in Sources */,
-				76F19BB81867A138002F6A3D /* BPLStreetViewViewController.m in Sources */,
-				7653BF09186541BE005BC7E5 /* BPLWikipediaViewController.m in Sources */,
-				76F19BB018675A49002F6A3D /* BPLDetailChooserViewController.m in Sources */,
-				765081C318786C3D009EF6F2 /* NSObject+BPLTracking.m in Sources */,
-				76B1770C18AE445200FC6D09 /* BPLPlacemark.m in Sources */,
-				762DC362186B8ADD004CF725 /* BPLLabel.m in Sources */,
-				76B00EB118427FBB007A5EE0 /* main.m in Sources */,
-				76B1771018AE45BA00FC6D09 /* BPLPlacemark+Additions.m in Sources */,
-				7695D691184B375200E735C4 /* NSUserDefaults+BPLState.m in Sources */,
-				76E9083E1854D9BA00B31DC4 /* KMLPlacemark+BPLAdditions.m in Sources */,
-				76D3CF5B186B2F4000E0D8F3 /* BPLButton.m in Sources */,
-				76B6CE8A184B9C8400479447 /* GTMNSString+HTML.m in Sources */,
-				76289C961842AE42008E1391 /* BPLConstants.m in Sources */,
-				76289C7D18429027008E1391 /* BPLAppDelegate.m in Sources */,
-				766D524518AB86E400BAEC70 /* MKDistanceFormatter+BPLAdditions.m in Sources */,
-				76F19BAA186600DC002F6A3D /* NSString+BPLPlacemarkFeatureDescription.m in Sources */,
-				762DC366186BA21B004CF725 /* BPLAboutViewModel.m in Sources */,
-				76289C921842AE04008E1391 /* UIColor+BPLColors.m in Sources */,
-				76F19BA41865C5D2002F6A3D /* BPLWikipediaViewModel.m in Sources */,
-				76CBBB65184D33C100A6828C /* Reachability.m in Sources */,
-				76B1770818AE438A00FC6D09 /* Model.xcdatamodeld in Sources */,
-				76CBBB60184D316100A6828C /* BPLConfiguration.m in Sources */,
-				76F19BB418679AF6002F6A3D /* BPLTableViewCell.m in Sources */,
+				14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */,
+				14F003901A9D202600AEE2AC /* BPLURLResourceLoader.m in Sources */,
+				14F003821A9D1FF200AEE2AC /* BPLButtonTest.m in Sources */,
+				14F003861A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m in Sources */,
+				14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */,
+				14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
+				14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		764BD437185130B50033E603 /* PBXTargetDependency */ = {
+		146C5FAF1A9D09EB00E88761 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 76B00EA018427FBB007A5EE0 /* BluePlaquesLondon */;
-			targetProxy = 764BD436185130B50033E603 /* PBXContainerItemProxy */;
+			target = 146C5F901A9D09EB00E88761 /* BluePlaquesLondon */;
+			targetProxy = 146C5FAE1A9D09EB00E88761 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		764BD430185130B50033E603 /* InfoPlist.strings */ = {
+		146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				764BD431185130B50033E603 /* en */,
+				146C5FA71A9D09EB00E88761 /* Base */,
 			);
-			name = InfoPlist.strings;
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		76B00EAD18427FBB007A5EE0 /* InfoPlist.strings */ = {
+		14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				76B00EAE18427FBB007A5EE0 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		76B00EB618427FBB007A5EE0 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				76B00EB718427FBB007A5EE0 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		76B00EB918427FBB007A5EE0 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				76B00EBA18427FBB007A5EE0 /* Base */,
+				14F0036C1A9D1E7700AEE2AC /* Base */,
 			);
 			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14F0036E1A9D1E7700AEE2AC /* Base */,
+			);
+			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		764BD439185130B50033E603 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BluePlaquesLondonTests/BluePlaquesLondonTests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/usr/include/libxml2,
-				);
-				INFOPLIST_FILE = "BluePlaquesLondonTests/BluePlaquesLondonTests-Info.plist";
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		764BD43A185130B50033E603 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90BD52DB1D76584C46533500 /* Pods.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BluePlaquesLondonTests/BluePlaquesLondonTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/usr/include/libxml2,
-				);
-				INFOPLIST_FILE = "BluePlaquesLondonTests/BluePlaquesLondonTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-		76B00ED718427FBC007A5EE0 /* Debug */ = {
+		146C5FB51A9D09EB00E88761 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -899,6 +662,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -910,19 +674,18 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		76B00ED818427FBC007A5EE0 /* Release */ = {
+		146C5FB61A9D09EB00E88761 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -942,130 +705,117 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		76B00EDA18427FBC007A5EE0 /* Debug */ = {
+		146C5FB81A9D09EB00E88761 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11063E61893CAFE76681E5BA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 2C5E6DBCBBDDDE8944B4E4CD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/osheas/dev/github/BluePlaquesLondon,
-					/Users/osheas/dev/github/BluePlaquesLondon/BluePlaquesLondon/Dependencies,
-					"$(PROJECT_DIR)",
-				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					"TRACKING=1",
-				);
-				INFOPLIST_FILE = "BluePlaquesLondon/BluePlaquesLondon-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = NO;
+				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s";
-				WRAPPER_EXTENSION = app;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		76B00EDB18427FBC007A5EE0 /* Release */ = {
+		146C5FB91A9D09EB00E88761 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90BD52DB1D76584C46533500 /* Pods.release.xcconfig */;
+			baseConfigurationReference = BE264D50B8FF0D11E5640BA5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/osheas/dev/github/BluePlaquesLondon,
-					/Users/osheas/dev/github/BluePlaquesLondon/BluePlaquesLondon/Dependencies,
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					"TRACKING=1",
-					"CRASH_REPORTING=1",
-				);
-				INFOPLIST_FILE = "BluePlaquesLondon/BluePlaquesLondon-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = NO;
+				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s";
-				WRAPPER_EXTENSION = app;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		146C5FBB1A9D09EB00E88761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BluePlaquesLondonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
+			};
+			name = Debug;
+		};
+		146C5FBC1A9D09EB00E88761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = BluePlaquesLondonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		764BD438185130B50033E603 /* Build configuration list for PBXNativeTarget "BluePlaquesLondonTests" */ = {
+		146C5F8C1A9D09EB00E88761 /* Build configuration list for PBXProject "BluePlaquesLondon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				764BD439185130B50033E603 /* Debug */,
-				764BD43A185130B50033E603 /* Release */,
+				146C5FB51A9D09EB00E88761 /* Debug */,
+				146C5FB61A9D09EB00E88761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76B00E9C18427FBB007A5EE0 /* Build configuration list for PBXProject "BluePlaquesLondon" */ = {
+		146C5FB71A9D09EB00E88761 /* Build configuration list for PBXNativeTarget "BluePlaquesLondon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76B00ED718427FBC007A5EE0 /* Debug */,
-				76B00ED818427FBC007A5EE0 /* Release */,
+				146C5FB81A9D09EB00E88761 /* Debug */,
+				146C5FB91A9D09EB00E88761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76B00ED918427FBC007A5EE0 /* Build configuration list for PBXNativeTarget "BluePlaquesLondon" */ = {
+		146C5FBA1A9D09EB00E88761 /* Build configuration list for PBXNativeTarget "BluePlaquesLondonTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76B00EDA18427FBC007A5EE0 /* Debug */,
-				76B00EDB18427FBC007A5EE0 /* Release */,
+				146C5FBB1A9D09EB00E88761 /* Debug */,
+				146C5FBC1A9D09EB00E88761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		76B1770618AE438A00FC6D09 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				76B1770718AE438A00FC6D09 /* Model.xcdatamodel */,
-			);
-			currentVersion = 76B1770718AE438A00FC6D09 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = 76B00E9918427FBB007A5EE0 /* Project object */;
+	rootObject = 146C5F891A9D09EB00E88761 /* Project object */;
 }
