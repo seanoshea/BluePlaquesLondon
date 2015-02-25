@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76B00EA018427FBB007A5EE0"
+               BlueprintIdentifier = "146C5F901A9D09EB00E88761"
                BuildableName = "BluePlaquesLondon.app"
                BlueprintName = "BluePlaquesLondon"
+               ReferencedContainer = "container:BluePlaquesLondon.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "146C5FAC1A9D09EB00E88761"
+               BuildableName = "BluePlaquesLondonTests.xctest"
+               BlueprintName = "BluePlaquesLondonTests"
                ReferencedContainer = "container:BluePlaquesLondon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,19 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "764BD428185130B50033E603"
+               BlueprintIdentifier = "146C5FAC1A9D09EB00E88761"
                BuildableName = "BluePlaquesLondonTests.xctest"
                BlueprintName = "BluePlaquesLondonTests"
-               ReferencedContainer = "container:BluePlaquesLondon.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "764BD4051851309F0033E603"
-               BuildableName = "BluePlaquesLondonTests copy.xctest"
-               BlueprintName = "BluePlaquesLondonTests copy"
                ReferencedContainer = "container:BluePlaquesLondon.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -52,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76B00EA018427FBB007A5EE0"
+            BlueprintIdentifier = "146C5F901A9D09EB00E88761"
             BuildableName = "BluePlaquesLondon.app"
             BlueprintName = "BluePlaquesLondon"
             ReferencedContainer = "container:BluePlaquesLondon.xcodeproj">
@@ -71,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76B00EA018427FBB007A5EE0"
+            BlueprintIdentifier = "146C5F901A9D09EB00E88761"
             BuildableName = "BluePlaquesLondon.app"
             BlueprintName = "BluePlaquesLondon"
             ReferencedContainer = "container:BluePlaquesLondon.xcodeproj">
@@ -84,12 +88,12 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76B00EA018427FBB007A5EE0"
+            BlueprintIdentifier = "146C5F901A9D09EB00E88761"
             BuildableName = "BluePlaquesLondon.app"
             BlueprintName = "BluePlaquesLondon"
             ReferencedContainer = "container:BluePlaquesLondon.xcodeproj">
@@ -100,7 +104,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
