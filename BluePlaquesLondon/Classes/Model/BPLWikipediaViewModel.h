@@ -30,8 +30,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KMLPlacemark+BPLAdditions.h"
-
 typedef void(^BPLWikipediaViewURLResolutionCompletionBlock)(NSURLRequest *urlRequest, NSError *error);
 
 @interface BPLWikipediaViewModel : NSObject

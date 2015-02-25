@@ -36,6 +36,7 @@
 #import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
+#import "KMLPlacemark.h"
 
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 
