@@ -49,6 +49,8 @@
 #import "INKMapsHandler.h"
 #import "INKActivityPresenter.h"
 
+NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetailViewController";
+
 @interface BPLMapViewDetailViewController()
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;

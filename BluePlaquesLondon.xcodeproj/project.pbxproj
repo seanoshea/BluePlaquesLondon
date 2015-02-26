@@ -12,6 +12,7 @@
 		146C5FA81A9D09EB00E88761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */; };
 		146C5FBF1A9D0BD700E88761 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */; };
 		14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */; };
+		14C9E8251A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C9E8241A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m */; };
 		14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D55D801A9E70200006D76F /* BPLMapViewModelTest.m */; };
 		14E147931A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E147921A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m */; };
 		14F003071A9D0D3100AEE2AC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003061A9D0D3100AEE2AC /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -78,6 +79,7 @@
 		146C5FBD1A9D0BD700E88761 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
 		146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
 		14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLDetailChooserViewControllerTest.m; sourceTree = "<group>"; };
+		14C9E8241A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewControllerTest.m; sourceTree = "<group>"; };
 		14D55D801A9E70200006D76F /* BPLMapViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewModelTest.m; sourceTree = "<group>"; };
 		14E147921A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewModelTest.m; sourceTree = "<group>"; };
 		14F003051A9D0D3100AEE2AC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */,
+				14C9E8241A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */,
 				14E147931A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m in Sources */,
+				14C9E8251A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
