@@ -32,12 +32,12 @@
 
 @interface BPLPlacemark : NSObject
 
-@property (nonatomic, copy) NSString * featureDescription;
-@property (nonatomic, copy) NSString * name;
-@property (nonatomic, copy) NSString * title;
-@property (nonatomic, copy) NSString * styleUrl;
-@property (nonatomic) NSNumber * longitude;
-@property (nonatomic) NSNumber * latitude;
-@property (nonatomic) NSNumber * placemarkPinType;
+@property (nonatomic, copy) NSString *featureDescription;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *styleUrl;
+@property (nonatomic) NSNumber *longitude;
+@property (nonatomic) NSNumber *latitude;
+@property (nonatomic) NSNumber *placemarkPinType;
 
 @end

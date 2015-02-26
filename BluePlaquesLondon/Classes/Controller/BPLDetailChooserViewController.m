@@ -41,6 +41,8 @@
 
 static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 
+NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChooserViewController";
+
 @implementation BPLDetailChooserViewController
 
 #pragma mark Lifecycle

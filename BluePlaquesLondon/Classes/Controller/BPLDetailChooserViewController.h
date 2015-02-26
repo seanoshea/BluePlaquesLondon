@@ -30,6 +30,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *BPLDetailChooserViewControllerStoryboardIdentifier;
+
 @interface BPLDetailChooserViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, copy) NSArray *markers;

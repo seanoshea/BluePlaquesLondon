@@ -11,6 +11,7 @@
 		146C5FA51A9D09EB00E88761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA41A9D09EB00E88761 /* Images.xcassets */; };
 		146C5FA81A9D09EB00E88761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */; };
 		146C5FBF1A9D0BD700E88761 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */; };
+		14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */; };
 		14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D55D801A9E70200006D76F /* BPLMapViewModelTest.m */; };
 		14E147931A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E147921A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m */; };
 		14F003071A9D0D3100AEE2AC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003061A9D0D3100AEE2AC /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -76,6 +77,7 @@
 		146C5FB21A9D09EB00E88761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		146C5FBD1A9D0BD700E88761 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
 		146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
+		14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLDetailChooserViewControllerTest.m; sourceTree = "<group>"; };
 		14D55D801A9E70200006D76F /* BPLMapViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewModelTest.m; sourceTree = "<group>"; };
 		14E147921A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewModelTest.m; sourceTree = "<group>"; };
 		14F003051A9D0D3100AEE2AC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		146C5FB01A9D09EB00E88761 /* BluePlaquesLondonTests */ = {
 			isa = PBXGroup;
 			children = (
+				14C9E8211A9FBEC900B446D1 /* Controller */,
 				14F0037B1A9D1FBF00AEE2AC /* Model */,
 				146C5FB11A9D09EB00E88761 /* Supporting Files */,
 				14F0037F1A9D1FE500AEE2AC /* Utils */,
@@ -251,6 +254,14 @@
 				14F0037C1A9D1FD600AEE2AC /* wikipedia.json */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14C9E8211A9FBEC900B446D1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		14F003031A9D0CFC00AEE2AC /* Dependencies */ = {
@@ -641,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
 				14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */,
 				14F003901A9D202600AEE2AC /* BPLURLResourceLoader.m in Sources */,
