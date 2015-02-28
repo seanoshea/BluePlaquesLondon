@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 
 #import "BPLMapViewDetailViewController.h"
 #import "BPLMapViewDetailViewModel.h"
@@ -15,10 +16,16 @@
 #import "BPLButton.h"
 #import "BPLPlacemark.h"
 #import "BPLUnitTestHelper.h"
+#import "BPLConstants.h"
+#import "BPLWikipediaViewController.h"
+#import "BPLDetailChooserViewController.h"
+#import "BPLStreetViewViewController.h"
 
 @interface BPLMapViewDetailViewControllerTest : XCTestCase
 
+@property (nonatomic) UINavigationController *navigationController;
 @property (nonatomic) BPLMapViewDetailViewController *controller;
+@property (nonatomic) BPLPlacemark *marker1;
 
 @end
 
@@ -37,6 +44,8 @@
 @property (nonatomic, weak) IBOutlet BPLButton *directionsButton;
 
 - (IBAction)directionsButtonTapped:(id)sender;
+- (void)buttonTappedForPlacemark:(BPLPlacemark *)placemark withAction:(NSString *)action;
+- (void)detailChooserViewControllerRowSelected:(NSNotification *)notification;
 
 @end
 
@@ -47,11 +56,12 @@
     [super setUp];
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.controller = [storybord instantiateViewControllerWithIdentifier:BPLMapViewDetailViewControllerStoryboardIdentifier];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
     [self.controller view];
 
-    BPLPlacemark *marker1 = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+    self.marker1 = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
     BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] init];
-    model.markers = @[marker1];
+    model.markers = @[self.marker1];
     
     self.controller.model = model;
 }
@@ -85,6 +95,78 @@
     XCTAssertTrue(self.controller.councilAndYearLabel.hidden == NO);
     XCTAssertTrue(self.controller.noteLabel.hidden == YES);
     XCTAssertTrue(self.controller.moreButton.hidden == YES);
+}
+
+- (void)testPrepareForWikipediaSegue
+{
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    BPLWikipediaViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:@"BPLWikipediaViewController"];
+    
+    UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLWikipediaViewControllerSegue source:self.controller destination:destinationViewController];
+
+    id controllerMock = OCMPartialMock(self.controller);
+    OCMExpect([controllerMock buttonTappedForPlacemark:self.marker1 withAction:BPLWikipediaButtonPressedEvent]).andForwardToRealObject();
+    
+    [controllerMock prepareForSegue:segue sender:self.controller.wikipediaButton];
+    
+    OCMVerifyAll(controllerMock);
+}
+
+- (void)testPrepareForDetailChooserSegue
+{
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    BPLDetailChooserViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:@"BPLDetailChooserViewController"];
+    
+    UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLDetailChooserViewControllerSegue source:self.controller destination:destinationViewController];
+    
+    id controllerMock = OCMPartialMock(self.controller);
+    OCMExpect([controllerMock buttonTappedForPlacemark:self.marker1 withAction:BPLDetailsButtonPressedEvent]).andForwardToRealObject();
+    
+    [controllerMock prepareForSegue:segue sender:self.controller.moreButton];
+    
+    OCMVerifyAll(controllerMock);
+}
+
+- (void)testPrepareForStreetMapSegue
+{
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    BPLStreetViewViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:@"BPLStreetViewViewController"];
+    
+    UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLStreetMapViewControllerSegue source:self.controller destination:destinationViewController];
+    
+    id controllerMock = OCMPartialMock(self.controller);
+    OCMExpect([controllerMock buttonTappedForPlacemark:self.marker1 withAction:BPLStreetViewButtonPressedEvent]).andForwardToRealObject();
+    
+    [controllerMock prepareForSegue:segue sender:self.controller.streetButton];
+    
+    OCMVerifyAll(controllerMock);
+}
+
+- (void)testDirectionsButton
+{
+    id controllerMock = OCMPartialMock(self.controller);
+    OCMExpect([controllerMock buttonTappedForPlacemark:self.marker1 withAction:BPLDirectionsButtonPressedEvent]).andForwardToRealObject();
+    
+    [controllerMock directionsButtonTapped:self.controller.directionsButton];
+    
+    OCMVerifyAll(controllerMock);
+}
+
+- (void)testDetailRowSelected
+{
+    BPLPlacemark *one = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+    BPLPlacemark *two = [BPLUnitTestHelper placemarkWithIdentifier:@"2"];
+    BPLPlacemark *three = [BPLUnitTestHelper placemarkWithIdentifier:@"3"];
+    
+    self.controller.model.markers = @[one, two, three];
+    
+    NSNotification *notification = [[NSNotification alloc] initWithName:BPLDetailChooserViewControllerRowSelected object:@1 userInfo:@{}];
+    
+    [self.controller detailChooserViewControllerRowSelected:notification];
+    
+    BPLPlacemark *newFirstPlacemark = self.controller.model.markers[0];
+    
+    XCTAssertTrue([newFirstPlacemark isEqual:two]);
 }
 
 @end

@@ -187,7 +187,7 @@
         <!--Street View View Controller-->
         <scene sceneID="jlg-bu-Cd4">
             <objects>
-                <viewController id="3iC-ih-uur" customClass="BPLStreetViewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BPLStreetViewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3iC-ih-uur" customClass="BPLStreetViewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="efc-N5-VZk"/>
                         <viewControllerLayoutGuide type="bottom" id="Y0B-uO-sOf"/>
