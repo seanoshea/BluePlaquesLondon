@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142C604B1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */; };
 		146C5F971A9D09EB00E88761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C5F961A9D09EB00E88761 /* main.m */; };
 		146C5FA51A9D09EB00E88761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA41A9D09EB00E88761 /* Images.xcassets */; };
 		146C5FA81A9D09EB00E88761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewControllerTest.m; sourceTree = "<group>"; };
 		146C5F911A9D09EB00E88761 /* BluePlaquesLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluePlaquesLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146C5F951A9D09EB00E88761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		146C5F961A9D09EB00E88761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */,
 				14C9E8261A9FD56C00B446D1 /* BPLMapViewControllerTest.m */,
 				14C9E8241A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m */,
+				142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				14F003861A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m in Sources */,
 				14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */,
 				14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
+				142C604B1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m in Sources */,
 				14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */,
 				14E147931A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m in Sources */,
 				14C9E8251A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m in Sources */,
