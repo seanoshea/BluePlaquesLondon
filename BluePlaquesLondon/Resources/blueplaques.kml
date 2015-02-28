@@ -984,8 +984,8 @@
 				42 Bedford Square, WC1<br>
 				Camden 1978]]></description>
 				<LookAt>
-					<longitude>-0.1311406265049015</longitude>
-					<latitude>51.51884992538228</latitude>
+					<longitude>-0.130137</longitude>
+					<latitude>51.518365</latitude>
 					<altitude>0</altitude>
 					<heading>5.077201063974341e-010</heading>
 					<tilt>0</tilt>
@@ -993,7 +993,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1311406265049015,51.51884992538229,0</coordinates>
+					<coordinates>-0.130137,51.518365,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -1042,8 +1042,8 @@
 				Camden c.1903<br>
 				<em>Note: Erected privately by the Duke of Bedford c.1903, adopted by the GLC in 1983.</em>]]></description>
 				<LookAt>
-					<longitude>-0.1296330000213999</longitude>
-					<latitude>51.51964600024689</latitude>
+					<longitude>-0.129464</longitude>
+					<latitude>51.519777</latitude>
 					<altitude>0</altitude>
 					<heading>4.240847250312966e-012</heading>
 					<tilt>0</tilt>
@@ -1051,7 +1051,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1296330000213999,51.51964600024689,0</coordinates>
+					<coordinates>-0.129464,51.519777,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -1427,8 +1427,8 @@
 				6 Bedford Square, WC1<br>
 				Camden 1954]]></description>
 				<LookAt>
-					<longitude>-0.1291400000041989</longitude>
-					<latitude>51.51920899999511</latitude>
+					<longitude>-0.129016</longitude>
+					<latitude>51.519137</latitude>
 					<altitude>0</altitude>
 					<heading>-3.760136227909894e-013</heading>
 					<tilt>0</tilt>
@@ -1436,7 +1436,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1291400000041989,51.51920899999512,0</coordinates>
+					<coordinates>-0.129016,51.51.519137,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -1742,7 +1742,7 @@
 					<heading>9.322392131995431e-012</heading>
 					<tilt>0</tilt>
 					<range>1000.000096057165</range>
-					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
@@ -1813,8 +1813,8 @@
 				41 Bedford Square, WC1<br>
 				Camden 1976]]></description>
 				<LookAt>
-					<longitude>-0.1311289999993761</longitude>
-					<latitude>51.51883999975431</latitude>
+					<longitude>-0.130266</longitude>
+					<latitude>51.518297</latitude>
 					<altitude>0</altitude>
 					<heading>1.253585809998706e-012</heading>
 					<tilt>0</tilt>
@@ -1822,7 +1822,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1311289999993761,51.51883999975431,0</coordinates>
+					<coordinates>-0.130266,51.518297,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -1891,8 +1891,8 @@
 				35 Bedford Square, WC1<br>
 				Camden 1985]]></description>
 				<LookAt>
-					<longitude>-0.1310680000587183</longitude>
-					<latitude>51.51878100021937</latitude>
+					<longitude>-0.130723</longitude>
+					<latitude>51.518360</latitude>
 					<altitude>0</altitude>
 					<heading>9.156170877763792e-012</heading>
 					<tilt>0</tilt>
@@ -1900,7 +1900,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1310680000587183,51.51878100021937,0</coordinates>
+					<coordinates>-0.130723,51.518360,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -2893,8 +2893,8 @@
 				13 Bedford Square, WC1<br>
 				Camden 2005]]></description>
 				<LookAt>
-					<longitude>-0.1290689999735975</longitude>
-					<latitude>51.51942500011441</latitude>
+					<longitude>-0.129847</longitude>
+					<latitude>51.519598</latitude>
 					<altitude>0</altitude>
 					<heading>3.735598745504073e-012</heading>
 					<tilt>0</tilt>
@@ -2902,7 +2902,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1290689999735975,51.51942500011441,0</coordinates>
+					<coordinates>-0.129847,51.519598,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -3109,8 +3109,8 @@
 				49 Bedford Square, WC1<br>
 				Camden 1985]]></description>
 				<LookAt>
-					<longitude>-0.1312109999999791</longitude>
-					<latitude>51.51891799973657</latitude>
+					<longitude>-0.129330</longitude>
+					<latitude>51.518701</latitude>
 					<altitude>0</altitude>
 					<heading>4.126980907908227e-012</heading>
 					<tilt>0</tilt>
@@ -3118,7 +3118,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1312109999999791,51.51891799973656,0</coordinates>
+					<coordinates>-0.129330,51.518701,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -3609,8 +3609,8 @@
 				35 Bedford Square, WC1<br>
 				Camden 1962]]></description>
 				<LookAt>
-					<longitude>-0.1310680000587183</longitude>
-					<latitude>51.51878100021937</latitude>
+					<longitude>-0.130723</longitude>
+					<latitude>51.518360</latitude>
 					<altitude>0</altitude>
 					<heading>9.156170877763792e-012</heading>
 					<tilt>0</tilt>
@@ -3618,7 +3618,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1310680000587183,51.51878100021937,0</coordinates>
+					<coordinates>-0.130723,51.518360,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -3894,6 +3894,30 @@
 					<coordinates>-0.1694253722868322,51.55647151094304,0</coordinates>
 				</Point>
 			</Placemark>
+		</Folder>
+		<Folder>
+			<name>City of London</name>
+				<Placemark>
+					<name>JOHNSON, Dr Samuel</name>
+					<description><![CDATA[JOHNSON, Dr Samuel (1709-1784)<br>
+					Author Lived Here<br>
+					Dr Johnson&apos;s House, 17 Gough Square, Holborn, EC4A 3DE<br>
+					City of London 1876<br>
+					By (Royal) Society of Arts - the only English Heritage blue plaque in the City of London.]]></description>
+					<LookAt>
+						<longitude>-0.1082859262932401</longitude>
+						<latitude>51.51502423621889</latitude>
+						<altitude>0</altitude>
+						<heading>6.862855823581185e-008</heading>
+						<tilt>0</tilt>
+						<range>291.8904577171788</range>
+						<altitudeMode>relativeToGround</altitudeMode>
+					</LookAt>
+					<styleUrl>#myDefaultStyles</styleUrl>
+					<Point>
+						<coordinates>-0.1081815057257973,51.51501432345215,0</coordinates>
+					</Point>
+				</Placemark>
 		</Folder>
 		<Folder>
 			<name>Croydon</name>
@@ -4290,11 +4314,11 @@
 				<name>WHITAKER, Joseph</name>
 				<description><![CDATA[WHITAKER, Joseph (1820-1895)<br>
 				Publisher, Founder of Whitaker&apos;s Almanack, lived and died here.<br>
-				White Lodge, 68 Silver Street, Enfield, EN1<br>
+				White Lodge, 68 Silver Street, Enfield, EN1 3EW<br>
 				Enfield 1998]]></description>
 				<LookAt>
-					<longitude>-0.08471599971558419</longitude>
-					<latitude>51.61644799986267</latitude>
+					<longitude>-0.080812</longitude>
+					<latitude>51.654128</latitude>
 					<altitude>0</altitude>
 					<heading>9.779745955956509e-012</heading>
 					<tilt>0</tilt>
@@ -4302,7 +4326,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.08471599971558419,51.61644799986267,0</coordinates>
+					<coordinates>-0.080812,51.654128,0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>
@@ -5368,7 +5392,7 @@
 					<heading>3.865367861316131e-013</heading>
 					<tilt>0</tilt>
 					<range>1000.000146900978</range>
-					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
@@ -8831,6 +8855,28 @@
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>THACKERAY, William Makepeace</name>
+				<description><![CDATA[THACKERAY, William Makepeace (1811-1863)<br>
+				Novelist Lived Here<br>
+				16 Young Street, Kensington, London, W8 5EH<br>
+				Kensington and Chelsea 1905<br>
+				LCC Plaque]]>
+				</description>
+				<LookAt>
+					<longitude>-0.1898721796503811</longitude>
+					<latitude>51.50126798487067</latitude>
+					<altitude>0</altitude>
+					<heading>2.636436657304095e-005</heading>
+					<tilt>0</tilt>
+					<range>319.052404344277</range>
+					<altitudeMode>relativeToGround</altitudeMode>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.1898721796503811,51.50126798487068,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
 				<name>THOMPSON, Sir Benjamin, Count Rumford</name>
 				<description><![CDATA[THOMPSON, Sir Benjamin, Count Rumford (1753-1814)<br>
 				Inventor and Adventurer, lived here.<br>
@@ -10235,7 +10281,7 @@
 					<heading>3.270604135882451e-012</heading>
 					<tilt>0</tilt>
 					<range>1000.000106984321</range>
-					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
@@ -12116,7 +12162,7 @@
 					<heading>-5.758206337158611e-012</heading>
 					<tilt>0</tilt>
 					<range>1000.000145342801</range>
-					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
@@ -14443,8 +14489,8 @@
 				22 Ebury Street, SW1<br>
 				Westminster 1996]]></description>
 				<LookAt>
-					<longitude>-0.1525750000306942</longitude>
-					<latitude>51.49125899956534</latitude>
+					<longitude>-0.147963</longitude>
+					<latitude>51.495513</latitude>
 					<altitude>0</altitude>
 					<heading>-1.127804811580204e-012</heading>
 					<tilt>0</tilt>
@@ -14452,7 +14498,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1525750000306942,51.49125899956534,0</coordinates>
+					<coordinates>-0.147963,51.495513,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -16187,7 +16233,7 @@
 					<heading>1.067970626635171e-011</heading>
 					<tilt>0</tilt>
 					<range>1000.000145425595</range>
-					<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+					<altitudeMode>relativeToGround</altitudeMode>
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
@@ -16466,7 +16512,8 @@
 				<description><![CDATA[NAPOLEON III (1808-1873)<br>
 				Emperor of the French, lived here 1848.<br>
 				1c King Street, St James&apos;s, SW1<br>
-				Westminster 1875]]></description>
+				Westminster 1875<br>
+				Installed in September 1867 this is the oldest official plaque still in existence. It is also the only plaque that was erected while the recipient was still alive.]]></description>
 				<LookAt>
 					<longitude>-0.123792000078609</longitude>
 					<latitude>51.51174200017751</latitude>
@@ -17359,8 +17406,8 @@
 				Westminster 1906<br>
 				<em>Note: Supplementary tablet reads: Tablet fixed 1906. Premises rebuilt & tablet refixed 1928. </em>]]></description>
 				<LookAt>
-					<longitude>-0.1438259998967908</longitude>
-					<latitude>51.52087399988642</latitude>
+					<longitude>-0.144600</longitude>
+					<latitude>51.522749</latitude>
 					<altitude>0</altitude>
 					<heading>3.417679941816692e-012</heading>
 					<tilt>0</tilt>
@@ -17368,7 +17415,7 @@
 				</LookAt>
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
-					<coordinates>-0.1438259998967908,51.52087399988642,0</coordinates>
+					<coordinates>-0.144600,51.522749,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
