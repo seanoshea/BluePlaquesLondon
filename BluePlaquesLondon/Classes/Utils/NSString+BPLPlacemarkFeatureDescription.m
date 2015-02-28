@@ -156,34 +156,6 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     return councilAndYear;
 }
 
-- (NSString *)council
-{
-    return [self extractStringComponentAtPosition:0];
-}
-
-- (NSString *)yearErrected
-{
-    return [self extractStringComponentAtPosition:1];
-}
-
-- (NSString *)extractStringComponentAtPosition:(NSInteger)position
-{
-    NSString *extractedString;
-    NSString *councilAndYear = self.councilAndYear;
-    if (councilAndYear) {
-        NSMutableArray *components = [[councilAndYear componentsSeparatedByString:@" "] mutableCopy];
-        if ([components count] > position) {
-            if (position == 0) {
-                [components removeObject:components.lastObject];
-                extractedString = [components componentsJoinedByString:@" "];
-            } else {
-                extractedString = components.lastObject;
-            }
-        }
-    }
-    return extractedString;
-}
-
 - (NSString *)removeNoteFromString:(NSString *)input
 {
     NSString *note = self.note;

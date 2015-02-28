@@ -46,7 +46,6 @@ NSString * const BPLMapsKey = @"AIzaSyD3VT-JDnPAKhNiStoUpVAxOyIUUrWUsz0";
 
 #pragma mark - NSNotificationCenter Keys
 
-NSString * const BPLNetworkAvailable = @"BPLNetworkAvailable";
 NSString * const BPLDetailChooserViewControllerRowSelected = @"BPLDetailChooserViewControllerRowSelected";
 
 #pragma mark - Tracking

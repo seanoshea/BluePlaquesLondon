@@ -28,47 +28,36 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@interface BPLConstants : NSObject
+#import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
 
-extern NSString * const BPLKMZFilename;
-extern NSString * const BPLMapDetailViewControllerSegue;
-extern NSString * const BPLWikipediaViewControllerSegue;
-extern NSString * const BPLDetailChooserViewControllerSegue;
-extern NSString * const BPLStreetMapViewControllerSegue;
+#import "BPLStreetViewViewController.h"
+#import "BPLUnitTestHelper.h"
+#import "GMSPanoramaView.h"
 
-#pragma mark - 3rd Party Keys
+@interface BPLStreetViewViewControllerTest : XCTestCase
 
-extern NSString * const BPLCrashReportingKey;
-extern NSString * const BPLTrackingKey;
-extern NSString * const BPLMapsKey;
+@property (nonatomic) UINavigationController *navigationController;
+@property (nonatomic) BPLStreetViewViewController *controller;
 
-#pragma mark - NSNotificationCenter Keys
+@end
 
-extern NSString * const BPLDetailChooserViewControllerRowSelected;
+@implementation BPLStreetViewViewControllerTest
 
-#pragma mark - Tracking
+- (void)setUp
+{
+    [super setUp];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    self.controller = [storybord instantiateViewControllerWithIdentifier:@"BPLStreetViewViewController"];
+    self.controller.placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
+    [self.controller view];
+}
 
-extern NSString * const BPLApplicationLoaded;
-extern NSString * const BPLUIActionCategory;
-extern NSString * const BPLErrorCategory;
-extern NSString * const BPLKMZFileParsing;
-extern NSString * const BPLRateAppStoreOpened;
-
-extern NSString * const BPLDetailsButtonPressedEvent;
-extern NSString * const BPLWikipediaButtonPressedEvent;
-extern NSString * const BPLStreetViewButtonPressedEvent;
-extern NSString * const BPLDirectionsButtonPressedEvent;
-extern NSString * const BPLTableRowPressedEvent;
-extern NSString * const BPLMarkerPressedEvent;
-extern NSString * const BPLMarkerInfoWindowPressedEvent;
-extern NSString * const BPLAboutLinkPressedEvent;
-extern NSString * const BPLWikipediaPageLoadErrorEvent;
-extern NSString * const BPLStreetMapsPageLoadErrorEvent;
-extern NSString * const BPLTweetSent;
-extern NSString * const BPLKMZFileParsingEvent;
-extern NSString * const BPLRateAppButtonPressedEvent;
-extern NSString * const BPLDeclineRateAppButtonPressedEvent;
-extern NSString * const BPLRemindRateAppButtonPressedEvent;
-extern NSString * const BPLRateAppStoreOpenedEvent;
+- (void)testInitialisation
+{
+    XCTAssertTrue([self.controller.title isEqualToString:@"Street View"]);
+    XCTAssertTrue([self.controller.screenName isEqualToString:@"Street View Screen"]);
+}
 
 @end

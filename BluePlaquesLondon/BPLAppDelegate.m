@@ -117,10 +117,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)reachabilityChanged:(NSNotification *)notification
 {
-    // check to see whether the device was previously offline & whether the new reachability is online
-    if (self.internetReach && [self.internetReach currentReachabilityStatus] != NotReachable) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:BPLNetworkAvailable object:nil];
-    }
+
 }
 
 - (void)initializeLocalization
