@@ -33,6 +33,8 @@
 
 @class BPLMapViewDetailViewModel;
 
+extern NSString *BPLMapViewDetailViewControllerStoryboardIdentifier;
+
 @interface BPLMapViewDetailViewController : GAITrackedViewController
 
 @property (nonatomic) BPLMapViewDetailViewModel *model;

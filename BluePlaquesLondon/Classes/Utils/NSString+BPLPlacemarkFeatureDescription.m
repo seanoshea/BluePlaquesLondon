@@ -86,7 +86,7 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
                 NSTextCheckingResult *match = [regex firstMatchInString:occupation options:0 range:NSMakeRange(0, occupation.length)];
                 if (match.range.location != NSNotFound) {
                     NSArray *components = [self componentsSeparatedByString:BPLOverlayTitleDelimiter];
-                    if (components.count && components.count > 3) {
+                    if ([components count] && [components count] > 3) {
                         occupation = [NSString trimWhitespaceFromString:components[2]];
                     }
                 }
@@ -101,8 +101,8 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 {
     NSString *address;
     NSArray *components = [self componentsSeparatedByString:BPLOverlayTitleDelimiter];
-    if (components.count) {
-        switch (components.count) {
+    if ([components count]) {
+        switch ([components count]) {
             case 2:
             case 3:{
                 address = [NSString trimWhitespaceFromString:components[1]];
@@ -150,38 +150,10 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
     NSString *councilAndYear;
     NSString *withoutNote = [self removeNoteFromString:self];
     NSArray *components = [withoutNote componentsSeparatedByString:BPLOverlayTitleDelimiter];
-    if (components.count && components.count > 2) {
+    if ([components count] && [components count] > 2) {
         councilAndYear = [NSString trimWhitespaceFromString:components.lastObject];
     }
     return councilAndYear;
-}
-
-- (NSString *)council
-{
-    return [self extractStringComponentAtPosition:0];
-}
-
-- (NSString *)yearErrected
-{
-    return [self extractStringComponentAtPosition:1];
-}
-
-- (NSString *)extractStringComponentAtPosition:(NSInteger)position
-{
-    NSString *extractedString;
-    NSString *councilAndYear = self.councilAndYear;
-    if (councilAndYear) {
-        NSMutableArray *components = [[councilAndYear componentsSeparatedByString:@" "] mutableCopy];
-        if (components.count > position) {
-            if (position == 0) {
-                [components removeObject:components.lastObject];
-                extractedString = [components componentsJoinedByString:@" "];
-            } else {
-                extractedString = components.lastObject;
-            }
-        }
-    }
-    return extractedString;
 }
 
 - (NSString *)removeNoteFromString:(NSString *)input

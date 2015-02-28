@@ -45,6 +45,9 @@
 #import "BPLPlacemark+Additions.h"
 
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "GAITrackedViewController.h"
+
+NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -150,8 +153,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self dismissHUDAndInvalidateTimer];
     [super viewWillDisappear:animated];
+    [self dismissHUDAndInvalidateTimer];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -159,7 +162,8 @@
     if ([segue.identifier isEqualToString:BPLMapDetailViewControllerSegue]) {
         BPLMapViewDetailViewController *destinationViewController = (BPLMapViewDetailViewController *)segue.destinationViewController;
         BPLPlacemark *placemark = self.mapView.selectedMarker.userData;
-        BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:[self.model placemarksForKey:placemark.key] currentLocation:self.currentLocation];
+        NSArray *markers = [self.model placemarksForKey:placemark.key];
+        BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:markers currentLocation:self.currentLocation];
         destinationViewController.model = model;
     }
 }
@@ -228,7 +232,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [self filterDataForSearchText:searchBar.text];
+    [self filterDataForSearchText:self.searchBar.text];
     [searchBar resignFirstResponder];
 }
 
@@ -349,10 +353,10 @@
                             NSLocalizedString(@"Nearly ready .....", nil)];
     });
     NSString *message;
-    if (loadingMessages.count > self.loadingTicks) {
+    if ([loadingMessages count] > self.loadingTicks) {
         message = loadingMessages[self.loadingTicks];
     } else {
-        message = loadingMessages[loadingMessages.count - 1];
+        message = loadingMessages[[loadingMessages count] - 1];
     }
     self.loadingTicks++;
     [SVProgressHUD showWithStatus:message maskType:SVProgressHUDMaskTypeGradient];

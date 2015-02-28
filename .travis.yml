@@ -4,7 +4,7 @@ before_install:
   - chmod a+x travis/script.sh
   - git submodule sync
   - git submodule update --init --recursive
+install: bundle install --without=documentation --path ../travis_bundle_dir
 before_script: travis/before_script.sh
 script: travis/script.sh
-after_success:
-  - travis/coveralls.rb --extension m --exclude-folder BluePlaquesLondonTests
+after_success: bundle exec slather

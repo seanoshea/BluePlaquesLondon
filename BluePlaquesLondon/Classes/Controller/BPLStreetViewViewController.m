@@ -58,8 +58,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.firstPanoramaId = nil;
     [super viewWillAppear:animated];
+    self.firstPanoramaId = nil;
 }
 
 #pragma mark GMSPanoramaViewDelegate

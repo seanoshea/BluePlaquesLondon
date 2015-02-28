@@ -101,7 +101,7 @@
         // check to see if the regular subtitle would be too big to pop into the snippet
         NSString *snippet;
         NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
-        if (numberOfPlacemarksAssociatedWithPlacemark.count == 1) {
+        if ([numberOfPlacemarksAssociatedWithPlacemark count] == 1) {
             snippet = placemark.occupation;
         } else {
             // generic message should suffice
@@ -117,12 +117,12 @@
 
 - (NSInteger)numberOfPlacemarks
 {
-    return self.filteredData.count ?: self.massagedData.count;
+    return [self.filteredData count] ?: [self.massagedData count];
 }
 
 - (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.filteredData.count) {
+    if ([self.filteredData count]) {
         return self.filteredData[indexPath.row - 1];
     } else {
         return self.alphabeticallySortedPositions[indexPath.row - 1];
@@ -137,7 +137,7 @@
 - (NSArray *)placemarksForKey:(NSString *)key
 {
     NSArray *indices = self.keyToArrayPositions[key];
-    NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:indices.count];
+    NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:[indices count]];
     for (NSNumber *index in indices) {
         BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:self.data.placemarks[[index intValue]]];
         [placemarks addObject:bplPlacemark];
@@ -195,8 +195,8 @@
     bplPlacemark.featureDescription = placemark.descriptionValue;
     bplPlacemark.name = placemark.name;
     bplPlacemark.styleUrl = placemark.styleUrl;
-    bplPlacemark.latitude = [[NSNumber alloc] initWithDouble: geometry.coordinate.latitude];
-    bplPlacemark.longitude = [[NSNumber alloc] initWithDouble: geometry.coordinate.longitude];
+    bplPlacemark.latitude = [[NSNumber alloc] initWithFloat:geometry.coordinate.latitude];
+    bplPlacemark.longitude = [[NSNumber alloc] initWithFloat:geometry.coordinate.longitude];
     
     return bplPlacemark;
 }

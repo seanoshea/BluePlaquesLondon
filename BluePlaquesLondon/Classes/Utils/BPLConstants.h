@@ -44,7 +44,6 @@ extern NSString * const BPLMapsKey;
 
 #pragma mark - NSNotificationCenter Keys
 
-extern NSString * const BPLNetworkAvailable;
 extern NSString * const BPLDetailChooserViewControllerRowSelected;
 
 #pragma mark - Tracking

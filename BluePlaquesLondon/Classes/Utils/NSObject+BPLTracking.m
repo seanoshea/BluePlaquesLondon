@@ -30,7 +30,10 @@
 
 #import "NSObject+BPLTracking.h"
 
+#ifndef DEBUG
 #import <Crashlytics/Crashlytics.h>
+#endif
+
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
 #import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
@@ -54,6 +57,7 @@
                                                                label:label
                                                                value:value] build]];
         if ([BPLConfiguration isCrashReportingEnabled]) {
+#ifndef DEBUG
             static unsigned long long eventCount = 0;
             NSDictionary *parameters = @{
                                          @"category": category ?: @"",
@@ -64,6 +68,7 @@
             Crashlytics *crashlytics = [Crashlytics sharedInstance];
             [crashlytics setObjectValue:parameters
                                  forKey:[action stringByAppendingFormat:@"-%llu", (unsigned long long)++eventCount]];
+#endif
         }
     }
 }

@@ -34,7 +34,11 @@
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
 #import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+
+#ifndef DEBUG
 #import <Crashlytics/Crashlytics.h>
+#endif
+
 #import "Reachability.h"
 #import "iRate.h"
 
@@ -113,10 +117,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)reachabilityChanged:(NSNotification *)notification
 {
-    // check to see whether the device was previously offline & whether the new reachability is online
-    if (self.internetReach && [self.internetReach currentReachabilityStatus] != NotReachable) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:BPLNetworkAvailable object:nil];
-    }
+
 }
 
 - (void)initializeLocalization
@@ -124,13 +125,13 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     NSArray *viewControllers = tabBarController.viewControllers;
     // Ensure each view controller has a unique identifier
-    for (int i = 0; i < viewControllers.count; i++) {
+    for (int i = 0; i < [viewControllers count]; i++) {
         UIViewController *viewController = viewControllers[i];
         viewController.view.tag = i;
     }
     // Localize the tab names (they're stored in the storyboards)
     NSArray *items = tabBarController.tabBar.items;
-    for (int i = 0; i < items.count; i++) {
+    for (int i = 0; i < [items count]; i++) {
         UITabBarItem *item = items[i];
         NSString *title;
         switch (i) {
@@ -163,10 +164,12 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeCrashReporting
 {
+#ifndef DEBUG
     if ([BPLConfiguration isCrashReportingEnabled]) {
         [Crashlytics startWithAPIKey:BPLCrashReportingKey];
         [GAI sharedInstance].trackUncaughtExceptions = YES;
     }
+#endif
 }
 
 - (void)initializeRating

@@ -36,6 +36,7 @@
 #import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
+#import "KMLPlacemark.h"
 
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 
@@ -114,7 +115,7 @@
                                delegate:nil
                       cancelButtonTitle:NSLocalizedString(@"OK", nil)
                       otherButtonTitles:nil] show];
-    if (self.markers.count) {
+    if ([self.markers count]) {
         KMLPlacemark *placemark = self.markers[0];
         [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
     }

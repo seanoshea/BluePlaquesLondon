@@ -49,6 +49,7 @@
 - (void)createMarkersForMap:(GMSMapView *)mapView;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) NSInteger numberOfPlacemarks;
+
 - (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (BPLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate;
 - (BPLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate;

@@ -14,3 +14,7 @@ pod 'HCViews'
 pod 'SVProgressHUD', :head
 pod 'iRate'
 pod 'iOS-KML-Framework', :git => 'https://github.com/FLCLjp/iOS-KML-Framework.git'
+
+target :BluePlaquesLondonTests do
+  pod 'OCMock', '~> 3.1.2'
+end

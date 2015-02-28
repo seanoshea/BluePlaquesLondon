@@ -38,7 +38,5 @@
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *address;
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *note;
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *councilAndYear;
-@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *council;
-@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *yearErrected;
 
 @end
