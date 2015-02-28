@@ -12,6 +12,7 @@
 #import "BPLDetailChooserViewController.h"
 
 #import "BPLPlacemark.h"
+#import "BPLUnitTestHelper.h"
 
 @interface BPLDetailChooserViewControllerTest : XCTestCase
 
@@ -29,23 +30,8 @@
 - (void)setUp {
     [super setUp];
     
-    BPLPlacemark *marker1 = [[BPLPlacemark alloc] init];
-    marker1.featureDescription = @"Feature Description 1";
-    marker1.name = @"Name 1";
-    marker1.title = @"Title 1";
-    marker1.styleUrl = @"Style URL 1";
-    marker1.longitude = @(0);
-    marker1.latitude = @(1);
-    marker1.placemarkPinType = @(1);
-    
-    BPLPlacemark *marker2 = [[BPLPlacemark alloc] init];
-    marker2.featureDescription = @"Feature Description 2";
-    marker2.name = @"Name 2";
-    marker2.title = @"Title 2";
-    marker2.styleUrl = @"Style URL 2";
-    marker2.longitude = @(1);
-    marker2.latitude = @(0);
-    marker2.placemarkPinType = @(0);
+    BPLPlacemark *marker1 = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+    BPLPlacemark *marker2 = [BPLUnitTestHelper placemarkWithIdentifier:@"2"];
     
     self.markers = @[marker1, marker2];
     

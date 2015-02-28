@@ -32,6 +32,8 @@
 
 #import "GAITrackedViewController.h"
 
+extern NSString *BPLMapViewControllerStoryboardIdentifier;
+
 @interface BPLMapViewController : GAITrackedViewController
 
 @end

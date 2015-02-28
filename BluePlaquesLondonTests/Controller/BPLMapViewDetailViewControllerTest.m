@@ -14,6 +14,7 @@
 #import "BPLLabel.h"
 #import "BPLButton.h"
 #import "BPLPlacemark.h"
+#import "BPLUnitTestHelper.h"
 
 @interface BPLMapViewDetailViewControllerTest : XCTestCase
 
@@ -48,14 +49,7 @@
     self.controller = [storybord instantiateViewControllerWithIdentifier:BPLMapViewDetailViewControllerStoryboardIdentifier];
     [self.controller view];
 
-    BPLPlacemark *marker1 = [[BPLPlacemark alloc] init];
-    marker1.featureDescription = @"Feature Description 1";
-    marker1.name = @"Name 1";
-    marker1.title = @"Title 1";
-    marker1.styleUrl = @"Style URL 1";
-    marker1.longitude = @(0);
-    marker1.latitude = @(1);
-    marker1.placemarkPinType = @(1);
+    BPLPlacemark *marker1 = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
     BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] init];
     model.markers = @[marker1];
     
