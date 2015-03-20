@@ -1055,6 +1055,25 @@
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>CLOUGH, Sir Arthur Hugh</name>
+				<description><![CDATA[CLOUGH, Sir Arthur Hugh (1819-1861)<br>
+				Poet lived here 1854-1859<br>
+				11 St Mark&apos;s Crescent, Primrose Hill, NW1 7TS<br>
+				Camden 2009]]></description>
+				<LookAt>
+					<longitude>-0.1508038000799994</longitude>
+					<latitude>51.53885120017328</latitude>
+					<altitude>0</altitude>
+					<heading>-5.395502900868089e-011</heading>
+					<tilt>0</tilt>
+					<range>1000.000083086535</range>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.1508038000799994,51.53885120017328,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
 				<name>COCKERELL, C.R. (Charles Robert)</name>
 				<description><![CDATA[COCKERELL, C.R. (Charles Robert) (1788-1863)<br>
 				Architect and Antiquary, lived and died here.<br>
@@ -9402,6 +9421,27 @@
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
 					<coordinates>-0.1422524690365634,51.46249970696412,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>COUNTY HALL</name>
+				<description><![CDATA[COUNTY HALL<br>
+				(a.k.a. the London County Council and the Greater London Council)<br>
+				1922-1986<br>
+				The home of London Government from 1922 to 1986; LCC 1889-1965, GLC 1965-1986.<br>
+				Main Entrance, County Hall, SE1<br>
+				Lambeth 1986]]></description>
+				<LookAt>
+					<longitude>-0.1185273862109859</longitude>
+					<latitude>51.50198297203647</latitude>
+					<altitude>0</altitude>
+					<heading>0.003188006339351158</heading>
+					<tilt>0</tilt>
+					<range>303.5989009113785</range>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.1185770645553141,51.50194079856856,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
