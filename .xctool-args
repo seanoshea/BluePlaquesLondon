@@ -1,0 +1,7 @@
+[
+  "-workspace", "BluePlaquesLondon.xcworkspace",
+  "-scheme", "BluePlaquesLondon",
+  "-configuration", "Debug",
+  "-sdk", "iphonesimulator",
+  "-arch", "i386"
+]
