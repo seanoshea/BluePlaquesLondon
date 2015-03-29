@@ -73,6 +73,7 @@ extern NSString * const BPLRateAppButtonPressedEvent;
 extern NSString * const BPLDeclineRateAppButtonPressedEvent;
 extern NSString * const BPLRemindRateAppButtonPressedEvent;
 extern NSString * const BPLRateAppStoreOpenedEvent;
+extern NSString * const BPLTodayExtensionButtonPressed;
 
 #pragma mark - URL Schemes
 

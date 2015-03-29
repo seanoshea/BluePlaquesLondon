@@ -36,4 +36,6 @@ extern NSString *BPLMapViewControllerStoryboardIdentifier;
 
 @interface BPLMapViewController : GAITrackedViewController
 
+- (void)navigateToClosestPlacemark;
+
 @end

@@ -46,6 +46,7 @@
 #import "BPLConstants.h"
 #import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"
+#import "BPLMapViewController.h"
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLMapViewControllerIndex = 0,
@@ -193,9 +194,14 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 }
 
 - (void)openAppAtClosestPlacemark {
+    [self trackCategory:BPLUIActionCategory action:BPLTodayExtensionButtonPressed label:nil];
     // ensure that the map tab is selected
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    [tabBarController setSelectedIndex:0];
+    [tabBarController setSelectedIndex:BPLMapViewControllerIndex];
+    UINavigationController *mapViewNavigationController = tabBarController.viewControllers[BPLMapViewControllerIndex];
+    [mapViewNavigationController popToRootViewControllerAnimated:NO];
+    BPLMapViewController *mapViewController = mapViewNavigationController.viewControllers[0];
+    [mapViewController navigateToClosestPlacemark];
 }
 
 #pragma mark iRateDelegate

@@ -75,6 +75,7 @@ NSString * const BPLRateAppButtonPressedEvent = @"BPLRateAppButtonPressedEvent";
 NSString * const BPLDeclineRateAppButtonPressedEvent = @"BPLDeclineRateAppButtonPressedEvent";
 NSString * const BPLRemindRateAppButtonPressedEvent = @"BPLRemindRateAppButtonPressedEvent";
 NSString * const BPLRateAppStoreOpenedEvent = @"BPLRateAppStoreOpenedEvent";
+NSString * const BPLTodayExtensionButtonPressed = @"BPLTodayExtensionButtonPressed";
 
 #pragma mark - URL Schemes
 

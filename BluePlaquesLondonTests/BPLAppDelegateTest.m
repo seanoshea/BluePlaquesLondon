@@ -30,8 +30,11 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 
 #import "BPLAppDelegate.h"
+#import "NSObject+BPLTracking.h"
+#import "BPLConstants.h"
 
 @interface BPLAppDelegateTest : XCTestCase
 
@@ -42,6 +45,7 @@
 @interface BPLAppDelegate ()
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+- (void)openAppAtClosestPlacemark;
 
 @end
 
@@ -64,6 +68,17 @@
 - (void)testCannotOpenInvalidURL {
     NSURL *url = [NSURL URLWithString:@"blueplaqueslondn://closest"];
     XCTAssertFalse([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
+}
+
+- (void)testOpenClosestBluePlaqueAnalyticsTracked {
+    
+    id appDelegateMock = OCMPartialMock(self.appDelegate);
+    
+    OCMExpect([appDelegateMock trackCategory:BPLUIActionCategory action:BPLTodayExtensionButtonPressed label:nil]).andForwardToRealObject();
+    
+    [self.appDelegate openAppAtClosestPlacemark];
+    
+    OCMVerifyAll(appDelegateMock);
 }
 
 @end
