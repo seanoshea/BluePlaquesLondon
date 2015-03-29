@@ -33,6 +33,9 @@
 @implementation BPLConstants
 
 NSString * const BPLKMZFilename = @"blueplaques";
+
+#pragma mark - Segue Identifiers
+
 NSString * const BPLMapDetailViewControllerSegue = @"BPLMapDetailViewControllerSegue";
 NSString * const BPLWikipediaViewControllerSegue = @"BPLWikipediaViewControllerSegue";
 NSString * const BPLDetailChooserViewControllerSegue = @"BPLDetailChooserViewControllerSegue";
@@ -72,5 +75,9 @@ NSString * const BPLRateAppButtonPressedEvent = @"BPLRateAppButtonPressedEvent";
 NSString * const BPLDeclineRateAppButtonPressedEvent = @"BPLDeclineRateAppButtonPressedEvent";
 NSString * const BPLRemindRateAppButtonPressedEvent = @"BPLRemindRateAppButtonPressedEvent";
 NSString * const BPLRateAppStoreOpenedEvent = @"BPLRateAppStoreOpenedEvent";
+
+#pragma mark - URL Schemes
+
+NSString * const BPLApplicationURLSchemeIdentifier = @"blueplaqueslondon";
 
 @end

@@ -41,7 +41,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @IBAction func closestBluePlaqueButtonPressed(sender: UIButton) {
-        NSURL();
         let openAppURL = NSURL(string: "blueplaqueslondon://closest")
         self.extensionContext?.openURL(openAppURL!, completionHandler: nil)
     }

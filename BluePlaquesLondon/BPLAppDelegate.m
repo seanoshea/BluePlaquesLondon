@@ -73,7 +73,13 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return YES;
+    BOOL canHandle = NO;
+    NSURLComponents *components = [NSURLComponents componentsWithString:url.absoluteString];
+    canHandle = [components.scheme caseInsensitiveCompare:BPLApplicationURLSchemeIdentifier] == NSOrderedSame;
+    if (canHandle) {
+        [self openAppAtClosestPlacemark];
+    }
+    return canHandle;
 }
 
 - (void)initializeGoogleMapsApi
@@ -184,6 +190,12 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [iRate sharedInstance].applicationName = NSLocalizedString(@"Blue Plaques London", nil);
     [iRate sharedInstance].daysUntilPrompt = 5;
     [iRate sharedInstance].usesUntilPrompt = 15;
+}
+
+- (void)openAppAtClosestPlacemark {
+    // ensure that the map tab is selected
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    [tabBarController setSelectedIndex:0];
 }
 
 #pragma mark iRateDelegate

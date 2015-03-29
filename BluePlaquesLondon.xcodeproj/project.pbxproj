@@ -11,6 +11,7 @@
 		141B27791AC83F6A0095A0F8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B27781AC83F6A0095A0F8 /* TodayViewController.swift */; };
 		141B277B1AC83F6A0095A0F8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141B277A1AC83F6A0095A0F8 /* MainInterface.storyboard */; };
 		141B277E1AC83F6A0095A0F8 /* Blue Plaques London.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 141B27721AC83F6A0095A0F8 /* Blue Plaques London.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		141B27841AC84F250095A0F8 /* BPLAppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 141B27831AC84F250095A0F8 /* BPLAppDelegateTest.m */; };
 		142C604B1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */; };
 		142C604D1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 142C604C1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m */; };
 		146C5F971A9D09EB00E88761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C5F961A9D09EB00E88761 /* main.m */; };
@@ -103,6 +104,7 @@
 		141B27771AC83F6A0095A0F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141B27781AC83F6A0095A0F8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		141B277A1AC83F6A0095A0F8 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		141B27831AC84F250095A0F8 /* BPLAppDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegateTest.m; sourceTree = "<group>"; };
 		142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewControllerTest.m; sourceTree = "<group>"; };
 		142C604C1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStreetViewViewControllerTest.m; sourceTree = "<group>"; };
 		146C5F911A9D09EB00E88761 /* BluePlaquesLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluePlaquesLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,6 +312,7 @@
 				146C5FB11A9D09EB00E88761 /* Supporting Files */,
 				14F0037F1A9D1FE500AEE2AC /* Utils */,
 				14F0037E1A9D1FDB00AEE2AC /* View */,
+				141B27831AC84F250095A0F8 /* BPLAppDelegateTest.m */,
 			);
 			path = BluePlaquesLondonTests;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				142C604D1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m in Sources */,
 				14C9E82A1AA1C08D00B446D1 /* BPLUnitTestHelper.m in Sources */,
 				14F003861A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m in Sources */,
+				141B27841AC84F250095A0F8 /* BPLAppDelegateTest.m in Sources */,
 				14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */,
 				14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				142C604B1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m in Sources */,

@@ -31,6 +31,9 @@
 @interface BPLConstants : NSObject
 
 extern NSString * const BPLKMZFilename;
+
+#pragma mark - Segue Identifiers
+
 extern NSString * const BPLMapDetailViewControllerSegue;
 extern NSString * const BPLWikipediaViewControllerSegue;
 extern NSString * const BPLDetailChooserViewControllerSegue;
@@ -70,5 +73,9 @@ extern NSString * const BPLRateAppButtonPressedEvent;
 extern NSString * const BPLDeclineRateAppButtonPressedEvent;
 extern NSString * const BPLRemindRateAppButtonPressedEvent;
 extern NSString * const BPLRateAppStoreOpenedEvent;
+
+#pragma mark - URL Schemes
+
+extern NSString * const BPLApplicationURLSchemeIdentifier;
 
 @end
