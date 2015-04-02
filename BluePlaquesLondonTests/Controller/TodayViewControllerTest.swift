@@ -29,25 +29,24 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 import UIKit
-import NotificationCenter
+import XCTest
 
-var TodayViewControllerClosestButtonURLString = "blueplaqueslondon://closest"
+class TodayViewControllerTest: XCTestCase {
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+    var todayViewController = TodayViewController()
     
-    @IBOutlet weak var closestBluePlaqueButton: UIButton?;
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.preferredContentSize = CGSizeMake(320.0, 44.0);
+    override func setUp() {
+        super.setUp()
+        todayViewController.viewDidLoad()
     }
     
-    @IBAction func closestBluePlaqueButtonPressed(sender: UIButton) {
-        let openAppURL = NSURL(string: TodayViewControllerClosestButtonURLString)
-        self.extensionContext?.openURL(openAppURL!, completionHandler: nil)
+    override func tearDown() {
+        super.tearDown()
     }
-    
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
-        completionHandler(NCUpdateResult.NewData)
+
+    func testContentSize() {
+        var contentSize:CGSize = todayViewController.preferredContentSize
+        XCTAssert(contentSize.height == 44.0, "height should be 44")
+        XCTAssert(contentSize.width == 320.0, "width should be 320")
     }
 }

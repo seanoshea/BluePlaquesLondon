@@ -12,6 +12,8 @@
 		141B277B1AC83F6A0095A0F8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141B277A1AC83F6A0095A0F8 /* MainInterface.storyboard */; };
 		141B277E1AC83F6A0095A0F8 /* Blue Plaques London.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 141B27721AC83F6A0095A0F8 /* Blue Plaques London.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		141B27841AC84F250095A0F8 /* BPLAppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 141B27831AC84F250095A0F8 /* BPLAppDelegateTest.m */; };
+		142A90191ACDC41F00AB8EDC /* TodayViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A90181ACDC41F00AB8EDC /* TodayViewControllerTest.swift */; };
+		142A901A1ACDC51F00AB8EDC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B27781AC83F6A0095A0F8 /* TodayViewController.swift */; };
 		142C604B1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */; };
 		142C604D1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 142C604C1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m */; };
 		146C5F971A9D09EB00E88761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C5F961A9D09EB00E88761 /* main.m */; };
@@ -105,6 +107,8 @@
 		141B27781AC83F6A0095A0F8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		141B277A1AC83F6A0095A0F8 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		141B27831AC84F250095A0F8 /* BPLAppDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegateTest.m; sourceTree = "<group>"; };
+		142A90171ACDC41F00AB8EDC /* BluePlaquesLondonTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		142A90181ACDC41F00AB8EDC /* TodayViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewControllerTest.swift; sourceTree = "<group>"; };
 		142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewControllerTest.m; sourceTree = "<group>"; };
 		142C604C1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStreetViewViewControllerTest.m; sourceTree = "<group>"; };
 		146C5F911A9D09EB00E88761 /* BluePlaquesLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluePlaquesLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,11 +338,13 @@
 		14C9E8211A9FBEC900B446D1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				142A90171ACDC41F00AB8EDC /* BluePlaquesLondonTests-Bridging-Header.h */,
 				14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */,
 				14C9E8261A9FD56C00B446D1 /* BPLMapViewControllerTest.m */,
 				14C9E8241A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m */,
 				142C604C1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m */,
 				142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */,
+				142A90181ACDC41F00AB8EDC /* TodayViewControllerTest.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -772,6 +778,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */,
+				142A90191ACDC41F00AB8EDC /* TodayViewControllerTest.swift in Sources */,
+				142A901A1ACDC51F00AB8EDC /* TodayViewController.swift in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
 				14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */,
 				14F003901A9D202600AEE2AC /* BPLURLResourceLoader.m in Sources */,
@@ -978,6 +986,7 @@
 			baseConfigurationReference = 55BD3CBEDE1EC200018E671B /* Pods-BluePlaquesLondonTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -990,6 +999,8 @@
 				INFOPLIST_FILE = BluePlaquesLondonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Debug;
@@ -999,6 +1010,7 @@
 			baseConfigurationReference = 4B3AF6708F046751626E1652 /* Pods-BluePlaquesLondonTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1007,6 +1019,7 @@
 				INFOPLIST_FILE = BluePlaquesLondonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Release;
@@ -1021,6 +1034,7 @@
 				141B27801AC83F6A0095A0F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		146C5F8C1A9D09EB00E88761 /* Build configuration list for PBXProject "BluePlaquesLondon" */ = {
 			isa = XCConfigurationList;
