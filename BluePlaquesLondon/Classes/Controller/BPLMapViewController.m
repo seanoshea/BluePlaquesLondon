@@ -202,14 +202,14 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
             cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:BPLSearchCell];
         }
         BPLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
-        
-        if (self.currentLocation) {
-            CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.coordinate.latitude
-                                                         longitude:pm.coordinate.longitude];
-            cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
+        if (pm) {
+            if (self.currentLocation) {
+                CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.coordinate.latitude
+                                                             longitude:pm.coordinate.longitude];
+                cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
+            }
+            cell.textLabel.text = pm.placemarkName;
         }
-        
-        cell.textLabel.text = pm.placemarkName;
     }
     return cell;
 }

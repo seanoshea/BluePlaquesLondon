@@ -122,11 +122,16 @@
 
 - (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    BPLPlacemark *placemark;
     if ([self.filteredData count]) {
-        return self.filteredData[indexPath.row - 1];
-    } else {
-        return self.alphabeticallySortedPositions[indexPath.row - 1];
+        placemark = self.filteredData[indexPath.row - 1];
+    } else if ([self.alphabeticallySortedPositions count] > indexPath.row - 1) {
+        placemark = self.alphabeticallySortedPositions[indexPath.row - 1];
     }
+    if (!placemark) {
+        NSLog(@"Placemark was requested at %ld, but no placemark found", indexPath.row);
+    }
+    return placemark;
 }
 
 - (GMSMarker *)markerAtPlacemark:(BPLPlacemark *)placemark
@@ -149,9 +154,8 @@
 {
     CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
     BPLPlacemark *closestPlacemark;
-    CLLocationDistance currentDistance;
+    CLLocationDistance currentDistance = -1;
     for (BPLPlacemark *placemark in self.alphabeticallySortedPositions) {
-        
         CLLocation *placemarkLocation = [[CLLocation alloc] initWithLatitude:placemark.coordinate.latitude longitude:placemark.coordinate.longitude];
         CLLocationDistance distance = [location distanceFromLocation:placemarkLocation];
         if (!closestPlacemark) {
@@ -179,7 +183,7 @@
 
 - (NSArray *)alphabeticallySortedPositions
 {
-    if (!_alphabeticallySortedPositions) {
+    if (!_alphabeticallySortedPositions && self.massagedData) {
         _alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(KMLPlacemark* one, KMLPlacemark* two) {
             return [one.name compare:two.name];
         }];
