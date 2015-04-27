@@ -29,13 +29,56 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 
-#import "GAITrackedViewController.h"
+#import "BPLAppDelegate.h"
+#import "NSObject+BPLTracking.h"
+#import "BPLConstants.h"
 
-extern NSString *BPLMapViewControllerStoryboardIdentifier;
+@interface BPLAppDelegateTest : XCTestCase
 
-@interface BPLMapViewController : GAITrackedViewController
+@property (nonatomic) BPLAppDelegate *appDelegate;
 
-- (void)navigateToClosestPlacemark;
+@end
+
+@interface BPLAppDelegate ()
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+- (void)openAppAtClosestPlacemark;
+
+@end
+
+@implementation BPLAppDelegateTest
+
+- (void)setUp {
+    [super setUp];
+    self.appDelegate = [[BPLAppDelegate alloc] init];
+}
+
+- (void)tearDown {
+    [super tearDown];
+}
+
+- (void)testCanOpenValidURL {
+    NSURL *url = [NSURL URLWithString:@"blueplaqueslondon://closest"];
+    XCTAssert([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
+}
+
+- (void)testCannotOpenInvalidURL {
+    NSURL *url = [NSURL URLWithString:@"blueplaqueslondn://closest"];
+    XCTAssertFalse([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
+}
+
+- (void)testOpenClosestBluePlaqueAnalyticsTracked {
+    
+    id appDelegateMock = OCMPartialMock(self.appDelegate);
+    
+    OCMExpect([appDelegateMock trackCategory:BPLUIActionCategory action:BPLTodayExtensionButtonPressed label:nil]).andForwardToRealObject();
+    
+    [self.appDelegate openAppAtClosestPlacemark];
+    
+    OCMVerifyAll(appDelegateMock);
+}
 
 @end

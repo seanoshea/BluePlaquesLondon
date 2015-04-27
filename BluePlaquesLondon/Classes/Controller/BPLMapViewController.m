@@ -168,6 +168,13 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     }
 }
 
+- (void)navigateToClosestPlacemark
+{
+    BPLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
+    [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.placemarkName];
+    [self navigateToPlacemark:closestPlacemark];
+}
+
 #pragma UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -213,9 +220,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        BPLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
-        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.placemarkName];
-        [self navigateToPlacemark:closestPlacemark];
+        [self navigateToClosestPlacemark];
     } else {
         BPLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
         [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.placemarkName];

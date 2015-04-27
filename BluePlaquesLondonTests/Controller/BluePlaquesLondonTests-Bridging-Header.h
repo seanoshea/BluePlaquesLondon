@@ -27,15 +27,3 @@
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
-#import <UIKit/UIKit.h>
-
-#import "GAITrackedViewController.h"
-
-extern NSString *BPLMapViewControllerStoryboardIdentifier;
-
-@interface BPLMapViewController : GAITrackedViewController
-
-- (void)navigateToClosestPlacemark;
-
-@end
