@@ -183,7 +183,7 @@
 
 - (NSArray *)alphabeticallySortedPositions
 {
-    if (!_alphabeticallySortedPositions && self.massagedData) {
+    if (!_alphabeticallySortedPositions || _alphabeticallySortedPositions.count == 0) {
         _alphabeticallySortedPositions = [self.massagedData sortedArrayUsingComparator:^NSComparisonResult(KMLPlacemark* one, KMLPlacemark* two) {
             return [one.name compare:two.name];
         }];

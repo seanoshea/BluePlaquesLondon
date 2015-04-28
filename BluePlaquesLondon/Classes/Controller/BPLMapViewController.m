@@ -68,8 +68,8 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 #pragma mark Lifecycle
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self commonInit];
@@ -80,16 +80,13 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 - (void)commonInit
 {
     self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             [self dismissHUDAndInvalidateTimer];
             [self.model createMarkersForMap:self.mapView];
             self.searchBar.userInteractionEnabled = YES;
             [self.tableView reloadData];
         });
     }];
-    
     self.locationManager = [[CLLocationManager alloc] init];
     if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
         [self.locationManager requestAlwaysAuthorization];
@@ -129,6 +126,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     self.mapView.settings.myLocationButton = YES;
     self.mapView.settings.compassButton = NO;
     [self.view addSubview:self.mapView];
+    
     [self.mapView animateToLocation:lastKnownCoordinate];
     
     self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
