@@ -70,11 +70,14 @@
         self.firstPanoramaId = panorama.panoramaID;
     }
     if (!self.firstPanoramaId) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Ooooops ...", nil)
-                                   message:NSLocalizedString(@"Could not load Street View", nil)
-                                  delegate:nil
-                         cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                         otherButtonTitles:nil, nil] show];
+        NSString *title = NSLocalizedString(@"Oooops", nil);
+        NSString *message = NSLocalizedString(@"Could not load Street View", nil);
+        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                 message:message
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:action];
+        [self presentViewController:alertController animated:YES completion:nil];
         [self trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:self.placemark.placemarkName];
     }
 }
