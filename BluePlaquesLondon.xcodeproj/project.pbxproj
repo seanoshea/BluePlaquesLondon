@@ -53,7 +53,6 @@
 		14F003621A9D0E2500AEE2AC /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035D1A9D0E2500AEE2AC /* BPLButton.m */; };
 		14F003631A9D0E2500AEE2AC /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */; };
 		14F003641A9D0E2500AEE2AC /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */; };
-		14F0036A1A9D1D8400AEE2AC /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003691A9D1D8400AEE2AC /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14F0036F1A9D1E7700AEE2AC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */; };
 		14F003701A9D1E7700AEE2AC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */; };
 		14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 14F003721A9D1F2B00AEE2AC /* blueplaques.kml */; };
@@ -179,9 +178,6 @@
 		14F003601A9D0E2500AEE2AC /* BPLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLTableViewCell.h; sourceTree = "<group>"; };
 		14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCell.m; sourceTree = "<group>"; };
 		14F003651A9D1CB700AEE2AC /* BluePlaquesLondon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondon-Prefix.pch"; sourceTree = "<group>"; };
-		14F003671A9D1D6500AEE2AC /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		14F003681A9D1D8400AEE2AC /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "Foundation/GTMNSString+HTML.h"; sourceTree = "<group>"; };
-		14F003691A9D1D8400AEE2AC /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Foundation/GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		14F0036C1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		14F0036E1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		14F003721A9D1F2B00AEE2AC /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
@@ -355,7 +351,6 @@
 		14F003031A9D0CFC00AEE2AC /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				14F003661A9D1D4800AEE2AC /* google-toolbox-for-mac */,
 				14F003041A9D0D0B00AEE2AC /* Reachability */,
 			);
 			path = Dependencies;
@@ -461,16 +456,6 @@
 				14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		14F003661A9D1D4800AEE2AC /* google-toolbox-for-mac */ = {
-			isa = PBXGroup;
-			children = (
-				14F003671A9D1D6500AEE2AC /* GTMDefines.h */,
-				14F003681A9D1D8400AEE2AC /* GTMNSString+HTML.h */,
-				14F003691A9D1D8400AEE2AC /* GTMNSString+HTML.m */,
-			);
-			path = "google-toolbox-for-mac";
 			sourceTree = "<group>";
 		};
 		14F003711A9D1F1700AEE2AC /* Resources */ = {
@@ -748,7 +733,6 @@
 			files = (
 				14F003621A9D0E2500AEE2AC /* BPLButton.m in Sources */,
 				146C5F971A9D09EB00E88761 /* main.m in Sources */,
-				14F0036A1A9D1D8400AEE2AC /* GTMNSString+HTML.m in Sources */,
 				14F003401A9D0E0600AEE2AC /* BPLWikipediaViewModel.m in Sources */,
 				14F003631A9D0E2500AEE2AC /* BPLLabel.m in Sources */,
 				14F003571A9D0E1300AEE2AC /* MKDistanceFormatter+BPLAdditions.m in Sources */,
