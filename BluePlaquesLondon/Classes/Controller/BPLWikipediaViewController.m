@@ -110,11 +110,16 @@
 - (void)displayErrorAlert
 {
     [SVProgressHUD dismiss];
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Oooops", nil)
-                                message:NSLocalizedString(@"There was an error loading this Wikipedia Article", nil)
-                               delegate:nil
-                      cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                      otherButtonTitles:nil] show];
+    
+    NSString *title = NSLocalizedString(@"Oooops", nil);
+    NSString *message = NSLocalizedString(@"There was an error loading this Wikipedia Article", nil);
+    UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:action];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
     if ([self.markers count]) {
         KMLPlacemark *placemark = self.markers[0];
         [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
