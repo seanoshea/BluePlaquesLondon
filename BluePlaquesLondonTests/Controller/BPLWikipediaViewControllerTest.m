@@ -64,11 +64,6 @@
     [self.controller view];
 }
 
-- (void)tearDown
-{
-    [super tearDown];
-}
-
 - (void)testInitialisation
 {
     XCTAssertTrue([self.controller.navigationItem.title isEqual:@"Wikipedia Article"]);
@@ -93,13 +88,19 @@
 
 - (void)testWebViewFinishLoadFailure
 {
+    id alertControllerMock = OCMClassMock([UIAlertController class]);
+    [OCMStub([alertControllerMock alertControllerWithTitle:NSLocalizedString(@"Oooops", nil) message:NSLocalizedString(@"There was an error loading this Wikipedia Article", nil) preferredStyle:UIAlertControllerStyleAlert]) andReturn:alertControllerMock];
+    [[alertControllerMock expect] addAction:OCMOCK_ANY];
+    
     id partial = [OCMockObject partialMockForObject:self.controller];
     [[[partial expect] andForwardToRealObject] displayErrorAlert];
+    [[[partial expect] andForwardToRealObject] presentViewController:alertControllerMock animated:YES completion:nil];
     
     NSError *error = [[NSError alloc] initWithDomain:@"DOMAIN" code:500 userInfo:@{}];
     [partial webView:self.controller.webView didFailLoadWithError:error];
     
     OCMVerifyAll(partial);
+    OCMVerifyAll(alertControllerMock);
 }
 
 @end

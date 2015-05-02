@@ -88,11 +88,6 @@
     self.controller.model = model;
 }
 
-- (void)tearDown
-{
-    [super tearDown];
-}
-
 - (void)testInitialisation
 {
     XCTAssertTrue([self.controller.screenName isEqualToString:@"Map Detail Screen"]);

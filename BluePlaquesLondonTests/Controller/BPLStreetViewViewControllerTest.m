@@ -30,10 +30,18 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 
 #import "BPLStreetViewViewController.h"
 #import "BPLUnitTestHelper.h"
 #import "GMSPanoramaView.h"
+#import "GMSPanorama.h"
+#import "BPLConstants.h"
+#import "NSObject+BPLTracking.h"
+
+@interface BPLStreetViewViewController () <GMSPanoramaViewDelegate>
+
+@end
 
 @interface BPLStreetViewViewControllerTest : XCTestCase
 
@@ -58,6 +66,25 @@
 {
     XCTAssertTrue([self.controller.title isEqualToString:@"Street View"]);
     XCTAssertTrue([self.controller.screenName isEqualToString:@"Street View Screen"]);
+}
+
+- (void)testAlertControllerError
+{
+    id alertControllerMock = OCMClassMock([UIAlertController class]);
+    [OCMStub([alertControllerMock alertControllerWithTitle:NSLocalizedString(@"Oooops", nil) message:NSLocalizedString(@"Could not load Street View", nil) preferredStyle:UIAlertControllerStyleAlert]) andReturn:alertControllerMock];
+    [[alertControllerMock expect] addAction:OCMOCK_ANY];
+    
+    GMSPanorama *mockPanorama = [OCMockObject mockForClass:[GMSPanorama class]];
+    [OCMStub([mockPanorama panoramaID]) andReturn:nil];
+    
+    id partial = [OCMockObject partialMockForObject:self.controller];
+    [[[partial expect] andForwardToRealObject] presentViewController:alertControllerMock animated:YES completion:nil];
+    [[[partial expect] andForwardToRealObject] trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:OCMOCK_ANY];
+    
+    [partial panoramaView:(GMSPanoramaView *)self.controller.view didMoveToPanorama:mockPanorama];
+    
+    OCMVerifyAll(partial);
+    OCMVerifyAll(alertControllerMock);
 }
 
 @end

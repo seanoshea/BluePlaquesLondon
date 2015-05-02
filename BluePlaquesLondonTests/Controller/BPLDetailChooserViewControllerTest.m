@@ -67,10 +67,6 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
 }
 
-- (void)tearDown {
-    [super tearDown];
-}
-
 - (void)testTitle {
     [self.controller viewWillAppear:YES];
     XCTAssertTrue([self.controller.title isEqualToString:NSLocalizedString(@"Choose one", nil)]);

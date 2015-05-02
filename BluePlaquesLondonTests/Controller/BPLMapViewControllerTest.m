@@ -88,11 +88,6 @@
     self.controller.model = [[BPLMapViewModel alloc] init];
 }
 
-- (void)tearDown
-{
-    [super tearDown];
-}
-
 - (void)testPrepareForSegue
 {
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
@@ -105,7 +100,7 @@
     id markerMock = OCMPartialMock(marker);
     OCMStub([markerMock userData]).andReturn(placemark);
     
-    id  mapMock = OCMPartialMock(self.controller.mapView);
+    id mapMock = OCMPartialMock(self.controller.mapView);
     OCMStub([mapMock selectedMarker]).andReturn(marker);
 
     KMLRoot *root = [[KMLRoot alloc] init];

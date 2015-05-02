@@ -37,10 +37,6 @@
     }];
 }
 
-- (void)tearDown {
-    [super tearDown];
-}
-
 - (void)testInitialisation {
     
     XCTAssertTrue(self.model.coordinateToMarker != nil);

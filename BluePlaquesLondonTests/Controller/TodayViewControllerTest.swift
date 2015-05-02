@@ -39,10 +39,6 @@ class TodayViewControllerTest: XCTestCase {
         super.setUp()
         todayViewController.viewDidLoad()
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testContentSize() {
         var contentSize:CGSize = todayViewController.preferredContentSize

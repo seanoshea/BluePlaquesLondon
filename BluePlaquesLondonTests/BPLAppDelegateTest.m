@@ -56,10 +56,6 @@
     self.appDelegate = [[BPLAppDelegate alloc] init];
 }
 
-- (void)tearDown {
-    [super tearDown];
-}
-
 - (void)testCanOpenValidURL {
     NSURL *url = [NSURL URLWithString:@"blueplaqueslondon://closest"];
     XCTAssert([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
