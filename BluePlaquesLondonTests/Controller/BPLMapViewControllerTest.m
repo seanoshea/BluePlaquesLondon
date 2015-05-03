@@ -57,6 +57,7 @@
 @property (nonatomic) BPLMapViewModel *model;
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) CLLocation *currentLocation;
+@property (nonatomic) BOOL automaticallyNavigateToClosestPlacemark;
 
 - (void)navigateToPlacemark:(BPLPlacemark *)placemark;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -263,6 +264,38 @@
     OCMExpect([controllerMock performSegueWithIdentifier:BPLMapDetailViewControllerSegue sender:self.controller]).andForwardToRealObject();
     
     [controllerMock mapView:self.controller.mapView didTapInfoWindowOfMarker:marker];
+    
+    OCMVerifyAll(controllerMock);
+}
+
+- (void)testAutomaticallyNavigatingToTheClosestPlacemark {
+
+    CLLocation *location = nil;
+    
+    id controllerMock = OCMPartialMock(self.controller);
+    OCMStub([controllerMock currentLocation]).andReturn(location);
+    
+    id modelMock = OCMPartialMock(self.controller.model);
+    OCMStub([modelMock closestPlacemarkToCoordinate:location.coordinate]).andReturn(nil);
+
+    OCMStub([controllerMock model]).andReturn(modelMock);
+    
+    [controllerMock navigateToClosestPlacemark];
+  
+    XCTAssert(self.controller.automaticallyNavigateToClosestPlacemark);
+}
+
+- (void)testCheckForAutomaticallyNavigatingToClosestPlacemarkAfterCurrentLocationUpdated {
+    
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:51.50016999993306f longitude:-0.1814680000049975f];
+
+    id controllerMock = OCMPartialMock(self.controller);
+
+    [[controllerMock expect] navigateToClosestPlacemark];
+    OCMStub([controllerMock automaticallyNavigateToClosestPlacemark]).andReturn(YES);
+    
+    self.controller.automaticallyNavigateToClosestPlacemark = YES;
+    [controllerMock locationManager:self.controller.locationManager didUpdateLocations:@[location]];
     
     OCMVerifyAll(controllerMock);
 }
