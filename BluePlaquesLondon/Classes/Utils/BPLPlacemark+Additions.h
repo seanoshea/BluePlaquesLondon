@@ -30,7 +30,7 @@
 
 #import "BPLPlacemark.h"
 
-#import <CoreLocation/CoreLocation.h>
+@import CoreLocation;
 
 @interface BPLPlacemark (Additions)
 

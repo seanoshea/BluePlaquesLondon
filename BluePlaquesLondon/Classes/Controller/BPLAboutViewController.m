@@ -30,8 +30,7 @@
 
 #import "BPLAboutViewController.h"
 
-#import <Social/Social.h>
-#import <Accounts/Accounts.h>
+@import Social;
 
 #import "BPLAboutViewModel.h"
 #import "BPLLabel.h"

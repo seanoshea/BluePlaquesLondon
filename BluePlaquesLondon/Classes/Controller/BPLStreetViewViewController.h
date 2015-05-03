@@ -28,9 +28,9 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
-#import "BPLPlacemark.h"
+
+@class BPLPlacemark;
 
 @interface BPLStreetViewViewController : GAITrackedViewController
 

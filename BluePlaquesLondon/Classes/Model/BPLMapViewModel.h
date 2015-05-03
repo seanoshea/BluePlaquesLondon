@@ -28,10 +28,9 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
-
 #import <GoogleMaps/GoogleMaps.h>
-#import "BPLPlacemark.h"
+
+@class BPLPlacemark;
 
 #import <MapKit/MapKit.h>
 #import <zlib.h>
@@ -43,13 +42,11 @@
 @property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
 @property (nonatomic, copy) NSArray *filteredData;
 @property (nonatomic, copy) dispatch_block_t kmlFileParsedCallback;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger numberOfPlacemarks;
 
 - (instancetype)initWithKMLFileParsedCallback:(dispatch_block_t)kmlFileParsedCallback NS_DESIGNATED_INITIALIZER;
 
 - (void)createMarkersForMap:(GMSMapView *)mapView;
-
-@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger numberOfPlacemarks;
-
 - (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (BPLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate;
 - (BPLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate;

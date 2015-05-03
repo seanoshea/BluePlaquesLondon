@@ -28,7 +28,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 extern NSString * const BPLClosestCell;
 extern NSString * const BPLSearchCell;

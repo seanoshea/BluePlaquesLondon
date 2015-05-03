@@ -28,8 +28,6 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
-
 @interface BPLAboutViewModel : NSObject
 
 @property (nonatomic, copy) NSString *mapsOpenSourceLicenseInfo;

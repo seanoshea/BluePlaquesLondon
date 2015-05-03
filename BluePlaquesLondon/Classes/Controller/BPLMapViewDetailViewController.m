@@ -32,6 +32,7 @@
 
 #import <IntentKit/IntentKit.h>
 #import <HCViews/HCChevronView.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 #import "BPLConstants.h"
 #import "BPLWikipediaViewController.h"
