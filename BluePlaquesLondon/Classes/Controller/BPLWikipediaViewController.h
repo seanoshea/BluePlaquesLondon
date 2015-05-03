@@ -28,7 +28,6 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <GoogleMaps/GoogleMaps.h>
 #import "GAITrackedViewController.h"
 
 @interface BPLWikipediaViewController : GAITrackedViewController

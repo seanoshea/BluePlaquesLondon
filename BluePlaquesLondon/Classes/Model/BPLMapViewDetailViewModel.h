@@ -28,9 +28,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
-
-#import <CoreLocation/CoreLocation.h>
+@import CoreLocation;
 
 @interface BPLMapViewDetailViewModel : NSObject
 
