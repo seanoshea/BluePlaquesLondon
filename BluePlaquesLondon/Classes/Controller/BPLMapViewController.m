@@ -58,6 +58,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 @property (nonatomic) BPLMapViewModel *model;
 @property (nonatomic) NSTimer *loadingTimer;
 @property (nonatomic) NSUInteger loadingTicks;
+@property (nonatomic) BOOL automaticallyNavigateToClosestPlacemark;
 
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) CLLocation *currentLocation;
@@ -85,15 +86,12 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
             [self.model createMarkersForMap:self.mapView];
             self.searchBar.userInteractionEnabled = YES;
             [self.tableView reloadData];
+            [self checkForAutomaticallyNavigatingToClosestPlacemark];
         });
     }];
     self.locationManager = [[CLLocationManager alloc] init];
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-        [self.locationManager requestAlwaysAuthorization];
-    }
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
+    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager requestWhenInUseAuthorization];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -109,7 +107,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     CLLocationCoordinate2D lastKnownCoordinate = [defaults lastKnownBPLCoordinate];
     float mapZoom = [defaults mapZoom];
 
@@ -169,8 +166,19 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 - (void)navigateToClosestPlacemark
 {
     BPLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
-    [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.placemarkName];
-    [self navigateToPlacemark:closestPlacemark];
+    if (closestPlacemark) {
+        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.placemarkName];
+        [self navigateToPlacemark:closestPlacemark];
+    } else {
+        self.automaticallyNavigateToClosestPlacemark = YES;
+    }
+}
+
+- (void)checkForAutomaticallyNavigatingToClosestPlacemark {
+    if (self.automaticallyNavigateToClosestPlacemark && self.currentLocation) {
+        self.automaticallyNavigateToClosestPlacemark = NO;
+        [self navigateToClosestPlacemark];
+    }
 }
 
 #pragma UITableViewDataSource
@@ -303,6 +311,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     // ensure that the search table always has the latest known distances updated.
     [self.tableView reloadData];
     [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
+    [self checkForAutomaticallyNavigatingToClosestPlacemark];
 }
 
 #pragma mark GMSMapViewDelegate
