@@ -129,7 +129,7 @@
         placemark = self.alphabeticallySortedPositions[indexPath.row - 1];
     }
     if (!placemark) {
-        NSLog(@"Placemark was requested at %ld, but no placemark found", indexPath.row);
+        NSLog(@"Placemark was requested at %ld, but no placemark found", (long)indexPath.row);
     }
     return placemark;
 }

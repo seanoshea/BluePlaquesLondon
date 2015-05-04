@@ -23,6 +23,7 @@
 		146C5FA51A9D09EB00E88761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA41A9D09EB00E88761 /* Images.xcassets */; };
 		146C5FA81A9D09EB00E88761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */; };
 		146C5FBF1A9D0BD700E88761 /* BPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */; };
+		14B27BD31AF6911400030BB0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B27BD21AF6911400030BB0 /* Crashlytics.framework */; };
 		14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */; };
 		14C9E8251A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C9E8241A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m */; };
 		14C9E8271A9FD56C00B446D1 /* BPLMapViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C9E8261A9FD56C00B446D1 /* BPLMapViewControllerTest.m */; };
@@ -122,6 +123,7 @@
 		146C5FB21A9D09EB00E88761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		146C5FBD1A9D0BD700E88761 /* BPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAppDelegate.h; sourceTree = "<group>"; };
 		146C5FBE1A9D0BD700E88761 /* BPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegate.m; sourceTree = "<group>"; };
+		14B27BD21AF6911400030BB0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLDetailChooserViewControllerTest.m; sourceTree = "<group>"; };
 		14C9E8241A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewControllerTest.m; sourceTree = "<group>"; };
 		14C9E8261A9FD56C00B446D1 /* BPLMapViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewControllerTest.m; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B27BD31AF6911400030BB0 /* Crashlytics.framework in Frameworks */,
 				9A7809062F365438DD7EB76A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +236,7 @@
 		0881CF2E622A2E854CB722C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14B27BD21AF6911400030BB0 /* Crashlytics.framework */,
 				BD6EFBFD38A2533B61651EC7 /* libPods.a */,
 				87FEAFD45EB9C12437BADC3B /* libPods-BluePlaquesLondonTests.a */,
 				141B27731AC83F6A0095A0F8 /* NotificationCenter.framework */,
@@ -547,6 +551,7 @@
 				146C5F8F1A9D09EB00E88761 /* Resources */,
 				89201BD03B4F3893BEF66EAF /* Copy Pods Resources */,
 				141B27821AC83F6A0095A0F8 /* Embed App Extensions */,
+				14B27BD11AF6908D00030BB0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -656,6 +661,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		14B27BD11AF6908D00030BB0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 8aa2986353e21d6181e23a9360cd528dca68aafb 5769576e5978757dbd9058df640a5f116b6c94ab6e35b7321786486fc8bff94f";
+		};
 		190C8429CF360AEAC187E0AB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -835,6 +853,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -843,6 +862,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0eb57ca3-d419-422b-9c32-075a07d914b0";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -851,12 +871,14 @@
 		141B27801AC83F6A0095A0F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sean O' Shea (3TQU8WFYZ9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sean O' Shea (3TQU8WFYZ9)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = "Blue Plaques London/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0eb57ca3-d419-422b-9c32-075a07d914b0";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -920,7 +942,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -947,14 +970,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
 				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "acfcf1d3-2675-422b-97cb-27304c58ab33";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -963,15 +990,19 @@
 			baseConfigurationReference = BE264D50B8FF0D11E5640BA5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sean O' Shea (3TQU8WFYZ9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sean O' Shea (3TQU8WFYZ9)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
 				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "acfcf1d3-2675-422b-97cb-27304c58ab33";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
