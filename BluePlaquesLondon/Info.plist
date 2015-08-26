@@ -2,17 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>blueplaqueslondon</string>
-			</array>
-			<key>CFBundleURLName</key>
-			<string>com.upwardsnorthwards.BluePlaquesLondon</string>
-		</dict>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -31,14 +20,39 @@
 	<string>1.7</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.upwardsnorthwards.BluePlaquesLondon</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>blueplaqueslondon</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.7</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>8aa2986353e21d6181e23a9360cd528dca68aafb</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>I&apos;d like to be able to show you the closest blue plaque to your current location.</string>
+	<string>I'd like to be able to show you the closest blue plaque to your current location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>I&apos;d like to be able to show you the closest blue plaque to your current location.</string>
+	<string>I'd like to be able to show you the closest blue plaque to your current location.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
