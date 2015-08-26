@@ -68,6 +68,8 @@
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
 		14F003901A9D202600AEE2AC /* BPLURLResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038F1A9D202600AEE2AC /* BPLURLResourceLoader.m */; };
+		41A6D8B31B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
+		41A6D8B41B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
 		5A82CCB164A0FF599BABED27 /* libPods-BluePlaquesLondonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FEAFD45EB9C12437BADC3B /* libPods-BluePlaquesLondonTests.a */; };
 		9A7809062F365438DD7EB76A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6EFBFD38A2533B61651EC7 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -197,6 +199,7 @@
 		14F0038F1A9D202600AEE2AC /* BPLURLResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLURLResourceLoader.m; sourceTree = "<group>"; };
 		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
 		2C5E6DBCBBDDDE8944B4E4CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		41A6D8B21B8E258A0077EBE1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		4B3AF6708F046751626E1652 /* Pods-BluePlaquesLondonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.release.xcconfig"; sourceTree = "<group>"; };
 		55BD3CBEDE1EC200018E671B /* Pods-BluePlaquesLondonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87FEAFD45EB9C12437BADC3B /* libPods-BluePlaquesLondonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				141B27741AC83F6A0095A0F8 /* NotificationCenter.framework in Frameworks */,
+				41A6D8B41B8E258A0077EBE1 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +223,7 @@
 			files = (
 				14B27BD31AF6911400030BB0 /* Crashlytics.framework in Frameworks */,
 				9A7809062F365438DD7EB76A /* libPods.a in Frameworks */,
+				41A6D8B31B8E258A0077EBE1 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +241,7 @@
 		0881CF2E622A2E854CB722C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41A6D8B21B8E258A0077EBE1 /* Fabric.framework */,
 				14B27BD21AF6911400030BB0 /* Crashlytics.framework */,
 				BD6EFBFD38A2533B61651EC7 /* libPods.a */,
 				87FEAFD45EB9C12437BADC3B /* libPods-BluePlaquesLondonTests.a */,
@@ -854,6 +860,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -874,6 +884,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Sean O' Shea (3TQU8WFYZ9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sean O' Shea (3TQU8WFYZ9)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Blue Plaques London/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";

@@ -36,6 +36,7 @@
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
 
 #ifndef DEBUG
+#import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #endif
 
@@ -177,7 +178,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 {
 #ifndef DEBUG
     if ([BPLConfiguration isCrashReportingEnabled]) {
-        [Crashlytics startWithAPIKey:BPLCrashReportingKey];
+        [Fabric with:@[CrashlyticsKit]];
         [GAI sharedInstance].trackUncaughtExceptions = YES;
     }
 #endif
