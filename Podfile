@@ -8,7 +8,7 @@ xcodeproj 'BluePlaquesLondon.xcodeproj'
 
 pod 'TTTAttributedLabel', '1.13.3'
 pod 'GoogleAnalytics-iOS-SDK', '3.10'
-pod 'Google-Maps-iOS-SDK', '1.9.2'
+pod 'GoogleMaps', '1.10.2'
 pod 'IntentKit', '0.7.1'
 pod 'HCViews', '1.3.1'
 pod 'SVProgressHUD', '1.1.3'
