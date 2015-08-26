@@ -29,13 +29,13 @@
  */
 
 #import <UIKit/UIKit.h>
+
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 #import "BPLStreetViewViewController.h"
 #import "BPLUnitTestHelper.h"
-#import "GMSPanoramaView.h"
-#import "GMSPanorama.h"
 #import "BPLConstants.h"
 #import "NSObject+BPLTracking.h"
 

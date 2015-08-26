@@ -30,8 +30,8 @@
 
 #import "BPLStreetViewViewController.h"
 
-#import "GMSPanoramaView.h"
-#import "GMSPanorama.h"
+#import <GoogleMaps/GoogleMaps.h>
+
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
 #import "BPLPlacemark+Additions.h"
