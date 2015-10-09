@@ -595,7 +595,9 @@
 		146C5F891A9D09EB00E88761 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Sean O'Shea";
 				TargetAttributes = {
 					141B27711AC83F6A0095A0F8 = {
@@ -678,7 +680,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 8aa2986353e21d6181e23a9360cd528dca68aafb 5769576e5978757dbd9058df640a5f116b6c94ab6e35b7321786486fc8bff94f";
+			shellScript = "./Fabric.framework/run 8aa2986353e21d6181e23a9360cd528dca68aafb 5769576e5978757dbd9058df640a5f116b6c94ab6e35b7321786486fc8bff94f";
 		};
 		190C8429CF360AEAC187E0AB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -871,6 +873,7 @@
 				INFOPLIST_FILE = "Blue Plaques London/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.upwardsnorthwards.BluePlaquesLondon.BluePlaquesLondonTodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0eb57ca3-d419-422b-9c32-075a07d914b0";
 				SKIP_INSTALL = YES;
@@ -891,6 +894,7 @@
 				INFOPLIST_FILE = "Blue Plaques London/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.upwardsnorthwards.BluePlaquesLondon.BluePlaquesLondonTodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0eb57ca3-d419-422b-9c32-075a07d914b0";
 				SKIP_INSTALL = YES;
@@ -917,6 +921,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -993,6 +998,7 @@
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
 				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "acfcf1d3-2675-422b-97cb-27304c58ab33";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1014,6 +1020,7 @@
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
 				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "acfcf1d3-2675-422b-97cb-27304c58ab33";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1037,6 +1044,7 @@
 				);
 				INFOPLIST_FILE = BluePlaquesLondonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1057,6 +1065,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = BluePlaquesLondonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";

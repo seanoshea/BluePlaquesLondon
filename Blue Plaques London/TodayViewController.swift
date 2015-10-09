@@ -47,7 +47,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.extensionContext?.openURL(openAppURL!, completionHandler: nil)
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.NewData)
     }
 }

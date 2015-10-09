@@ -41,7 +41,7 @@ class TodayViewControllerTest: XCTestCase {
     }
 
     func testContentSize() {
-        var contentSize:CGSize = todayViewController.preferredContentSize
+        let contentSize:CGSize = todayViewController.preferredContentSize
         XCTAssert(contentSize.height == 44.0, "height should be 44")
         XCTAssert(contentSize.width == 320.0, "width should be 320")
     }
