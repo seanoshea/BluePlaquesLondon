@@ -78,7 +78,7 @@
         BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:placemark];
         NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[bplPlacemark.key];
         if (!placemarksAssociatedWithKey) {
-            (self.keyToArrayPositions)[bplPlacemark.key] = @[@(idx)];
+            self.keyToArrayPositions[bplPlacemark.key] = @[@(idx)];
             [self.massagedData addObject:bplPlacemark];
         } else {
             NSArray *existingPlacemarks = self.keyToArrayPositions[bplPlacemark.key];

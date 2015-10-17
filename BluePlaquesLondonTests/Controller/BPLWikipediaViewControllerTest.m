@@ -83,7 +83,8 @@
 
 - (void)testShouldLoadMethod
 {
-    XCTAssertTrue([self.controller webView:self.controller.webView shouldStartLoadWithRequest:nil navigationType:UIWebViewNavigationTypeLinkClicked]);
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://wikipedia.org"]];
+    XCTAssertTrue([self.controller webView:self.controller.webView shouldStartLoadWithRequest:request navigationType:UIWebViewNavigationTypeLinkClicked]);
 }
 
 - (void)testWebViewFinishLoadFailure

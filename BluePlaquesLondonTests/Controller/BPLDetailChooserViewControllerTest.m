@@ -73,14 +73,14 @@
 }
 
 - (void)testNumberOfSections {
-    NSInteger numberOfSections = [self.controller numberOfSectionsInTableView:nil];
+    NSInteger numberOfSections = [self.controller numberOfSectionsInTableView:self.controller.tableView];
     
     XCTAssertTrue(numberOfSections == 1);
 }
 
 - (void)testNumberOfRowsInSection {
-    NSInteger numberOfRowsInSectionZero = [self.controller tableView:nil numberOfRowsInSection:0];
-    NSInteger numberOfRowsInSectionOne = [self.controller tableView:nil numberOfRowsInSection:1];
+    NSInteger numberOfRowsInSectionZero = [self.controller tableView:self.controller.tableView numberOfRowsInSection:0];
+    NSInteger numberOfRowsInSectionOne = [self.controller tableView:self.controller.tableView numberOfRowsInSection:1];
     
     XCTAssertTrue(numberOfRowsInSectionZero == 2);
     XCTAssertTrue(numberOfRowsInSectionOne == 2);

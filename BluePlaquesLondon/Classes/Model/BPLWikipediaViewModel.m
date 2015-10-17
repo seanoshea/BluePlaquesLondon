@@ -30,8 +30,8 @@
 
 #import "BPLWikipediaViewModel.h"
 
-static NSString * const BPLWikipediaViewModelSearchURLFormat = @"http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=%@&srprop=timestamp&format=json";
-static NSString * const BPLWikipediaViewModelPageURLFormat = @"http://en.wikipedia.org/wiki/%@";
+static NSString * const BPLWikipediaViewModelSearchURLFormat = @"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=%@&srprop=timestamp&format=json";
+static NSString * const BPLWikipediaViewModelPageURLFormat = @"https://en.wikipedia.org/wiki/%@";
 
 @interface BPLWikipediaViewModel()
 
@@ -40,6 +40,11 @@ static NSString * const BPLWikipediaViewModelPageURLFormat = @"http://en.wikiped
 @end
 
 @implementation BPLWikipediaViewModel
+
+- (instancetype)init
+{
+    return [self initWithName:@""];
+}
 
 - (instancetype)initWithName:(NSString *)name
 {
