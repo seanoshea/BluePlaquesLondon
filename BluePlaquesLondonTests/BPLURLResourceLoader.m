@@ -60,7 +60,7 @@ static NSDictionary *responses;
 - (void)startLoading
 {
     NSString *fileName = responses[self.request.URL.absoluteString];
-    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:[fileName stringByDeletingPathExtension] ofType:[fileName pathExtension]]];
+    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:fileName.stringByDeletingPathExtension ofType:fileName.pathExtension]];
     
     NSURLResponse *response = [[NSURLResponse alloc] initWithURL:self.request.URL
                                                         MIMEType:@"text/json"

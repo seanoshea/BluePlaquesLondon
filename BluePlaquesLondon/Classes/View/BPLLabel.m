@@ -38,7 +38,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self setTextColor:[UIColor BPLBlueColour]];
+        self.textColor = [UIColor BPLBlueColour];
     }
     return self;
 }

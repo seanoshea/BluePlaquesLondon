@@ -120,7 +120,7 @@
     [alertController addAction:action];
     [self presentViewController:alertController animated:YES completion:nil];
     
-    if ([self.markers count]) {
+    if ((self.markers).count) {
         KMLPlacemark *placemark = self.markers[0];
         [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
     }

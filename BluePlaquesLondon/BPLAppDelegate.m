@@ -93,10 +93,10 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     tabBarController.tabBar.tintColor = [UIColor BPLBlueColour];
-    [[UISearchBar appearance] setBarTintColor:[UIColor BPLGreyColour]];
-    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor BPLBlueColour]];
-    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor BPLBlueColour]];
-    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage alloc]];
+    [UISearchBar appearance].barTintColor = [UIColor BPLGreyColour];
+    [UITextField appearanceWhenContainedIn:[UISearchBar class], nil].textColor = [UIColor BPLBlueColour];
+    [UILabel appearanceWhenContainedIn:[UISearchBar class], nil].textColor = [UIColor BPLBlueColour];
+    [UITabBar appearance].selectionIndicatorImage = [UIImage alloc];
     [[UITabBarItem appearance] setTitleTextAttributes:
      @{ NSForegroundColorAttributeName: [UIColor BPLBlueColour],
         NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
@@ -137,13 +137,13 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     NSArray *viewControllers = tabBarController.viewControllers;
     // Ensure each view controller has a unique identifier
-    for (int i = 0; i < [viewControllers count]; i++) {
+    for (int i = 0; i < viewControllers.count; i++) {
         UIViewController *viewController = viewControllers[i];
         viewController.view.tag = i;
     }
     // Localize the tab names (they're stored in the storyboards)
     NSArray *items = tabBarController.tabBar.items;
-    for (int i = 0; i < [items count]; i++) {
+    for (int i = 0; i < items.count; i++) {
         UITabBarItem *item = items[i];
         NSString *title;
         switch (i) {
@@ -168,9 +168,9 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
             [GAI sharedInstance].dryRun = YES;
         }
         [GAI sharedInstance].dispatchInterval = 30;
-        [[[GAI sharedInstance] logger] setLogLevel:[BPLConfiguration isDebug] ? kGAILogLevelVerbose : kGAILogLevelWarning];
-        NSString *shortVersionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
-        [self trackCategory:BPLApplicationLoaded action:[NSString stringWithFormat:@"Application Version: %@", shortVersionString] label:[NSString stringWithFormat:@"iOS Version %@", [[UIDevice currentDevice] systemVersion]]];
+        [GAI sharedInstance].logger.logLevel = [BPLConfiguration isDebug] ? kGAILogLevelVerbose : kGAILogLevelWarning;
+        NSString *shortVersionString = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+        [self trackCategory:BPLApplicationLoaded action:[NSString stringWithFormat:@"Application Version: %@", shortVersionString] label:[NSString stringWithFormat:@"iOS Version %@", [UIDevice currentDevice].systemVersion]];
     }
 }
 
@@ -198,7 +198,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [self trackCategory:BPLUIActionCategory action:BPLTodayExtensionButtonPressed label:nil];
     // ensure that the map tab is selected
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    [tabBarController setSelectedIndex:BPLMapViewControllerIndex];
+    tabBarController.selectedIndex = BPLMapViewControllerIndex;
     UINavigationController *mapViewNavigationController = tabBarController.viewControllers[BPLMapViewControllerIndex];
     [mapViewNavigationController popToRootViewControllerAnimated:NO];
     BPLMapViewController *mapViewController = mapViewNavigationController.viewControllers[0];

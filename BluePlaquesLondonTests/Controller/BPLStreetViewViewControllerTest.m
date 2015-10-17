@@ -59,7 +59,7 @@
     self.controller = [storybord instantiateViewControllerWithIdentifier:@"BPLStreetViewViewController"];
     self.controller.placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
-    [self.controller view];
+    __unused id view = (self.controller).view;
 }
 
 - (void)testInitialisation

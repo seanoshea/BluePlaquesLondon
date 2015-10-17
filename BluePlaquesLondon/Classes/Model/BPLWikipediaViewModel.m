@@ -64,7 +64,7 @@ static NSString * const BPLWikipediaViewModelPageURLFormat = @"https://en.wikipe
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             if (!error) {
                 NSArray *searchResults = json[@"query"][@"search"];
-                if ([searchResults count]) {
+                if (searchResults.count) {
                     // take the first result ...
                     NSString *title = searchResults[0][@"title"];
                     NSString *urlString = [[NSString stringWithFormat:BPLWikipediaViewModelPageURLFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

@@ -46,7 +46,7 @@
 
 - (void)setHighlighted:(BOOL)highlighted
 {
-    [super setHighlighted:highlighted];
+    super.highlighted = highlighted;
     if (highlighted) {
         self.backgroundColor = [UIColor BPLBlueColour];
     } else {

@@ -56,7 +56,7 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    id tracker = [[GAI sharedInstance] defaultTracker];
+    id tracker = [GAI sharedInstance].defaultTracker;
     [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
     [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
@@ -70,7 +70,7 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.markers count];
+    return (self.markers).count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
