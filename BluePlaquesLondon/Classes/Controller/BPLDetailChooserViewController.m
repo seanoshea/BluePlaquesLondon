@@ -35,9 +35,9 @@
 #import "BPLPlacemark.h"
 #import "BPLPlacemark+Additions.h"
 
-#import <GoogleAnalytics-iOS-SDK/GAI.h>
-#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
-#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+#import <GoogleAnalytics/GAI.h>
+#import <GoogleAnalytics/GAIDictionaryBuilder.h>
+#import <GoogleAnalytics/GAIFields.h>
 
 static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 
@@ -58,7 +58,7 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
     [super viewDidAppear:animated];
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
-    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 #pragma mark UITableViewDataSource
