@@ -4,9 +4,9 @@ before_install:
   - git submodule update --init --recursive
   - brew update
   - brew upgrade xctool
-  - gem install cocoapods
+  - gem install cocoapods -v 0.38.2
 install:
-  - pod install
   - bundle install --without=documentation --path ../travis_bundle_dir
+  - bundle exec pod install
 script: bundle exec fastlane test
 after_success: bundle exec slather
