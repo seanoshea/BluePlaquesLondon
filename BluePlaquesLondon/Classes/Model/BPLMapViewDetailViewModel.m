@@ -32,6 +32,10 @@
 
 @implementation BPLMapViewDetailViewModel
 
+- (instancetype)init {
+    return [self initWithMarkers:nil currentLocation:nil];
+}
+
 - (instancetype)initWithMarkers:(NSArray *)markers currentLocation:(CLLocation *)currentLocation
 {
     self = [super init];

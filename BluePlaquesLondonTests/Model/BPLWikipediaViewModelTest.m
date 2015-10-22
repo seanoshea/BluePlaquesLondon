@@ -37,18 +37,20 @@
 {
     [NSURLProtocol registerClass:[BPLURLResourceLoader class]];
     
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Testing [WikipediaViewModel retrieveWikipediaUrlWithCompletionBlock]"];
+
     [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-        
-        XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"http://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
-        
-        dispatch_semaphore_signal(semaphore);
+        if (error == nil) {
+            XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"https://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
+            [expectation fulfill];
+        }
     }];
-    
-    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW))
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
-                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
+    }];
 }
 
 - (void)tearDown

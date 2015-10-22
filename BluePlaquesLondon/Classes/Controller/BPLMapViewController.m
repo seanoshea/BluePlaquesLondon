@@ -107,8 +107,8 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    CLLocationCoordinate2D lastKnownCoordinate = [defaults lastKnownBPLCoordinate];
-    float mapZoom = [defaults mapZoom];
+    CLLocationCoordinate2D lastKnownCoordinate = defaults.lastKnownBPLCoordinate;
+    float mapZoom = defaults.mapZoom;
 
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lastKnownCoordinate.latitude
                                                             longitude:lastKnownCoordinate.longitude
@@ -365,10 +365,10 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
                             NSLocalizedString(@"Nearly ready .....", nil)];
     });
     NSString *message;
-    if ([loadingMessages count] > self.loadingTicks) {
+    if (loadingMessages.count > self.loadingTicks) {
         message = loadingMessages[self.loadingTicks];
     } else {
-        message = loadingMessages[[loadingMessages count] - 1];
+        message = loadingMessages[loadingMessages.count - 1];
     }
     self.loadingTicks++;
     [SVProgressHUD showWithStatus:message maskType:SVProgressHUDMaskTypeGradient];

@@ -88,7 +88,7 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
     [self addChevronToButtons:@[self.streetButton, self.wikipediaButton, self.directionsButton, self.moreButton]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor BPLBlueColour]}];
+    (self.navigationController.navigationBar).titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor BPLBlueColour]};
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -121,7 +121,7 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
     }
     
     // not all placemarks have multiple people associated with them
-    self.moreButton.hidden = [self.model.markers count] == 1;
+    self.moreButton.hidden = (self.model.markers).count == 1;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -153,8 +153,8 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
 
 - (void)detailChooserViewControllerRowSelected:(NSNotification *)notification
 {
-    NSNumber *index = [notification object];
-    BPLPlacemark *selectedPlacemark = self.model.markers[[index intValue]];
+    NSNumber *index = notification.object;
+    BPLPlacemark *selectedPlacemark = self.model.markers[index.intValue];
     NSMutableArray *mutableMarkers = [self.model.markers mutableCopy];
     [mutableMarkers removeObject:selectedPlacemark];
     [mutableMarkers insertObject:selectedPlacemark atIndex:0];
@@ -165,7 +165,7 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
 {
     INKMapsHandler *mapsHandler = [[INKMapsHandler alloc] init];
     mapsHandler.center = CLLocationCoordinate2DMake(self.model.currentLocation.coordinate.longitude, self.model.currentLocation.coordinate.latitude);
-    mapsHandler.zoom = [[NSUserDefaults standardUserDefaults] mapZoom];
+    mapsHandler.zoom = [NSUserDefaults standardUserDefaults].mapZoom;
     BPLPlacemark *placemark = self.model.markers[0];
     NSString *to = [NSString stringWithFormat:@"%.12f, %.12f", placemark.coordinate.latitude, placemark.coordinate.longitude];
     NSString *from = [NSString stringWithFormat:@"%.12f, %.12f", self.model.currentLocation.coordinate.latitude, self.model.currentLocation.coordinate.longitude];

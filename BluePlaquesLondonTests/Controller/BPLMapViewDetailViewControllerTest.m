@@ -79,7 +79,7 @@
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.controller = [storybord instantiateViewControllerWithIdentifier:BPLMapViewDetailViewControllerStoryboardIdentifier];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
-    [self.controller view];
+    __unused id view = (self.controller).view;
 
     self.marker1 = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
     BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] init];
