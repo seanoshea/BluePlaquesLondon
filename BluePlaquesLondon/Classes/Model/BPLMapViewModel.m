@@ -78,7 +78,7 @@
         BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:placemark];
         NSArray *placemarksAssociatedWithKey = self.keyToArrayPositions[bplPlacemark.key];
         if (!placemarksAssociatedWithKey) {
-            (self.keyToArrayPositions)[bplPlacemark.key] = @[@(idx)];
+            self.keyToArrayPositions[bplPlacemark.key] = @[@(idx)];
             [self.massagedData addObject:bplPlacemark];
         } else {
             NSArray *existingPlacemarks = self.keyToArrayPositions[bplPlacemark.key];
@@ -101,7 +101,7 @@
         // check to see if the regular subtitle would be too big to pop into the snippet
         NSString *snippet;
         NSArray *numberOfPlacemarksAssociatedWithPlacemark = self.keyToArrayPositions[placemark.key];
-        if ([numberOfPlacemarksAssociatedWithPlacemark count] == 1) {
+        if (numberOfPlacemarksAssociatedWithPlacemark.count == 1) {
             snippet = placemark.occupation;
         } else {
             // generic message should suffice
@@ -117,15 +117,15 @@
 
 - (NSInteger)numberOfPlacemarks
 {
-    return [self.filteredData count] ?: [self.massagedData count];
+    return (self.filteredData).count ?: (self.massagedData).count;
 }
 
 - (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BPLPlacemark *placemark;
-    if ([self.filteredData count]) {
+    if ((self.filteredData).count) {
         placemark = self.filteredData[indexPath.row - 1];
-    } else if ([self.alphabeticallySortedPositions count] > indexPath.row - 1) {
+    } else if ((self.alphabeticallySortedPositions).count > indexPath.row - 1) {
         placemark = self.alphabeticallySortedPositions[indexPath.row - 1];
     }
     if (!placemark) {
@@ -142,9 +142,9 @@
 - (NSArray *)placemarksForKey:(NSString *)key
 {
     NSArray *indices = self.keyToArrayPositions[key];
-    NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:[indices count]];
+    NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:indices.count];
     for (NSNumber *index in indices) {
-        BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:self.data.placemarks[[index intValue]]];
+        BPLPlacemark *bplPlacemark = [self bplPlacemarkFromKMLPlacemark:self.data.placemarks[index.intValue]];
         [placemarks addObject:bplPlacemark];
     }
     return placemarks;
@@ -199,7 +199,7 @@
     bplPlacemark.featureDescription = placemark.descriptionValue;
     bplPlacemark.name = placemark.name;
     bplPlacemark.styleUrl = placemark.styleUrl;
-    bplPlacemark.latitude = [[NSNumber alloc] initWithFloat:geometry.coordinate.latitude];
+    bplPlacemark.latitude = [[NSNumber alloc] initWithDouble:geometry.coordinate.latitude];
     bplPlacemark.longitude = [[NSNumber alloc] initWithFloat:geometry.coordinate.longitude];
     
     return bplPlacemark;

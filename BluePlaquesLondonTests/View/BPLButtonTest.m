@@ -29,6 +29,7 @@
  */
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 
 #import "BPLButton.h"
 #import "UIColor+BPLColors.h"
@@ -44,7 +45,8 @@
 - (void)setUp
 {
     [super setUp];
-    self.button = [[BPLButton alloc] initWithCoder:nil];
+    id coderMock = OCMClassMock([NSCoder class]);
+    self.button = [[BPLButton alloc] initWithCoder:coderMock];
 }
 
 - (void)testHighlightedColours

@@ -37,7 +37,7 @@ static NSDictionary *responses;
 + (BOOL)canInitWithRequest:(NSURLRequest *)request
 {
     if (!responses) {
-        responses = @{ @"http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json": @"wikipedia.json" };
+        responses = @{ @"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json": @"wikipedia.json" };
     }
     return responses[request.URL.absoluteString] != nil;
 }
@@ -60,7 +60,7 @@ static NSDictionary *responses;
 - (void)startLoading
 {
     NSString *fileName = responses[self.request.URL.absoluteString];
-    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:[fileName stringByDeletingPathExtension] ofType:[fileName pathExtension]]];
+    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:fileName.stringByDeletingPathExtension ofType:fileName.pathExtension]];
     
     NSURLResponse *response = [[NSURLResponse alloc] initWithURL:self.request.URL
                                                         MIMEType:@"text/json"

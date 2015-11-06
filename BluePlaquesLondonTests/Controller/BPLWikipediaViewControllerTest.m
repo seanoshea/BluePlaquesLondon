@@ -61,7 +61,7 @@
     self.controller = [storybord instantiateViewControllerWithIdentifier:@"BPLWikipediaViewController"];
     self.controller.markers = @[[BPLUnitTestHelper placemarkWithIdentifier:@"1"]];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
-    [self.controller view];
+    __unused id view = (self.controller).view;
 }
 
 - (void)testInitialisation
@@ -83,7 +83,8 @@
 
 - (void)testShouldLoadMethod
 {
-    XCTAssertTrue([self.controller webView:self.controller.webView shouldStartLoadWithRequest:nil navigationType:UIWebViewNavigationTypeLinkClicked]);
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://wikipedia.org"]];
+    XCTAssertTrue([self.controller webView:self.controller.webView shouldStartLoadWithRequest:request navigationType:UIWebViewNavigationTypeLinkClicked]);
 }
 
 - (void)testWebViewFinishLoadFailure

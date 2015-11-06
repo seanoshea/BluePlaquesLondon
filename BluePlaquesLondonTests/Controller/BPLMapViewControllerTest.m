@@ -85,7 +85,7 @@
     UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.controller = [storybord instantiateViewControllerWithIdentifier:BPLMapViewControllerStoryboardIdentifier];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
-    [self.controller view];
+    __unused id view = (self.controller).view;
     self.controller.model = [[BPLMapViewModel alloc] init];
 }
 
@@ -121,7 +121,7 @@
 {
     BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
     
-    self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:[placemark.latitude doubleValue] longitude:[placemark.longitude doubleValue]];
+    self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
     
     id modelMock = OCMPartialMock(self.controller.model);
     OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
@@ -138,7 +138,7 @@
 - (void)testSpecificPlacemarkDelegateMethod {
     BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
     
-    self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:[placemark.latitude doubleValue] longitude:[placemark.longitude doubleValue]];
+    self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
     
     id modelMock = OCMPartialMock(self.controller.model);
     OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
