@@ -7,8 +7,8 @@ inhibit_all_warnings!
 xcodeproj 'BluePlaquesLondon.xcodeproj'
 
 pod 'TTTAttributedLabel', '1.13.4'
-pod 'GoogleAnalytics', '3.13'
-pod 'GoogleMaps', '1.10.4'
+pod 'GoogleAnalytics', '3.13.0'
+pod 'GoogleMaps', '1.10.5'
 pod 'IntentKit', '0.7.2'
 pod 'HCViews', '1.3.1'
 pod 'SVProgressHUD', '1.1.3'
