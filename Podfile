@@ -14,7 +14,7 @@ pod 'HCViews', '1.3.1'
 pod 'SVProgressHUD', '1.1.3'
 pod 'iRate', '1.11.4'
 pod 'iOS-KML-Framework', :git => 'https://github.com/FLCLjp/iOS-KML-Framework.git'
-pod 'GTMNSStringHTMLAdditions', '0.2'
+pod 'GTMNSStringHTMLAdditions', '0.2.1'
 
 target :BluePlaquesLondonTests do
   pod 'OCMock', '~> 3.2'
