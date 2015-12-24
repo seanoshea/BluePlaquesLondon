@@ -130,8 +130,8 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     self.searchBar.userInteractionEnabled = NO;
     [self.view bringSubviewToFront:self.searchBar];
     [self toggleTableView:NO];
-    
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"") maskType:SVProgressHUDMaskTypeGradient];
+
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"")];
     self.loadingTicks = 0;
     self.loadingTimer = [NSTimer scheduledTimerWithTimeInterval:1.5f
                                                          target:self
@@ -371,7 +371,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
         message = loadingMessages[loadingMessages.count - 1];
     }
     self.loadingTicks++;
-    [SVProgressHUD showWithStatus:message maskType:SVProgressHUDMaskTypeGradient];
+    [SVProgressHUD showWithStatus:message];
 }
 
 - (void)dismissHUDAndInvalidateTimer
