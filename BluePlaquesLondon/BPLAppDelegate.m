@@ -48,6 +48,7 @@
 #import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLMapViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLMapViewControllerIndex = 0,
@@ -106,6 +107,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
         NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
                                              forState:UIControlStateSelected];
     self.window.tintColor = [UIColor BPLBlueColour];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
 }
 
 #pragma mark Reachability
