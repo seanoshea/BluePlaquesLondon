@@ -2,6 +2,6 @@
   "-workspace", "BluePlaquesLondon.xcworkspace",
   "-scheme", "BluePlaquesLondon",
   "-configuration", "Debug",
-  "-sdk", "iphonesimulator",
+  "-sdk", "iphonesimulator9.1",
   "-arch", "i386"
 ]
