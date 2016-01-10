@@ -95,8 +95,8 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     tabBarController.tabBar.tintColor = [UIColor BPLBlueColour];
     [UISearchBar appearance].barTintColor = [UIColor BPLGreyColour];
-    [UITextField appearanceWhenContainedIn:[UISearchBar class], nil].textColor = [UIColor BPLBlueColour];
-    [UILabel appearanceWhenContainedIn:[UISearchBar class], nil].textColor = [UIColor BPLBlueColour];
+    [UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = [UIColor BPLBlueColour];
+    [UILabel appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = [UIColor BPLBlueColour];
     [UITabBar appearance].selectionIndicatorImage = [UIImage alloc];
     [[UITabBarItem appearance] setTitleTextAttributes:
      @{ NSForegroundColorAttributeName: [UIColor BPLBlueColour],

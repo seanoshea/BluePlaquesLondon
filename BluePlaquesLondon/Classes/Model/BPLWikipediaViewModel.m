@@ -57,17 +57,19 @@ static NSString * const BPLWikipediaViewModelPageURLFormat = @"https://en.wikipe
 
 - (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
 {
-    NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelSearchURLFormat, self.name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedURLString]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (!connectionError) {
-            NSError *error = nil;
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-            if (!error) {
+    NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelSearchURLFormat, self.name] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate:nil delegateQueue: [NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedURLString]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!error) {
+            NSError *jsonParsingError = nil;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonParsingError];
+            if (!jsonParsingError) {
                 NSArray *searchResults = json[@"query"][@"search"];
                 if (searchResults.count) {
                     // take the first result ...
                     NSString *title = searchResults[0][@"title"];
-                    NSString *urlString = [[NSString stringWithFormat:BPLWikipediaViewModelPageURLFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                    NSString *urlString = [[NSString stringWithFormat:BPLWikipediaViewModelPageURLFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
                     if (completionBlock) {
                         completionBlock([NSURLRequest requestWithURL:[NSURL URLWithString:urlString]], error);
                     }
@@ -75,6 +77,7 @@ static NSString * const BPLWikipediaViewModelPageURLFormat = @"https://en.wikipe
             }
         }
     }];
+    [dataTask resume];
 }
 
 @end
