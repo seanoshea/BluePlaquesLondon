@@ -92,8 +92,8 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     self.developerDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
     self.developerDetailsLabel.delegate = self;
     self.developerLabel.text = NSLocalizedString(@"Developer Details", nil);
-    self.developerDetailsLabel.text = NSLocalizedString(@"Developed by Sean O' Shea", nil);
-    NSRange range = [self.developerDetailsLabel.text rangeOfString:@"Sean O' Shea"];
+    self.developerDetailsLabel.text = NSLocalizedString(@"Developed by Sean O'Shea", nil);
+    NSRange range = [self.developerDetailsLabel.text rangeOfString:@"Sean O'Shea"];
     [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDeveloperURLString] withRange:range];
     
     self.designerLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
