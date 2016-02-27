@@ -12,7 +12,7 @@ pod 'GoogleMaps', '1.11.1'
 pod 'IntentKit', '0.7.2'
 pod 'HCViews', '1.3.1'
 pod 'SVProgressHUD', '2.0-beta'
-pod 'iRate', '1.11.4'
+pod 'iRate', :git => 'https://github.com/nicklockwood/iRate.git', :branch => 'master'
 pod 'iOS-KML-Framework', :git => 'https://github.com/FLCLjp/iOS-KML-Framework.git'
 pod 'GTMNSStringHTMLAdditions', '0.2.1'
 
