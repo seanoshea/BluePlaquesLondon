@@ -28,51 +28,12 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <Foundation/Foundation.h>
+
 #import "BPLWikipediaViewModel.h"
 
-#import "BPLWikipediaParser.h"
+@interface BPLWikipediaParser : NSObject
 
-struct BPLWikipediaViewModelStrings {
-    __unsafe_unretained NSString *searchUrlFormat;
-};
-
-static const struct BPLWikipediaViewModelStrings BPLWikipediaViewModelStrings = {
-    .searchUrlFormat = @"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=%@&srprop=timestamp&format=json"
-};
-
-@interface BPLWikipediaViewModel()
-
-@property (nonatomic, copy) NSString *name;
-
-@end
-
-@implementation BPLWikipediaViewModel
-
-- (instancetype)init
-{
-    return [self initWithName:@""];
-}
-
-- (instancetype)initWithName:(NSString *)name
-{
-    self = [super init];
-    if (self) {
-        _name = [name copy];
-    }
-    return self;
-}
-
-- (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
-{
-    NSParameterAssert(completionBlock != nil);
-    
-    NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelStrings.searchUrlFormat, self.name] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate:nil delegateQueue: [NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedURLString]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        [BPLWikipediaParser parseWikipediaData:data error:error completionBlock:completionBlock];
-    }];
-    [dataTask resume];
-}
++ (void)parseWikipediaData:(NSData *)data error:(NSError *)error completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
 
 @end

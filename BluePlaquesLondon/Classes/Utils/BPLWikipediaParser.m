@@ -28,51 +28,45 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "BPLWikipediaViewModel.h"
-
 #import "BPLWikipediaParser.h"
 
-struct BPLWikipediaViewModelStrings {
-    __unsafe_unretained NSString *searchUrlFormat;
+struct BPLWikipediaParserStrings {
+    __unsafe_unretained NSString *pageUrlFormat;
+    __unsafe_unretained NSString *search;
+    __unsafe_unretained NSString *query;
+    __unsafe_unretained NSString *title;
 };
 
-static const struct BPLWikipediaViewModelStrings BPLWikipediaViewModelStrings = {
-    .searchUrlFormat = @"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=%@&srprop=timestamp&format=json"
+static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
+    .pageUrlFormat = @"https://en.wikipedia.org/wiki/%@",
+    .search = @"search",
+    .query = @"query",
+    .title = @"title",
 };
 
-@interface BPLWikipediaViewModel()
+@implementation BPLWikipediaParser
 
-@property (nonatomic, copy) NSString *name;
-
-@end
-
-@implementation BPLWikipediaViewModel
-
-- (instancetype)init
-{
-    return [self initWithName:@""];
-}
-
-- (instancetype)initWithName:(NSString *)name
-{
-    self = [super init];
-    if (self) {
-        _name = [name copy];
-    }
-    return self;
-}
-
-- (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
-{
++ (void)parseWikipediaData:(NSData *)data error:(NSError *)error completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock {
+    
     NSParameterAssert(completionBlock != nil);
     
-    NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelStrings.searchUrlFormat, self.name] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate:nil delegateQueue: [NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedURLString]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        [BPLWikipediaParser parseWikipediaData:data error:error completionBlock:completionBlock];
-    }];
-    [dataTask resume];
+    if (!error) {
+        NSError *jsonParsingError = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonParsingError];
+        if (!jsonParsingError) {
+            NSArray *searchResults = json[BPLWikipediaParserStrings.query][BPLWikipediaParserStrings.search];
+            if (searchResults.count) {
+                // take the first result ...
+                NSString *title = searchResults[0][BPLWikipediaParserStrings.title];
+                NSString *urlString = [[NSString stringWithFormat:BPLWikipediaParserStrings.pageUrlFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                if (completionBlock) {
+                    completionBlock([NSURLRequest requestWithURL:[NSURL URLWithString:urlString]], error);
+                }
+            }
+        }
+    } else {
+        completionBlock(nil, error);
+    }
 }
 
 @end
