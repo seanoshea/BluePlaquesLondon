@@ -34,6 +34,6 @@
 
 @interface BPLWikipediaParser : NSObject
 
-+ (void)parseWikipediaData:(NSData *)data error:(NSError *)error completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
++ (void)parseWikipediaData:(NSData *)data error:(NSError *)error name:(NSString *)name completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
 
 @end

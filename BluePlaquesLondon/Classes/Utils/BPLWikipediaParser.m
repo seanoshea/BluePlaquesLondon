@@ -46,7 +46,7 @@ static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
 
 @implementation BPLWikipediaParser
 
-+ (void)parseWikipediaData:(NSData *)data error:(NSError *)error completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock {
++ (void)parseWikipediaData:(NSData *)data error:(NSError *)error name:(NSString *)name completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock {
     
     NSParameterAssert(completionBlock != nil);
     
@@ -56,8 +56,7 @@ static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
         if (!jsonParsingError) {
             NSArray *searchResults = json[BPLWikipediaParserStrings.query][BPLWikipediaParserStrings.search];
             if (searchResults.count) {
-                // take the first result ...
-                NSString *title = searchResults[0][BPLWikipediaParserStrings.title];
+                __block NSString *title = [BPLWikipediaParser searchThroughSearchResults:searchResults forTitleWithName:name];
                 NSString *urlString = [[NSString stringWithFormat:BPLWikipediaParserStrings.pageUrlFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
                 if (completionBlock) {
                     completionBlock([NSURLRequest requestWithURL:[NSURL URLWithString:urlString]], error);
@@ -67,6 +66,26 @@ static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
     } else {
         completionBlock(nil, error);
     }
+}
+
++ (NSString *)searchThroughSearchResults:(NSArray *)searchResults forTitleWithName:(NSString *)name {
+    __block NSString *title;
+    // see if we can guestimate the result
+    [searchResults enumerateObjectsUsingBlock:^(NSDictionary  * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([BPLWikipediaParser isTitle:obj[BPLWikipediaParserStrings.title] similarToName:name]) {
+            title = obj[BPLWikipediaParserStrings.title];
+        }
+    }];
+    if (title == nil) {
+        // just take the first one
+        title = searchResults[0][BPLWikipediaParserStrings.title];
+    }
+    return title;
+}
+
++ (BOOL)isTitle:(NSString *)title similarToName:(NSString *)name {
+    BOOL isSimilar = false;
+    return isSimilar;
 }
 
 @end
