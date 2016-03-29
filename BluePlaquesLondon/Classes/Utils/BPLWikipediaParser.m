@@ -81,7 +81,7 @@ static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
         searchResultTitle = obj[BPLWikipediaParserStrings.title];
         NSArray *titleComponents = [searchResultTitle componentsSeparatedByString:@" "];
         if (titleComponents.count) {
-            if ([BPLWikipediaParser isTitle:titleComponents[0] similarToName:name]) {
+            if ([name rangeOfString:titleComponents[0] options:NSCaseInsensitiveSearch].location != NSNotFound) {
                 title = searchResultTitle;
                 *stop = true;
             }
@@ -92,11 +92,6 @@ static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
         title = searchResults[0][BPLWikipediaParserStrings.title];
     }
     return title;
-}
-
-+ (BOOL)isTitle:(NSString *)title similarToName:(NSString *)name
-{
-    return [name rangeOfString:title options:NSCaseInsensitiveSearch].location != NSNotFound;
 }
 
 @end
