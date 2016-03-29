@@ -87,7 +87,7 @@
 
 - (void)testSargent
 {
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia" ofType:@"json"];
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_sargent" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSError *error;
     [BPLWikipediaParser parseWikipediaData:data error:error name:@"SARGENT, Sir Malcolm" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {

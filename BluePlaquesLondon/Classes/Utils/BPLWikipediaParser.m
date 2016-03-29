@@ -75,10 +75,16 @@ static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
 + (NSString *)iterateOverSearchResults:(NSArray *)searchResults forTitleWithName:(NSString *)name
 {
     __block NSString *title;
+    __block NSString *searchResultTitle;
     // see if we can guestimate the result
     [searchResults enumerateObjectsUsingBlock:^(NSDictionary  * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([BPLWikipediaParser isTitle:obj[BPLWikipediaParserStrings.title] similarToName:name]) {
-            title = obj[BPLWikipediaParserStrings.title];
+        searchResultTitle = obj[BPLWikipediaParserStrings.title];
+        NSArray *titleComponents = [searchResultTitle componentsSeparatedByString:@" "];
+        if (titleComponents.count) {
+            if ([BPLWikipediaParser isTitle:titleComponents[0] similarToName:name]) {
+                title = searchResultTitle;
+                *stop = true;
+            }
         }
     }];
     if (title == nil) {
@@ -90,8 +96,7 @@ static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
 
 + (BOOL)isTitle:(NSString *)title similarToName:(NSString *)name
 {
-    BOOL isSimilar = false;
-    return isSimilar;
+    return [name rangeOfString:title options:NSCaseInsensitiveSearch].location != NSNotFound;
 }
 
 @end
