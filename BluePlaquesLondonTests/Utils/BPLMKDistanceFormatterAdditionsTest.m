@@ -39,12 +39,10 @@
 
 - (void)testRetrieveLastKnownBPLCoordinate
 {
-    
     CLLocation *from = [[CLLocation alloc] initWithLatitude:50.001 longitude:0.0012456];
     CLLocation *to = [[CLLocation alloc] initWithLatitude:0.12345 longitude:25.987];
     NSString *distance = [MKDistanceFormatter distanceFromLocation:from toLocation:to];
     XCTAssert(distance != nil, @"The distance returned from `distanceFromLocation` should not be nil");
-    
 }
 
 @end
