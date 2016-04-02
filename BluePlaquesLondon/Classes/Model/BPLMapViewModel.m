@@ -200,7 +200,7 @@
     bplPlacemark.name = placemark.name;
     bplPlacemark.styleUrl = placemark.styleUrl;
     bplPlacemark.latitude = @(geometry.coordinate.latitude);
-    bplPlacemark.longitude = [[NSNumber alloc] initWithFloat:geometry.coordinate.longitude];
+    bplPlacemark.longitude = [[NSNumber alloc] initWithFloat:(float)geometry.coordinate.longitude];
     
     return bplPlacemark;
 }
