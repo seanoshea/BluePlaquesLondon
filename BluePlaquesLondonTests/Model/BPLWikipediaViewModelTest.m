@@ -30,8 +30,10 @@
 
 #import <XCTest/XCTest.h>
 
-#import "BPLURLResourceLoader.h"
 #import "BPLWikipediaViewModel.h"
+
+#import <OHHTTPStubs/OHHTTPStubs.h>
+#import <OHHTTPStubs/OHPathHelpers.h>
 
 @interface BPLWikipediaViewModelTest : XCTestCase
 
@@ -49,7 +51,14 @@
 
 - (void)testRetrieveWikipediaURL
 {
-    [NSURLProtocol registerClass:[BPLURLResourceLoader class]];
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:@"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json"];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"wikipedia.json",self.class)
+                                                statusCode:200
+                                                   headers:@{@"Content-Type":@"application/json"}];
+    }];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Testing [WikipediaViewModel retrieveWikipediaUrlWithCompletionBlock]"];
 
@@ -65,11 +74,6 @@
             XCTFail(@"Expectation Failed with error: %@", error);
         }
     }];
-}
-
-- (void)tearDown
-{
-    [NSURLProtocol unregisterClass:[BPLURLResourceLoader class]];
 }
 
 @end
