@@ -1099,6 +1099,7 @@
 					"-isystem",
 					"\"${PODS_ROOT}/Headers/Public/iRate\"",
 					"-DCRASH_REPORTING=1",
+					"-DTRACKING=1",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
