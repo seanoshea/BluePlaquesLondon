@@ -1076,6 +1076,36 @@
 				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GTMNSStringHTMLAdditions\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/HCViews\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/IntentKit\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MWLayoutHelpers\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/OCMock\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TBXML\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/iOS-KML-Framework\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/iRate\"",
+					"-DCRASH_REPORTING=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
