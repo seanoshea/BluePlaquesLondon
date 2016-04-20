@@ -67,7 +67,6 @@
 		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
-		14F003901A9D202600AEE2AC /* BPLURLResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038F1A9D202600AEE2AC /* BPLURLResourceLoader.m */; };
 		41A6D8B31B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
 		41A6D8B41B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
 		41C7CFFA1CA9E74000736645 /* BPLWikipediaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C7CFF91CA9E74000736645 /* BPLWikipediaParser.m */; };
@@ -200,8 +199,6 @@
 		14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMKDistanceFormatterAdditionsTest.m; sourceTree = "<group>"; };
 		14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkFeatureDescriptionTests.m; sourceTree = "<group>"; };
 		14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStateTest.m; sourceTree = "<group>"; };
-		14F0038E1A9D202600AEE2AC /* BPLURLResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLURLResourceLoader.h; sourceTree = "<group>"; };
-		14F0038F1A9D202600AEE2AC /* BPLURLResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLURLResourceLoader.m; sourceTree = "<group>"; };
 		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
 		2C5E6DBCBBDDDE8944B4E4CD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		41A6D8B21B8E258A0077EBE1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -347,8 +344,6 @@
 				14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */,
 				14C9E8281AA1C08D00B446D1 /* BPLUnitTestHelper.h */,
 				14C9E8291AA1C08D00B446D1 /* BPLUnitTestHelper.m */,
-				14F0038E1A9D202600AEE2AC /* BPLURLResourceLoader.h */,
-				14F0038F1A9D202600AEE2AC /* BPLURLResourceLoader.m */,
 				146C5FB21A9D09EB00E88761 /* Info.plist */,
 				41C7CFFF1CAA15BC00736645 /* wikipedia_empty.json */,
 				41C7CFFD1CAA148100736645 /* wikipedia_malformed.json */,
@@ -848,7 +843,6 @@
 				142A901A1ACDC51F00AB8EDC /* TodayViewController.swift in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
 				14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */,
-				14F003901A9D202600AEE2AC /* BPLURLResourceLoader.m in Sources */,
 				14C9E8271A9FD56C00B446D1 /* BPLMapViewControllerTest.m in Sources */,
 				14F003821A9D1FF200AEE2AC /* BPLButtonTest.m in Sources */,
 				142C604D1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m in Sources */,

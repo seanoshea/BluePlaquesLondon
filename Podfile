@@ -18,4 +18,5 @@ pod 'GTMNSStringHTMLAdditions', '0.2.1'
 
 target :BluePlaquesLondonTests do
   pod 'OCMock', '~> 3.2.2'
+  pod 'OHHTTPStubs', '~> 5.0.0'
 end
