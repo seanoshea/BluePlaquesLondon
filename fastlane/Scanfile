@@ -1,0 +1,5 @@
+scheme "BluePlaquesLondon"
+
+clean true
+
+output_types "html"
