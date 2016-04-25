@@ -46,12 +46,6 @@
 - (void)setUp
 {
     [super setUp];
-    self.model = [[BPLWikipediaViewModel alloc] initWithName:@"Churchill, Winston"];
-}
-
-- (void)testRetrieveWikipediaURL
-{
-    
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:@"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json"];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
@@ -59,26 +53,25 @@
                                                 statusCode:200
                                                    headers:@{@"Content-Type":@"application/json"}];
     }];
-    
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Testing [WikipediaViewModel retrieveWikipediaUrlWithCompletionBlock]"];
+    self.model = [[BPLWikipediaViewModel alloc] initWithName:@"Churchill, Winston"];
+}
+
+- (void)testRetrieveWikipediaURL
+{
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
     [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
         NSLog(@"Callback for the test");
         if (error == nil) {
             XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"https://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
-            [expectation fulfill];
         } else {
             XCTFail(@"There was an error while retrieving the wikipedia URL: %@", error);
         }
+        dispatch_semaphore_signal(semaphore);
     }];
     
-    [self waitForExpectationsWithTimeout:1.0 handler:^(NSError *error) {
-        if (error) {
-            XCTFail(@"Expectation Failed with error: %@", error);
-        } else {
-            [expectation fulfill];
-        }
-    }];
+    long rc = dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10.0 * NSEC_PER_SEC));
+    XCTAssertEqual(rc, 0, @"Failed to make network request");
 }
 
 @end
