@@ -69,6 +69,8 @@
         }
     }];
     
+    [task resume];
+    
     [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);    

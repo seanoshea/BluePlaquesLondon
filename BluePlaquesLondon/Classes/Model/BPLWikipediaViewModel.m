@@ -70,7 +70,6 @@ static const struct BPLWikipediaViewModelStrings BPLWikipediaViewModelStrings = 
                                                              completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                                  [BPLWikipediaParser parseWikipediaData:data error:error name:self.name completionBlock:completionBlock];
                                                              }];
-    [task resume];
     return task;
 }
 
