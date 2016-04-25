@@ -69,6 +69,7 @@ static const struct BPLWikipediaViewModelStrings BPLWikipediaViewModelStrings = 
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedURLString]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"Data Task Returned - in the parse method");
         [BPLWikipediaParser parseWikipediaData:data error:error name:self.name completionBlock:completionBlock];
     }];
     [dataTask resume];
