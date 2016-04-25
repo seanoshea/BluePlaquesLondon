@@ -61,18 +61,18 @@
     }];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Testing [WikipediaViewModel retrieveWikipediaUrlWithCompletionBlock]"];
-
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-            if (error == nil) {
-                XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"https://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
-                [expectation fulfill];
-            }
-        }];
+    
+    [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+        if (error == nil) {
+            XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"https://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
+            [expectation fulfill];
+        }
     }];
 
     [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
-        XCTAssert(error == nil, @"Expectation Failed with error: %@", error);
+        if (error) {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
     }];
 }
 
