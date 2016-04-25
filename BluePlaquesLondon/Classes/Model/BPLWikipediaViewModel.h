@@ -33,6 +33,6 @@ typedef void(^BPLWikipediaViewURLResolutionCompletionBlock)(NSURLRequest *urlReq
 @interface BPLWikipediaViewModel : NSObject
 
 - (instancetype)initWithName:(NSString *)name NS_DESIGNATED_INITIALIZER;
-- (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
+- (NSURLSessionDataTask *)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
 
 @end

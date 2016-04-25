@@ -62,16 +62,16 @@ static const struct BPLWikipediaViewModelStrings BPLWikipediaViewModelStrings = 
     return self;
 }
 
-- (void)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
+- (NSURLSessionDataTask *)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
 {
     NSParameterAssert(completionBlock != nil);
     NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelStrings.searchUrlFormat, self.name] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedURLString]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        [BPLWikipediaParser parseWikipediaData:data error:error name:self.name completionBlock:completionBlock];
-    }];
-    [dataTask resume];
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:encodedURLString]
+                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                                 [BPLWikipediaParser parseWikipediaData:data error:error name:self.name completionBlock:completionBlock];
+                                                             }];
+    [task resume];
+    return task;
 }
 
 @end

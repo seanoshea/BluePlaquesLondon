@@ -501,9 +501,9 @@
 		14F0037B1A9D1FBF00AEE2AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				14E147921A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m */,
 				14F003841A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m */,
 				14D55D801A9E70200006D76F /* BPLMapViewModelTest.m */,
+				14E147921A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";

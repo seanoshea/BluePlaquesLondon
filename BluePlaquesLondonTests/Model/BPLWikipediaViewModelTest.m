@@ -46,64 +46,36 @@
 - (void)setUp
 {
     [super setUp];
-//    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-//        return [request.URL.host isEqualToString:@"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json"];
-//    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-//        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"wikipedia.json",self.class)
-//                                                statusCode:200
-//                                                   headers:@{@"Content-Type":@"application/json"}];
-//    }];
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.host isEqualToString:@"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json"];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"wikipedia.json",self.class)
+                                                statusCode:200
+                                                   headers:@{@"Content-Type":@"application/json"}];
+    }];
     self.model = [[BPLWikipediaViewModel alloc] initWithName:@"Churchill, Winston"];
 }
 
 - (void)testRetrieveWikipediaURL
 {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Getting the Wikipedia URL"];
     
-    NSURL *URL = [NSURL URLWithString:@"https://www.google.com/"];
-    NSString *description = [NSString stringWithFormat:@"GET %@", URL];
-    XCTestExpectation *expectation = [self expectationWithDescription:description];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:URL
-                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-                                  {
-                                      XCTAssertNotNil(data, "data should not be nil");
-                                      XCTAssertNil(error, "error should be nil");
-                                      
-                                      if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-                                          NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-                                          XCTAssertEqual(httpResponse.statusCode, 200, @"HTTP response status code should be 200");
-                                          XCTAssertEqualObjects(httpResponse.URL.absoluteString, URL.absoluteString, @"HTTP response URL should be equal to original URL");
-                                          XCTAssertEqualObjects(httpResponse.MIMEType, @"text/html", @"HTTP response content type should be text/html");
-                                      } else {
-                                          XCTFail(@"Response was not NSHTTPURLResponse");
-                                      }
-                                      
-                                      [expectation fulfill];
-                                  }];
-    
-    [task resume];
+    NSURLSessionDataTask *task = [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+        if (error == nil) {
+            XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"https://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
+            [expectation fulfill];
+        } else {
+            XCTFail(@"There was an error while retrieving the wikipedia URL: %@", error);
+        }
+    }];
     
     [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);    
         }
         [task cancel];
+        XCTFail(@"There was an error while retrieving the wikipedia URL: %@", error);
     }];
-    
-//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-//    
-//    [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-//        if (error == nil) {
-//            XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"https://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
-//        } else {
-//            XCTFail(@"There was an error while retrieving the wikipedia URL: %@", error);
-//        }
-//        dispatch_semaphore_signal(semaphore);
-//    }];
-//    
-//    long rc = dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10.0 * NSEC_PER_SEC));
-//    XCTAssertEqual(rc, 0, @"Failed to make network request");
 }
 
 @end
