@@ -76,7 +76,6 @@
             NSLog(@"Error: %@", error.localizedDescription);    
         }
         [task cancel];
-        XCTFail(@"There was an error while retrieving the wikipedia URL: %@", error);
     }];
 }
 
