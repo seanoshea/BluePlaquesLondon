@@ -46,13 +46,13 @@
 - (void)setUp
 {
     [super setUp];
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return [request.URL.host isEqualToString:@"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json"];
-    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"wikipedia.json",self.class)
-                                                statusCode:200
-                                                   headers:@{@"Content-Type":@"application/json"}];
-    }];
+//    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+//        return [request.URL.host isEqualToString:@"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json"];
+//    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+//        return [OHHTTPStubsResponse responseWithFileAtPath:OHPathForFile(@"wikipedia.json",self.class)
+//                                                statusCode:200
+//                                                   headers:@{@"Content-Type":@"application/json"}];
+//    }];
     self.model = [[BPLWikipediaViewModel alloc] initWithName:@"Churchill, Winston"];
 }
 
