@@ -66,6 +66,8 @@
         if (error == nil) {
             XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"https://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
             [expectation fulfill];
+        } else {
+            XCTFail(@"There was an error while retrieving the wikipedia URL: %@", error);
         }
     }];
 
