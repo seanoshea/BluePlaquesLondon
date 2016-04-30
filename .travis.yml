@@ -10,5 +10,5 @@ install:
   - bundle install --without=documentation --path ../travis_bundle_dir
   - bundle exec pod install
   - bundle exec fastlane enable_crash_reporting
-script: bundle exec fastlane test
+script: FASTLANE_XCODE_LIST_TIMEOUT=60 bundle exec fastlane test
 after_success: bundle exec slather
