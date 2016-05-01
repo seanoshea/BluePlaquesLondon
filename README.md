@@ -1,7 +1,6 @@
 [![Twitter: @seanoshea](https://img.shields.io/badge/contact-@seanoshea-blue.svg?style=flat)](https://twitter.com/seanoshea)
 [![License](http://img.shields.io/badge/license-BSD-green.svg?style=flat)](https://github.com/seanoshea/BluePlaquesLondon/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/travis/seanoshea/BluePlaquesLondon/develop.svg?style=flat)](https://travis-ci.org/seanoshea/BluePlaquesLondon)
-[![Coverage Status](https://coveralls.io/repos/seanoshea/BluePlaquesLondon/badge.png?branch=develop)](https://coveralls.io/repos/seanoshea/BluePlaquesLondon)
 ### BluePlaquesLondon
 iOS Application for finding Blue Plaques through London. [App Store Link](http://www.appstore.com/seanoshea)
 
