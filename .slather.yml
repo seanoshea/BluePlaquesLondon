@@ -1,4 +1,5 @@
 coverage_service: coveralls
+xcodeproj: BluePlaquesLondon.xcodeproj
 scheme: BluePlaquesLondon
 source_directory: BluePlaquesLondon
 workspace: BluePlaquesLondon.xcworkspace
