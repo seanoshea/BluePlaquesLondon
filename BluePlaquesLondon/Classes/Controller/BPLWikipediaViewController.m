@@ -68,13 +68,13 @@
 {
     [super viewWillAppear:animated];
     [SVProgressHUD show];
-    [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    [[self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
         if (!error) {
             [self.webView loadRequest:urlRequest];
         } else {
             [self displayErrorAlert];
         }
-    }];
+    }] resume];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

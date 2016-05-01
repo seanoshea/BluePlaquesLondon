@@ -46,12 +46,6 @@
 - (void)setUp
 {
     [super setUp];
-    self.model = [[BPLWikipediaViewModel alloc] initWithName:@"Churchill, Winston"];
-}
-
-- (void)testRetrieveWikipediaURL
-{
-    
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.host isEqualToString:@"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Churchill,%20Winston&srprop=timestamp&format=json"];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
@@ -59,20 +53,29 @@
                                                 statusCode:200
                                                    headers:@{@"Content-Type":@"application/json"}];
     }];
-    
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Testing [WikipediaViewModel retrieveWikipediaUrlWithCompletionBlock]"];
+    self.model = [[BPLWikipediaViewModel alloc] initWithName:@"Churchill, Winston"];
+}
 
-    [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+- (void)testRetrieveWikipediaURL
+{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Getting the Wikipedia URL"];
+    
+    NSURLSessionDataTask *task = [self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
         if (error == nil) {
             XCTAssert([urlRequest.URL.absoluteString isEqualToString:@"https://en.wikipedia.org/wiki/Winston_Churchill"], @"The absolute URLs should be equal");
             [expectation fulfill];
+        } else {
+            XCTFail(@"There was an error while retrieving the wikipedia URL: %@", error);
         }
     }];
-
-    [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *error) {
-        if (error) {
-            XCTFail(@"Expectation Failed with error: %@", error);
+    
+    [task resume];
+    
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);    
         }
+        [task cancel];
     }];
 }
 
