@@ -26,3 +26,8 @@ DerivedData
 # CocoaPods
 Podfile.lock
 Pods
+
+# Fastlane
+fastlane/README.md
+fastlane/report.xml
+fastlane/test_output/
