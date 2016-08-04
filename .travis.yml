@@ -11,4 +11,5 @@ install:
   - bundle exec pod install
   - bundle exec fastlane enable_crash_reporting
 script: FASTLANE_XCODE_LIST_TIMEOUT=60 bundle exec fastlane test
-# after_success: bundle exec slather
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
