@@ -11,4 +11,4 @@ Suggestions and bug reports for the application are always welcome. Open an issu
 An Android version of the application is available in Google's [Play Store](http://play.google.com/store/apps/details?id=com.upwardsnorthwards.blueplaqueslondon). The source code for that version of the application is available [here](http://github.com/seanoshea/BluePlaquesLondon-Android).
 
 ### Beta Builds
-If you're interested in access to beta-builds of the application, send an email to oshea.ie@gmail.com
+If you're interested in access to beta-builds of the application, send an email to oshea.ie@gmail.com 
