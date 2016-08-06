@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 inhibit_all_warnings!
 
-project 'BluePlaquesLondon.xcodeproj'
+xcodeproj 'BluePlaquesLondon.xcodeproj'
 
 pod 'TTTAttributedLabel', '2.0.0'
 pod 'GoogleAnalytics', '3.14.0'
