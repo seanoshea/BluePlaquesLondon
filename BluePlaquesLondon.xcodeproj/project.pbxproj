@@ -1084,8 +1084,6 @@
 					"-isystem",
 					"\"${PODS_ROOT}/Headers/Public/HCViews\"",
 					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/IntentKit\"",
-					"-isystem",
 					"\"${PODS_ROOT}/Headers/Public/MWLayoutHelpers\"",
 					"-isystem",
 					"\"${PODS_ROOT}/Headers/Public/OCMock\"",
