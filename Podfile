@@ -9,7 +9,7 @@ project 'BluePlaquesLondon.xcodeproj'
 target 'BluePlaquesLondon' do
   pod 'TTTAttributedLabel', '2.0.0'
   pod 'GoogleAnalytics', '3.14.0'
-  pod 'GoogleMaps', '2.0.1'
+  pod 'GoogleMaps', '1.13.2'
   pod 'IntentKit', '0.7.3'
   pod 'HCViews', '1.3.1'
   pod 'SVProgressHUD', '2.0.3'
