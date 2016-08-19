@@ -40,6 +40,7 @@
     if (self) {
         [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+      [self setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return self;
 }
@@ -48,9 +49,9 @@
 {
     super.highlighted = highlighted;
     if (highlighted) {
-        self.backgroundColor = [UIColor BPLBlueColour];
+      [self setBackgroundColor:[UIColor BPLBlueColour] forState:UIControlStateHighlighted];
     } else {
-        self.backgroundColor = [UIColor whiteColor];
+      [self setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
 }
 

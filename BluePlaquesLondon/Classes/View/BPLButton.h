@@ -30,6 +30,8 @@
 
 @import UIKit;
 
-@interface BPLButton : UIButton
+#import "MDCRaisedButton.h"
+
+@interface BPLButton : MDCRaisedButton
 
 @end

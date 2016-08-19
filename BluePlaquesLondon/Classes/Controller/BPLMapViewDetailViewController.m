@@ -31,7 +31,6 @@
 #import "BPLMapViewDetailViewController.h"
 
 #import <IntentKit/IntentKit.h>
-#import <HCViews/HCChevronView.h>
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "BPLConstants.h"
@@ -84,9 +83,7 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
     self.addressLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
     self.noteLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
     self.councilAndYearLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
-    
-    [self addChevronToButtons:@[self.streetButton, self.wikipediaButton, self.directionsButton, self.moreButton]];
-    
+  
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
     (self.navigationController.navigationBar).titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor BPLBlueColour]};
 }
@@ -174,18 +171,6 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
 
     }];
     [self buttonTappedForPlacemark:placemark withAction:BPLDirectionsButtonPressedEvent];
-}
-
-- (void)addChevronToButtons:(NSArray *)buttons
-{
-    for (UIButton *button in buttons) {
-        UIView *chevron = [HCChevronView chevronViewWithColor:[UIColor BPLOrangeColour]
-                                             highlightedColor:[UIColor BPLOrangeColour]];
-
-        chevron.frame = CGRectMake(button.frame.size.width - 20, 10, 15, 15);
-        chevron.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-        [button addSubview:chevron];
-    }
 }
 
 - (void)buttonTappedForPlacemark:(BPLPlacemark *)placemark withAction:(NSString *)action
