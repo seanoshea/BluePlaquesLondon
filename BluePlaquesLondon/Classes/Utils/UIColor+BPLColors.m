@@ -62,4 +62,14 @@
     return lightYellowColour;
 }
 
++ (UIColor *)BPLLightOrangeColour
+{
+  static UIColor *lightYellowColour;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    lightYellowColour = [UIColor colorWithRed:255.0f/255.0f green:153.0f/255.0f blue:0.0f/255.0f alpha:0.4];
+  });
+  return lightYellowColour;
+}
+
 @end

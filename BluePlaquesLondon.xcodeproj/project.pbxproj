@@ -67,6 +67,8 @@
 		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
+		4198EFA11D67E72800625A78 /* BPLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198EFA01D67E72800625A78 /* BPLSearchViewController.m */; };
+		4198EFA21D67E72800625A78 /* BPLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198EFA01D67E72800625A78 /* BPLSearchViewController.m */; };
 		41A6D8B31B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
 		41A6D8B41B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
 		41C7CFFA1CA9E74000736645 /* BPLWikipediaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C7CFF91CA9E74000736645 /* BPLWikipediaParser.m */; };
@@ -202,6 +204,8 @@
 		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
 		35E62A76A1A5C04993430748 /* Pods-BluePlaquesLondonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.release.xcconfig"; sourceTree = "<group>"; };
 		3D772121B4F7ED9C84BA2CDD /* libPods-BluePlaquesLondon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4198EF9F1D67E72800625A78 /* BPLSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLSearchViewController.h; sourceTree = "<group>"; };
+		4198EFA01D67E72800625A78 /* BPLSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLSearchViewController.m; sourceTree = "<group>"; };
 		41A6D8B21B8E258A0077EBE1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		41C7CFF81CA9E74000736645 /* BPLWikipediaParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaParser.h; sourceTree = "<group>"; };
 		41C7CFF91CA9E74000736645 /* BPLWikipediaParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaParser.m; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 				14F003251A9D0DE700AEE2AC /* BPLMapViewController.m */,
 				14F003261A9D0DE700AEE2AC /* BPLMapViewDetailViewController.h */,
 				14F003271A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m */,
+				4198EF9F1D67E72800625A78 /* BPLSearchViewController.h */,
+				4198EFA01D67E72800625A78 /* BPLSearchViewController.m */,
 				14F003281A9D0DE700AEE2AC /* BPLStreetViewViewController.h */,
 				14F003291A9D0DE700AEE2AC /* BPLStreetViewViewController.m */,
 				14F0032A1A9D0DE700AEE2AC /* BPLWikipediaViewController.h */,
@@ -823,6 +829,7 @@
 				14F0035A1A9D0E1300AEE2AC /* NSUserDefaults+BPLState.m in Sources */,
 				146C5FBF1A9D0BD700E88761 /* BPLAppDelegate.m in Sources */,
 				14F0032E1A9D0DE700AEE2AC /* BPLMapViewController.m in Sources */,
+				4198EFA11D67E72800625A78 /* BPLSearchViewController.m in Sources */,
 				14F0033D1A9D0E0600AEE2AC /* BPLAboutViewModel.m in Sources */,
 				14F003531A9D0E1300AEE2AC /* BPLConfiguration.m in Sources */,
 				14F0033E1A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m in Sources */,
@@ -853,6 +860,7 @@
 				14588E891AEEC40300E02385 /* BPLDetailChooserViewController.m in Sources */,
 				14588E8A1AEEC41B00E02385 /* BPLMapViewController.m in Sources */,
 				14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */,
+				4198EFA21D67E72800625A78 /* BPLSearchViewController.m in Sources */,
 				14588E881AEEC3E400E02385 /* BPLMapViewDetailViewController.m in Sources */,
 				14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				142C604B1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m in Sources */,

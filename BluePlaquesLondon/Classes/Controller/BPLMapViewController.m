@@ -46,13 +46,17 @@
 
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "GAITrackedViewController.h"
+#import "BPLSearchViewController.h"
 
 NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
-@interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource, BPLSearchViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIView *containerView;
+@property (nonatomic, weak) BPLSearchViewController *searchViewController;
+
 @property (nonatomic) GMSMapView *mapView;
 
 @property (nonatomic) BPLMapViewModel *model;
@@ -84,8 +88,9 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
         dispatch_async(dispatch_get_main_queue(), ^{
             [self dismissHUDAndInvalidateTimer];
             [self.model createMarkersForMap:self.mapView];
+            self.searchViewController.model = self.model;
             self.searchBar.userInteractionEnabled = YES;
-            [self.tableView reloadData];
+            [self reloadData];
             [self checkForAutomaticallyNavigatingToClosestPlacemark];
         });
     }];
@@ -102,7 +107,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 {
     [super viewDidLoad];
     self.screenName = @"Maps Screen";
-    
+  
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -160,6 +165,9 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
         NSArray *markers = [self.model placemarksForKey:placemark.key];
         BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:markers currentLocation:self.currentLocation];
         destinationViewController.model = model;
+    } else if ([segue.identifier isEqualToString:@"BPLSearchViewControllerSegue"]) {
+      self.searchViewController = segue.destinationViewController;
+      self.searchViewController.delegate = self;
     }
 }
 
@@ -218,6 +226,12 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
         }
     }
     return cell;
+}
+
+#pragma mark BPLSearchViewControllerDelegate
+
+- (void)searchViewController:(BPLSearchViewController *)searchViewController didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+  [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 }
 
 #pragma mark UITableViewDelegate
@@ -281,7 +295,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 - (void)filterDataForSearchText:(NSString *)searchText
 {
     self.model.filteredData = [self.model.alphabeticallySortedPositions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.placemarkTitle contains[c] %@", searchText]];
-    [self.tableView reloadData];
+//    [self reloadData];
 }
 
 - (void)navigateToPlacemark:(BPLPlacemark *)placemark
@@ -289,18 +303,26 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     [self.searchBar resignFirstResponder];
     [self toggleTableView:NO];
     [self.mapView animateToLocation:placemark.coordinate];
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
+  });
 }
 
 - (void)toggleTableView:(BOOL)show
 {
     if (show) {
-        [self.view bringSubviewToFront:self.tableView];
+        [self.view bringSubviewToFront:self.containerView];
     } else {
-        [self.view sendSubviewToBack:self.tableView];
+        [self.view sendSubviewToBack:self.containerView];
     }
     self.searchBar.showsCancelButton = show;
     self.tableView.hidden = !show;
+  self.containerView.hidden = !show;
+}
+
+- (void)reloadData {
+  [self.tableView reloadData];
+  [self.searchViewController.collectionView reloadData];
 }
 
 #pragma mark CLLocationManagerDelegate
@@ -309,7 +331,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 {
     self.currentLocation = locations.lastObject;
     // ensure that the search table always has the latest known distances updated.
-    [self.tableView reloadData];
+//    [self reloadData];
     [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
     [self checkForAutomaticallyNavigatingToClosestPlacemark];
 }
