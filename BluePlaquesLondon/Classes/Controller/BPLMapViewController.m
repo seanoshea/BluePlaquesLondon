@@ -50,10 +50,9 @@
 
 NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
-@interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource, BPLSearchViewControllerDelegate>
+@interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, BPLSearchViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) BPLSearchViewController *searchViewController;
 
@@ -108,7 +107,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     [super viewDidLoad];
     self.screenName = @"Maps Screen";
   
-    self.tableView.separatorInset = UIEdgeInsetsZero;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -134,7 +132,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
     self.searchBar.userInteractionEnabled = NO;
     [self.view bringSubviewToFront:self.searchBar];
-    [self toggleTableView:NO];
+    [self toggleSearchViewController:NO];
 
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"")];
     self.loadingTicks = 0;
@@ -165,7 +163,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
         NSArray *markers = [self.model placemarksForKey:placemark.key];
         BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:markers currentLocation:self.currentLocation];
         destinationViewController.model = model;
-    } else if ([segue.identifier isEqualToString:@"BPLSearchViewControllerSegue"]) {
+    } else if ([segue.identifier isEqualToString:BPLSearchViewControllerSegue]) {
       self.searchViewController = segue.destinationViewController;
       self.searchViewController.delegate = self;
     }
@@ -189,63 +187,16 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     }
 }
 
-#pragma UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.model.numberOfPlacemarks + 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell;
-    if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:BPLClosestCell];
-        if (!cell) {
-            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:BPLClosestCell];
-        }
-        cell.textLabel.text = NSLocalizedString(@"Find the Plaque closest to me", nil);
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:BPLSearchCell];
-        if (!cell) {
-            cell = [[BPLTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:BPLSearchCell];
-        }
-        BPLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
-        if (pm) {
-            if (self.currentLocation) {
-                CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.coordinate.latitude
-                                                             longitude:pm.coordinate.longitude];
-                cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
-            }
-            cell.textLabel.text = pm.placemarkName;
-        }
-    }
-    return cell;
-}
-
 #pragma mark BPLSearchViewControllerDelegate
 
 - (void)searchViewController:(BPLSearchViewController *)searchViewController didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-  [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
-}
-
-#pragma mark UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 0) {
-        [self navigateToClosestPlacemark];
-    } else {
-        BPLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
-        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.placemarkName];
-        [self navigateToPlacemark:placemarkAtIndexPath];
-    }
+  if (indexPath.row == 0) {
+    [self navigateToClosestPlacemark];
+  } else {
+    BPLPlacemark *placemarkAtIndexPath = [self.model placemarkForRowAtIndexPath:indexPath];
+    [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:placemarkAtIndexPath.placemarkName];
+    [self navigateToPlacemark:placemarkAtIndexPath];
+  }
 }
 
 #pragma mark - Search
@@ -263,7 +214,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    [self toggleTableView:YES];
+    [self toggleSearchViewController:YES];
 }
 
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
@@ -289,7 +240,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
-    [self toggleTableView:NO];
+    [self toggleSearchViewController:NO];
 }
 
 - (void)filterDataForSearchText:(NSString *)searchText
@@ -301,27 +252,25 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 - (void)navigateToPlacemark:(BPLPlacemark *)placemark
 {
     [self.searchBar resignFirstResponder];
-    [self toggleTableView:NO];
+    [self toggleSearchViewController:NO];
     [self.mapView animateToLocation:placemark.coordinate];
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
   });
 }
 
-- (void)toggleTableView:(BOOL)show
+- (void)toggleSearchViewController:(BOOL)show
 {
     if (show) {
         [self.view bringSubviewToFront:self.containerView];
     } else {
         [self.view sendSubviewToBack:self.containerView];
     }
-    self.searchBar.showsCancelButton = show;
-    self.tableView.hidden = !show;
+  self.searchBar.showsCancelButton = show;
   self.containerView.hidden = !show;
 }
 
 - (void)reloadData {
-  [self.tableView reloadData];
   [self.searchViewController.collectionView reloadData];
 }
 
@@ -340,7 +289,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    [self toggleTableView:NO];
+    [self toggleSearchViewController:NO];
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
@@ -372,6 +321,13 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
             [self trackCategory:BPLUIActionCategory action:action label:placemarkForMarker.placemarkName];
         }
     });
+}
+
+- (void)setCurrentLocation:(CLLocation *)currentLocation {
+  _currentLocation = currentLocation;
+  if (self.searchViewController) {
+    self.searchViewController.currentLocation = currentLocation;
+  }
 }
 
 #pragma mark Loading

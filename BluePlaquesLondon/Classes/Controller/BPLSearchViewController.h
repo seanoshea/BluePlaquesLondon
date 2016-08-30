@@ -23,5 +23,6 @@
 
 @property (nonatomic, weak) id<BPLSearchViewControllerDelegate> delegate;
 @property (nonatomic) BPLMapViewModel *model;
+@property (nonatomic) CLLocation *currentLocation;
 
 @end

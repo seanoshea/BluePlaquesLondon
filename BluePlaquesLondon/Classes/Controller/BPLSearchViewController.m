@@ -12,6 +12,7 @@
 #import "BPLPlacemark.h"
 #import "BPLPlacemark+Additions.h"
 #import "UIColor+BPLColors.h"
+#import "MKDistanceFormatter+BPLAdditions.h"
 
 static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
@@ -53,15 +54,23 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
     BPLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
     if (pm) {
       cell.textLabel.text = pm.placemarkName;
+      if (self.currentLocation) {
+        CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.coordinate.latitude
+                                                     longitude:pm.coordinate.longitude];
+        cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
+      }
     }
   }
   return cell;
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView cellHeightAtIndexPath:(NSIndexPath *)indexPath {
+  return MDCCellDefaultTwoLineHeight;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
   [super collectionView:collectionView didSelectItemAtIndexPath:indexPath];
-  return;
   if ([self.delegate respondsToSelector:@selector(searchViewController:didSelectItemAtIndexPath:)]) {
     [self.delegate searchViewController:self didSelectItemAtIndexPath:indexPath];
   }

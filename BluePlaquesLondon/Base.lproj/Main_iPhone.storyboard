@@ -64,14 +64,6 @@
                                     <outlet property="delegate" destination="CZ4-MO-1fc" id="wBh-58-Dxv"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="D9y-Dj-iMT">
-                                <rect key="frame" x="0.0" y="59" width="320" height="462"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="CZ4-MO-1fc" id="dlv-pG-3ky"/>
-                                    <outlet property="delegate" destination="CZ4-MO-1fc" id="XJ5-sf-UZ0"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -81,18 +73,13 @@
                             <constraint firstItem="oaL-Ty-6qF" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="DLt-99-rRK"/>
                             <constraint firstAttribute="trailing" secondItem="oaL-Ty-6qF" secondAttribute="trailing" id="E6v-Vt-asW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Q8-Ds-OF5" secondAttribute="trailing" constant="-16" id="MEX-32-ypP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="D9y-Dj-iMT" secondAttribute="trailing" constant="-16" id="eHw-Lt-ha3"/>
                             <constraint firstItem="oaL-Ty-6qF" firstAttribute="top" secondItem="2VE-Yg-loa" secondAttribute="top" constant="60" id="fbx-Av-k77"/>
-                            <constraint firstItem="D9y-Dj-iMT" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" constant="-16" id="hug-WB-qDl"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="D9y-Dj-iMT" secondAttribute="bottom" constant="47" id="oZ7-gt-LIO"/>
-                            <constraint firstItem="D9y-Dj-iMT" firstAttribute="top" secondItem="2VE-Yg-loa" secondAttribute="topMargin" constant="59" id="sQb-rT-k9n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MOo-jM-9kA"/>
                     <connections>
                         <outlet property="containerView" destination="oaL-Ty-6qF" id="EA4-5O-Mom"/>
                         <outlet property="searchBar" destination="8Q8-Ds-OF5" id="XfO-GC-d1Y"/>
-                        <outlet property="tableView" destination="D9y-Dj-iMT" id="gb4-Ct-ZWj"/>
                         <segue destination="Eph-hh-E1n" kind="push" identifier="BPLMapDetailViewControllerSegue" id="l4P-vK-Wem"/>
                     </connections>
                 </viewController>
