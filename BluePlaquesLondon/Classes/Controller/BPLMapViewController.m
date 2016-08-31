@@ -47,14 +47,19 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "GAITrackedViewController.h"
 #import "BPLSearchViewController.h"
+#import "MaterialFlexibleHeader.h"
+#import "MDCRaisedButton.h"
 
 NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 @interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, BPLSearchViewControllerDelegate>
 
-@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) BPLSearchViewController *searchViewController;
+
+@property (nonatomic) UISearchBar *searchBar;
+@property (nonatomic) MDCFlexibleHeaderViewController *fhvc;
+@property (nonatomic) MDCRaisedButton *raisedButton;
 
 @property (nonatomic) GMSMapView *mapView;
 
@@ -100,6 +105,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
+  [self setupFlexibleHeaderViewController];
 }
 
 - (void)viewDidLoad
@@ -128,11 +134,8 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     [self.view addSubview:self.mapView];
     
     [self.mapView animateToLocation:lastKnownCoordinate];
-    
-    self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
-    self.searchBar.userInteractionEnabled = NO;
-    [self.view bringSubviewToFront:self.searchBar];
-    [self toggleSearchViewController:NO];
+  
+  [self setupSearchBar];
 
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"")];
     self.loadingTicks = 0;
@@ -141,6 +144,13 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
                                                        selector:@selector(updateLoadingMessage)
                                                        userInfo:nil
                                                         repeats:YES];
+  
+  [self styleFlexibleHeaderView];
+  [self setupInfoButton];
+}
+
+- (void)didTap:(id)sender {
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -357,6 +367,44 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     [SVProgressHUD dismiss];
     [self.loadingTimer invalidate];
     self.loadingTimer = nil;
+}
+
+#pragma mark MDC stuff
+
+- (void)setupFlexibleHeaderViewController {
+  _fhvc = [[MDCFlexibleHeaderViewController alloc] initWithNibName:nil bundle:nil];
+  [self addChildViewController:_fhvc];
+}
+
+- (void)setupSearchBar {
+  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 300, 40)];
+  self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
+  self.searchBar.userInteractionEnabled = NO;
+  self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+  self.searchBar.delegate = self;
+  [self.fhvc.view addSubview:self.searchBar];
+  [self toggleSearchViewController:NO];
+}
+
+- (void)styleFlexibleHeaderView {
+  self.fhvc.view.frame = self.view.bounds;
+  [self.view addSubview:self.fhvc.view];
+  [self.fhvc didMoveToParentViewController:self];
+  self.fhvc.headerView.minimumHeight = 10.0f;
+  self.fhvc.headerView.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)setupInfoButton {
+  self.raisedButton = [[MDCRaisedButton alloc] init];
+  [self.raisedButton sizeToFit];
+  [self.raisedButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
+  [self.raisedButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
+  [self.raisedButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  self.raisedButton.center = CGPointMake(self.view.frame.size.width - self.raisedButton.frame.size.width / 2, 60.0f);
+  [self.raisedButton addTarget:self
+                          action:@selector(didTap:)
+                forControlEvents:UIControlEventTouchUpInside];
+  [self.fhvc.view addSubview:self.raisedButton];
 }
 
 @end
