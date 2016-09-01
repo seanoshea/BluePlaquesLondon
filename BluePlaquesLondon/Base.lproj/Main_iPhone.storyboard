@@ -91,31 +91,31 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXo-Jr-ymK">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Occupation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="301" translatesAutoresizingMaskIntoConstraints="NO" id="1K8-dP-7Mx" userLabel="Label - Occupation" customClass="BPLLabel">
-                                        <rect key="frame" x="10" y="70" width="301" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Occupation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="1K8-dP-7Mx" userLabel="Label - Occupation" customClass="BPLLabel">
+                                        <rect key="frame" x="16" y="76" width="288" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="301" translatesAutoresizingMaskIntoConstraints="NO" id="xEc-Pe-SbB" userLabel="Label - Address" customClass="BPLLabel">
-                                        <rect key="frame" x="10" y="100" width="301" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Council and Year" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="301" translatesAutoresizingMaskIntoConstraints="NO" id="Gkz-B6-AwZ" userLabel="Label - Council and Year" customClass="BPLLabel">
-                                        <rect key="frame" x="10" y="130" width="301" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="xEc-Pe-SbB" userLabel="Label - Address" customClass="BPLLabel">
+                                        <rect key="frame" x="16" y="106" width="288" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Note" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="301" translatesAutoresizingMaskIntoConstraints="NO" id="RTh-4c-VXa" customClass="BPLLabel">
-                                        <rect key="frame" x="10" y="160" width="301" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Council and Year" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="Gkz-B6-AwZ" userLabel="Label - Council and Year" customClass="BPLLabel">
+                                        <rect key="frame" x="16" y="136" width="288" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Note" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="RTh-4c-VXa" customClass="BPLLabel">
+                                        <rect key="frame" x="16" y="166" width="288" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-4v-dwU" customClass="BPLButton">
-                                        <rect key="frame" x="20" y="189" width="281" height="30"/>
+                                        <rect key="frame" x="20" y="195" width="281" height="30"/>
                                         <state key="normal" title="Street View">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -124,7 +124,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-Ea-nmQ" customClass="BPLButton">
-                                        <rect key="frame" x="20" y="227" width="281" height="30"/>
+                                        <rect key="frame" x="20" y="233" width="281" height="30"/>
                                         <state key="normal" title="Wikipedia Article">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -133,7 +133,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7Y-Mk-fC9" userLabel="Button - Directions" customClass="BPLButton">
-                                        <rect key="frame" x="20" y="265" width="281" height="30"/>
+                                        <rect key="frame" x="20" y="271" width="281" height="30"/>
                                         <state key="normal" title="Directions">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -142,7 +142,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-1Y-SZz" customClass="BPLButton">
-                                        <rect key="frame" x="20" y="303" width="281" height="30"/>
+                                        <rect key="frame" x="20" y="309" width="281" height="30"/>
                                         <state key="normal" title="More People at this Location">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -153,6 +153,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="xEc-Pe-SbB" firstAttribute="leading" secondItem="Gkz-B6-AwZ" secondAttribute="leading" id="04r-a6-jvw"/>
+                                    <constraint firstAttribute="trailing" secondItem="RTh-4c-VXa" secondAttribute="trailing" constant="16" id="1a6-Qx-BPs"/>
                                     <constraint firstItem="EYI-1Y-SZz" firstAttribute="trailing" secondItem="R7Y-Mk-fC9" secondAttribute="trailing" id="2G2-Pi-J3A"/>
                                     <constraint firstItem="RTh-4c-VXa" firstAttribute="top" secondItem="Gkz-B6-AwZ" secondAttribute="bottom" constant="9" id="43E-SO-LqV"/>
                                     <constraint firstItem="RTh-4c-VXa" firstAttribute="centerX" secondItem="kNw-4v-dwU" secondAttribute="centerX" id="5RC-C0-Ox1"/>
@@ -165,15 +166,21 @@
                                     <constraint firstItem="1K8-dP-7Mx" firstAttribute="centerX" secondItem="zXo-Jr-ymK" secondAttribute="centerX" id="CQu-ED-YrY"/>
                                     <constraint firstItem="1K8-dP-7Mx" firstAttribute="leading" secondItem="xEc-Pe-SbB" secondAttribute="leading" id="FbW-83-fjE"/>
                                     <constraint firstItem="R7Y-Mk-fC9" firstAttribute="leading" secondItem="EYI-1Y-SZz" secondAttribute="leading" id="GWt-ee-9YX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gkz-B6-AwZ" secondAttribute="trailing" constant="16" id="HYY-dV-rx6"/>
                                     <constraint firstItem="R7Y-Mk-fC9" firstAttribute="top" secondItem="kEG-Ea-nmQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Jqq-9Y-fAb"/>
                                     <constraint firstItem="kEG-Ea-nmQ" firstAttribute="top" secondItem="kNw-4v-dwU" secondAttribute="bottom" constant="8" symbolic="YES" id="Jxy-DC-7MS"/>
                                     <constraint firstItem="RTh-4c-VXa" firstAttribute="leading" secondItem="Gkz-B6-AwZ" secondAttribute="leading" id="MEy-TM-EiF"/>
                                     <constraint firstItem="kNw-4v-dwU" firstAttribute="trailing" secondItem="kEG-Ea-nmQ" secondAttribute="trailing" id="RMg-CI-kcv"/>
+                                    <constraint firstAttribute="trailing" secondItem="xEc-Pe-SbB" secondAttribute="trailing" constant="16" id="UYa-SB-7HC"/>
                                     <constraint firstItem="EYI-1Y-SZz" firstAttribute="top" secondItem="R7Y-Mk-fC9" secondAttribute="bottom" constant="8" symbolic="YES" id="cFT-cT-XoL"/>
+                                    <constraint firstItem="RTh-4c-VXa" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="16" id="dXi-Fq-mYV"/>
                                     <constraint firstItem="kNw-4v-dwU" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="20" symbolic="YES" id="gsS-6z-cgB"/>
+                                    <constraint firstItem="Gkz-B6-AwZ" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="16" id="iVk-ZX-Shh"/>
                                     <constraint firstItem="xEc-Pe-SbB" firstAttribute="top" secondItem="1K8-dP-7Mx" secondAttribute="bottom" constant="9" id="j4N-Nb-Uot"/>
-                                    <constraint firstItem="1K8-dP-7Mx" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="10" id="meT-mO-yHc"/>
-                                    <constraint firstItem="1K8-dP-7Mx" firstAttribute="top" secondItem="zXo-Jr-ymK" secondAttribute="top" constant="70" id="ogi-1o-pCw"/>
+                                    <constraint firstItem="xEc-Pe-SbB" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="16" id="kd2-PO-8Th"/>
+                                    <constraint firstItem="1K8-dP-7Mx" firstAttribute="top" secondItem="zXo-Jr-ymK" secondAttribute="top" constant="76" id="ogi-1o-pCw"/>
+                                    <constraint firstAttribute="trailing" secondItem="1K8-dP-7Mx" secondAttribute="trailing" constant="16" id="ovj-Lo-i27"/>
+                                    <constraint firstItem="1K8-dP-7Mx" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="16" id="qC6-WG-piZ"/>
                                     <constraint firstItem="kEG-Ea-nmQ" firstAttribute="leading" secondItem="kNw-4v-dwU" secondAttribute="leading" id="rEP-bx-tlX"/>
                                     <constraint firstItem="RTh-4c-VXa" firstAttribute="trailing" secondItem="Gkz-B6-AwZ" secondAttribute="trailing" id="rUY-zF-5j9"/>
                                     <constraint firstItem="R7Y-Mk-fC9" firstAttribute="leading" secondItem="kEG-Ea-nmQ" secondAttribute="leading" id="rgz-fY-0ca"/>
