@@ -49,6 +49,8 @@
 #import "BPLSearchViewController.h"
 #import "MaterialFlexibleHeader.h"
 #import "MDCRaisedButton.h"
+#import "BPLInfoWindow.h"
+#import "BPLPlacemark+Additions.h"
 
 NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
@@ -399,6 +401,14 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   self.raisedButton.center = CGPointMake(self.view.frame.size.width - self.raisedButton.frame.size.width / 2, 60.0f);
   [self.raisedButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
   [self.fhvc.view addSubview:self.raisedButton];
+}
+
+- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
+  BPLInfoWindow *view =  [[[NSBundle mainBundle] loadNibNamed:@"BPLInfoWindow" owner:self options:nil] objectAtIndex:0];
+  BPLPlacemark *placemark = self.mapView.selectedMarker.userData;
+  view.header.text = placemark.placemarkTitle;
+  view.runner.text = placemark.occupation;
+  return view;
 }
 
 - (void)didTap:(id)sender {
