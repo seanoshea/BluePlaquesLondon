@@ -37,6 +37,7 @@
 #import "UIColor+BPLColors.h"
 #import "BPLConstants.h"
 #import "NSObject+BPLTracking.h"
+#import "MDCTypography.h"
 
 static NSString *const BPLDeveloperURLString = @"http://www.twitter.com/seanoshea";
 static NSString *const BPLDesignerURLString = @"http://www.andydale.info";
@@ -87,13 +88,10 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
   
   UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(close:)];
   self.navigationItem.rightBarButtonItem = anotherButton;
-    
-    UIFontDescriptor *header = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleHeadline size:20.0f];
-    UIFontDescriptor *runner = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleBody size:13.0f];
 
-    self.developerLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.developerLabel.font = [MDCTypography subheadFont];
     self.developerLabel.textColor = [UIColor BPLOrangeColour];
-    self.developerDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.developerDetailsLabel.font = [MDCTypography body1Font];
     self.developerDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
     self.developerDetailsLabel.delegate = self;
     self.developerLabel.text = NSLocalizedString(@"Developer Details", nil);
@@ -101,9 +99,9 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     NSRange range = [self.developerDetailsLabel.text rangeOfString:@"Sean O'Shea"];
     [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDeveloperURLString] withRange:range];
     
-    self.designerLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.designerLabel.font = [MDCTypography subheadFont];
     self.designerLabel.textColor = [UIColor BPLOrangeColour];
-    self.designerDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.designerDetailsLabel.font = [MDCTypography body1Font];
     self.designerDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
     self.designerDetailsLabel.delegate = self;
     self.designerLabel.text = NSLocalizedString(@"Designer Details", nil);
@@ -111,9 +109,9 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     NSRange designerDetailsRange = [self.designerDetailsLabel.text rangeOfString:@"Andy Dale"];
     [self.designerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDesignerURLString] withRange:designerDetailsRange];
 
-    self.nounProjectLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.nounProjectLabel.font = [MDCTypography subheadFont];
     self.nounProjectLabel.textColor = [UIColor BPLOrangeColour];
-    self.nounProjectDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.nounProjectDetailsLabel.font = [MDCTypography body1Font];
     self.nounProjectDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
     self.nounProjectDetailsLabel.delegate = self;
     self.nounProjectLabel.text = NSLocalizedString(@"Noun Project", nil);
@@ -121,9 +119,9 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     NSRange nounProjectRange = [self.nounProjectDetailsLabel.text rangeOfString:@"The Noun Project"];
     [self.nounProjectDetailsLabel addLinkToURL:[NSURL URLWithString:BPLNounProjectURLString] withRange:nounProjectRange];
     
-    self.dataLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.dataLabel.font = [MDCTypography subheadFont];
     self.dataLabel.textColor = [UIColor BPLOrangeColour];
-    self.dataDetailsLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.dataDetailsLabel.font = [MDCTypography body1Font];
     self.dataDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
     self.dataDetailsLabel.delegate = self;
     self.dataLabel.text = NSLocalizedString(@"Map Data Details", nil);
@@ -131,9 +129,9 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     NSRange dataDetailsRange = [self.dataDetailsLabel.text rangeOfString:@"Roy Reed"];
     [self.dataDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDataURLString] withRange:dataDetailsRange];
     
-    self.googleMapsLabel.font = [UIFont fontWithDescriptor:header size:20.0f];
+    self.googleMapsLabel.font = [MDCTypography subheadFont];
     self.googleMapsLabel.textColor = [UIColor BPLOrangeColour];
-    self.googleMapsLicenseInfoLabel.font = [UIFont fontWithDescriptor:runner size:13.0f];
+    self.googleMapsLicenseInfoLabel.font = [MDCTypography body1Font];
     self.googleMapsLicenseInfoLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
     self.googleMapsLicenseInfoLabel.delegate = self;
     self.googleMapsLabel.text = NSLocalizedString(@"Google Maps Information", nil);

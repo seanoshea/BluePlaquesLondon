@@ -447,10 +447,8 @@
                             <constraint firstAttribute="bottomMargin" secondItem="uZw-N3-KbI" secondAttribute="bottom" constant="-12" id="RM2-T1-bgD"/>
                             <constraint firstItem="uZw-N3-KbI" firstAttribute="top" secondItem="Yn9-4V-7A1" secondAttribute="top" id="T4f-uG-XWp"/>
                             <constraint firstItem="uZw-N3-KbI" firstAttribute="leading" secondItem="Yn9-4V-7A1" secondAttribute="leading" id="TB4-wo-5US"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uZw-N3-KbI" secondAttribute="trailing" constant="-16" id="Upo-6d-zFy"/>
                             <constraint firstItem="uZw-N3-KbI" firstAttribute="top" secondItem="Yn9-4V-7A1" secondAttribute="topMargin" id="ZtE-PS-iP7"/>
                             <constraint firstAttribute="trailing" secondItem="uZw-N3-KbI" secondAttribute="trailing" id="fQ3-Ng-dj7"/>
-                            <constraint firstItem="uZw-N3-KbI" firstAttribute="leading" secondItem="Yn9-4V-7A1" secondAttribute="leadingMargin" constant="-16" id="pzz-vG-he6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iW7-rg-V6z"/>
