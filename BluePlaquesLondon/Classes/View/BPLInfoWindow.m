@@ -45,7 +45,7 @@
 
 - (void)styleInfoWindow {
   self.header.font = [MDCTypography subheadFont];
-  self.runner.font = [MDCTypography body1Font];
+  self.runner.font = [MDCTypography captionFont];
 }
 
 - (void)awakeFromNib {
