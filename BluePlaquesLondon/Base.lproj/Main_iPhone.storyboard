@@ -70,11 +70,12 @@
                     <connections>
                         <outlet property="containerView" destination="oaL-Ty-6qF" id="EA4-5O-Mom"/>
                         <segue destination="Eph-hh-E1n" kind="push" identifier="BPLMapDetailViewControllerSegue" id="l4P-vK-Wem"/>
+                        <segue destination="10x-CT-HIQ" kind="modal" identifier="AboutViewControllerPushSegue" id="GLa-nQ-vhl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1179" y="-138"/>
+            <point key="canvasLocation" x="1163" y="-138"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Gcx-wC-Hj2">
@@ -293,7 +294,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkr-qM-P3w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123" y="570"/>
+            <point key="canvasLocation" x="2655" y="614"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="xtl-vj-pvF">
@@ -311,7 +312,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developer Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="XQD-bH-S3G" userLabel="Label - Developer" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="45" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="10" width="280" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Dk8-IL-F1G"/>
                                             <constraint firstAttribute="height" priority="500" constant="24" id="NZH-SY-SO2"/>
@@ -321,7 +322,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Developed By ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="C0O-B9-Sva" userLabel="Label - Developer Details" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="70" width="280" height="16"/>
+                                        <rect key="frame" x="20" y="35" width="280" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="68G-Qh-kmJ"/>
                                             <constraint firstAttribute="width" constant="280" id="Wct-QP-RyG"/>
@@ -331,7 +332,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Designer Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="vSQ-jY-OaL" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="95" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="60" width="280" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="Vhy-eq-bLT"/>
                                             <constraint firstAttribute="width" constant="280" id="hiV-Qr-uMZ"/>
@@ -342,7 +343,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Designed by ..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="XFm-gZ-3NG" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="120" width="280" height="16"/>
+                                        <rect key="frame" x="20" y="85" width="280" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="URE-Y4-OSG"/>
                                             <constraint firstAttribute="height" priority="500" constant="16" id="XJc-gf-YUe"/>
@@ -352,7 +353,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="The Noun Project" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8NO-jV-9xR" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="145" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="110" width="280" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="HBL-6L-SI8"/>
                                             <constraint firstAttribute="height" constant="24" id="KBe-c1-PzY"/>
@@ -363,7 +364,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Noun Project Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="APl-Z6-kOV" userLabel="Label - Noun Project Details" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="170" width="280" height="16"/>
+                                        <rect key="frame" x="20" y="135" width="280" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="TLJ-ly-8bM"/>
                                             <constraint firstAttribute="height" priority="500" constant="16" id="dz4-FS-gkl"/>
@@ -373,7 +374,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Map Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-or-M42" userLabel="Label - Data" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="195" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="160" width="280" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Cqc-mR-IYN"/>
                                             <constraint firstAttribute="width" constant="280" id="VBR-su-6rO"/>
@@ -383,7 +384,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Roy Reed etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="pna-Ua-oXY" userLabel="Label - Data Details" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="220" width="280" height="16"/>
+                                        <rect key="frame" x="20" y="185" width="280" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="dtO-8S-gPG"/>
                                             <constraint firstAttribute="height" priority="500" constant="16" id="l45-xp-jHG"/>
@@ -393,7 +394,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Google Maps Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-xa-FBm" userLabel="Label - Google Maps Label" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="245" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="210" width="280" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="8OF-DK-AjN"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="euT-Rk-qQM"/>
@@ -403,7 +404,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Maps Legal Notices" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-Zd-Lf9" userLabel="Label - Google Maps License Info" customClass="BPLLabel">
-                                        <rect key="frame" x="20" y="270" width="280" height="16"/>
+                                        <rect key="frame" x="20" y="235" width="280" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Qrm-Yr-m0r"/>
                                             <constraint firstAttribute="width" constant="280" id="Y1R-fi-LQM"/>
@@ -430,7 +431,7 @@
                                     <constraint firstItem="XFm-gZ-3NG" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="20" id="dFW-Ik-oPu"/>
                                     <constraint firstItem="pna-Ua-oXY" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="20" id="dyv-uj-3de"/>
                                     <constraint firstItem="AeP-Zd-Lf9" firstAttribute="top" secondItem="BIY-xa-FBm" secondAttribute="bottom" constant="1" id="fqy-dm-nfz"/>
-                                    <constraint firstItem="XQD-bH-S3G" firstAttribute="top" secondItem="uZw-N3-KbI" secondAttribute="top" constant="45" id="kPB-KF-vgq"/>
+                                    <constraint firstItem="XQD-bH-S3G" firstAttribute="top" secondItem="uZw-N3-KbI" secondAttribute="top" constant="10" id="kPB-KF-vgq"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AeP-Zd-Lf9" secondAttribute="bottom" constant="294" id="mNE-Yl-BXD"/>
                                     <constraint firstItem="mdh-or-M42" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="20" id="mqe-dx-yce"/>
                                     <constraint firstItem="XQD-bH-S3G" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="20" id="nAg-w5-Wa8"/>
@@ -452,7 +453,7 @@
                             <constraint firstItem="uZw-N3-KbI" firstAttribute="leading" secondItem="Yn9-4V-7A1" secondAttribute="leadingMargin" constant="-16" id="pzz-vG-he6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="about_icon" id="zyY-Co-lGM"/>
+                    <navigationItem key="navigationItem" id="iW7-rg-V6z"/>
                     <connections>
                         <outlet property="dataDetailsLabel" destination="pna-Ua-oXY" id="g9x-uJ-gjy"/>
                         <outlet property="dataLabel" destination="mdh-or-M42" id="tOv-TX-wg7"/>
@@ -469,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAg-Rf-eFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="581"/>
+            <point key="canvasLocation" x="1695" y="694"/>
         </scene>
         <!--Map-->
         <scene sceneID="nTL-io-Xf4">
@@ -488,11 +489,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iid-Lk-Wbm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-138"/>
+            <point key="canvasLocation" x="685" y="-138"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OoA-fX-Vfb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="10x-CT-HIQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j8L-rp-sBx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="adf-Cf-jfJ" kind="relationship" relationship="rootViewController" id="5oK-na-4Um"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DXL-Ak-8U5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1163" y="694"/>
         </scene>
     </scenes>
     <resources>
-        <image name="about_icon" width="30" height="30"/>
         <image name="map_icon" width="30" height="30"/>
     </resources>
 </document>

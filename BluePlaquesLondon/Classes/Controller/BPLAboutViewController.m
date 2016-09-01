@@ -82,6 +82,11 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     [super viewDidLoad];
     
     self.screenName = @"About Screen";
+  
+    self.title = @"About";
+  
+  UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(close:)];
+  self.navigationItem.rightBarButtonItem = anotherButton;
     
     UIFontDescriptor *header = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleHeadline size:20.0f];
     UIFontDescriptor *runner = [UIFontDescriptor fontDescriptorWithName:UIFontTextStyleBody size:13.0f];
@@ -156,6 +161,10 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     } else {
         [[UIApplication sharedApplication] openURL:url];
     }
+}
+
+- (void)close:(id)sender {
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

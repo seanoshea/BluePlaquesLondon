@@ -149,10 +149,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   [self setupInfoButton];
 }
 
-- (void)didTap:(id)sender {
-  
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -405,6 +401,10 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
                           action:@selector(didTap:)
                 forControlEvents:UIControlEventTouchUpInside];
   [self.fhvc.view addSubview:self.raisedButton];
+}
+
+- (void)didTap:(id)sender {
+  [self performSegueWithIdentifier:@"AboutViewControllerPushSegue" sender: self];
 }
 
 @end
