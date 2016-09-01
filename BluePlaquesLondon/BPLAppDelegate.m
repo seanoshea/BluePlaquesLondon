@@ -49,6 +49,7 @@
 #import "NSObject+BPLTracking.h"
 #import "BPLMapViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "MDCTypography.h"
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     BPLMapViewControllerIndex = 0,
@@ -94,6 +95,18 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [UISearchBar appearance].barTintColor = [UIColor BPLGreyColour];
     [UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = [UIColor BPLBlueColour];
     [UILabel appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = [UIColor BPLBlueColour];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                         NSForegroundColorAttributeName: [UIColor BPLBlueColour],
+                                                         NSFontAttributeName: [MDCTypography subheadFont]
+                                                         }];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(5, 0)
+                                                       forBarMetrics:UIBarMetricsDefault];
+  
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
+                                                        NSForegroundColorAttributeName: [UIColor BPLBlueColour],
+                                                        NSFontAttributeName: [MDCTypography subheadFont]
+                                                        } forState:UIControlStateNormal];
+  
     self.window.tintColor = [UIColor BPLBlueColour];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
 }
