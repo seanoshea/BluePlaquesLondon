@@ -60,8 +60,7 @@
     self.webView.backgroundColor = [UIColor BPLGreyColour];
     self.webView.opaque = NO;
   
-  self.view.backgroundColor = [UIColor whiteColor];
-  
+    self.view.backgroundColor = [UIColor whiteColor];
   
     KMLPlacemark *placemark = self.markers[0];
     self.model = [[BPLWikipediaViewModel alloc] initWithName:placemark.name];
