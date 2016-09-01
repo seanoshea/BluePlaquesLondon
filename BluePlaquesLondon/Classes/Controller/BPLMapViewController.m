@@ -124,7 +124,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
                                                                  zoom:mapZoom];
 
     self.mapView = [GMSMapView mapWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
-    UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0f, 5.0f, 48.0f, 0.0f);
+    UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0f, 5.0f, 5.0f, 0.0f);
     self.mapView.padding = mapInsets;
     self.mapView.delegate = self;
     self.mapView.indoorEnabled = NO;

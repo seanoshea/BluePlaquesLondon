@@ -68,7 +68,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
     [self initializeGoogleMapsApi];
     [self initializeStyling];
     [self initializeReachability];
-    [self initializeLocalization];
     [self initializeTracking];
     [self initializeCrashReporting];
     [self initializeRating];
@@ -92,20 +91,9 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeStyling
 {
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    tabBarController.tabBar.tintColor = [UIColor BPLBlueColour];
     [UISearchBar appearance].barTintColor = [UIColor BPLGreyColour];
     [UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = [UIColor BPLBlueColour];
     [UILabel appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = [UIColor BPLBlueColour];
-    [UITabBar appearance].selectionIndicatorImage = [UIImage alloc];
-    [[UITabBarItem appearance] setTitleTextAttributes:
-     @{ NSForegroundColorAttributeName: [UIColor BPLBlueColour],
-        NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
-                                             forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:
-     @{ NSForegroundColorAttributeName: [UIColor BPLBlueColour],
-        NSFontAttributeName: [UIFont preferredFontForTextStyle: UIFontTextStyleCaption2]}
-                                             forState:UIControlStateSelected];
     self.window.tintColor = [UIColor BPLBlueColour];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
 }
@@ -132,34 +120,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 - (void)reachabilityChanged:(NSNotification *)notification
 {
 
-}
-
-- (void)initializeLocalization
-{
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    NSArray *viewControllers = tabBarController.viewControllers;
-    // Ensure each view controller has a unique identifier
-    for (int i = 0; i < viewControllers.count; i++) {
-        UIViewController *viewController = viewControllers[i];
-        viewController.view.tag = i;
-    }
-    // Localize the tab names (they're stored in the storyboards)
-    NSArray *items = tabBarController.tabBar.items;
-    for (int i = 0; i < items.count; i++) {
-        UITabBarItem *item = items[i];
-        NSString *title;
-        switch (i) {
-            case BPLMapViewControllerIndex: {
-                title = NSLocalizedString(@"Map", @"");
-            } break;
-            case BPLAboutViewControllerIndex: {
-                title = NSLocalizedString(@"About", @"");
-            } break;
-            default:
-                break;
-        }
-        item.title = title;
-    }
 }
 
 - (void)initializeTracking
@@ -199,9 +159,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 - (void)openAppAtClosestPlacemark {
     [self trackCategory:BPLUIActionCategory action:BPLTodayExtensionButtonPressed label:nil];
     // ensure that the map tab is selected
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    tabBarController.selectedIndex = BPLMapViewControllerIndex;
-    UINavigationController *mapViewNavigationController = tabBarController.viewControllers[BPLMapViewControllerIndex];
+    UINavigationController *mapViewNavigationController = (UINavigationController *)self.window.rootViewController;
     [mapViewNavigationController popToRootViewControllerAnimated:NO];
     BPLMapViewController *mapViewController = mapViewNavigationController.viewControllers[0];
     [mapViewController navigateToClosestPlacemark];

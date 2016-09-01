@@ -31,6 +31,7 @@
 #import "BPLLabel.h"
 
 #import "UIColor+BPLColors.h"
+#import "MDCTypography.h"
 
 @implementation BPLLabel
 
@@ -39,6 +40,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.textColor = [UIColor BPLBlueColour];
+      self.font = [MDCTypography body1Font];
     }
     return self;
 }
