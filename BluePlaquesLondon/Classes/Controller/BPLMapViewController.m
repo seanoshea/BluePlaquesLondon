@@ -256,7 +256,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 - (void)filterDataForSearchText:(NSString *)searchText
 {
     self.model.filteredData = [self.model.alphabeticallySortedPositions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.placemarkTitle contains[c] %@", searchText]];
-//    [self reloadData];
+    [self reloadData];
 }
 
 - (void)navigateToPlacemark:(BPLPlacemark *)placemark
