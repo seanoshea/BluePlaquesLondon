@@ -54,9 +54,6 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 @property (nonatomic, weak) IBOutlet BPLLabel *designerLabel;
 @property (nonatomic, weak) IBOutlet BPLLabel *designerDetailsLabel;
 
-@property (nonatomic, weak) IBOutlet BPLLabel *nounProjectLabel;
-@property (nonatomic, weak) IBOutlet BPLLabel *nounProjectDetailsLabel;
-
 @property (nonatomic, weak) IBOutlet BPLLabel *dataLabel;
 @property (nonatomic, weak) IBOutlet BPLLabel *dataDetailsLabel;
 
@@ -108,16 +105,6 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
     self.designerDetailsLabel.text = NSLocalizedString(@"Application designed by Andy Dale", nil);
     NSRange designerDetailsRange = [self.designerDetailsLabel.text rangeOfString:@"Andy Dale"];
     [self.designerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDesignerURLString] withRange:designerDetailsRange];
-
-    self.nounProjectLabel.font = [MDCTypography subheadFont];
-    self.nounProjectLabel.textColor = [UIColor BPLOrangeColour];
-    self.nounProjectDetailsLabel.font = [MDCTypography body1Font];
-    self.nounProjectDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
-    self.nounProjectDetailsLabel.delegate = self;
-    self.nounProjectLabel.text = NSLocalizedString(@"Noun Project", nil);
-    self.nounProjectDetailsLabel.text = NSLocalizedString(@"Some of the icons in this application are freely downloadable from The Noun Project. Information Icon by Creatorid'immagine & Map Icon by Stefan Zoll", nil);
-    NSRange nounProjectRange = [self.nounProjectDetailsLabel.text rangeOfString:@"The Noun Project"];
-    [self.nounProjectDetailsLabel addLinkToURL:[NSURL URLWithString:BPLNounProjectURLString] withRange:nounProjectRange];
     
     self.dataLabel.font = [MDCTypography subheadFont];
     self.dataLabel.textColor = [UIColor BPLOrangeColour];
