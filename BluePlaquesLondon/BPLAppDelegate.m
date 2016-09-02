@@ -91,9 +91,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeStyling
 {
-    [UISearchBar appearance].barTintColor = [UIColor BPLGreyColour];
-    [UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = [UIColor BPLBlueColour];
-    [UILabel appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = [UIColor BPLBlueColour];
     [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                          NSForegroundColorAttributeName: [UIColor BPLBlueColour],
                                                          NSFontAttributeName: [MDCTypography subheadFont]

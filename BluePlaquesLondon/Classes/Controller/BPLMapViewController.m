@@ -388,12 +388,11 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 }
 
 - (void)setupInfoButton {
-  self.aboutButton = [[MDCFlatButton alloc] init];
-  [self.aboutButton sizeToFit];
+  self.aboutButton = [[MDCFlatButton alloc] initWithFrame:CGRectMake(0, 0, 25.0f, 25.0f)];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
   [self.aboutButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width + 5.0f, 35.0f);
+  self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width - 5.0f, 35.0f);
   [self.aboutButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
   [self.fhvc.view addSubview:self.aboutButton];
 }
