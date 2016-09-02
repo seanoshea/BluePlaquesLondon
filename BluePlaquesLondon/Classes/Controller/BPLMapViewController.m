@@ -46,7 +46,7 @@
 #import "GAITrackedViewController.h"
 #import "BPLSearchViewController.h"
 #import "MaterialFlexibleHeader.h"
-#import "MDCRaisedButton.h"
+#import "MDCFlatButton.h"
 #import "BPLInfoWindow.h"
 #import "BPLPlacemark+Additions.h"
 
@@ -59,7 +59,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic) MDCFlexibleHeaderViewController *fhvc;
-@property (nonatomic) MDCRaisedButton *raisedButton;
+@property (nonatomic) MDCFlatButton *aboutButton;
 
 @property (nonatomic) GMSMapView *mapView;
 
@@ -388,14 +388,14 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 }
 
 - (void)setupInfoButton {
-  self.raisedButton = [[MDCRaisedButton alloc] init];
-  [self.raisedButton sizeToFit];
-  [self.raisedButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
-  [self.raisedButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
-  [self.raisedButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  self.raisedButton.center = CGPointMake(self.view.frame.size.width - self.raisedButton.frame.size.width / 2, 40.0f);
-  [self.raisedButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
-  [self.fhvc.view addSubview:self.raisedButton];
+  self.aboutButton = [[MDCFlatButton alloc] init];
+  [self.aboutButton sizeToFit];
+  [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
+  [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
+  [self.aboutButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width + 5.0f, 35.0f);
+  [self.aboutButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
+  [self.fhvc.view addSubview:self.aboutButton];
 }
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {

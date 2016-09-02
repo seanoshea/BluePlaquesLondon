@@ -65,7 +65,7 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView cellHeightAtIndexPath:(NSIndexPath *)indexPath {
-  return MDCCellDefaultTwoLineHeight;
+  return self.currentLocation ? MDCCellDefaultTwoLineHeight : MDCCellDefaultOneLineHeight;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
