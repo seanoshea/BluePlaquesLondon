@@ -43,8 +43,6 @@
 #import "NSObject+BPLTracking.h"
 #import "MKDistanceFormatter+BPLAdditions.h"
 #import "BPLPlacemark+Additions.h"
-
-#import <SVProgressHUD/SVProgressHUD.h>
 #import "GAITrackedViewController.h"
 #import "BPLSearchViewController.h"
 #import "MaterialFlexibleHeader.h"
@@ -139,7 +137,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   
   [self setupSearchBar];
 
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", @"")];
     self.loadingTicks = 0;
     self.loadingTimer = [NSTimer scheduledTimerWithTimeInterval:1.5f
                                                          target:self
@@ -357,12 +354,10 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
         message = loadingMessages[loadingMessages.count - 1];
     }
     self.loadingTicks++;
-    [SVProgressHUD showWithStatus:message];
 }
 
 - (void)dismissHUDAndInvalidateTimer
 {
-    [SVProgressHUD dismiss];
     [self.loadingTimer invalidate];
     self.loadingTimer = nil;
 }

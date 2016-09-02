@@ -11,12 +11,11 @@ target 'BluePlaquesLondon' do
   pod 'GoogleAnalytics', '3.14.0'
   pod 'GoogleMaps', '1.13.2'
   pod 'IntentKit', '0.7.3'
-  pod 'SVProgressHUD', '2.0.3'
   pod 'iRate', :git => 'https://github.com/nicklockwood/iRate.git', :branch => 'master'
   pod 'iOS-KML-Framework', :git => 'https://github.com/FLCLjp/iOS-KML-Framework.git'
   pod 'GTMNSStringHTMLAdditions', '0.2.1'
   pod 'MaterialComponents', :path => '../material-components-ios'
- 
+
   target 'BluePlaquesLondonTests' do
     inherit! :search_paths
 

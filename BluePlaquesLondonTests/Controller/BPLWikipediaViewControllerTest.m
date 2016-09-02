@@ -35,7 +35,6 @@
 #import "BPLWikipediaViewController.h"
 #import "BPLUnitTestHelper.h"
 #import "BPLWikipediaViewModel.h"
-#import "SVProgressHUD.h"
 
 @interface BPLWikipediaViewControllerTest : XCTestCase
 
