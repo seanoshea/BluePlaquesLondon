@@ -375,7 +375,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 }
 
 - (void)setupSearchBar {
-  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 16, self.view.frame.size.width - 30, 40)];
+  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 16, self.view.frame.size.width - 40, 40)];
   self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
   self.searchBar.userInteractionEnabled = NO;
   self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -398,7 +398,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   [self.raisedButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
   [self.raisedButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
   [self.raisedButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  self.raisedButton.center = CGPointMake(self.view.frame.size.width - self.raisedButton.frame.size.width / 2, 30.0f);
+  self.raisedButton.center = CGPointMake(self.view.frame.size.width - self.raisedButton.frame.size.width / 2, 40.0f);
   [self.raisedButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
   [self.fhvc.view addSubview:self.raisedButton];
 }
