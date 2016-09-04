@@ -60,7 +60,7 @@
     
     self.markers = @[marker1, marker2];
     
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.controller = [storybord instantiateViewControllerWithIdentifier:BPLDetailChooserViewControllerStoryboardIdentifier];
     self.controller.markers = self.markers;
     

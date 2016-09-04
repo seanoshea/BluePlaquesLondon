@@ -85,7 +85,7 @@
 - (void)setUp
 {
     [super setUp];
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.controller = [storybord instantiateViewControllerWithIdentifier:BPLMapViewControllerStoryboardIdentifier];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
     __unused id view = (self.controller).view;
@@ -94,7 +94,7 @@
 
 - (void)testPrepareForSegue
 {
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     BPLMapViewDetailViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:BPLMapViewDetailViewControllerStoryboardIdentifier];
     UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLMapDetailViewControllerSegue source:self.controller destination:destinationViewController];
 

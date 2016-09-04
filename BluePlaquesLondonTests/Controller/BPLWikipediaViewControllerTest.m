@@ -56,7 +56,7 @@
 
 - (void)setUp {
     [super setUp];
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.controller = [storybord instantiateViewControllerWithIdentifier:@"BPLWikipediaViewController"];
     self.controller.markers = @[[BPLUnitTestHelper placemarkWithIdentifier:@"1"]];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];

@@ -54,8 +54,7 @@
 		14F003621A9D0E2500AEE2AC /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035D1A9D0E2500AEE2AC /* BPLButton.m */; };
 		14F003631A9D0E2500AEE2AC /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */; };
 		14F003641A9D0E2500AEE2AC /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */; };
-		14F0036F1A9D1E7700AEE2AC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */; };
-		14F003701A9D1E7700AEE2AC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */; };
+		14F003701A9D1E7700AEE2AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036D1A9D1E7700AEE2AC /* Main.storyboard */; };
 		14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 14F003721A9D1F2B00AEE2AC /* blueplaques.kml */; };
 		14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */; };
 		14F003791A9D1F3C00AEE2AC /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14F003771A9D1F3C00AEE2AC /* IntentKit-Localizable.strings */; };
@@ -192,8 +191,7 @@
 		14F003601A9D0E2500AEE2AC /* BPLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLTableViewCell.h; sourceTree = "<group>"; };
 		14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCell.m; sourceTree = "<group>"; };
 		14F003651A9D1CB700AEE2AC /* BluePlaquesLondon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondon-Prefix.pch"; sourceTree = "<group>"; };
-		14F0036C1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		14F0036E1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		14F0036E1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F003721A9D1F2B00AEE2AC /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
 		14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = blueplaques.kmz; sourceTree = "<group>"; };
 		14F003771A9D1F3C00AEE2AC /* IntentKit-Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = "IntentKit-Localizable.strings"; sourceTree = "<group>"; };
@@ -318,8 +316,7 @@
 				14F003031A9D0CFC00AEE2AC /* Dependencies */,
 				146C5FA41A9D09EB00E88761 /* Images.xcassets */,
 				146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */,
-				14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */,
-				14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */,
+				14F0036D1A9D1E7700AEE2AC /* Main.storyboard */,
 				14F003711A9D1F1700AEE2AC /* Resources */,
 				146C5F941A9D09EB00E88761 /* Supporting Files */,
 			);
@@ -677,8 +674,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14F003701A9D1E7700AEE2AC /* Main_iPhone.storyboard in Resources */,
-				14F0036F1A9D1E7700AEE2AC /* Main_iPad.storyboard in Resources */,
+				14F003701A9D1E7700AEE2AC /* Main.storyboard in Resources */,
 				14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */,
 				14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */,
 				411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */,
@@ -908,20 +904,12 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14F0036C1A9D1E7700AEE2AC /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */ = {
+		14F0036D1A9D1E7700AEE2AC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				14F0036E1A9D1E7700AEE2AC /* Base */,
 			);
-			name = Main_iPhone.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

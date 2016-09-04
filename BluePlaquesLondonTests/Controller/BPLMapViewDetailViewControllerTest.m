@@ -76,7 +76,7 @@
 - (void)setUp
 {
     [super setUp];
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.controller = [storybord instantiateViewControllerWithIdentifier:BPLMapViewDetailViewControllerStoryboardIdentifier];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
     __unused id view = (self.controller).view;
@@ -116,7 +116,7 @@
 
 - (void)testPrepareForWikipediaSegue
 {
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     BPLWikipediaViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:@"BPLWikipediaViewController"];
     
     UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLWikipediaViewControllerSegue source:self.controller destination:destinationViewController];
@@ -131,7 +131,7 @@
 
 - (void)testPrepareForDetailChooserSegue
 {
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     BPLDetailChooserViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:@"BPLDetailChooserViewController"];
     
     UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLDetailChooserViewControllerSegue source:self.controller destination:destinationViewController];
@@ -146,7 +146,7 @@
 
 - (void)testPrepareForStreetMapSegue
 {
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     BPLStreetViewViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:@"BPLStreetViewViewController"];
     
     UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLStreetMapViewControllerSegue source:self.controller destination:destinationViewController];
