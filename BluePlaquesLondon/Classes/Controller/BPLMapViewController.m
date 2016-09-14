@@ -394,6 +394,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   [self.aboutButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
   self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width - 5.0f, 37.0f);
   [self.aboutButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
+  self.aboutButton.inkStyle = MDCInkStyleUnbounded;
   [self.fhvc.view addSubview:self.aboutButton];
 }
 
