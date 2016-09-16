@@ -370,7 +370,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 }
 
 - (void)setupSearchBar {
-  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 16, self.view.frame.size.width - 40, 40)];
+  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 31, self.view.frame.size.width - 40, 40)];
   self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
   self.searchBar.userInteractionEnabled = NO;
   self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -381,18 +381,18 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)styleFlexibleHeaderView {
   self.fhvc.view.frame = self.view.bounds;
-  self.fhvc.headerView.minimumHeight = 60.0f;
+  self.fhvc.headerView.minimumHeight = 76.0f;
   self.fhvc.headerView.backgroundColor = [UIColor whiteColor];
   [self.view addSubview:self.fhvc.view];
   [self.fhvc didMoveToParentViewController:self];
 }
 
 - (void)setupInfoButton {
-  self.aboutButton = [[MDCFlatButton alloc] initWithFrame:CGRectMake(0, 0, 25.0f, 25.0f)];
+  self.aboutButton = [[MDCFlatButton alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
   [self.aboutButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width - 5.0f, 37.0f);
+  self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width - 12.0f, 52.0f);
   [self.aboutButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
   self.aboutButton.inkStyle = MDCInkStyleUnbounded;
   [self.fhvc.view addSubview:self.aboutButton];
