@@ -64,8 +64,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 @property (nonatomic) GMSMapView *mapView;
 
 @property (nonatomic) BPLMapViewModel *model;
-@property (nonatomic) NSTimer *loadingTimer;
-@property (nonatomic) NSUInteger loadingTicks;
 @property (nonatomic) BOOL automaticallyNavigateToClosestPlacemark;
 
 @property (nonatomic) CLLocationManager *locationManager;
@@ -90,7 +88,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 {
     self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self dismissHUDAndInvalidateTimer];
             [self.model createMarkersForMap:self.mapView];
             self.searchViewController.model = self.model;
             self.searchBar.userInteractionEnabled = YES;
@@ -136,13 +133,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     [self.mapView animateToLocation:lastKnownCoordinate];
   
   [self setupSearchBar];
-
-    self.loadingTicks = 0;
-    self.loadingTimer = [NSTimer scheduledTimerWithTimeInterval:1.5f
-                                                         target:self
-                                                       selector:@selector(updateLoadingMessage)
-                                                       userInfo:nil
-                                                        repeats:YES];
   
   [self styleFlexibleHeaderView];
   [self setupInfoButton];
@@ -152,12 +142,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self dismissHUDAndInvalidateTimer];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -271,6 +255,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     } else {
         [self.view sendSubviewToBack:self.containerView];
     }
+  self.aboutButton.hidden = show;
   self.searchBar.showsCancelButton = show;
   self.containerView.hidden = !show;
 }
@@ -335,33 +320,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   }
 }
 
-#pragma mark Loading
-
-- (void)updateLoadingMessage
-{
-    static NSArray *loadingMessages;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        loadingMessages = @[NSLocalizedString(@"Loading .", nil),
-                            NSLocalizedString(@"Loading ..", nil),
-                            NSLocalizedString(@"Loading ...", nil),
-                            NSLocalizedString(@"Nearly ready .....", nil)];
-    });
-    NSString *message;
-    if (loadingMessages.count > self.loadingTicks) {
-        message = loadingMessages[self.loadingTicks];
-    } else {
-        message = loadingMessages[loadingMessages.count - 1];
-    }
-    self.loadingTicks++;
-}
-
-- (void)dismissHUDAndInvalidateTimer
-{
-    [self.loadingTimer invalidate];
-    self.loadingTimer = nil;
-}
-
 #pragma mark MDC stuff
 
 - (void)setupFlexibleHeaderViewController {
@@ -370,7 +328,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 }
 
 - (void)setupSearchBar {
-  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 31, self.view.frame.size.width - 40, 40)];
+  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(2, 25, self.view.frame.size.width - 40, 50)];
   self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
   self.searchBar.userInteractionEnabled = NO;
   self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -392,7 +350,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
   [self.aboutButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width - 12.0f, 52.0f);
+  self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width - 8.0f, 50.0f);
   [self.aboutButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
   self.aboutButton.inkStyle = MDCInkStyleUnbounded;
   [self.fhvc.view addSubview:self.aboutButton];
