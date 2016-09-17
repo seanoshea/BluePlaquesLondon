@@ -50,91 +50,91 @@ static CGFloat const BPLDefaultLongitude = -0.1814680000049975f;
 
 - (CLLocationCoordinate2D)lastKnownBPLCoordinate
 {
-    return [self savedCoordinateAtLatitudeKey:BPLStateLastKnownBPLCoordinatLatitude longitudeKey:BPLStateLastKnownBPLCoordinatLongitude];
+  return [self savedCoordinateAtLatitudeKey:BPLStateLastKnownBPLCoordinatLatitude longitudeKey:BPLStateLastKnownBPLCoordinatLongitude];
 }
 
 - (void)saveLastKnownBPLCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    [self saveCoordinate:coordinate latitudeKey:BPLStateLastKnownBPLCoordinatLatitude longitudeKey:BPLStateLastKnownBPLCoordinatLongitude];
+  [self saveCoordinate:coordinate latitudeKey:BPLStateLastKnownBPLCoordinatLatitude longitudeKey:BPLStateLastKnownBPLCoordinatLongitude];
 }
 
 - (CLLocationCoordinate2D)lastKnownCoordinate
 {
-    return [self savedCoordinateAtLatitudeKey:BPLStateLastKnownCoordinatLatitude longitudeKey:BPLStateLastKnownCoordinatLongitude];
+  return [self savedCoordinateAtLatitudeKey:BPLStateLastKnownCoordinatLatitude longitudeKey:BPLStateLastKnownCoordinatLongitude];
 }
 
 - (void)saveLastKnownCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    [self saveCoordinate:coordinate latitudeKey:BPLStateLastKnownCoordinatLatitude longitudeKey:BPLStateLastKnownCoordinatLongitude];
+  [self saveCoordinate:coordinate latitudeKey:BPLStateLastKnownCoordinatLatitude longitudeKey:BPLStateLastKnownCoordinatLongitude];
 }
 
 - (float)mapZoom
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    float mapZoom = [userDefaults floatForKey:BPLStateMapZoom];
-    // ensure that we always have a positive zoom for the camera
-    if (mapZoom <= 0.0f) {
-        mapZoom = BPLStateMapZoomDefault;
-    }
-    return mapZoom;
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  float mapZoom = [userDefaults floatForKey:BPLStateMapZoom];
+  // ensure that we always have a positive zoom for the camera
+  if (mapZoom <= 0.0f) {
+    mapZoom = BPLStateMapZoomDefault;
+  }
+  return mapZoom;
 }
 
 - (void)saveMapZoom:(float)zoom
 {
-    NSParameterAssert(zoom > kGMSMinZoomLevel);
-    NSParameterAssert(zoom < kGMSMaxZoomLevel);
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setFloat:zoom forKey:BPLStateMapZoom];
-    [userDefaults synchronize];
+  NSParameterAssert(zoom > kGMSMinZoomLevel);
+  NSParameterAssert(zoom < kGMSMaxZoomLevel);
+  
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  [userDefaults setFloat:zoom forKey:BPLStateMapZoom];
+  [userDefaults synchronize];
 }
 
 - (BOOL)isTrackingEnabled
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:BPLTrackingEnabled] == nil) {
-        [self saveTrackingEnabled:YES];
-    }
-    return [userDefaults boolForKey:BPLTrackingEnabled];
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  if ([userDefaults objectForKey:BPLTrackingEnabled] == nil) {
+    [self saveTrackingEnabled:YES];
+  }
+  return [userDefaults boolForKey:BPLTrackingEnabled];
 }
 
 - (void)saveTrackingEnabled:(BOOL)trackingEnabled
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:trackingEnabled forKey:BPLTrackingEnabled];
-    [userDefaults synchronize];
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  [userDefaults setBool:trackingEnabled forKey:BPLTrackingEnabled];
+  [userDefaults synchronize];
 }
 
 - (CLLocationCoordinate2D)savedCoordinateAtLatitudeKey:(NSString *)latitudeKey longitudeKey:(NSString *)longitudeKey
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    CLLocationDegrees latitudeDegrees = [userDefaults doubleForKey:latitudeKey];
-    CLLocationDegrees longitudeDegrees = [userDefaults doubleForKey:longitudeKey];
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitudeDegrees, longitudeDegrees);
-    // check to see whether this is a valid lat/long coordinate.
-    if (![self isValidCoordinate:coordinate]) {
-        coordinate = CLLocationCoordinate2DMake(BPLDefaultLatitude, BPLDefaultLongitude);
-    }
-    return coordinate;
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  CLLocationDegrees latitudeDegrees = [userDefaults doubleForKey:latitudeKey];
+  CLLocationDegrees longitudeDegrees = [userDefaults doubleForKey:longitudeKey];
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitudeDegrees, longitudeDegrees);
+  // check to see whether this is a valid lat/long coordinate.
+  if (![self isValidCoordinate:coordinate]) {
+    coordinate = CLLocationCoordinate2DMake(BPLDefaultLatitude, BPLDefaultLongitude);
+  }
+  return coordinate;
 }
 
 - (void)saveCoordinate:(CLLocationCoordinate2D)coordinate latitudeKey:(NSString *)latitudeKey longitudeKey:(NSString *)longitudeKey
 {
-    if ([self isValidCoordinate:coordinate]) {
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setDouble:coordinate.latitude forKey:latitudeKey];
-        [userDefaults setDouble:coordinate.longitude forKey:longitudeKey];
-        [userDefaults synchronize];
-    }
+  if ([self isValidCoordinate:coordinate]) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setDouble:coordinate.latitude forKey:latitudeKey];
+    [userDefaults setDouble:coordinate.longitude forKey:longitudeKey];
+    [userDefaults synchronize];
+  }
 }
 
 - (BOOL)isValidCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    BOOL isValidCoordinate = NO;
-    if (CLLocationCoordinate2DIsValid(coordinate) && (coordinate.longitude != 0.0f && coordinate.latitude != 0.0f)) {
-        isValidCoordinate = YES;
-    }
-    return isValidCoordinate;
+  BOOL isValidCoordinate = NO;
+  if (CLLocationCoordinate2DIsValid(coordinate) && (coordinate.longitude != 0.0f && coordinate.latitude != 0.0f)) {
+    isValidCoordinate = YES;
+  }
+  return isValidCoordinate;
 }
 
 @end

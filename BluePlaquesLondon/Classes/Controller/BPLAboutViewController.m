@@ -68,84 +68,84 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        _model = [[BPLAboutViewModel alloc] init];
-    }
-    return self;
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    _model = [[BPLAboutViewModel alloc] init];
+  }
+  return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    self.screenName = @"About Screen";
+  [super viewDidLoad];
   
-    self.title = @"About";
+  self.screenName = @"About Screen";
+  
+  self.title = @"About";
   
   UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(close:)];
   self.navigationItem.rightBarButtonItem = anotherButton;
-
-    self.developerLabel.font = [MDCTypography subheadFont];
-    self.developerLabel.textColor = [UIColor BPLOrangeColour];
-    self.developerDetailsLabel.font = [MDCTypography body1Font];
-    self.developerDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
-    self.developerDetailsLabel.delegate = self;
-    self.developerLabel.text = NSLocalizedString(@"Developer Details", nil);
-    self.developerDetailsLabel.text = NSLocalizedString(@"Developed by Sean O'Shea", nil);
-    NSRange range = [self.developerDetailsLabel.text rangeOfString:@"Sean O'Shea"];
-    [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDeveloperURLString] withRange:range];
-    
-    self.designerLabel.font = [MDCTypography subheadFont];
-    self.designerLabel.textColor = [UIColor BPLOrangeColour];
-    self.designerDetailsLabel.font = [MDCTypography body1Font];
-    self.designerDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
-    self.designerDetailsLabel.delegate = self;
-    self.designerLabel.text = NSLocalizedString(@"Designer Details", nil);
-    self.designerDetailsLabel.text = NSLocalizedString(@"Application designed by Andy Dale", nil);
-    NSRange designerDetailsRange = [self.designerDetailsLabel.text rangeOfString:@"Andy Dale"];
-    [self.designerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDesignerURLString] withRange:designerDetailsRange];
-    
-    self.dataLabel.font = [MDCTypography subheadFont];
-    self.dataLabel.textColor = [UIColor BPLOrangeColour];
-    self.dataDetailsLabel.font = [MDCTypography body1Font];
-    self.dataDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
-    self.dataDetailsLabel.delegate = self;
-    self.dataLabel.text = NSLocalizedString(@"Map Data Details", nil);
-    self.dataDetailsLabel.text = NSLocalizedString(@"Map Data for this application is maintained by Roy Reed", nil);
-    NSRange dataDetailsRange = [self.dataDetailsLabel.text rangeOfString:@"Roy Reed"];
-    [self.dataDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDataURLString] withRange:dataDetailsRange];
-    
-    self.googleMapsLabel.font = [MDCTypography subheadFont];
-    self.googleMapsLabel.textColor = [UIColor BPLOrangeColour];
-    self.googleMapsLicenseInfoLabel.font = [MDCTypography body1Font];
-    self.googleMapsLicenseInfoLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
-    self.googleMapsLicenseInfoLabel.delegate = self;
-    self.googleMapsLabel.text = NSLocalizedString(@"Google Maps Information", nil);
-    self.googleMapsLicenseInfoLabel.text = self.model.mapsOpenSourceLicenseInfo;
+  
+  self.developerLabel.font = [MDCTypography subheadFont];
+  self.developerLabel.textColor = [UIColor BPLOrangeColour];
+  self.developerDetailsLabel.font = [MDCTypography body1Font];
+  self.developerDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
+  self.developerDetailsLabel.delegate = self;
+  self.developerLabel.text = NSLocalizedString(@"Developer Details", nil);
+  self.developerDetailsLabel.text = NSLocalizedString(@"Developed by Sean O'Shea", nil);
+  NSRange range = [self.developerDetailsLabel.text rangeOfString:@"Sean O'Shea"];
+  [self.developerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDeveloperURLString] withRange:range];
+  
+  self.designerLabel.font = [MDCTypography subheadFont];
+  self.designerLabel.textColor = [UIColor BPLOrangeColour];
+  self.designerDetailsLabel.font = [MDCTypography body1Font];
+  self.designerDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
+  self.designerDetailsLabel.delegate = self;
+  self.designerLabel.text = NSLocalizedString(@"Designer Details", nil);
+  self.designerDetailsLabel.text = NSLocalizedString(@"Application designed by Andy Dale", nil);
+  NSRange designerDetailsRange = [self.designerDetailsLabel.text rangeOfString:@"Andy Dale"];
+  [self.designerDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDesignerURLString] withRange:designerDetailsRange];
+  
+  self.dataLabel.font = [MDCTypography subheadFont];
+  self.dataLabel.textColor = [UIColor BPLOrangeColour];
+  self.dataDetailsLabel.font = [MDCTypography body1Font];
+  self.dataDetailsLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
+  self.dataDetailsLabel.delegate = self;
+  self.dataLabel.text = NSLocalizedString(@"Map Data Details", nil);
+  self.dataDetailsLabel.text = NSLocalizedString(@"Map Data for this application is maintained by Roy Reed", nil);
+  NSRange dataDetailsRange = [self.dataDetailsLabel.text rangeOfString:@"Roy Reed"];
+  [self.dataDetailsLabel addLinkToURL:[NSURL URLWithString:BPLDataURLString] withRange:dataDetailsRange];
+  
+  self.googleMapsLabel.font = [MDCTypography subheadFont];
+  self.googleMapsLabel.textColor = [UIColor BPLOrangeColour];
+  self.googleMapsLicenseInfoLabel.font = [MDCTypography body1Font];
+  self.googleMapsLicenseInfoLabel.enabledTextCheckingTypes = UIDataDetectorTypeAll;
+  self.googleMapsLicenseInfoLabel.delegate = self;
+  self.googleMapsLabel.text = NSLocalizedString(@"Google Maps Information", nil);
+  self.googleMapsLicenseInfoLabel.text = self.model.mapsOpenSourceLicenseInfo;
 }
 
 #pragma mark TTTAttributedLabelDelegate
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
-    BOOL developerURLClicked = [url.absoluteString isEqualToString:BPLDeveloperURLString];
-    // tracking
-    if (developerURLClicked ||
-        [url.absoluteString isEqualToString:BPLDesignerURLString] ||
-        [url.absoluteString isEqualToString:BPLDataURLString] ||
-        [url.absoluteString isEqualToString:BPLNounProjectURLString]) {
-        [self trackCategory:BPLUIActionCategory action:BPLAboutLinkPressedEvent label:url.absoluteString];
-    }
-    if (developerURLClicked && [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"Hi there!"];
-        [self presentViewController:tweetSheet animated:YES completion:^{
-            [self trackCategory:BPLUIActionCategory action:BPLTweetSent label:url.absoluteString];
-        }];
-    } else {
-        [[UIApplication sharedApplication] openURL:url];
-    }
+  BOOL developerURLClicked = [url.absoluteString isEqualToString:BPLDeveloperURLString];
+  // tracking
+  if (developerURLClicked ||
+      [url.absoluteString isEqualToString:BPLDesignerURLString] ||
+      [url.absoluteString isEqualToString:BPLDataURLString] ||
+      [url.absoluteString isEqualToString:BPLNounProjectURLString]) {
+    [self trackCategory:BPLUIActionCategory action:BPLAboutLinkPressedEvent label:url.absoluteString];
+  }
+  if (developerURLClicked && [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+    SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [tweetSheet setInitialText:@"Hi there!"];
+    [self presentViewController:tweetSheet animated:YES completion:^{
+      [self trackCategory:BPLUIActionCategory action:BPLTweetSent label:url.absoluteString];
+    }];
+  } else {
+    [[UIApplication sharedApplication] openURL:url];
+  }
 }
 
 - (void)close:(id)sender {

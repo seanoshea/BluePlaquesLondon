@@ -31,18 +31,18 @@
 @implementation BPLMapViewModelTest
 
 - (void)setUp {
-    [super setUp];
-    self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
-        
-    }];
+  [super setUp];
+  self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    
+  }];
 }
 
 - (void)testInitialisation {
-    
-    XCTAssertTrue(self.model.coordinateToMarker != nil);
-    XCTAssertTrue(self.model.keyToArrayPositions != nil);
-    XCTAssertTrue(self.model.massagedData != nil);
-    XCTAssertTrue(self.model.kmlFileParsedCallback != nil);
+  
+  XCTAssertTrue(self.model.coordinateToMarker != nil);
+  XCTAssertTrue(self.model.keyToArrayPositions != nil);
+  XCTAssertTrue(self.model.massagedData != nil);
+  XCTAssertTrue(self.model.kmlFileParsedCallback != nil);
 }
 
 @end

@@ -40,12 +40,12 @@
 
 - (void)testInitialisation
 {
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:50.0123 longitude:0.0123];
-    NSArray *markers = @[];
-    BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:markers currentLocation:location];
-    XCTAssert(model.currentLocation.coordinate.latitude == 50.0123, @"The latitude should be persisted during initialisation");
-    XCTAssert(model.currentLocation.coordinate.longitude == 0.0123, @"The latitude should be persisted during initialisation");
-    XCTAssert(model.markers.count == 0, @"The markers should be persisted during initialisation");
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:50.0123 longitude:0.0123];
+  NSArray *markers = @[];
+  BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:markers currentLocation:location];
+  XCTAssert(model.currentLocation.coordinate.latitude == 50.0123, @"The latitude should be persisted during initialisation");
+  XCTAssert(model.currentLocation.coordinate.longitude == 0.0123, @"The latitude should be persisted during initialisation");
+  XCTAssert(model.markers.count == 0, @"The markers should be persisted during initialisation");
 }
 
 @end

@@ -76,60 +76,60 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    [self commonInit];
+  }
+  return self;
 }
 
 - (void)commonInit
 {
-    self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.model createMarkersForMap:self.mapView];
-            self.searchViewController.model = self.model;
-            self.searchBar.userInteractionEnabled = YES;
-            [self reloadData];
-            [self checkForAutomaticallyNavigatingToClosestPlacemark];
-        });
-    }];
-    self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager requestAlwaysAuthorization];
-    [self.locationManager requestWhenInUseAuthorization];
-    self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager startUpdatingLocation];
+  self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self.model createMarkersForMap:self.mapView];
+      self.searchViewController.model = self.model;
+      self.searchBar.userInteractionEnabled = YES;
+      [self reloadData];
+      [self checkForAutomaticallyNavigatingToClosestPlacemark];
+    });
+  }];
+  self.locationManager = [[CLLocationManager alloc] init];
+  [self.locationManager requestAlwaysAuthorization];
+  [self.locationManager requestWhenInUseAuthorization];
+  self.locationManager.delegate = self;
+  self.locationManager.distanceFilter = kCLDistanceFilterNone;
+  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+  [self.locationManager startUpdatingLocation];
   [self setupFlexibleHeaderViewController];
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.screenName = @"Maps Screen";
+  [super viewDidLoad];
+  self.screenName = @"Maps Screen";
   
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    CLLocationCoordinate2D lastKnownCoordinate = defaults.lastKnownBPLCoordinate;
-    float mapZoom = defaults.mapZoom;
-
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lastKnownCoordinate.latitude
-                                                            longitude:lastKnownCoordinate.longitude
-                                                                 zoom:mapZoom];
-
-    self.mapView = [GMSMapView mapWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
-    UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0f, 5.0f, 5.0f, 0.0f);
-    self.mapView.padding = mapInsets;
-    self.mapView.delegate = self;
-    self.mapView.indoorEnabled = NO;
-    self.mapView.myLocationEnabled = YES;
-    self.mapView.settings.myLocationButton = YES;
-    self.mapView.settings.compassButton = NO;
-    [self.view addSubview:self.mapView];
-    
-    [self.mapView animateToLocation:lastKnownCoordinate];
+  self.automaticallyAdjustsScrollViewInsets = NO;
+  
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  CLLocationCoordinate2D lastKnownCoordinate = defaults.lastKnownBPLCoordinate;
+  float mapZoom = defaults.mapZoom;
+  
+  GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lastKnownCoordinate.latitude
+                                                          longitude:lastKnownCoordinate.longitude
+                                                               zoom:mapZoom];
+  
+  self.mapView = [GMSMapView mapWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
+  UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0f, 5.0f, 5.0f, 0.0f);
+  self.mapView.padding = mapInsets;
+  self.mapView.delegate = self;
+  self.mapView.indoorEnabled = NO;
+  self.mapView.myLocationEnabled = YES;
+  self.mapView.settings.myLocationButton = YES;
+  self.mapView.settings.compassButton = NO;
+  [self.view addSubview:self.mapView];
+  
+  [self.mapView animateToLocation:lastKnownCoordinate];
   
   [self setupSearchBar];
   
@@ -139,40 +139,40 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+  [super viewWillAppear:animated];
+  self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:BPLMapDetailViewControllerSegue]) {
-        BPLMapViewDetailViewController *destinationViewController = (BPLMapViewDetailViewController *)segue.destinationViewController;
-        BPLPlacemark *placemark = self.mapView.selectedMarker.userData;
-        NSArray *markers = [self.model placemarksForKey:placemark.key];
-        BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:markers currentLocation:self.currentLocation];
-        destinationViewController.model = model;
-    } else if ([segue.identifier isEqualToString:BPLSearchViewControllerSegue]) {
-      self.searchViewController = segue.destinationViewController;
-      self.searchViewController.delegate = self;
-    }
+  if ([segue.identifier isEqualToString:BPLMapDetailViewControllerSegue]) {
+    BPLMapViewDetailViewController *destinationViewController = (BPLMapViewDetailViewController *)segue.destinationViewController;
+    BPLPlacemark *placemark = self.mapView.selectedMarker.userData;
+    NSArray *markers = [self.model placemarksForKey:placemark.key];
+    BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:markers currentLocation:self.currentLocation];
+    destinationViewController.model = model;
+  } else if ([segue.identifier isEqualToString:BPLSearchViewControllerSegue]) {
+    self.searchViewController = segue.destinationViewController;
+    self.searchViewController.delegate = self;
+  }
 }
 
 - (void)navigateToClosestPlacemark
 {
-    BPLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
-    if (closestPlacemark) {
-        [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.placemarkName];
-        [self navigateToPlacemark:closestPlacemark];
-    } else {
-        self.automaticallyNavigateToClosestPlacemark = YES;
-    }
+  BPLPlacemark *closestPlacemark = [self.model closestPlacemarkToCoordinate:self.currentLocation.coordinate];
+  if (closestPlacemark) {
+    [self trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:closestPlacemark.placemarkName];
+    [self navigateToPlacemark:closestPlacemark];
+  } else {
+    self.automaticallyNavigateToClosestPlacemark = YES;
+  }
 }
 
 - (void)checkForAutomaticallyNavigatingToClosestPlacemark {
-    if (self.automaticallyNavigateToClosestPlacemark && self.currentLocation) {
-        self.automaticallyNavigateToClosestPlacemark = NO;
-        [self navigateToClosestPlacemark];
-    }
+  if (self.automaticallyNavigateToClosestPlacemark && self.currentLocation) {
+    self.automaticallyNavigateToClosestPlacemark = NO;
+    [self navigateToClosestPlacemark];
+  }
 }
 
 #pragma mark BPLSearchViewControllerDelegate
@@ -191,57 +191,57 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-    return YES;
+  return YES;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [self filterDataForSearchText:self.searchBar.text];
-    [searchBar resignFirstResponder];
+  [self filterDataForSearchText:self.searchBar.text];
+  [searchBar resignFirstResponder];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    [self toggleSearchViewController:YES];
+  [self toggleSearchViewController:YES];
 }
 
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
 {
-    return YES;
+  return YES;
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
-    [self filterDataForSearchText:searchBar.text];
+  [self filterDataForSearchText:searchBar.text];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    [self filterDataForSearchText:searchText];
+  [self filterDataForSearchText:searchText];
 }
 
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    return YES;
+  return YES;
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    [searchBar resignFirstResponder];
-    [self toggleSearchViewController:NO];
+  [searchBar resignFirstResponder];
+  [self toggleSearchViewController:NO];
 }
 
 - (void)filterDataForSearchText:(NSString *)searchText
 {
-    self.model.filteredData = [self.model.alphabeticallySortedPositions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.placemarkTitle contains[c] %@", searchText]];
-    [self reloadData];
+  self.model.filteredData = [self.model.alphabeticallySortedPositions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.placemarkTitle contains[c] %@", searchText]];
+  [self reloadData];
 }
 
 - (void)navigateToPlacemark:(BPLPlacemark *)placemark
 {
-    [self.searchBar resignFirstResponder];
-    [self toggleSearchViewController:NO];
-    [self.mapView animateToLocation:placemark.coordinate];
+  [self.searchBar resignFirstResponder];
+  [self toggleSearchViewController:NO];
+  [self.mapView animateToLocation:placemark.coordinate];
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
   });
@@ -249,11 +249,11 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)toggleSearchViewController:(BOOL)show
 {
-    if (show) {
-        [self.view bringSubviewToFront:self.containerView];
-    } else {
-        [self.view sendSubviewToBack:self.containerView];
-    }
+  if (show) {
+    [self.view bringSubviewToFront:self.containerView];
+  } else {
+    [self.view sendSubviewToBack:self.containerView];
+  }
   self.aboutButton.hidden = show;
   self.searchBar.showsCancelButton = show;
   self.containerView.hidden = !show;
@@ -267,49 +267,49 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    self.currentLocation = locations.lastObject;
-    // ensure that the search table always has the latest known distances updated.
-//    [self reloadData];
-    [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
-    [self checkForAutomaticallyNavigatingToClosestPlacemark];
+  self.currentLocation = locations.lastObject;
+  // ensure that the search table always has the latest known distances updated.
+  //    [self reloadData];
+  [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:self.currentLocation.coordinate];
+  [self checkForAutomaticallyNavigatingToClosestPlacemark];
 }
 
 #pragma mark GMSMapViewDelegate
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    [self toggleSearchViewController:NO];
+  [self toggleSearchViewController:NO];
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
 {
-    [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
-    [self markerTapped:marker withAction:BPLMarkerPressedEvent];
-    return NO;
+  [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
+  [self markerTapped:marker withAction:BPLMarkerPressedEvent];
+  return NO;
 }
 
 - (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
 {
-    if (position.zoom > 0.0f) {
-        [[NSUserDefaults standardUserDefaults] saveMapZoom:position.zoom];
-    }
+  if (position.zoom > 0.0f) {
+    [[NSUserDefaults standardUserDefaults] saveMapZoom:position.zoom];
+  }
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
-    [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
-    [self markerTapped:marker withAction:BPLMarkerInfoWindowPressedEvent];
-    [self performSegueWithIdentifier:BPLMapDetailViewControllerSegue sender:self];
+  [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:marker.position];
+  [self markerTapped:marker withAction:BPLMarkerInfoWindowPressedEvent];
+  [self performSegueWithIdentifier:BPLMapDetailViewControllerSegue sender:self];
 }
 
 - (void)markerTapped:(GMSMarker *)marker withAction:(NSString *)action
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        BPLPlacemark *placemarkForMarker = [self.model firstPlacemarkAtCoordinate:marker.position];
-        if (placemarkForMarker) {
-            [self trackCategory:BPLUIActionCategory action:action label:placemarkForMarker.placemarkName];
-        }
-    });
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    BPLPlacemark *placemarkForMarker = [self.model firstPlacemarkAtCoordinate:marker.position];
+    if (placemarkForMarker) {
+      [self trackCategory:BPLUIActionCategory action:action label:placemarkForMarker.placemarkName];
+    }
+  });
 }
 
 - (void)setCurrentLocation:(CLLocation *)currentLocation {

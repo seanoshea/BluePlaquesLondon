@@ -33,11 +33,11 @@
 #import "BPLWikipediaParser.h"
 
 struct BPLWikipediaViewModelStrings {
-    __unsafe_unretained NSString *searchUrlFormat;
+  __unsafe_unretained NSString *searchUrlFormat;
 };
 
 static const struct BPLWikipediaViewModelStrings BPLWikipediaViewModelStrings = {
-    .searchUrlFormat = @"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=%@&srprop=timestamp&format=json"
+  .searchUrlFormat = @"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=%@&srprop=timestamp&format=json"
 };
 
 @interface BPLWikipediaViewModel()
@@ -50,27 +50,27 @@ static const struct BPLWikipediaViewModelStrings BPLWikipediaViewModelStrings = 
 
 - (instancetype)init
 {
-    return [self initWithName:@""];
+  return [self initWithName:@""];
 }
 
 - (instancetype)initWithName:(NSString *)name
 {
-    self = [super init];
-    if (self) {
-        _name = [name copy];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    _name = [name copy];
+  }
+  return self;
 }
 
 - (NSURLSessionDataTask *)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
 {
-    NSParameterAssert(completionBlock != nil);
-    NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelStrings.searchUrlFormat, self.name] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:encodedURLString]
-                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                                 [BPLWikipediaParser parseWikipediaData:data error:error name:self.name completionBlock:completionBlock];
-                                                             }];
-    return task;
+  NSParameterAssert(completionBlock != nil);
+  NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelStrings.searchUrlFormat, self.name] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+  NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:encodedURLString]
+                                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                             [BPLWikipediaParser parseWikipediaData:data error:error name:self.name completionBlock:completionBlock];
+                                                           }];
+  return task;
 }
 
 @end

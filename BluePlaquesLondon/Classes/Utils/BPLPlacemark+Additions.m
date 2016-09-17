@@ -41,47 +41,47 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 - (CLLocationCoordinate2D)coordinate
 {
-    return CLLocationCoordinate2DMake((self.latitude).doubleValue, (self.longitude).doubleValue);
+  return CLLocationCoordinate2DMake((self.latitude).doubleValue, (self.longitude).doubleValue);
 }
 
 - (NSString *)placemarkName
 {
-    return self.featureDescription.name;
+  return self.featureDescription.name;
 }
 
 - (NSString *)placemarkTitle
 {
-    return self.featureDescription.title;
+  return self.featureDescription.title;
 }
 
 - (NSString *)occupation
 {
-    return self.featureDescription.occupation;
+  return self.featureDescription.occupation;
 }
 
 - (NSString *)address
 {
-    return self.featureDescription.address;
+  return self.featureDescription.address;
 }
 
 - (NSString *)note
 {
-    return self.featureDescription.note;
+  return self.featureDescription.note;
 }
 
 - (NSString *)councilAndYear
 {
-    return  self.featureDescription.councilAndYear;
+  return  self.featureDescription.councilAndYear;
 }
 
 - (NSString *)key
 {
-    return [NSString stringWithFormat:@"%.5f%.5f", self.coordinate.latitude, self.coordinate.longitude];
+  return [NSString stringWithFormat:@"%.5f%.5f", self.coordinate.latitude, self.coordinate.longitude];
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name: %@ title: %@ occupation: %@ address: %@ note: %@ councilAndYear: %@", self.placemarkName, self.placemarkTitle, self.occupation, self.address, self.note, self.councilAndYear];
+  return [NSString stringWithFormat:@"name: %@ title: %@ occupation: %@ address: %@ note: %@ councilAndYear: %@", self.placemarkName, self.placemarkTitle, self.occupation, self.address, self.note, self.councilAndYear];
 }
 
 @end

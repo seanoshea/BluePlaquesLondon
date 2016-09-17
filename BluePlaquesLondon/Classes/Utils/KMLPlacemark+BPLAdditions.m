@@ -43,43 +43,43 @@ static NSString *const BPLEmphasisNoteClosingTag = @"</em>";
 
 - (NSString *)name
 {
-    return self.descriptionValue.name;
+  return self.descriptionValue.name;
 }
 
 - (NSString *)title
 {
-    return self.descriptionValue.title;
+  return self.descriptionValue.title;
 }
 
 - (NSString *)occupation
 {
-    return self.descriptionValue.occupation;
+  return self.descriptionValue.occupation;
 }
 
 - (NSString *)address
 {
-    return self.descriptionValue.address;
+  return self.descriptionValue.address;
 }
 
 - (NSString *)note
 {
-    return self.descriptionValue.note;
+  return self.descriptionValue.note;
 }
 
 - (NSString *)councilAndYear
 {
-    return self.descriptionValue.councilAndYear;
+  return self.descriptionValue.councilAndYear;
 }
 
 - (NSString *)key
 {
-    KMLPoint *geometry = (KMLPoint *)self.geometry;
-    return [NSString stringWithFormat:@"%.5f%.5f", geometry.coordinate.latitude, geometry.coordinate.longitude];
+  KMLPoint *geometry = (KMLPoint *)self.geometry;
+  return [NSString stringWithFormat:@"%.5f%.5f", geometry.coordinate.latitude, geometry.coordinate.longitude];
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name: %@ title: %@ occupation: %@ address: %@ note: %@ councilAndYear: %@", self.name, self.title, self.occupation, self.address, self.note, self.councilAndYear];
+  return [NSString stringWithFormat:@"name: %@ title: %@ occupation: %@ address: %@ note: %@ councilAndYear: %@", self.name, self.title, self.occupation, self.address, self.note, self.councilAndYear];
 }
 
 @end

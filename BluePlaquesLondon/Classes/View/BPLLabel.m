@@ -37,12 +37,12 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        self.textColor = [UIColor BPLBlueColour];
-      self.font = [MDCTypography body1Font];
-    }
-    return self;
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    self.textColor = [UIColor BPLBlueColour];
+    self.font = [MDCTypography body1Font];
+  }
+  return self;
 }
 
 @end

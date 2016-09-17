@@ -54,23 +54,23 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.screenName = @"Wikipedia Screen";
-
-    self.webView.backgroundColor = [UIColor BPLGreyColour];
-    self.webView.opaque = NO;
+  [super viewDidLoad];
+  self.screenName = @"Wikipedia Screen";
   
-    self.view.backgroundColor = [UIColor whiteColor];
+  self.webView.backgroundColor = [UIColor BPLGreyColour];
+  self.webView.opaque = NO;
   
-    KMLPlacemark *placemark = self.markers[0];
-    self.model = [[BPLWikipediaViewModel alloc] initWithName:placemark.name];
-    self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
-    self.webView.delegate = self;
+  self.view.backgroundColor = [UIColor whiteColor];
+  
+  KMLPlacemark *placemark = self.markers[0];
+  self.model = [[BPLWikipediaViewModel alloc] initWithName:placemark.name];
+  self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
+  self.webView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+  [super viewWillAppear:animated];
   self.webView.hidden = YES;
   self.activityIndicator = [[MDCActivityIndicator alloc] initWithFrame:CGRectMake(0, 0, 128, 128)];
   self.activityIndicator.center = self.view.center;
@@ -80,41 +80,41 @@
   [self.view addSubview:self.activityIndicator];
   [self.activityIndicator startAnimating];
   
-    [[self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-        if (!error) {
-            [self.webView loadRequest:urlRequest];
-        } else {
-            [self displayErrorAlert];
-        }
-    }] resume];
+  [[self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    if (!error) {
+      [self.webView loadRequest:urlRequest];
+    } else {
+      [self displayErrorAlert];
+    }
+  }] resume];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self hideActivityIndicator];
-    [super viewWillDisappear:animated];
+  [self hideActivityIndicator];
+  [super viewWillDisappear:animated];
 }
 
 #pragma mark UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    return YES;
+  return YES;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    
+  
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self hideActivityIndicator];
+  [self hideActivityIndicator];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [self displayErrorAlert];
+  [self displayErrorAlert];
 }
 
 #pragma mark Errors
@@ -123,19 +123,19 @@
 {
   [self hideActivityIndicator];
   
-    NSString *title = NSLocalizedString(@"Oooops", nil);
-    NSString *message = NSLocalizedString(@"There was an error loading this Wikipedia Article", nil);
-    UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:action];
-    [self presentViewController:alertController animated:YES completion:nil];
-    
-    if ((self.markers).count) {
-        KMLPlacemark *placemark = self.markers[0];
-        [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
-    }
+  NSString *title = NSLocalizedString(@"Oooops", nil);
+  NSString *message = NSLocalizedString(@"There was an error loading this Wikipedia Article", nil);
+  UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+  [alertController addAction:action];
+  [self presentViewController:alertController animated:YES completion:nil];
+  
+  if ((self.markers).count) {
+    KMLPlacemark *placemark = self.markers[0];
+    [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
+  }
 }
 
 - (void)hideActivityIndicator {
@@ -159,7 +159,7 @@
     }
   }];
 }
-   
+
 - (void)fadeInWebView {
   self.webView.alpha = 0.0f;
   self.webView.hidden = NO;
@@ -175,8 +175,8 @@
 
 - (void)dealloc
 {
-    self.webView.delegate = nil;
-    [self.webView stopLoading];
+  self.webView.delegate = nil;
+  [self.webView stopLoading];
 }
 
 @end

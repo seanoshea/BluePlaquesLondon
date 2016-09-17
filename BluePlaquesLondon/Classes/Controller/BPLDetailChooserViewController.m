@@ -60,17 +60,17 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    self.title = NSLocalizedString(@"Choose one", nil);
+  [super viewWillAppear:animated];
+  self.title = NSLocalizedString(@"Choose one", nil);
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    id tracker = [GAI sharedInstance].defaultTracker;
-    [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
-    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
-    [self.collectionView reloadData];
+  [super viewDidAppear:animated];
+  id tracker = [GAI sharedInstance].defaultTracker;
+  [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
+  [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+  [self.collectionView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -101,9 +101,9 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super collectionView:collectionView didSelectItemAtIndexPath:indexPath];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BPLDetailChooserViewControllerRowSelected object:@(indexPath.row)];
-    [self.navigationController popViewControllerAnimated:YES];
+  [super collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+  [[NSNotificationCenter defaultCenter] postNotificationName:BPLDetailChooserViewControllerRowSelected object:@(indexPath.row)];
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

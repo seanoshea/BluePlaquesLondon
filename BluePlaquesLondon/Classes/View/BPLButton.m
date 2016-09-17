@@ -36,13 +36,13 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateHighlighted];
-      [self setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    }
-    return self;
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateHighlighted];
+    [self setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  }
+  return self;
 }
 
 @end

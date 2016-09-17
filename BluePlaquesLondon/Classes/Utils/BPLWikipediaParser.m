@@ -31,67 +31,67 @@
 #import "BPLWikipediaParser.h"
 
 struct BPLWikipediaParserStrings {
-    __unsafe_unretained NSString *pageUrlFormat;
-    __unsafe_unretained NSString *search;
-    __unsafe_unretained NSString *query;
-    __unsafe_unretained NSString *title;
-    __unsafe_unretained NSString *domain;
+  __unsafe_unretained NSString *pageUrlFormat;
+  __unsafe_unretained NSString *search;
+  __unsafe_unretained NSString *query;
+  __unsafe_unretained NSString *title;
+  __unsafe_unretained NSString *domain;
 };
 
 static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
-    .pageUrlFormat = @"https://en.wikipedia.org/wiki/%@",
-    .search = @"search",
-    .query = @"query",
-    .title = @"title",
-    .domain = @"BPLWikipediaParserStringsErrorDomain",
+  .pageUrlFormat = @"https://en.wikipedia.org/wiki/%@",
+  .search = @"search",
+  .query = @"query",
+  .title = @"title",
+  .domain = @"BPLWikipediaParserStringsErrorDomain",
 };
 
 @implementation BPLWikipediaParser
 
 + (void)parseWikipediaData:(NSData *)data error:(NSError *)error name:(NSString *)name completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
 {
-    NSParameterAssert(completionBlock != nil);
-    if (!error) {
-        NSError *jsonParsingError = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonParsingError];
-        if (!jsonParsingError) {
-            NSArray *searchResults = json[BPLWikipediaParserStrings.query][BPLWikipediaParserStrings.search];
-            if (searchResults.count) {
-                __block NSString *title = [BPLWikipediaParser iterateOverSearchResults:searchResults forTitleWithName:name];
-                NSString *urlString = [[NSString stringWithFormat:BPLWikipediaParserStrings.pageUrlFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-                completionBlock([NSURLRequest requestWithURL:[NSURL URLWithString:urlString]], error);
-            } else {
-                NSError *error = [[NSError alloc] initWithDomain:BPLWikipediaParserStrings.domain code:404 userInfo:nil];
-                completionBlock(nil, error);
-            }
-        } else {
-            completionBlock(nil, jsonParsingError);
-        }
-    }  else {
+  NSParameterAssert(completionBlock != nil);
+  if (!error) {
+    NSError *jsonParsingError = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonParsingError];
+    if (!jsonParsingError) {
+      NSArray *searchResults = json[BPLWikipediaParserStrings.query][BPLWikipediaParserStrings.search];
+      if (searchResults.count) {
+        __block NSString *title = [BPLWikipediaParser iterateOverSearchResults:searchResults forTitleWithName:name];
+        NSString *urlString = [[NSString stringWithFormat:BPLWikipediaParserStrings.pageUrlFormat, [title stringByReplacingOccurrencesOfString:@" " withString:@"_"]] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        completionBlock([NSURLRequest requestWithURL:[NSURL URLWithString:urlString]], error);
+      } else {
+        NSError *error = [[NSError alloc] initWithDomain:BPLWikipediaParserStrings.domain code:404 userInfo:nil];
         completionBlock(nil, error);
+      }
+    } else {
+      completionBlock(nil, jsonParsingError);
     }
+  }  else {
+    completionBlock(nil, error);
+  }
 }
 
 + (NSString *)iterateOverSearchResults:(NSArray *)searchResults forTitleWithName:(NSString *)name
 {
-    __block NSString *title;
-    __block NSString *searchResultTitle;
-    // see if we can guestimate the result
-    [searchResults enumerateObjectsUsingBlock:^(NSDictionary  * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        searchResultTitle = obj[BPLWikipediaParserStrings.title];
-        NSArray *titleComponents = [searchResultTitle componentsSeparatedByString:@" "];
-        if (titleComponents.count) {
-            if ([name rangeOfString:titleComponents[0] options:NSCaseInsensitiveSearch].location != NSNotFound) {
-                title = searchResultTitle;
-                *stop = true;
-            }
-        }
-    }];
-    if (title == nil) {
-        // just take the first one
-        title = searchResults[0][BPLWikipediaParserStrings.title];
+  __block NSString *title;
+  __block NSString *searchResultTitle;
+  // see if we can guestimate the result
+  [searchResults enumerateObjectsUsingBlock:^(NSDictionary  * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    searchResultTitle = obj[BPLWikipediaParserStrings.title];
+    NSArray *titleComponents = [searchResultTitle componentsSeparatedByString:@" "];
+    if (titleComponents.count) {
+      if ([name rangeOfString:titleComponents[0] options:NSCaseInsensitiveSearch].location != NSNotFound) {
+        title = searchResultTitle;
+        *stop = true;
+      }
     }
-    return title;
+  }];
+  if (title == nil) {
+    // just take the first one
+    title = searchResults[0][BPLWikipediaParserStrings.title];
+  }
+  return title;
 }
 
 @end
