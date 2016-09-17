@@ -67,7 +67,7 @@
   static UIColor *lightOrangeColour;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    lightOrangeColour = [UIColor colorWithRed:239.0f/255.0f green:108.0f/255.0f blue:0.0f/255.0f alpha:0.5];
+    lightOrangeColour = [UIColor colorWithRed:239.0f/255.0f green:108.0f/255.0f blue:0.0f/255.0f alpha:0.25];
   });
   return lightOrangeColour;
 }
