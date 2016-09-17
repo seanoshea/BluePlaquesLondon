@@ -13,3 +13,6 @@ An Android version of the application is available in Google's [Play Store](http
 
 ### Beta Builds
 If you're interested in access to beta-builds of the application, send an email to oshea.ie@gmail.com
+
+### Sketch Colors
+Blue Plaque Fill: #0277BD

@@ -10,7 +10,7 @@
         <scene sceneID="btc-LJ-KDI">
             <objects>
                 <collectionViewController storyboardIdentifier="BPLSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JzK-wl-vy2" customClass="BPLSearchViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Qgw-wn-9wi">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Qgw-wn-9wi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oTw-1l-5fg">
@@ -166,7 +166,7 @@
                                     <constraint firstItem="RTh-4c-VXa" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="16" id="dXi-Fq-mYV"/>
                                     <constraint firstItem="kNw-4v-dwU" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="20" symbolic="YES" id="gsS-6z-cgB"/>
                                     <constraint firstItem="Gkz-B6-AwZ" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="16" id="iVk-ZX-Shh"/>
-                                    <constraint firstItem="xEc-Pe-SbB" firstAttribute="top" secondItem="1K8-dP-7Mx" secondAttribute="bottom" id="j4N-Nb-Uot"/>
+                                    <constraint firstItem="xEc-Pe-SbB" firstAttribute="top" secondItem="1K8-dP-7Mx" secondAttribute="bottom" constant="8" id="j4N-Nb-Uot"/>
                                     <constraint firstItem="xEc-Pe-SbB" firstAttribute="leading" secondItem="zXo-Jr-ymK" secondAttribute="leading" constant="16" id="kd2-PO-8Th"/>
                                     <constraint firstItem="1K8-dP-7Mx" firstAttribute="top" secondItem="zXo-Jr-ymK" secondAttribute="top" constant="76" id="ogi-1o-pCw"/>
                                     <constraint firstAttribute="trailing" secondItem="1K8-dP-7Mx" secondAttribute="trailing" constant="16" id="ovj-Lo-i27"/>
@@ -366,7 +366,7 @@
         <scene sceneID="aS3-1R-Nxs">
             <objects>
                 <collectionViewController id="ZAh-PP-xzW" customClass="BPLDetailChooserViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="H5F-Gp-n1Y">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H5F-Gp-n1Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -403,7 +403,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jrM-RT-oaE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map_icon" id="u1e-5L-l1D"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARK-Lc-4KO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARK-Lc-4KO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -422,7 +422,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="10x-CT-HIQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlV-13-CM2"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="j8L-rp-sBx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j8L-rp-sBx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

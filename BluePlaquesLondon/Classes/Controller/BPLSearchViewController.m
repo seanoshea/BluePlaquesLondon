@@ -57,6 +57,7 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
       if (self.currentLocation) {
         CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.coordinate.latitude
                                                      longitude:pm.coordinate.longitude];
+        cell.detailTextLabel.textColor = [UIColor BPLDarkGreyColour];
         cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
       }
     }
