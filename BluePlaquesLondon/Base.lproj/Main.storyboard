@@ -10,7 +10,7 @@
         <scene sceneID="btc-LJ-KDI">
             <objects>
                 <collectionViewController storyboardIdentifier="BPLSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JzK-wl-vy2" customClass="BPLSearchViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Qgw-wn-9wi">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Qgw-wn-9wi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oTw-1l-5fg">
@@ -307,12 +307,12 @@
                                 <constraints>
                                     <constraint firstItem="C0O-B9-Sva" firstAttribute="top" secondItem="XQD-bH-S3G" secondAttribute="bottom" constant="1" id="1Ld-nL-GTi"/>
                                     <constraint firstItem="AeP-Zd-Lf9" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="16" id="2gV-P7-Xjt"/>
-                                    <constraint firstItem="BIY-xa-FBm" firstAttribute="top" secondItem="pna-Ua-oXY" secondAttribute="bottom" constant="9" id="4vf-DH-YZP"/>
+                                    <constraint firstItem="BIY-xa-FBm" firstAttribute="top" secondItem="pna-Ua-oXY" secondAttribute="bottom" constant="16" id="4vf-DH-YZP"/>
                                     <constraint firstAttribute="trailing" secondItem="AeP-Zd-Lf9" secondAttribute="trailing" constant="16" id="5DE-kd-Za6"/>
                                     <constraint firstItem="mdh-or-M42" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="16" id="87y-mo-YFI"/>
-                                    <constraint firstItem="mdh-or-M42" firstAttribute="top" secondItem="XFm-gZ-3NG" secondAttribute="bottom" constant="4" id="9Vm-wc-VxU"/>
+                                    <constraint firstItem="mdh-or-M42" firstAttribute="top" secondItem="XFm-gZ-3NG" secondAttribute="bottom" constant="16" id="9Vm-wc-VxU"/>
                                     <constraint firstItem="XFm-gZ-3NG" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="16" id="BYg-3V-45P"/>
-                                    <constraint firstItem="vSQ-jY-OaL" firstAttribute="top" secondItem="C0O-B9-Sva" secondAttribute="bottom" constant="9" id="Gjl-yY-3F3"/>
+                                    <constraint firstItem="vSQ-jY-OaL" firstAttribute="top" secondItem="C0O-B9-Sva" secondAttribute="bottom" constant="16" id="Gjl-yY-3F3"/>
                                     <constraint firstAttribute="trailing" secondItem="BIY-xa-FBm" secondAttribute="trailing" constant="16" id="Lk9-8v-MbY"/>
                                     <constraint firstAttribute="bottom" secondItem="AeP-Zd-Lf9" secondAttribute="bottom" priority="100" constant="8" id="NJw-p0-JeV"/>
                                     <constraint firstItem="pna-Ua-oXY" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="16" id="QSY-HG-AC6"/>
@@ -324,7 +324,7 @@
                                     <constraint firstItem="pna-Ua-oXY" firstAttribute="top" secondItem="mdh-or-M42" secondAttribute="bottom" constant="1" id="blt-Vt-pTH"/>
                                     <constraint firstAttribute="trailing" secondItem="XQD-bH-S3G" secondAttribute="trailing" constant="16" id="cJ5-VF-Rol"/>
                                     <constraint firstAttribute="trailing" secondItem="pna-Ua-oXY" secondAttribute="trailing" constant="16" id="lTY-GM-auS"/>
-                                    <constraint firstItem="XQD-bH-S3G" firstAttribute="top" secondItem="uZw-N3-KbI" secondAttribute="top" constant="10" id="lsk-aS-K2I"/>
+                                    <constraint firstItem="XQD-bH-S3G" firstAttribute="top" secondItem="uZw-N3-KbI" secondAttribute="top" constant="16" id="lsk-aS-K2I"/>
                                     <constraint firstItem="C0O-B9-Sva" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="16" id="o6I-xr-WqS"/>
                                     <constraint firstItem="vSQ-jY-OaL" firstAttribute="leading" secondItem="uZw-N3-KbI" secondAttribute="leading" constant="16" id="qD8-Cn-NnN"/>
                                     <constraint firstAttribute="trailing" secondItem="XFm-gZ-3NG" secondAttribute="trailing" constant="16" id="rm6-6B-DiH"/>
@@ -363,7 +363,7 @@
         <scene sceneID="aS3-1R-Nxs">
             <objects>
                 <collectionViewController id="ZAh-PP-xzW" customClass="BPLDetailChooserViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="H5F-Gp-n1Y">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H5F-Gp-n1Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,7 +400,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jrM-RT-oaE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map_icon" id="u1e-5L-l1D"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARK-Lc-4KO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARK-Lc-4KO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -419,7 +419,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="10x-CT-HIQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlV-13-CM2"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="j8L-rp-sBx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j8L-rp-sBx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
