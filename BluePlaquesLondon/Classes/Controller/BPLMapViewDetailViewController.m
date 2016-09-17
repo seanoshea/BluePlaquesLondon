@@ -65,6 +65,8 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
 @property (nonatomic, weak) IBOutlet BPLButton *moreButton;
 @property (nonatomic, weak) IBOutlet BPLButton *directionsButton;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *noteLabelTopConstraint;
+
 - (IBAction)directionsButtonTapped:(id)sender;
 
 @end
@@ -96,9 +98,11 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
     // not all placemarks have notes
     NSString *note = placemark.note;
     if (note) {
+        self.noteLabelTopConstraint.constant = 16.0f;
         self.noteLabel.text = note;
         self.noteLabel.hidden = NO;
     } else {
+        self.noteLabelTopConstraint.constant = 0.0f;
         self.noteLabel.hidden = YES;
     }
     
@@ -108,6 +112,7 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
         self.councilAndYearLabel.text = councilAndYear;
         self.councilAndYearLabel.hidden = NO;
     } else {
+        self.noteLabelTopConstraint.constant = 0.0f;
         self.noteLabel.hidden = YES;
     }
     
