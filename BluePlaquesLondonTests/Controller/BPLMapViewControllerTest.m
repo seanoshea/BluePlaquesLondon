@@ -119,58 +119,58 @@
   
   XCTAssertTrue(destinationViewController.model.markers.count == 1);
 }
-//
-//- (void)testClosestPlacemarkDelegateMethod
-//{
-//    BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
-//
-//    self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
-//
-//    id modelMock = OCMPartialMock(self.controller.model);
-//    OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
-//
-//    id partial = [OCMockObject partialMockForObject:self.controller];
-//    [[[partial expect] andForwardToRealObject] navigateToPlacemark:nil];
-//    [[[partial expect] andForwardToRealObject] trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:nil];
-//
-//    [partial tableView:self.controller.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-//
-//    OCMVerifyAll(modelMock);
-//}
-//
-//- (void)testSpecificPlacemarkDelegateMethod {
-//    BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
-//
-//    self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
-//
-//    id modelMock = OCMPartialMock(self.controller.model);
-//    OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
-//
-//    id partial = [OCMockObject partialMockForObject:self.controller];
-//    [[[partial expect] andForwardToRealObject] navigateToPlacemark:nil];
-//    [[[partial expect] andForwardToRealObject] trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:nil];
-//
-//    [partial tableView:self.controller.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
-//
-//    OCMVerifyAll(partial);
-//}
+
+- (void)testClosestPlacemarkDelegateMethod
+{
+  BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+  
+  self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
+  
+  id modelMock = OCMPartialMock(self.controller.model);
+  OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
+  
+  id partial = [OCMockObject partialMockForObject:self.controller];
+  [[[partial expect] andForwardToRealObject] navigateToPlacemark:nil];
+  [[[partial expect] andForwardToRealObject] trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:nil];
+  
+  [partial searchViewController:self.controller.searchViewController didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+  
+  OCMVerifyAll(modelMock);
+}
+
+- (void)testSpecificPlacemarkDelegateMethod {
+  BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+  
+  self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
+  
+  id modelMock = OCMPartialMock(self.controller.model);
+  OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
+  
+  id partial = [OCMockObject partialMockForObject:self.controller];
+  [[[partial expect] andForwardToRealObject] navigateToPlacemark:nil];
+  [[[partial expect] andForwardToRealObject] trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:nil];
+  
+  [partial searchViewController:self.controller.searchViewController didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+  
+  OCMVerifyAll(partial);
+}
 
 - (void)testSearchBarShouldEndEditing
 {
   XCTAssertTrue([self.controller searchBarShouldEndEditing:self.controller.searchBar]);
 }
-//
-//- (void)testSearchBarTextDidBeginEditing
-//{
-//    id controllerMock = OCMPartialMock(self.controller);
-//    OCMExpect([controllerMock toggleSearchViewController:YES]).andForwardToRealObject();
-//
-//    [self.controller searchBarTextDidBeginEditing:self.controller.searchBar];
-//
-//    XCTAssertFalse(self.controller.tableView.hidden);
-//
-//    OCMVerifyAll(controllerMock);
-//}
+
+- (void)testSearchBarTextDidBeginEditing
+{
+  id controllerMock = OCMPartialMock(self.controller);
+  OCMExpect([controllerMock toggleSearchViewController:YES]).andForwardToRealObject();
+  
+  [self.controller searchBarTextDidBeginEditing:self.controller.searchBar];
+  
+  XCTAssertFalse(self.controller.containerView.hidden);
+  
+  OCMVerifyAll(controllerMock);
+}
 
 - (void)testSearchBarShouldBeginEditing
 {
@@ -183,13 +183,13 @@
   XCTAssertTrue([self.controller searchBar:self.controller.searchBar shouldChangeTextInRange:NSMakeRange(0, 2) replacementText:@""]);
   XCTAssertTrue([self.controller searchBar:self.controller.searchBar shouldChangeTextInRange:NSMakeRange(0, 3) replacementText:@""]);
 }
-//
-//- (void)testSearchBarCancelButtonPressed
-//{
-//    [self.controller searchBarCancelButtonClicked:self.controller.searchBar];
-//
-//    XCTAssertTrue(self.controller.tableView.hidden);
-//}
+
+- (void)testSearchBarCancelButtonPressed
+{
+  [self.controller searchBarCancelButtonClicked:self.controller.searchBar];
+  
+  XCTAssertTrue(self.controller.containerView.hidden);
+}
 
 - (void)testSearchBarDidEndEditing
 {
@@ -210,16 +210,6 @@
   
   OCMVerifyAll(controllerMock);
 }
-
-//- (void)testFilterData
-//{
-//    id tableMock = OCMPartialMock(self.controller.tableView);
-//    OCMExpect([tableMock reloadData]).andForwardToRealObject();
-//
-//    [self.controller filterDataForSearchText:@"123"];
-//
-//    OCMVerifyAll(tableMock);
-//}
 
 - (void)testUpdateCurrentLocation
 {

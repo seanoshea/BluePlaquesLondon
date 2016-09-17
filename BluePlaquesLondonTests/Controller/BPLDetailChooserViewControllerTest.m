@@ -61,9 +61,9 @@
   self.markers = @[marker1, marker2];
   
   UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  
   self.controller = [storybord instantiateViewControllerWithIdentifier:BPLDetailChooserViewControllerStoryboardIdentifier];
   self.controller.markers = self.markers;
-  
   self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
 }
 
@@ -72,25 +72,24 @@
   XCTAssertTrue([self.controller.title isEqualToString:NSLocalizedString(@"Choose one", nil)]);
 }
 
-//- (void)testNumberOfSections {
-//    NSInteger numberOfSections = [self.controller numberOfSectionsInTableView:self.controller.tableView];
-//
-//    XCTAssertTrue(numberOfSections == 1);
-//}
-//
-//- (void)testNumberOfRowsInSection {
-//    NSInteger numberOfRowsInSectionZero = [self.controller tableView:self.controller.tableView numberOfRowsInSection:0];
-//    NSInteger numberOfRowsInSectionOne = [self.controller tableView:self.controller.tableView numberOfRowsInSection:1];
-//
-//    XCTAssertTrue(numberOfRowsInSectionZero == 2);
-//    XCTAssertTrue(numberOfRowsInSectionOne == 2);
-//}
-//
-//- (void)testRetrievingACellFromTheTable {
-//
-//    UITableViewCell *cell = [self.controller tableView:self.controller.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-//
-//    XCTAssertTrue([cell.textLabel.text isEqualToString:@"Feature Description 1"]);
-//}
+- (void)testNumberOfSections {
+  NSInteger numberOfSections = [self.controller numberOfSectionsInCollectionView:self.controller.collectionView];
+  
+  XCTAssertTrue(numberOfSections == 1);
+}
+
+- (void)testNumberOfRowsInSection {
+  NSInteger numberOfRowsInSectionZero = [self.controller collectionView:self.controller.collectionView numberOfItemsInSection:0];
+  NSInteger numberOfRowsInSectionOne = [self.controller collectionView:self.controller.collectionView numberOfItemsInSection:1];
+  
+  XCTAssertTrue(numberOfRowsInSectionZero == 2);
+  XCTAssertTrue(numberOfRowsInSectionOne == 2);
+}
+
+- (void)testRetrievingACellFromTheTable {
+  MDCCollectionViewTextCell *cell = (MDCCollectionViewTextCell *)[self.controller collectionView:self.controller.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+  
+  XCTAssertTrue([cell.textLabel.text isEqualToString:@"Feature Description 1"]);
+}
 
 @end
