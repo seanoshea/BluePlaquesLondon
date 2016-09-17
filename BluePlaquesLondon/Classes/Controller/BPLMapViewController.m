@@ -38,7 +38,6 @@
 #import "BPLMapViewDetailViewController.h"
 #import "BPLConstants.h"
 #import "UIColor+BPLColors.h"
-#import "BPLTableViewCell.h"
 #import "BPLMapViewDetailViewModel.h"
 #import "NSObject+BPLTracking.h"
 #import "MKDistanceFormatter+BPLAdditions.h"

@@ -53,7 +53,6 @@
 		14F0035B1A9D0E1300AEE2AC /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003521A9D0E1300AEE2AC /* UIColor+BPLColors.m */; };
 		14F003621A9D0E2500AEE2AC /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035D1A9D0E2500AEE2AC /* BPLButton.m */; };
 		14F003631A9D0E2500AEE2AC /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */; };
-		14F003641A9D0E2500AEE2AC /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */; };
 		14F003701A9D1E7700AEE2AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036D1A9D1E7700AEE2AC /* Main.storyboard */; };
 		14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 14F003721A9D1F2B00AEE2AC /* blueplaques.kml */; };
 		14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */; };
@@ -61,7 +60,6 @@
 		14F0037A1A9D1F3C00AEE2AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14F003781A9D1F3C00AEE2AC /* Localizable.strings */; };
 		14F0037D1A9D1FD600AEE2AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F0037C1A9D1FD600AEE2AC /* wikipedia.json */; };
 		14F003821A9D1FF200AEE2AC /* BPLButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */; };
-		14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */; };
 		14F003861A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003841A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m */; };
 		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
@@ -188,8 +186,6 @@
 		14F0035D1A9D0E2500AEE2AC /* BPLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButton.m; sourceTree = "<group>"; };
 		14F0035E1A9D0E2500AEE2AC /* BPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLLabel.h; sourceTree = "<group>"; };
 		14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLLabel.m; sourceTree = "<group>"; };
-		14F003601A9D0E2500AEE2AC /* BPLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLTableViewCell.h; sourceTree = "<group>"; };
-		14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCell.m; sourceTree = "<group>"; };
 		14F003651A9D1CB700AEE2AC /* BluePlaquesLondon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondon-Prefix.pch"; sourceTree = "<group>"; };
 		14F0036E1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F003721A9D1F2B00AEE2AC /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
@@ -198,7 +194,6 @@
 		14F003781A9D1F3C00AEE2AC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		14F0037C1A9D1FD600AEE2AC /* wikipedia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia.json; sourceTree = "<group>"; };
 		14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButtonTest.m; sourceTree = "<group>"; };
-		14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCellTest.m; sourceTree = "<group>"; };
 		14F003841A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
 		14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMKDistanceFormatterAdditionsTest.m; sourceTree = "<group>"; };
 		14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkFeatureDescriptionTests.m; sourceTree = "<group>"; };
@@ -486,8 +481,6 @@
 				411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */,
 				14F0035E1A9D0E2500AEE2AC /* BPLLabel.h */,
 				14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */,
-				14F003601A9D0E2500AEE2AC /* BPLTableViewCell.h */,
-				14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,7 +518,6 @@
 			isa = PBXGroup;
 			children = (
 				14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */,
-				14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -848,7 +840,6 @@
 				14F0032F1A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m in Sources */,
 				14F003561A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m in Sources */,
 				411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
-				14F003641A9D0E2500AEE2AC /* BPLTableViewCell.m in Sources */,
 				14F003301A9D0DE700AEE2AC /* BPLStreetViewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -861,7 +852,6 @@
 				142A90191ACDC41F00AB8EDC /* TodayViewControllerTest.swift in Sources */,
 				142A901A1ACDC51F00AB8EDC /* TodayViewController.swift in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
-				14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */,
 				411FA5461D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
 				14C9E8271A9FD56C00B446D1 /* BPLMapViewControllerTest.m in Sources */,
 				14F003821A9D1FF200AEE2AC /* BPLButtonTest.m in Sources */,
