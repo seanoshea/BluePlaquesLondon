@@ -47,7 +47,7 @@
     static UIColor *lightGreyColour;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        lightGreyColour = [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:1.0];
+        lightGreyColour = [UIColor colorWithRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1.0];
     });
     return lightGreyColour;
 }
