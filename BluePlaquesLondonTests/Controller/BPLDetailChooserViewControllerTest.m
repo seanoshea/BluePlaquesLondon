@@ -72,25 +72,25 @@
     XCTAssertTrue([self.controller.title isEqualToString:NSLocalizedString(@"Choose one", nil)]);
 }
 
-- (void)testNumberOfSections {
-    NSInteger numberOfSections = [self.controller numberOfSectionsInTableView:self.controller.tableView];
-    
-    XCTAssertTrue(numberOfSections == 1);
-}
-
-- (void)testNumberOfRowsInSection {
-    NSInteger numberOfRowsInSectionZero = [self.controller tableView:self.controller.tableView numberOfRowsInSection:0];
-    NSInteger numberOfRowsInSectionOne = [self.controller tableView:self.controller.tableView numberOfRowsInSection:1];
-    
-    XCTAssertTrue(numberOfRowsInSectionZero == 2);
-    XCTAssertTrue(numberOfRowsInSectionOne == 2);
-}
-
-- (void)testRetrievingACellFromTheTable {
-    
-    UITableViewCell *cell = [self.controller tableView:self.controller.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-    
-    XCTAssertTrue([cell.textLabel.text isEqualToString:@"Feature Description 1"]);
-}
+//- (void)testNumberOfSections {
+//    NSInteger numberOfSections = [self.controller numberOfSectionsInTableView:self.controller.tableView];
+//    
+//    XCTAssertTrue(numberOfSections == 1);
+//}
+//
+//- (void)testNumberOfRowsInSection {
+//    NSInteger numberOfRowsInSectionZero = [self.controller tableView:self.controller.tableView numberOfRowsInSection:0];
+//    NSInteger numberOfRowsInSectionOne = [self.controller tableView:self.controller.tableView numberOfRowsInSection:1];
+//    
+//    XCTAssertTrue(numberOfRowsInSectionZero == 2);
+//    XCTAssertTrue(numberOfRowsInSectionOne == 2);
+//}
+//
+//- (void)testRetrievingACellFromTheTable {
+//    
+//    UITableViewCell *cell = [self.controller tableView:self.controller.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+//    
+//    XCTAssertTrue([cell.textLabel.text isEqualToString:@"Feature Description 1"]);
+//}
 
 @end
