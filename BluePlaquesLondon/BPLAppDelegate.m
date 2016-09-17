@@ -91,6 +91,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeStyling
 {
+    [[UINavigationBar appearance] setBarTintColor:[UIColor BPLLightGreyColour]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                          NSForegroundColorAttributeName: [UIColor BPLBlueColour],
                                                          NSFontAttributeName: [MDCTypography subheadFont]

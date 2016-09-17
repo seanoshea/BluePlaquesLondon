@@ -62,6 +62,16 @@
     return greyColour;
 }
 
++ (UIColor *)BPLLightGreyColour
+{
+  static UIColor *greyColour;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    greyColour = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
+  });
+  return greyColour;
+}
+
 + (UIColor *)BPLOrangeColour
 {
     static UIColor *orangeColour;

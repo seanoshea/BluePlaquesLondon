@@ -33,6 +33,7 @@
 + (UIColor *)BPLBlueColour;
 + (UIColor *)BPLDarkGreyColour;
 + (UIColor *)BPLGreyColour;
++ (UIColor *)BPLLightGreyColour;
 + (UIColor *)BPLOrangeColour;
 + (UIColor *)BPLLightOrangeColour;
 
