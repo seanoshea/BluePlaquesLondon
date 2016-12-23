@@ -8,7 +8,6 @@
 
 #import "BPLSearchViewController.h"
 
-#import "MaterialSwitch.h"
 #import "BPLPlacemark.h"
 #import "BPLPlacemark+Additions.h"
 #import "UIColor+BPLColors.h"

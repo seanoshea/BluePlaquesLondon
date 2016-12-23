@@ -14,7 +14,7 @@ target 'BluePlaquesLondon' do
   pod 'iRate', :git => 'https://github.com/nicklockwood/iRate.git', :branch => 'master'
   pod 'iOS-KML-Framework', :git => 'https://github.com/FLCLjp/iOS-KML-Framework.git'
   pod 'GTMNSStringHTMLAdditions', '0.2.1'
-  pod 'MaterialComponents', :path => '../material-components-ios'
+  pod 'MaterialComponents', '19.0.4'
 
   target 'BluePlaquesLondonTests' do
     inherit! :search_paths
