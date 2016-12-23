@@ -1,5 +1,4 @@
 platform :ios, '9.0'
-osx_image: xcode8.1
 
 source 'https://github.com/CocoaPods/Specs.git'
 
