@@ -138,7 +138,8 @@
   }
 }
 
-- (void)hideActivityIndicator {
+- (void)hideActivityIndicator
+{
   CGFloat x = self.activityIndicator.frame.origin.x;
   [UIView animateWithDuration:1.75
                         delay:0.1
