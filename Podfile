@@ -8,9 +8,9 @@ project 'BluePlaquesLondon.xcodeproj'
 
 target 'BluePlaquesLondon' do
   pod 'TTTAttributedLabel', '2.0.0'
-  pod 'GoogleAnalytics', '3.14.0'
+  pod 'GoogleAnalytics', '3.17.0'
   pod 'GoogleMaps', '1.13.2'
-  pod 'IntentKit', '0.7.3'
+  pod 'IntentKit', '0.7.5'
   pod 'iRate', :git => 'https://github.com/nicklockwood/iRate.git', :branch => 'master'
   pod 'iOS-KML-Framework', :git => 'https://github.com/FLCLjp/iOS-KML-Framework.git'
   pod 'GTMNSStringHTMLAdditions', '0.2.1'
@@ -20,6 +20,6 @@ target 'BluePlaquesLondon' do
     inherit! :search_paths
 
     pod 'OCMock', '~> 3.3.1'
-    pod 'OHHTTPStubs', '~> 5.1.0'
+    pod 'OHHTTPStubs', '~> 5.2.3'
   end
 end
