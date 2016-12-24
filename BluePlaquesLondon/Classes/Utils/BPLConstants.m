@@ -40,6 +40,7 @@ NSString * const BPLMapDetailViewControllerSegue = @"BPLMapDetailViewControllerS
 NSString * const BPLWikipediaViewControllerSegue = @"BPLWikipediaViewControllerSegue";
 NSString * const BPLDetailChooserViewControllerSegue = @"BPLDetailChooserViewControllerSegue";
 NSString * const BPLStreetMapViewControllerSegue = @"BPLStreetMapViewControllerSegue";
+NSString * const BPLSearchViewControllerSegue = @"BPLSearchViewControllerSegue";
 
 #pragma mark - 3rd Party Keys
 

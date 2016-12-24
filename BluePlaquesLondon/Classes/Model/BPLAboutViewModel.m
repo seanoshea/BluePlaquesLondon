@@ -36,11 +36,11 @@
 
 - (instancetype)init
 {
-    self = [super init];
-    if (self) {
-        _mapsOpenSourceLicenseInfo = [GMSServices openSourceLicenseInfo];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    _mapsOpenSourceLicenseInfo = [GMSServices openSourceLicenseInfo];
+  }
+  return self;
 }
 
 @end

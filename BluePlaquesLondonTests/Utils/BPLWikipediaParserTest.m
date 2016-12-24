@@ -40,60 +40,60 @@
 
 - (void)testHTTPError
 {
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_malformed" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSError *httpError = [[NSError alloc] initWithDomain:@"Domain" code:123 userInfo:nil];
-    [BPLWikipediaParser parseWikipediaData:data error:httpError name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-        XCTAssert(error != nil);
-        XCTAssert(error.code == 123);
-        XCTAssert([error.domain caseInsensitiveCompare:@"Domain"] == NSOrderedSame);
-    }];
+  NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_malformed" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:path];
+  NSError *httpError = [[NSError alloc] initWithDomain:@"Domain" code:123 userInfo:nil];
+  [BPLWikipediaParser parseWikipediaData:data error:httpError name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    XCTAssert(error != nil);
+    XCTAssert(error.code == 123);
+    XCTAssert([error.domain caseInsensitiveCompare:@"Domain"] == NSOrderedSame);
+  }];
 }
 
 - (void)testMalformedJSON
 {
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_malformed" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSError *error;
-    [BPLWikipediaParser parseWikipediaData:data error:error name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-        XCTAssert(error != nil);
-        XCTAssert(error.code == 3840);
-        XCTAssert([error.domain caseInsensitiveCompare:@"NSCocoaErrorDomain"] == NSOrderedSame);
-    }];
+  NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_malformed" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:path];
+  NSError *error;
+  [BPLWikipediaParser parseWikipediaData:data error:error name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    XCTAssert(error != nil);
+    XCTAssert(error.code == 3840);
+    XCTAssert([error.domain caseInsensitiveCompare:@"NSCocoaErrorDomain"] == NSOrderedSame);
+  }];
 }
 
 - (void)testEmptySearchResponseJSON
 {
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_empty" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSError *error;
-    [BPLWikipediaParser parseWikipediaData:data error:error name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-        XCTAssert(error != nil);
-        XCTAssert(error.code == 404);
-        XCTAssert([error.domain caseInsensitiveCompare:@"BPLWikipediaParserStringsErrorDomain"] == NSOrderedSame);
-    }];
+  NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_empty" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:path];
+  NSError *error;
+  [BPLWikipediaParser parseWikipediaData:data error:error name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    XCTAssert(error != nil);
+    XCTAssert(error.code == 404);
+    XCTAssert([error.domain caseInsensitiveCompare:@"BPLWikipediaParserStringsErrorDomain"] == NSOrderedSame);
+  }];
 }
 
 - (void)testNameMissing
 {
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSError *error;
-    [BPLWikipediaParser parseWikipediaData:data error:error name:@"Thatcher" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-        XCTAssert(error == nil);
-        XCTAssert([urlRequest.URL.absoluteString caseInsensitiveCompare:@"https://en.wikipedia.org/wiki/Winston_Churchill"] == NSOrderedSame);
-    }];
+  NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:path];
+  NSError *error;
+  [BPLWikipediaParser parseWikipediaData:data error:error name:@"Thatcher" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    XCTAssert(error == nil);
+    XCTAssert([urlRequest.URL.absoluteString caseInsensitiveCompare:@"https://en.wikipedia.org/wiki/Winston_Churchill"] == NSOrderedSame);
+  }];
 }
 
 - (void)testSargent
 {
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_sargent" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSError *error;
-    [BPLWikipediaParser parseWikipediaData:data error:error name:@"SARGENT, Sir Malcolm" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-        XCTAssert(error == nil);
-        XCTAssert([urlRequest.URL.absoluteString caseInsensitiveCompare:@"https://en.wikipedia.org/wiki/Malcolm_Sargent"] == NSOrderedSame);
-    }];
+  NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_sargent" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:path];
+  NSError *error;
+  [BPLWikipediaParser parseWikipediaData:data error:error name:@"SARGENT, Sir Malcolm" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    XCTAssert(error == nil);
+    XCTAssert([urlRequest.URL.absoluteString caseInsensitiveCompare:@"https://en.wikipedia.org/wiki/Malcolm_Sargent"] == NSOrderedSame);
+  }];
 }
 
 @end

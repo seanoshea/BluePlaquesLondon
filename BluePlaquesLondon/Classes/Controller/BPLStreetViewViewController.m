@@ -48,38 +48,38 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.screenName = @"Street View Screen";
-    self.title = NSLocalizedString(@"Street View", nil);
-    GMSPanoramaView *panoView = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:self.placemark.coordinate];
-    panoView.delegate = self;
-    self.view = panoView;
+  [super viewDidLoad];
+  self.screenName = @"Street View Screen";
+  self.title = NSLocalizedString(@"Street View", nil);
+  GMSPanoramaView *panoView = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:self.placemark.coordinate];
+  panoView.delegate = self;
+  self.view = panoView;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    self.firstPanoramaId = nil;
+  [super viewWillAppear:animated];
+  self.firstPanoramaId = nil;
 }
 
 #pragma mark GMSPanoramaViewDelegate
 
 - (void)panoramaView:(GMSPanoramaView *)view didMoveToPanorama:(GMSPanorama *)panorama
 {
-    if (!self.firstPanoramaId) {
-        self.firstPanoramaId = panorama.panoramaID;
-    }
-    if (!self.firstPanoramaId) {
-        NSString *title = NSLocalizedString(@"Oooops", nil);
-        NSString *message = NSLocalizedString(@"Could not load Street View", nil);
-        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                 message:message
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:action];
-        [self presentViewController:alertController animated:YES completion:nil];
-        [self trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:self.placemark.placemarkName];
-    }
+  if (!self.firstPanoramaId) {
+    self.firstPanoramaId = panorama.panoramaID;
+  }
+  if (!self.firstPanoramaId) {
+    NSString *title = NSLocalizedString(@"Oooops", nil);
+    NSString *message = NSLocalizedString(@"Could not load Street View", nil);
+    UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:action];
+    [self presentViewController:alertController animated:YES completion:nil];
+    [self trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:self.placemark.placemarkName];
+  }
 }
 
 @end

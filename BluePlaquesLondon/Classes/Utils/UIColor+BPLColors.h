@@ -31,7 +31,10 @@
 @interface UIColor (BPLColors)
 
 + (UIColor *)BPLBlueColour;
++ (UIColor *)BPLDarkGreyColour;
 + (UIColor *)BPLGreyColour;
++ (UIColor *)BPLLightGreyColour;
 + (UIColor *)BPLOrangeColour;
++ (UIColor *)BPLLightOrangeColour;
 
 @end

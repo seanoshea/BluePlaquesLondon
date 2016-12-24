@@ -38,6 +38,7 @@ extern NSString * const BPLMapDetailViewControllerSegue;
 extern NSString * const BPLWikipediaViewControllerSegue;
 extern NSString * const BPLDetailChooserViewControllerSegue;
 extern NSString * const BPLStreetMapViewControllerSegue;
+extern NSString * const BPLSearchViewControllerSegue;
 
 #pragma mark - 3rd Party Keys
 

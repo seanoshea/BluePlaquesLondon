@@ -52,29 +52,29 @@
 @implementation BPLAppDelegateTest
 
 - (void)setUp {
-    [super setUp];
-    self.appDelegate = [[BPLAppDelegate alloc] init];
+  [super setUp];
+  self.appDelegate = [[BPLAppDelegate alloc] init];
 }
 
 - (void)testCanOpenValidURL {
-    NSURL *url = [NSURL URLWithString:@"blueplaqueslondon://closest"];
-    XCTAssert([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
+  NSURL *url = [NSURL URLWithString:@"blueplaqueslondon://closest"];
+  XCTAssert([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
 }
 
 - (void)testCannotOpenInvalidURL {
-    NSURL *url = [NSURL URLWithString:@"blueplaqueslondn://closest"];
-    XCTAssertFalse([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
+  NSURL *url = [NSURL URLWithString:@"blueplaqueslondn://closest"];
+  XCTAssertFalse([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
 }
 
 - (void)testOpenClosestBluePlaqueAnalyticsTracked {
-    
-    id appDelegateMock = OCMPartialMock(self.appDelegate);
-    
-    OCMExpect([appDelegateMock trackCategory:BPLUIActionCategory action:BPLTodayExtensionButtonPressed label:nil]).andForwardToRealObject();
-    
-    [self.appDelegate openAppAtClosestPlacemark];
-    
-    OCMVerifyAll(appDelegateMock);
+  
+  id appDelegateMock = OCMPartialMock(self.appDelegate);
+  
+  OCMExpect([appDelegateMock trackCategory:BPLUIActionCategory action:BPLTodayExtensionButtonPressed label:nil]).andForwardToRealObject();
+  
+  [self.appDelegate openAppAtClosestPlacemark];
+  
+  OCMVerifyAll(appDelegateMock);
 }
 
 @end

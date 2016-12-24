@@ -35,7 +35,6 @@
 #import "BPLWikipediaViewController.h"
 #import "BPLUnitTestHelper.h"
 #import "BPLWikipediaViewModel.h"
-#import "SVProgressHUD.h"
 
 @interface BPLWikipediaViewControllerTest : XCTestCase
 
@@ -56,52 +55,52 @@
 @implementation BPLWikipediaViewControllerTest
 
 - (void)setUp {
-    [super setUp];
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    self.controller = [storybord instantiateViewControllerWithIdentifier:@"BPLWikipediaViewController"];
-    self.controller.markers = @[[BPLUnitTestHelper placemarkWithIdentifier:@"1"]];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
-    __unused id view = (self.controller).view;
+  [super setUp];
+  UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  self.controller = [storybord instantiateViewControllerWithIdentifier:@"BPLWikipediaViewController"];
+  self.controller.markers = @[[BPLUnitTestHelper placemarkWithIdentifier:@"1"]];
+  self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
+  __unused id view = (self.controller).view;
 }
 
 - (void)testInitialisation
 {
-    XCTAssertTrue([self.controller.navigationItem.title isEqual:@"Wikipedia Article"]);
-    XCTAssertTrue(self.controller.model != nil);
-    XCTAssertTrue(self.controller.webView != nil);
+  XCTAssertTrue([self.controller.navigationItem.title isEqual:@"Wikipedia Article"]);
+  XCTAssertTrue(self.controller.model != nil);
+  XCTAssertTrue(self.controller.webView != nil);
 }
 
 - (void)testLoadWikipediaModel
 {
-    id partial = [OCMockObject partialMockForObject:self.controller.model];
-    [[[partial expect] andForwardToRealObject] retrieveWikipediaUrlWithCompletionBlock:[OCMArg any]];
-    
-    [self.controller viewWillAppear:YES];
-    
-    OCMVerifyAll(partial);
+  id partial = [OCMockObject partialMockForObject:self.controller.model];
+  [[[partial expect] andForwardToRealObject] retrieveWikipediaUrlWithCompletionBlock:[OCMArg any]];
+  
+  [self.controller viewWillAppear:YES];
+  
+  OCMVerifyAll(partial);
 }
 
 - (void)testShouldLoadMethod
 {
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://wikipedia.org"]];
-    XCTAssertTrue([self.controller webView:self.controller.webView shouldStartLoadWithRequest:request navigationType:UIWebViewNavigationTypeLinkClicked]);
+  NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://wikipedia.org"]];
+  XCTAssertTrue([self.controller webView:self.controller.webView shouldStartLoadWithRequest:request navigationType:UIWebViewNavigationTypeLinkClicked]);
 }
 
 - (void)testWebViewFinishLoadFailure
 {
-    id alertControllerMock = OCMClassMock([UIAlertController class]);
-    [OCMStub([alertControllerMock alertControllerWithTitle:NSLocalizedString(@"Oooops", nil) message:NSLocalizedString(@"There was an error loading this Wikipedia Article", nil) preferredStyle:UIAlertControllerStyleAlert]) andReturn:alertControllerMock];
-    [[alertControllerMock expect] addAction:OCMOCK_ANY];
-    
-    id partial = [OCMockObject partialMockForObject:self.controller];
-    [[[partial expect] andForwardToRealObject] displayErrorAlert];
-    [[[partial expect] andForwardToRealObject] presentViewController:alertControllerMock animated:YES completion:nil];
-    
-    NSError *error = [[NSError alloc] initWithDomain:@"DOMAIN" code:500 userInfo:@{}];
-    [partial webView:self.controller.webView didFailLoadWithError:error];
-    
-    OCMVerifyAll(partial);
-    OCMVerifyAll(alertControllerMock);
+  id alertControllerMock = OCMClassMock([UIAlertController class]);
+  [OCMStub([alertControllerMock alertControllerWithTitle:NSLocalizedString(@"Oooops", nil) message:NSLocalizedString(@"There was an error loading this Wikipedia Article", nil) preferredStyle:UIAlertControllerStyleAlert]) andReturn:alertControllerMock];
+  [[alertControllerMock expect] addAction:OCMOCK_ANY];
+  
+  id partial = [OCMockObject partialMockForObject:self.controller];
+  [[[partial expect] andForwardToRealObject] displayErrorAlert];
+  [[[partial expect] andForwardToRealObject] presentViewController:alertControllerMock animated:YES completion:nil];
+  
+  NSError *error = [[NSError alloc] initWithDomain:@"DOMAIN" code:500 userInfo:@{}];
+  [partial webView:self.controller.webView didFailLoadWithError:error];
+  
+  OCMVerifyAll(partial);
+  OCMVerifyAll(alertControllerMock);
 }
 
 @end

@@ -30,9 +30,11 @@
 
 @import UIKit;
 
+#import "MaterialCollections.h"
+
 extern NSString *BPLDetailChooserViewControllerStoryboardIdentifier;
 
-@interface BPLDetailChooserViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface BPLDetailChooserViewController : MDCCollectionViewController
 
 @property (nonatomic, copy) NSArray *markers;
 

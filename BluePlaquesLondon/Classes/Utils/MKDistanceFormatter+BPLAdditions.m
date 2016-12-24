@@ -33,15 +33,15 @@
 @implementation MKDistanceFormatter (BPLAdditions)
 
 + (NSString *)distanceFromLocation:(CLLocation *)location toLocation:(CLLocation *)toLocation
-{    
-    CLLocationDistance distance = [location distanceFromLocation:toLocation];
-    static MKDistanceFormatter *formatter;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        formatter = [[MKDistanceFormatter alloc] init];
-        formatter.units = MKDistanceFormatterUnitsMetric;
-    });
-    return [formatter stringFromDistance:distance];
+{
+  CLLocationDistance distance = [location distanceFromLocation:toLocation];
+  static MKDistanceFormatter *formatter;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    formatter = [[MKDistanceFormatter alloc] init];
+    formatter.units = MKDistanceFormatterUnitsMetric;
+  });
+  return [formatter stringFromDistance:distance];
 }
 
 @end

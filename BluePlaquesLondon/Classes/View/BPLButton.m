@@ -36,22 +36,13 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    }
-    return self;
-}
-
-- (void)setHighlighted:(BOOL)highlighted
-{
-    super.highlighted = highlighted;
-    if (highlighted) {
-        self.backgroundColor = [UIColor BPLBlueColour];
-    } else {
-        self.backgroundColor = [UIColor whiteColor];
-    }
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateHighlighted];
+    [self setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  }
+  return self;
 }
 
 @end

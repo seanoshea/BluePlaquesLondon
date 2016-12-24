@@ -40,6 +40,7 @@
 #import "BPLMapViewDetailViewModel.h"
 #import "NSObject+BPLTracking.h"
 #import "NSUserDefaults+BPLState.h"
+#import "BPLSearchViewController.h"
 
 @interface BPLMapViewControllerTest : XCTestCase
 
@@ -51,7 +52,9 @@
 @interface BPLMapViewController () <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIView *containerView;
+@property (nonatomic, weak) BPLSearchViewController *searchViewController;
+
 @property (nonatomic) GMSMapView *mapView;
 
 @property (nonatomic) BPLMapViewModel *model;
@@ -61,7 +64,7 @@
 
 - (void)navigateToPlacemark:(BPLPlacemark *)placemark;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)toggleTableView:(BOOL)show;
+- (void)toggleSearchViewController:(BOOL)show;
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations;
 - (void)filterDataForSearchText:(NSString *)searchText;
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate;
@@ -81,223 +84,213 @@
 
 - (void)setUp
 {
-    [super setUp];
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    self.controller = [storybord instantiateViewControllerWithIdentifier:BPLMapViewControllerStoryboardIdentifier];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
-    __unused id view = (self.controller).view;
-    self.controller.model = [[BPLMapViewModel alloc] init];
+  [super setUp];
+  UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  self.controller = [storybord instantiateViewControllerWithIdentifier:BPLMapViewControllerStoryboardIdentifier];
+  self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
+  __unused id view = (self.controller).view;
+  self.controller.model = [[BPLMapViewModel alloc] init];
 }
 
 - (void)testPrepareForSegue
 {
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    BPLMapViewDetailViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:BPLMapViewDetailViewControllerStoryboardIdentifier];
-    UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLMapDetailViewControllerSegue source:self.controller destination:destinationViewController];
-
-    BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
-    
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    id markerMock = OCMPartialMock(marker);
-    OCMStub([markerMock userData]).andReturn(placemark);
-    
-    id mapMock = OCMPartialMock(self.controller.mapView);
-    OCMStub([mapMock selectedMarker]).andReturn(marker);
-
-    KMLRoot *root = [[KMLRoot alloc] init];
-    root.feature = [[KMLPlacemark alloc] init];
-    
-    id modelMock = OCMPartialMock(self.controller.model);
-    OCMStub([modelMock data]).andReturn(root);
-    
-    self.controller.model.keyToArrayPositions = [@{@"1.000000.00000": @[@0]} mutableCopy];
-    
-    [self.controller prepareForSegue:segue sender:nil];
-    
-    XCTAssertTrue(destinationViewController.model.markers.count == 1);
+  UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  BPLMapViewDetailViewController *destinationViewController = [storybord instantiateViewControllerWithIdentifier:BPLMapViewDetailViewControllerStoryboardIdentifier];
+  UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:BPLMapDetailViewControllerSegue source:self.controller destination:destinationViewController];
+  
+  BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+  
+  GMSMarker *marker = [[GMSMarker alloc] init];
+  id markerMock = OCMPartialMock(marker);
+  OCMStub([markerMock userData]).andReturn(placemark);
+  
+  id mapMock = OCMPartialMock(self.controller.mapView);
+  OCMStub([mapMock selectedMarker]).andReturn(marker);
+  
+  KMLRoot *root = [[KMLRoot alloc] init];
+  root.feature = [[KMLPlacemark alloc] init];
+  
+  id modelMock = OCMPartialMock(self.controller.model);
+  OCMStub([modelMock data]).andReturn(root);
+  
+  self.controller.model.keyToArrayPositions = [@{@"1.000000.00000": @[@0]} mutableCopy];
+  
+  [self.controller prepareForSegue:segue sender:nil];
+  
+  XCTAssertTrue(destinationViewController.model.markers.count == 1);
 }
 
 - (void)testClosestPlacemarkDelegateMethod
 {
-    BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
-    
-    self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
-    
-    id modelMock = OCMPartialMock(self.controller.model);
-    OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
-    
-    id partial = [OCMockObject partialMockForObject:self.controller];
-    [[[partial expect] andForwardToRealObject] navigateToPlacemark:nil];
-    [[[partial expect] andForwardToRealObject] trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:nil];
-    
-    [partial tableView:self.controller.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-    
-    OCMVerifyAll(modelMock);
+  BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+  
+  self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
+  
+  id modelMock = OCMPartialMock(self.controller.model);
+  OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
+  
+  id partial = [OCMockObject partialMockForObject:self.controller];
+  [[[partial expect] andForwardToRealObject] navigateToPlacemark:nil];
+  [[[partial expect] andForwardToRealObject] trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:nil];
+  
+  [partial searchViewController:self.controller.searchViewController didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+  
+  OCMVerifyAll(modelMock);
 }
 
 - (void)testSpecificPlacemarkDelegateMethod {
-    BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
-    
-    self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
-    
-    id modelMock = OCMPartialMock(self.controller.model);
-    OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
-    
-    id partial = [OCMockObject partialMockForObject:self.controller];
-    [[[partial expect] andForwardToRealObject] navigateToPlacemark:nil];
-    [[[partial expect] andForwardToRealObject] trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:nil];
-    
-    [partial tableView:self.controller.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
-
-    OCMVerifyAll(partial);
+  BPLPlacemark *placemark = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+  
+  self.controller.currentLocation = [[CLLocation alloc] initWithLatitude:(placemark.latitude).doubleValue longitude:(placemark.longitude).doubleValue];
+  
+  id modelMock = OCMPartialMock(self.controller.model);
+  OCMStub([modelMock closestPlacemarkToCoordinate:self.controller.currentLocation.coordinate]).andReturn(placemark);
+  
+  id partial = [OCMockObject partialMockForObject:self.controller];
+  [[[partial expect] andForwardToRealObject] navigateToPlacemark:nil];
+  [[[partial expect] andForwardToRealObject] trackCategory:BPLUIActionCategory action:BPLTableRowPressedEvent label:nil];
+  
+  [partial searchViewController:self.controller.searchViewController didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+  
+  OCMVerifyAll(partial);
 }
 
 - (void)testSearchBarShouldEndEditing
 {
-    XCTAssertTrue([self.controller searchBarShouldEndEditing:self.controller.searchBar]);
+  XCTAssertTrue([self.controller searchBarShouldEndEditing:self.controller.searchBar]);
 }
 
 - (void)testSearchBarTextDidBeginEditing
 {
-    id controllerMock = OCMPartialMock(self.controller);
-    OCMExpect([controllerMock toggleTableView:YES]).andForwardToRealObject();
-    
-    [self.controller searchBarTextDidBeginEditing:self.controller.searchBar];
-    
-    XCTAssertFalse(self.controller.tableView.hidden);
-    
-    OCMVerifyAll(controllerMock);
+  id controllerMock = OCMPartialMock(self.controller);
+  OCMExpect([controllerMock toggleSearchViewController:YES]).andForwardToRealObject();
+  
+  [self.controller searchBarTextDidBeginEditing:self.controller.searchBar];
+  
+  XCTAssertFalse(self.controller.containerView.hidden);
+  
+  OCMVerifyAll(controllerMock);
 }
 
 - (void)testSearchBarShouldBeginEditing
 {
-    XCTAssertTrue([self.controller searchBarShouldBeginEditing:self.controller.searchBar]);
+  XCTAssertTrue([self.controller searchBarShouldBeginEditing:self.controller.searchBar]);
 }
 
 - (void)testSearchBarChangeTextInRange
 {
-    XCTAssertTrue([self.controller searchBar:self.controller.searchBar shouldChangeTextInRange:NSMakeRange(0, 1) replacementText:@""]);
-    XCTAssertTrue([self.controller searchBar:self.controller.searchBar shouldChangeTextInRange:NSMakeRange(0, 2) replacementText:@""]);
-    XCTAssertTrue([self.controller searchBar:self.controller.searchBar shouldChangeTextInRange:NSMakeRange(0, 3) replacementText:@""]);
+  XCTAssertTrue([self.controller searchBar:self.controller.searchBar shouldChangeTextInRange:NSMakeRange(0, 1) replacementText:@""]);
+  XCTAssertTrue([self.controller searchBar:self.controller.searchBar shouldChangeTextInRange:NSMakeRange(0, 2) replacementText:@""]);
+  XCTAssertTrue([self.controller searchBar:self.controller.searchBar shouldChangeTextInRange:NSMakeRange(0, 3) replacementText:@""]);
 }
 
 - (void)testSearchBarCancelButtonPressed
 {
-    [self.controller searchBarCancelButtonClicked:self.controller.searchBar];
-    
-    XCTAssertTrue(self.controller.tableView.hidden);
+  [self.controller searchBarCancelButtonClicked:self.controller.searchBar];
+  
+  XCTAssertTrue(self.controller.containerView.hidden);
 }
 
 - (void)testSearchBarDidEndEditing
 {
-    id controllerMock = OCMPartialMock(self.controller);
-    OCMExpect([controllerMock filterDataForSearchText:@""]).andForwardToRealObject();
-    
-    [controllerMock searchBarTextDidEndEditing:self.controller.searchBar];
-    
-    OCMVerifyAll(controllerMock);
+  id controllerMock = OCMPartialMock(self.controller);
+  OCMExpect([controllerMock filterDataForSearchText:@""]).andForwardToRealObject();
+  
+  [controllerMock searchBarTextDidEndEditing:self.controller.searchBar];
+  
+  OCMVerifyAll(controllerMock);
 }
 
 - (void)testSearchBarTextDidChange
 {
-    id controllerMock = OCMPartialMock(self.controller);
-    OCMExpect([controllerMock filterDataForSearchText:@"123"]).andForwardToRealObject();
-    
-    [controllerMock searchBar:self.controller.searchBar textDidChange:@"123"];
-    
-    OCMVerifyAll(controllerMock);
-}
-
-- (void)testFilterData
-{
-    id tableMock = OCMPartialMock(self.controller.tableView);
-    OCMExpect([tableMock reloadData]).andForwardToRealObject();
-    
-    [self.controller filterDataForSearchText:@"123"];
-    
-    OCMVerifyAll(tableMock);
+  id controllerMock = OCMPartialMock(self.controller);
+  OCMExpect([controllerMock filterDataForSearchText:@"123"]).andForwardToRealObject();
+  
+  [controllerMock searchBar:self.controller.searchBar textDidChange:@"123"];
+  
+  OCMVerifyAll(controllerMock);
 }
 
 - (void)testUpdateCurrentLocation
 {
-    CLLocation *locationOne = [[CLLocation alloc] initWithLatitude:123.30 longitude:140.11];
-    CLLocation *locationTwo = [[CLLocation alloc] initWithLatitude:37.785834000000001 longitude:-122.406417];
-    
-    [self.controller locationManager:self.controller.locationManager didUpdateLocations:@[locationOne, locationTwo]];
-    
-    XCTAssertTrue(self.controller.currentLocation.coordinate.latitude == 37.785834000000001);
-    XCTAssertTrue(self.controller.currentLocation.coordinate.longitude == -122.406417);
-    
-    CLLocationCoordinate2D lastKnownCoordinate = [NSUserDefaults standardUserDefaults].lastKnownCoordinate;
-    
-    XCTAssertTrue(lastKnownCoordinate.latitude == 37.785834000000001);
-    XCTAssertTrue(lastKnownCoordinate.longitude == -122.406417);
+  CLLocation *locationOne = [[CLLocation alloc] initWithLatitude:123.30 longitude:140.11];
+  CLLocation *locationTwo = [[CLLocation alloc] initWithLatitude:37.785834000000001 longitude:-122.406417];
+  
+  [self.controller locationManager:self.controller.locationManager didUpdateLocations:@[locationOne, locationTwo]];
+  
+  XCTAssertTrue(self.controller.currentLocation.coordinate.latitude == 37.785834000000001);
+  XCTAssertTrue(self.controller.currentLocation.coordinate.longitude == -122.406417);
+  
+  CLLocationCoordinate2D lastKnownCoordinate = [NSUserDefaults standardUserDefaults].lastKnownCoordinate;
+  
+  XCTAssertTrue(lastKnownCoordinate.latitude == 37.785834000000001);
+  XCTAssertTrue(lastKnownCoordinate.longitude == -122.406417);
 }
 
 - (void)testUserTappingOnCoodinate
 {
-    [self.controller mapView:self.controller.mapView didTapAtCoordinate:[NSUserDefaults standardUserDefaults].lastKnownCoordinate];
-    
-    XCTAssertTrue(self.controller.tableView.hidden);
+  [self.controller mapView:self.controller.mapView didTapAtCoordinate:[NSUserDefaults standardUserDefaults].lastKnownCoordinate];
+  
+  XCTAssertTrue(self.controller.containerView.hidden);
 }
 
 - (void)testUserTappingOnMarker
 {
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(37.785834000000001, -122.406417);
-    
-    BOOL returnValue = [self.controller mapView:self.controller.mapView didTapMarker:marker];
-    
-    CLLocationCoordinate2D lastKnown = [NSUserDefaults standardUserDefaults].lastKnownBPLCoordinate;
-    
-    XCTAssertFalse(returnValue);
-    XCTAssertTrue(lastKnown.latitude == 37.785834000000001);
-    XCTAssertTrue(lastKnown.longitude == -122.406417);
+  GMSMarker *marker = [[GMSMarker alloc] init];
+  marker.position = CLLocationCoordinate2DMake(37.785834000000001, -122.406417);
+  
+  BOOL returnValue = [self.controller mapView:self.controller.mapView didTapMarker:marker];
+  
+  CLLocationCoordinate2D lastKnown = [NSUserDefaults standardUserDefaults].lastKnownBPLCoordinate;
+  
+  XCTAssertFalse(returnValue);
+  XCTAssertTrue(lastKnown.latitude == 37.785834000000001);
+  XCTAssertTrue(lastKnown.longitude == -122.406417);
 }
 
 - (void)testUserTappingOnInfoWindow
 {
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(37.785834000000001, -122.406417);
-    
-    id controllerMock = OCMPartialMock(self.controller);
-    OCMExpect([controllerMock performSegueWithIdentifier:BPLMapDetailViewControllerSegue sender:self.controller]).andForwardToRealObject();
-    
-    [controllerMock mapView:self.controller.mapView didTapInfoWindowOfMarker:marker];
-    
-    OCMVerifyAll(controllerMock);
+  GMSMarker *marker = [[GMSMarker alloc] init];
+  marker.position = CLLocationCoordinate2DMake(37.785834000000001, -122.406417);
+  
+  id controllerMock = OCMPartialMock(self.controller);
+  OCMExpect([controllerMock performSegueWithIdentifier:BPLMapDetailViewControllerSegue sender:self.controller]).andForwardToRealObject();
+  
+  [controllerMock mapView:self.controller.mapView didTapInfoWindowOfMarker:marker];
+  
+  OCMVerifyAll(controllerMock);
 }
 
 - (void)testAutomaticallyNavigatingToTheClosestPlacemark {
-
-    CLLocation *location = nil;
-    
-    id controllerMock = OCMPartialMock(self.controller);
-    OCMStub([controllerMock currentLocation]).andReturn(location);
-    
-    id modelMock = OCMPartialMock(self.controller.model);
-    OCMStub([modelMock closestPlacemarkToCoordinate:location.coordinate]).andReturn(nil);
-
-    OCMStub([controllerMock model]).andReturn(modelMock);
-    
-    [controllerMock navigateToClosestPlacemark];
   
-    XCTAssert(self.controller.automaticallyNavigateToClosestPlacemark);
+  CLLocation *location = nil;
+  
+  id controllerMock = OCMPartialMock(self.controller);
+  OCMStub([controllerMock currentLocation]).andReturn(location);
+  
+  id modelMock = OCMPartialMock(self.controller.model);
+  OCMStub([modelMock closestPlacemarkToCoordinate:location.coordinate]).andReturn(nil);
+  
+  OCMStub([controllerMock model]).andReturn(modelMock);
+  
+  [controllerMock navigateToClosestPlacemark];
+  
+  XCTAssert(self.controller.automaticallyNavigateToClosestPlacemark);
 }
 
 - (void)testCheckForAutomaticallyNavigatingToClosestPlacemarkAfterCurrentLocationUpdated {
-    
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:51.50016999993306f longitude:-0.1814680000049975f];
-
-    id controllerMock = OCMPartialMock(self.controller);
-
-    [[controllerMock expect] navigateToClosestPlacemark];
-    OCMStub([controllerMock automaticallyNavigateToClosestPlacemark]).andReturn(YES);
-    
-    self.controller.automaticallyNavigateToClosestPlacemark = YES;
-    [controllerMock locationManager:self.controller.locationManager didUpdateLocations:@[location]];
-    
-    OCMVerifyAll(controllerMock);
+  
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:51.50016999993306f longitude:-0.1814680000049975f];
+  
+  id controllerMock = OCMPartialMock(self.controller);
+  
+  [[controllerMock expect] navigateToClosestPlacemark];
+  OCMStub([controllerMock automaticallyNavigateToClosestPlacemark]).andReturn(YES);
+  
+  self.controller.automaticallyNavigateToClosestPlacemark = YES;
+  [controllerMock locationManager:self.controller.locationManager didUpdateLocations:@[location]];
+  
+  OCMVerifyAll(controllerMock);
 }
 
 @end

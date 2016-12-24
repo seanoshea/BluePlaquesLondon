@@ -37,27 +37,27 @@
 + (BOOL)isTrackingEnabled
 {
 #ifdef TRACKING
-    return [[NSUserDefaults standardUserDefaults] isTrackingEnabled];
+  return [[NSUserDefaults standardUserDefaults] isTrackingEnabled];
 #else
-    return false;
+  return false;
 #endif
 }
 
 + (BOOL)isCrashReportingEnabled
 {
 #ifdef CRASH_REPORTING
-    return true;
+  return true;
 #else
-    return false;
+  return false;
 #endif
 }
 
 + (BOOL)isDebug
 {
 #ifdef DEBUG
-    return true;
+  return true;
 #else
-    return false;
+  return false;
 #endif
 }
 

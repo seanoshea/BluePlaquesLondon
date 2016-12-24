@@ -30,17 +30,19 @@
 
 #import "BPLWikipediaViewController.h"
 
-#import <SVProgressHUD/SVProgressHUD.h>
-
 #import "BPLWikipediaViewModel.h"
 #import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
 #import "KMLPlacemark.h"
+#import "MaterialActivityIndicator.h"
+#import "MDCCollectionViewCell.h"
+#import "MDCCollectionViewCell+Ink.h"
 
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
+@property (nonatomic) MDCActivityIndicator *activityIndicator;
 
 @property (nonatomic) BPLWikipediaViewModel *model;
 
@@ -52,84 +54,129 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.screenName = @"Wikipedia Screen";
-
-    self.webView.backgroundColor = [UIColor BPLGreyColour];
-    self.webView.opaque = NO;
-    
-    KMLPlacemark *placemark = self.markers[0];
-    self.model = [[BPLWikipediaViewModel alloc] initWithName:placemark.name];
-    self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
-    self.webView.delegate = self;
+  [super viewDidLoad];
+  self.screenName = @"Wikipedia Screen";
+  
+  self.webView.backgroundColor = [UIColor BPLGreyColour];
+  self.webView.opaque = NO;
+  
+  self.view.backgroundColor = [UIColor whiteColor];
+  
+  KMLPlacemark *placemark = self.markers[0];
+  self.model = [[BPLWikipediaViewModel alloc] initWithName:placemark.name];
+  self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
+  self.webView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [SVProgressHUD show];
-    [[self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-        if (!error) {
-            [self.webView loadRequest:urlRequest];
-        } else {
-            [self displayErrorAlert];
-        }
-    }] resume];
+  [super viewWillAppear:animated];
+  self.webView.hidden = YES;
+  self.activityIndicator = [[MDCActivityIndicator alloc] initWithFrame:CGRectMake(0, 0, 128, 128)];
+  self.activityIndicator.center = self.view.center;
+  self.activityIndicator.strokeWidth = 4.0f;
+  self.activityIndicator.radius = 18.0f;
+  self.activityIndicator.cycleColors = @[[UIColor BPLBlueColour]];
+  [self.view addSubview:self.activityIndicator];
+  [self.activityIndicator startAnimating];
+  
+  [[self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    if (!error) {
+      [self.webView loadRequest:urlRequest];
+    } else {
+      [self displayErrorAlert];
+    }
+  }] resume];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [SVProgressHUD dismiss];
-    [super viewWillDisappear:animated];
+  [self hideActivityIndicator];
+  [super viewWillDisappear:animated];
 }
 
 #pragma mark UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    return YES;
+  return YES;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    
+  
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [SVProgressHUD dismiss];
+  [self hideActivityIndicator];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [self displayErrorAlert];
+  [self displayErrorAlert];
 }
 
 #pragma mark Errors
 
 - (void)displayErrorAlert
 {
-    [SVProgressHUD dismiss];
-    
-    NSString *title = NSLocalizedString(@"Oooops", nil);
-    NSString *message = NSLocalizedString(@"There was an error loading this Wikipedia Article", nil);
-    UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:action];
-    [self presentViewController:alertController animated:YES completion:nil];
-    
-    if ((self.markers).count) {
-        KMLPlacemark *placemark = self.markers[0];
-        [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
+  [self hideActivityIndicator];
+  
+  NSString *title = NSLocalizedString(@"Oooops", nil);
+  NSString *message = NSLocalizedString(@"There was an error loading this Wikipedia Article", nil);
+  UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+  [alertController addAction:action];
+  [self presentViewController:alertController animated:YES completion:nil];
+  
+  if ((self.markers).count) {
+    KMLPlacemark *placemark = self.markers[0];
+    [self trackCategory:BPLErrorCategory action:BPLWikipediaPageLoadErrorEvent label:placemark.name];
+  }
+}
+
+- (void)hideActivityIndicator {
+  CGFloat x = self.activityIndicator.frame.origin.x;
+  [UIView animateWithDuration:1.75
+                        delay:0.1
+                      options: UIViewAnimationCurveEaseIn
+                   animations:^{
+                     self.activityIndicator.frame = CGRectMake(x, 0, 128, 128);
+                   }
+                   completion:^(BOOL finished){
+                     if (finished) {
+                       [self fadeInWebView];
+                     }
+                   }];
+  [UIView animateWithDuration:1.75f animations:^{
+    self.activityIndicator.alpha = 0.0f;
+  } completion:^(BOOL finished) {
+    if (finished) {
+      
     }
+  }];
+}
+
+- (void)fadeInWebView {
+  self.webView.alpha = 0.0f;
+  self.webView.hidden = NO;
+  [UIView animateWithDuration:0.1f animations:^{
+    self.webView.alpha = 1.0f;
+  } completion:^(BOOL finished) {
+    if (finished) {
+      [self.activityIndicator stopAnimating];
+      [self.activityIndicator removeFromSuperview];
+    }
+  }];
 }
 
 - (void)dealloc
 {
-    self.webView.delegate = nil;
-    [self.webView stopLoading];
+  self.webView.delegate = nil;
+  [self.webView stopLoading];
 }
 
 @end

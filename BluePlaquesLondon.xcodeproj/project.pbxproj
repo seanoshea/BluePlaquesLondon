@@ -53,20 +53,23 @@
 		14F0035B1A9D0E1300AEE2AC /* UIColor+BPLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003521A9D0E1300AEE2AC /* UIColor+BPLColors.m */; };
 		14F003621A9D0E2500AEE2AC /* BPLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035D1A9D0E2500AEE2AC /* BPLButton.m */; };
 		14F003631A9D0E2500AEE2AC /* BPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */; };
-		14F003641A9D0E2500AEE2AC /* BPLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */; };
-		14F0036F1A9D1E7700AEE2AC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */; };
-		14F003701A9D1E7700AEE2AC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */; };
+		14F003701A9D1E7700AEE2AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F0036D1A9D1E7700AEE2AC /* Main.storyboard */; };
 		14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */ = {isa = PBXBuildFile; fileRef = 14F003721A9D1F2B00AEE2AC /* blueplaques.kml */; };
 		14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */ = {isa = PBXBuildFile; fileRef = 14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */; };
 		14F003791A9D1F3C00AEE2AC /* IntentKit-Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14F003771A9D1F3C00AEE2AC /* IntentKit-Localizable.strings */; };
 		14F0037A1A9D1F3C00AEE2AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14F003781A9D1F3C00AEE2AC /* Localizable.strings */; };
 		14F0037D1A9D1FD600AEE2AC /* wikipedia.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F0037C1A9D1FD600AEE2AC /* wikipedia.json */; };
 		14F003821A9D1FF200AEE2AC /* BPLButtonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */; };
-		14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */; };
 		14F003861A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003841A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m */; };
 		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
+		411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
+		411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
+		411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */; };
+		411FA5461D77BFFB00A2731C /* BPLInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */; };
+		4198EFA11D67E72800625A78 /* BPLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198EFA01D67E72800625A78 /* BPLSearchViewController.m */; };
+		4198EFA21D67E72800625A78 /* BPLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198EFA01D67E72800625A78 /* BPLSearchViewController.m */; };
 		41A6D8B31B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
 		41A6D8B41B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
 		41C7CFFA1CA9E74000736645 /* BPLWikipediaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C7CFF91CA9E74000736645 /* BPLWikipediaParser.m */; };
@@ -183,18 +186,14 @@
 		14F0035D1A9D0E2500AEE2AC /* BPLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButton.m; sourceTree = "<group>"; };
 		14F0035E1A9D0E2500AEE2AC /* BPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLLabel.h; sourceTree = "<group>"; };
 		14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLLabel.m; sourceTree = "<group>"; };
-		14F003601A9D0E2500AEE2AC /* BPLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLTableViewCell.h; sourceTree = "<group>"; };
-		14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCell.m; sourceTree = "<group>"; };
 		14F003651A9D1CB700AEE2AC /* BluePlaquesLondon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondon-Prefix.pch"; sourceTree = "<group>"; };
-		14F0036C1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		14F0036E1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		14F0036E1A9D1E7700AEE2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F003721A9D1F2B00AEE2AC /* blueplaques.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blueplaques.kml; sourceTree = "<group>"; };
 		14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = blueplaques.kmz; sourceTree = "<group>"; };
 		14F003771A9D1F3C00AEE2AC /* IntentKit-Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = "IntentKit-Localizable.strings"; sourceTree = "<group>"; };
 		14F003781A9D1F3C00AEE2AC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		14F0037C1A9D1FD600AEE2AC /* wikipedia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia.json; sourceTree = "<group>"; };
 		14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLButtonTest.m; sourceTree = "<group>"; };
-		14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLTableViewCellTest.m; sourceTree = "<group>"; };
 		14F003841A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModelTest.m; sourceTree = "<group>"; };
 		14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMKDistanceFormatterAdditionsTest.m; sourceTree = "<group>"; };
 		14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkFeatureDescriptionTests.m; sourceTree = "<group>"; };
@@ -202,6 +201,11 @@
 		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
 		35E62A76A1A5C04993430748 /* Pods-BluePlaquesLondonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.release.xcconfig"; sourceTree = "<group>"; };
 		3D772121B4F7ED9C84BA2CDD /* libPods-BluePlaquesLondon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
+		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
+		411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLInfoWindow.m; sourceTree = "<group>"; };
+		4198EF9F1D67E72800625A78 /* BPLSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLSearchViewController.h; sourceTree = "<group>"; };
+		4198EFA01D67E72800625A78 /* BPLSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLSearchViewController.m; sourceTree = "<group>"; };
 		41A6D8B21B8E258A0077EBE1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		41C7CFF81CA9E74000736645 /* BPLWikipediaParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLWikipediaParser.h; sourceTree = "<group>"; };
 		41C7CFF91CA9E74000736645 /* BPLWikipediaParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaParser.m; sourceTree = "<group>"; };
@@ -307,8 +311,7 @@
 				14F003031A9D0CFC00AEE2AC /* Dependencies */,
 				146C5FA41A9D09EB00E88761 /* Images.xcassets */,
 				146C5FA61A9D09EB00E88761 /* LaunchScreen.xib */,
-				14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */,
-				14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */,
+				14F0036D1A9D1E7700AEE2AC /* Main.storyboard */,
 				14F003711A9D1F1700AEE2AC /* Resources */,
 				146C5F941A9D09EB00E88761 /* Supporting Files */,
 			);
@@ -407,6 +410,8 @@
 				14F003251A9D0DE700AEE2AC /* BPLMapViewController.m */,
 				14F003261A9D0DE700AEE2AC /* BPLMapViewDetailViewController.h */,
 				14F003271A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m */,
+				4198EF9F1D67E72800625A78 /* BPLSearchViewController.h */,
+				4198EFA01D67E72800625A78 /* BPLSearchViewController.m */,
 				14F003281A9D0DE700AEE2AC /* BPLStreetViewViewController.h */,
 				14F003291A9D0DE700AEE2AC /* BPLStreetViewViewController.m */,
 				14F0032A1A9D0DE700AEE2AC /* BPLWikipediaViewController.h */,
@@ -471,10 +476,11 @@
 			children = (
 				14F0035C1A9D0E2500AEE2AC /* BPLButton.h */,
 				14F0035D1A9D0E2500AEE2AC /* BPLButton.m */,
+				411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */,
+				411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */,
+				411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */,
 				14F0035E1A9D0E2500AEE2AC /* BPLLabel.h */,
 				14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */,
-				14F003601A9D0E2500AEE2AC /* BPLTableViewCell.h */,
-				14F003611A9D0E2500AEE2AC /* BPLTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,7 +518,6 @@
 			isa = PBXGroup;
 			children = (
 				14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */,
-				14F003811A9D1FF200AEE2AC /* BPLTableViewCellTest.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -617,13 +622,17 @@
 					141B27711AC83F6A0095A0F8 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 3TQU8WFYZ9;
+						LastSwiftMigration = 0800;
 					};
 					146C5F901A9D09EB00E88761 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 3TQU8WFYZ9;
+						LastSwiftMigration = 0800;
 					};
 					146C5FAC1A9D09EB00E88761 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 3TQU8WFYZ9;
+						LastSwiftMigration = 0800;
 						TestTargetID = 146C5F901A9D09EB00E88761;
 					};
 				};
@@ -661,10 +670,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14F003701A9D1E7700AEE2AC /* Main_iPhone.storyboard in Resources */,
-				14F0036F1A9D1E7700AEE2AC /* Main_iPad.storyboard in Resources */,
+				14F003701A9D1E7700AEE2AC /* Main.storyboard in Resources */,
 				14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */,
 				14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */,
+				411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */,
 				146C5FA81A9D09EB00E88761 /* LaunchScreen.xib in Resources */,
 				14F0037A1A9D1F3C00AEE2AC /* Localizable.strings in Resources */,
 				14F003791A9D1F3C00AEE2AC /* IntentKit-Localizable.strings in Resources */,
@@ -677,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41C7D0021CAA185700736645 /* wikipedia_sargent.json in Resources */,
+				411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */,
 				14F0037D1A9D1FD600AEE2AC /* wikipedia.json in Resources */,
 				41C7D0001CAA15BC00736645 /* wikipedia_empty.json in Resources */,
 				41C7CFFE1CAA148100736645 /* wikipedia_malformed.json in Resources */,
@@ -698,7 +708,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		14B27BD11AF6908D00030BB0 /* ShellScript */ = {
@@ -741,7 +751,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		923C18CBB096A5436EF6E34C /* [CP] Copy Pods Resources */ = {
@@ -823,13 +833,14 @@
 				14F0035A1A9D0E1300AEE2AC /* NSUserDefaults+BPLState.m in Sources */,
 				146C5FBF1A9D0BD700E88761 /* BPLAppDelegate.m in Sources */,
 				14F0032E1A9D0DE700AEE2AC /* BPLMapViewController.m in Sources */,
+				4198EFA11D67E72800625A78 /* BPLSearchViewController.m in Sources */,
 				14F0033D1A9D0E0600AEE2AC /* BPLAboutViewModel.m in Sources */,
 				14F003531A9D0E1300AEE2AC /* BPLConfiguration.m in Sources */,
 				14F0033E1A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m in Sources */,
 				14F0032C1A9D0DE700AEE2AC /* BPLAboutViewController.m in Sources */,
 				14F0032F1A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m in Sources */,
 				14F003561A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m in Sources */,
-				14F003641A9D0E2500AEE2AC /* BPLTableViewCell.m in Sources */,
+				411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
 				14F003301A9D0DE700AEE2AC /* BPLStreetViewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -842,7 +853,7 @@
 				142A90191ACDC41F00AB8EDC /* TodayViewControllerTest.swift in Sources */,
 				142A901A1ACDC51F00AB8EDC /* TodayViewController.swift in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
-				14F003831A9D1FF200AEE2AC /* BPLTableViewCellTest.m in Sources */,
+				411FA5461D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
 				14C9E8271A9FD56C00B446D1 /* BPLMapViewControllerTest.m in Sources */,
 				14F003821A9D1FF200AEE2AC /* BPLButtonTest.m in Sources */,
 				142C604D1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m in Sources */,
@@ -853,6 +864,7 @@
 				14588E891AEEC40300E02385 /* BPLDetailChooserViewController.m in Sources */,
 				14588E8A1AEEC41B00E02385 /* BPLMapViewController.m in Sources */,
 				14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */,
+				4198EFA21D67E72800625A78 /* BPLSearchViewController.m in Sources */,
 				14588E881AEEC3E400E02385 /* BPLMapViewDetailViewController.m in Sources */,
 				14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */,
 				142C604B1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m in Sources */,
@@ -886,20 +898,12 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		14F0036B1A9D1E7700AEE2AC /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14F0036C1A9D1E7700AEE2AC /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		14F0036D1A9D1E7700AEE2AC /* Main_iPhone.storyboard */ = {
+		14F0036D1A9D1E7700AEE2AC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				14F0036E1A9D1E7700AEE2AC /* Base */,
 			);
-			name = Main_iPhone.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -910,6 +914,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -926,15 +931,17 @@
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		141B27801AC83F6A0095A0F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -946,6 +953,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1036,6 +1044,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1050,6 +1059,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1060,8 +1070,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1103,6 +1114,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1113,6 +1125,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1128,6 +1142,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Debug;
@@ -1138,6 +1153,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1148,6 +1165,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Release;

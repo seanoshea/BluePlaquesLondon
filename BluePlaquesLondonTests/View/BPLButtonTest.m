@@ -44,17 +44,17 @@
 
 - (void)setUp
 {
-    [super setUp];
-    id coderMock = OCMClassMock([NSCoder class]);
-    self.button = [[BPLButton alloc] initWithCoder:coderMock];
+  [super setUp];
+  id coderMock = OCMClassMock([NSCoder class]);
+  self.button = [[BPLButton alloc] initWithCoder:coderMock];
 }
 
 - (void)testHighlightedColours
 {
-    self.button.highlighted = NO;
-    XCTAssert([self.button.backgroundColor isEqual:[UIColor whiteColor]], @"The background should be white when the button is not highlighted");
-    self.button.highlighted = YES;
-    XCTAssert([self.button.backgroundColor isEqual:[UIColor BPLBlueColour]], @"The background should be blue when the button is highlighted");
+  self.button.highlighted = NO;
+  XCTAssert([self.button.backgroundColor isEqual:[UIColor whiteColor]], @"The background should be white when the button is not highlighted");
+  self.button.highlighted = YES;
+  XCTAssert([self.button.backgroundColor isEqual:[UIColor whiteColor]], @"The background should be white when the button is highlighted");
 }
 
 @end

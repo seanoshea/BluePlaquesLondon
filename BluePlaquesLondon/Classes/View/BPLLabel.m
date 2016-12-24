@@ -31,16 +31,22 @@
 #import "BPLLabel.h"
 
 #import "UIColor+BPLColors.h"
+#import "MDCTypography.h"
 
 @implementation BPLLabel
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        self.textColor = [UIColor BPLBlueColour];
-    }
-    return self;
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    self.textColor = [UIColor BPLBlueColour];
+    self.linkAttributes = @{NSForegroundColorAttributeName: [UIColor BPLBlueColour],
+                            NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+    self.activeLinkAttributes = @{NSForegroundColorAttributeName: [UIColor BPLOrangeColour],
+                                  NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+    self.font = [MDCTypography body1Font];
+  }
+  return self;
 }
 
 @end

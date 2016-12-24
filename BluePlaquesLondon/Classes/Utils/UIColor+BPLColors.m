@@ -34,32 +34,62 @@
 
 + (UIColor *)BPLBlueColour
 {
-    static UIColor *darkBlueColour;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        darkBlueColour = [UIColor colorWithRed:14.0f/255.0f green:56.0f/255.0f blue:132.0f/255.0f alpha:1.0];
-    });
-    return darkBlueColour;
+  static UIColor *darkBlueColour;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    darkBlueColour = [UIColor colorWithRed:13.0f/255.0f green:71.0f/255.0f blue:161.0f/255.0f alpha:1.0];
+  });
+  return darkBlueColour;
+}
+
++ (UIColor *)BPLDarkGreyColour
+{
+  static UIColor *darkGreyColour;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    darkGreyColour = [UIColor colorWithRed:97.0/255.0 green:97.0/255.0 blue:97.0/255.0 alpha:1.0];
+  });
+  return darkGreyColour;
 }
 
 + (UIColor *)BPLGreyColour
 {
-    static UIColor *lightGreyColour;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        lightGreyColour = [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:1.0];
-    });
-    return lightGreyColour;
+  static UIColor *greyColour;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    greyColour = [UIColor colorWithRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1.0];
+  });
+  return greyColour;
+}
+
++ (UIColor *)BPLLightGreyColour
+{
+  static UIColor *greyColour;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    greyColour = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
+  });
+  return greyColour;
 }
 
 + (UIColor *)BPLOrangeColour
 {
-    static UIColor *lightYellowColour;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        lightYellowColour = [UIColor colorWithRed:255.0f/255.0f green:153.0f/255.0f blue:0.0f/255.0f alpha:1.0];
-    });
-    return lightYellowColour;
+  static UIColor *orangeColour;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    orangeColour = [UIColor colorWithRed:239.0f/255.0f green:108.0f/255.0f blue:0.0f/255.0f alpha:1.0];
+  });
+  return orangeColour;
+}
+
++ (UIColor *)BPLLightOrangeColour
+{
+  static UIColor *lightOrangeColour;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    lightOrangeColour = [UIColor colorWithRed:239.0f/255.0f green:108.0f/255.0f blue:0.0f/255.0f alpha:0.25];
+  });
+  return lightOrangeColour;
 }
 
 @end

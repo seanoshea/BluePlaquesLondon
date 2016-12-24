@@ -40,48 +40,48 @@
 
 - (void)testRetrieveLastKnownCoordinate
 {
-    CLLocationCoordinate2D coordinate = [NSUserDefaults standardUserDefaults].lastKnownCoordinate;
-    XCTAssert(coordinate.latitude != 0.0f && coordinate.longitude != 0.0f, @"Should always return at least a default coordinate for lastKnownCoordinate");
+  CLLocationCoordinate2D coordinate = [NSUserDefaults standardUserDefaults].lastKnownCoordinate;
+  XCTAssert(coordinate.latitude != 0.0f && coordinate.longitude != 0.0f, @"Should always return at least a default coordinate for lastKnownCoordinate");
 }
 
 - (void)testRetrieveLastKnownBPLCoordinate
 {
-    CLLocationCoordinate2D coordinate = [NSUserDefaults standardUserDefaults].lastKnownBPLCoordinate;
-    XCTAssert(coordinate.latitude != 0.0f && coordinate.longitude != 0.0f, @"Should always return at least a default coordinate for lastKnownBPLCoordinate");
+  CLLocationCoordinate2D coordinate = [NSUserDefaults standardUserDefaults].lastKnownBPLCoordinate;
+  XCTAssert(coordinate.latitude != 0.0f && coordinate.longitude != 0.0f, @"Should always return at least a default coordinate for lastKnownBPLCoordinate");
 }
 
 - (void)testRetrieveZoom
 {
-    float zoom = [NSUserDefaults standardUserDefaults].mapZoom;
-    XCTAssert(zoom > 0.0f, @"Should always return a positive zoom default");
+  float zoom = [NSUserDefaults standardUserDefaults].mapZoom;
+  XCTAssert(zoom > 0.0f, @"Should always return a positive zoom default");
 }
 
 - (void)testSaveZoom
 {
-    float theDefaultIAmTryingToSet = 6.0f;
-    [[NSUserDefaults standardUserDefaults] saveMapZoom:theDefaultIAmTryingToSet];
-    float after = [NSUserDefaults standardUserDefaults].mapZoom;
-    XCTAssert(after == theDefaultIAmTryingToSet, @"Saving the map zoom should be automatically saved to the defaults");
+  float theDefaultIAmTryingToSet = 6.0f;
+  [[NSUserDefaults standardUserDefaults] saveMapZoom:theDefaultIAmTryingToSet];
+  float after = [NSUserDefaults standardUserDefaults].mapZoom;
+  XCTAssert(after == theDefaultIAmTryingToSet, @"Saving the map zoom should be automatically saved to the defaults");
 }
 
 - (void)testSaveLastKnownCoordinate
 {
-    [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:CLLocationCoordinate2DMake(0.1f, 0.2f)];
-    CLLocationCoordinate2D after = [NSUserDefaults standardUserDefaults].lastKnownCoordinate;
-    XCTAssert(after.latitude == 0.1f && after.longitude == 0.2f, @"Saving the last known coordinate should be automatically saved to the defaults");
+  [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:CLLocationCoordinate2DMake(0.1f, 0.2f)];
+  CLLocationCoordinate2D after = [NSUserDefaults standardUserDefaults].lastKnownCoordinate;
+  XCTAssert(after.latitude == 0.1f && after.longitude == 0.2f, @"Saving the last known coordinate should be automatically saved to the defaults");
 }
 
 - (void)testSaveLastKnownBPLCoordinate
 {
-    [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:CLLocationCoordinate2DMake(0.1f, 0.2f)];
-    CLLocationCoordinate2D after = [NSUserDefaults standardUserDefaults].lastKnownBPLCoordinate;
-    XCTAssert(after.latitude == 0.1f && after.longitude == 0.2f, @"Saving the last known BPL coordinate should be automatically saved to the defaults");
+  [[NSUserDefaults standardUserDefaults] saveLastKnownBPLCoordinate:CLLocationCoordinate2DMake(0.1f, 0.2f)];
+  CLLocationCoordinate2D after = [NSUserDefaults standardUserDefaults].lastKnownBPLCoordinate;
+  XCTAssert(after.latitude == 0.1f && after.longitude == 0.2f, @"Saving the last known BPL coordinate should be automatically saved to the defaults");
 }
 
 - (void)tearDown
 {
-    NSString *appDomain = [NSBundle mainBundle].bundleIdentifier;
-    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+  NSString *appDomain = [NSBundle mainBundle].bundleIdentifier;
+  [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 }
 
 @end

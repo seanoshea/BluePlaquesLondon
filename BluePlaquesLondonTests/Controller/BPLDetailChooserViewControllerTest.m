@@ -53,44 +53,43 @@
 @implementation BPLDetailChooserViewControllerTest
 
 - (void)setUp {
-    [super setUp];
-    
-    BPLPlacemark *marker1 = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
-    BPLPlacemark *marker2 = [BPLUnitTestHelper placemarkWithIdentifier:@"2"];
-    
-    self.markers = @[marker1, marker2];
-    
-    UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    self.controller = [storybord instantiateViewControllerWithIdentifier:BPLDetailChooserViewControllerStoryboardIdentifier];
-    self.controller.markers = self.markers;
-    
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
+  [super setUp];
+  
+  BPLPlacemark *marker1 = [BPLUnitTestHelper placemarkWithIdentifier:@"1"];
+  BPLPlacemark *marker2 = [BPLUnitTestHelper placemarkWithIdentifier:@"2"];
+  
+  self.markers = @[marker1, marker2];
+  
+  UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  
+  self.controller = [storybord instantiateViewControllerWithIdentifier:BPLDetailChooserViewControllerStoryboardIdentifier];
+  self.controller.markers = self.markers;
+  self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
 }
 
 - (void)testTitle {
-    [self.controller viewWillAppear:YES];
-    XCTAssertTrue([self.controller.title isEqualToString:NSLocalizedString(@"Choose one", nil)]);
+  [self.controller viewWillAppear:YES];
+  XCTAssertTrue([self.controller.title isEqualToString:NSLocalizedString(@"Choose one", nil)]);
 }
 
 - (void)testNumberOfSections {
-    NSInteger numberOfSections = [self.controller numberOfSectionsInTableView:self.controller.tableView];
-    
-    XCTAssertTrue(numberOfSections == 1);
+  NSInteger numberOfSections = [self.controller numberOfSectionsInCollectionView:self.controller.collectionView];
+  
+  XCTAssertTrue(numberOfSections == 1);
 }
 
 - (void)testNumberOfRowsInSection {
-    NSInteger numberOfRowsInSectionZero = [self.controller tableView:self.controller.tableView numberOfRowsInSection:0];
-    NSInteger numberOfRowsInSectionOne = [self.controller tableView:self.controller.tableView numberOfRowsInSection:1];
-    
-    XCTAssertTrue(numberOfRowsInSectionZero == 2);
-    XCTAssertTrue(numberOfRowsInSectionOne == 2);
+  NSInteger numberOfRowsInSectionZero = [self.controller collectionView:self.controller.collectionView numberOfItemsInSection:0];
+  NSInteger numberOfRowsInSectionOne = [self.controller collectionView:self.controller.collectionView numberOfItemsInSection:1];
+  
+  XCTAssertTrue(numberOfRowsInSectionZero == 2);
+  XCTAssertTrue(numberOfRowsInSectionOne == 2);
 }
 
 - (void)testRetrievingACellFromTheTable {
-    
-    UITableViewCell *cell = [self.controller tableView:self.controller.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-    
-    XCTAssertTrue([cell.textLabel.text isEqualToString:@"Feature Description 1"]);
+  MDCCollectionViewTextCell *cell = (MDCCollectionViewTextCell *)[self.controller collectionView:self.controller.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+  
+  XCTAssertTrue([cell.textLabel.text isEqualToString:@"Feature Description 1"]);
 }
 
 @end

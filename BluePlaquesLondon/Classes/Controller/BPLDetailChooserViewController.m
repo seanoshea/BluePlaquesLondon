@@ -34,10 +34,13 @@
 #import "BPLConstants.h"
 #import "BPLPlacemark.h"
 #import "BPLPlacemark+Additions.h"
+#import "MDCCollectionViewTextCell.h"
 
 #import <GoogleAnalytics/GAI.h>
 #import <GoogleAnalytics/GAIDictionaryBuilder.h>
 #import <GoogleAnalytics/GAIFields.h>
+
+static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
 static NSString *const BPLMultipleCell = @"BluePlaquesLondonMultipleCell";
 
@@ -47,47 +50,59 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 
 #pragma mark Lifecycle
 
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  [self.collectionView registerClass:[MDCCollectionViewTextCell class]
+          forCellWithReuseIdentifier:kReusableIdentifierItem];
+  self.styler.cellStyle = MDCCollectionViewCellStyleCard;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    self.title = NSLocalizedString(@"Choose one", nil);
+  [super viewWillAppear:animated];
+  self.title = NSLocalizedString(@"Choose one", nil);
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    id tracker = [GAI sharedInstance].defaultTracker;
-    [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
-    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+  [super viewDidAppear:animated];
+  id tracker = [GAI sharedInstance].defaultTracker;
+  [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
+  [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+  [self.collectionView reloadData];
 }
 
-#pragma mark UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+  return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return (self.markers).count;
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section {
+  return self.markers.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BPLMultipleCell];
-    BPLPlacemark *pm = self.markers[indexPath.row];
-    cell.textLabel.text = pm.placemarkName;
-    return cell;
+- (CGFloat)collectionView:(UICollectionView *)collectionView cellHeightAtIndexPath:(NSIndexPath *)indexPath {
+  return MDCCellDefaultOneLineHeight;
 }
 
-#pragma mark UITableViewDelegate
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+  MDCCollectionViewTextCell *cell =
+  [collectionView dequeueReusableCellWithReuseIdentifier:kReusableIdentifierItem
+                                            forIndexPath:indexPath];
+  cell.accessoryType = MDCCollectionViewCellAccessoryDisclosureIndicator;
+  cell.textLabel.textColor = [UIColor BPLBlueColour];
+  cell.inkView.inkColor = [UIColor BPLLightOrangeColour];
+  BPLPlacemark *pm = self.markers[indexPath.row];
+  cell.textLabel.text = pm.placemarkName;
+  return cell;
+}
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BPLDetailChooserViewControllerRowSelected object:@(indexPath.row)];
-    [self.navigationController popViewControllerAnimated:YES];
+  [super collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+  [[NSNotificationCenter defaultCenter] postNotificationName:BPLDetailChooserViewControllerRowSelected object:@(indexPath.row)];
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
