@@ -622,7 +622,7 @@
 					141B27711AC83F6A0095A0F8 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 3TQU8WFYZ9;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 					146C5F901A9D09EB00E88761 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -632,7 +632,7 @@
 					146C5FAC1A9D09EB00E88761 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 3TQU8WFYZ9;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						TestTargetID = 146C5F901A9D09EB00E88761;
 					};
 				};
@@ -931,7 +931,7 @@
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -953,7 +953,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1142,7 +1142,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Debug;
@@ -1165,7 +1165,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Release;

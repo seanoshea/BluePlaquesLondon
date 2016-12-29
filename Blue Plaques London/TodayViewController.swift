@@ -39,15 +39,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.preferredContentSize = CGSizeMake(320.0, 44.0);
+        self.preferredContentSize = CGSize(width: 320.0, height: 44.0);
     }
     
-    @IBAction func closestBluePlaqueButtonPressed(sender: UIButton) {
-        let openAppURL = NSURL(string: TodayViewControllerClosestButtonURLString)
-        self.extensionContext?.openURL(openAppURL!, completionHandler: nil)
+    @IBAction func closestBluePlaqueButtonPressed(_ sender: UIButton) {
+        let openAppURL = URL(string: TodayViewControllerClosestButtonURLString)
+        self.extensionContext?.open(openAppURL!, completionHandler: nil)
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
-        completionHandler(NCUpdateResult.NewData)
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        completionHandler(NCUpdateResult.newData)
     }
 }
