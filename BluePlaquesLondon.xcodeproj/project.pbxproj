@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		141B27741AC83F6A0095A0F8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 141B27731AC83F6A0095A0F8 /* NotificationCenter.framework */; };
-		141B27791AC83F6A0095A0F8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B27781AC83F6A0095A0F8 /* TodayViewController.swift */; };
-		141B277B1AC83F6A0095A0F8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141B277A1AC83F6A0095A0F8 /* MainInterface.storyboard */; };
-		141B277E1AC83F6A0095A0F8 /* Blue Plaques London.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 141B27721AC83F6A0095A0F8 /* Blue Plaques London.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		141B27841AC84F250095A0F8 /* BPLAppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 141B27831AC84F250095A0F8 /* BPLAppDelegateTest.m */; };
-		142A90191ACDC41F00AB8EDC /* TodayViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A90181ACDC41F00AB8EDC /* TodayViewControllerTest.swift */; };
-		142A901A1ACDC51F00AB8EDC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B27781AC83F6A0095A0F8 /* TodayViewController.swift */; };
 		142C604B1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */; };
 		142C604D1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 142C604C1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m */; };
 		14588E881AEEC3E400E02385 /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003271A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m */; };
@@ -71,7 +65,6 @@
 		4198EFA11D67E72800625A78 /* BPLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198EFA01D67E72800625A78 /* BPLSearchViewController.m */; };
 		4198EFA21D67E72800625A78 /* BPLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4198EFA01D67E72800625A78 /* BPLSearchViewController.m */; };
 		41A6D8B31B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
-		41A6D8B41B8E258A0077EBE1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D8B21B8E258A0077EBE1 /* Fabric.framework */; };
 		41C7CFFA1CA9E74000736645 /* BPLWikipediaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C7CFF91CA9E74000736645 /* BPLWikipediaParser.m */; };
 		41C7CFFC1CAA135B00736645 /* BPLWikipediaParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C7CFFB1CAA135B00736645 /* BPLWikipediaParserTest.m */; };
 		41C7CFFE1CAA148100736645 /* wikipedia_malformed.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7CFFD1CAA148100736645 /* wikipedia_malformed.json */; };
@@ -82,13 +75,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		141B277C1AC83F6A0095A0F8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146C5F891A9D09EB00E88761 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 141B27711AC83F6A0095A0F8;
-			remoteInfo = "Blue Plaques London";
-		};
 		146C5FAE1A9D09EB00E88761 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146C5F891A9D09EB00E88761 /* Project object */;
@@ -105,7 +91,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				141B277E1AC83F6A0095A0F8 /* Blue Plaques London.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,14 +98,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		141B27721AC83F6A0095A0F8 /* Blue Plaques London.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Blue Plaques London.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141B27731AC83F6A0095A0F8 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		141B27771AC83F6A0095A0F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		141B27781AC83F6A0095A0F8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		141B277A1AC83F6A0095A0F8 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		141B27831AC84F250095A0F8 /* BPLAppDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegateTest.m; sourceTree = "<group>"; };
 		142A90171ACDC41F00AB8EDC /* BluePlaquesLondonTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		142A90181ACDC41F00AB8EDC /* TodayViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewControllerTest.swift; sourceTree = "<group>"; };
 		142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewControllerTest.m; sourceTree = "<group>"; };
 		142C604C1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStreetViewViewControllerTest.m; sourceTree = "<group>"; };
 		146C5F911A9D09EB00E88761 /* BluePlaquesLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluePlaquesLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,15 +200,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		141B276F1AC83F6A0095A0F8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				141B27741AC83F6A0095A0F8 /* NotificationCenter.framework in Frameworks */,
-				41A6D8B41B8E258A0077EBE1 /* Fabric.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		146C5F8E1A9D09EB00E88761 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,30 +233,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		141B27751AC83F6A0095A0F8 /* Blue Plaques London */ = {
-			isa = PBXGroup;
-			children = (
-				141B27781AC83F6A0095A0F8 /* TodayViewController.swift */,
-				141B277A1AC83F6A0095A0F8 /* MainInterface.storyboard */,
-				141B27761AC83F6A0095A0F8 /* Supporting Files */,
-			);
-			path = "Blue Plaques London";
-			sourceTree = "<group>";
-		};
-		141B27761AC83F6A0095A0F8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				141B27771AC83F6A0095A0F8 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		146C5F881A9D09EB00E88761 = {
 			isa = PBXGroup;
 			children = (
 				146C5F931A9D09EB00E88761 /* BluePlaquesLondon */,
 				146C5FB01A9D09EB00E88761 /* BluePlaquesLondonTests */,
-				141B27751AC83F6A0095A0F8 /* Blue Plaques London */,
 				146C5F921A9D09EB00E88761 /* Products */,
 				0881CF2E622A2E854CB722C0 /* Frameworks */,
 				4158A58E53E5DA34EC3AD7F9 /* Pods */,
@@ -297,7 +249,6 @@
 			children = (
 				146C5F911A9D09EB00E88761 /* BluePlaquesLondon.app */,
 				146C5FAD1A9D09EB00E88761 /* BluePlaquesLondonTests.xctest */,
-				141B27721AC83F6A0095A0F8 /* Blue Plaques London.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -365,7 +316,6 @@
 				14C9E8241A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m */,
 				142C604C1AA20E8900A89522 /* BPLStreetViewViewControllerTest.m */,
 				142C604A1AA1ED0300A89522 /* BPLWikipediaViewControllerTest.m */,
-				142A90181ACDC41F00AB8EDC /* TodayViewControllerTest.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -547,23 +497,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		141B27711AC83F6A0095A0F8 /* Blue Plaques London */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 141B27811AC83F6A0095A0F8 /* Build configuration list for PBXNativeTarget "Blue Plaques London" */;
-			buildPhases = (
-				141B276E1AC83F6A0095A0F8 /* Sources */,
-				141B276F1AC83F6A0095A0F8 /* Frameworks */,
-				141B27701AC83F6A0095A0F8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Blue Plaques London";
-			productName = "Blue Plaques London";
-			productReference = 141B27721AC83F6A0095A0F8 /* Blue Plaques London.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		146C5F901A9D09EB00E88761 /* BluePlaquesLondon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 146C5FB71A9D09EB00E88761 /* Build configuration list for PBXNativeTarget "BluePlaquesLondon" */;
@@ -580,7 +513,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				141B277D1AC83F6A0095A0F8 /* PBXTargetDependency */,
 			);
 			name = BluePlaquesLondon;
 			productName = BluePlaquesLondon;
@@ -619,11 +551,6 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Sean O'Shea";
 				TargetAttributes = {
-					141B27711AC83F6A0095A0F8 = {
-						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 3TQU8WFYZ9;
-						LastSwiftMigration = 0820;
-					};
 					146C5F901A9D09EB00E88761 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = 3TQU8WFYZ9;
@@ -652,20 +579,11 @@
 			targets = (
 				146C5F901A9D09EB00E88761 /* BluePlaquesLondon */,
 				146C5FAC1A9D09EB00E88761 /* BluePlaquesLondonTests */,
-				141B27711AC83F6A0095A0F8 /* Blue Plaques London */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		141B27701AC83F6A0095A0F8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				141B277B1AC83F6A0095A0F8 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		146C5F8F1A9D09EB00E88761 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -802,14 +720,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		141B276E1AC83F6A0095A0F8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				141B27791AC83F6A0095A0F8 /* TodayViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		146C5F8D1A9D09EB00E88761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -850,8 +760,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */,
-				142A90191ACDC41F00AB8EDC /* TodayViewControllerTest.swift in Sources */,
-				142A901A1ACDC51F00AB8EDC /* TodayViewController.swift in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
 				411FA5461D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
 				14C9E8271A9FD56C00B446D1 /* BPLMapViewControllerTest.m in Sources */,
@@ -877,11 +785,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		141B277D1AC83F6A0095A0F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 141B27711AC83F6A0095A0F8 /* Blue Plaques London */;
-			targetProxy = 141B277C1AC83F6A0095A0F8 /* PBXContainerItemProxy */;
-		};
 		146C5FAF1A9D09EB00E88761 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 146C5F901A9D09EB00E88761 /* BluePlaquesLondon */;
@@ -909,54 +812,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		141B277F1AC83F6A0095A0F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Blue Plaques London/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.upwardsnorthwards.BluePlaquesLondon.BluePlaquesLondonTodayExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		141B27801AC83F6A0095A0F8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "Blue Plaques London/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.upwardsnorthwards.BluePlaquesLondon.BluePlaquesLondonTodayExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		146C5FB51A9D09EB00E88761 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1173,15 +1028,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		141B27811AC83F6A0095A0F8 /* Build configuration list for PBXNativeTarget "Blue Plaques London" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				141B277F1AC83F6A0095A0F8 /* Debug */,
-				141B27801AC83F6A0095A0F8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		146C5F8C1A9D09EB00E88761 /* Build configuration list for PBXProject "BluePlaquesLondon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
