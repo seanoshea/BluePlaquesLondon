@@ -39,8 +39,8 @@
 @interface BPLMapViewModel()
 
 @property (nonatomic) KMLRoot *data;
-@property (nonatomic, copy) NSMutableDictionary *coordinateToMarker;
-@property (nonatomic, copy) NSMutableDictionary *keyToArrayPositions;
+@property (nonatomic) NSMutableDictionary *coordinateToMarker;
+@property (nonatomic) NSMutableDictionary *keyToArrayPositions;
 
 @end
 
