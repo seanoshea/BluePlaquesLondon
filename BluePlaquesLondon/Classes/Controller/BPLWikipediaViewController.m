@@ -143,7 +143,7 @@
   CGFloat x = self.activityIndicator.frame.origin.x;
   [UIView animateWithDuration:1.75
                         delay:0.1
-                      options: UIViewAnimationCurveEaseIn
+                      options: UIViewAnimationOptionCurveEaseIn
                    animations:^{
                      self.activityIndicator.frame = CGRectMake(x, 0, 128, 128);
                    }

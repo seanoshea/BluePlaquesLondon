@@ -38,7 +38,7 @@
 
 @interface BPLMapViewModel : NSObject
 
-@property (nonatomic, copy) NSMutableArray *massagedData;
+@property (nonatomic) NSMutableArray *massagedData;
 @property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
 @property (nonatomic, copy) NSArray *filteredData;
 @property (nonatomic, copy) dispatch_block_t kmlFileParsedCallback;
