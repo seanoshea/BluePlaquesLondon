@@ -620,13 +620,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BluePlaquesLondon-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		14B27BD11AF6908D00030BB0 /* ShellScript */ = {
@@ -648,9 +651,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/IntentKit/IntentKit/IntentKit-Localizations.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-Defaults.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKBrowserHandler.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKFacebookHandler.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKGPlusHandler.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKMailHandler.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKMapsHandler.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKTwitterHandler.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/CollectionCells/src/MaterialCollectionCells.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/Collections/src/MaterialCollections.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents/MaterialIcons_ic_check.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents/MaterialIcons_ic_check_circle.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents/MaterialIcons_ic_chevron_right.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents/MaterialIcons_ic_info.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents/MaterialIcons_ic_radio_button_unchecked.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents/MaterialIcons_ic_reorder.bundle",
+				"${PODS_ROOT}/iRate/iRate/iRate.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -663,13 +687,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BluePlaquesLondonTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		923C18CBB096A5436EF6E34C /* [CP] Copy Pods Resources */ = {
