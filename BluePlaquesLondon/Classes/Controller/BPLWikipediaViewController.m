@@ -37,7 +37,6 @@
 #import "KMLPlacemark.h"
 #import "MaterialActivityIndicator.h"
 #import "MDCCollectionViewCell.h"
-#import "MDCCollectionViewCell+Ink.h"
 
 @interface BPLWikipediaViewController() <UIWebViewDelegate>
 
