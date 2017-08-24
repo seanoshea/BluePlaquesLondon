@@ -12,7 +12,7 @@ target 'BluePlaquesLondon' do
   pod 'GoogleMaps', '1.13.2'
   pod 'IntentKit', '0.7.5'
   pod 'iRate', :git => 'https://github.com/nicklockwood/iRate.git', :branch => 'master'
-  pod 'iOS-KML-Framework', :git => 'https://github.com/FLCLjp/iOS-KML-Framework.git'
+  pod 'iOS-KML-Framework', '0.0.2'
   pod 'GTMNSStringHTMLAdditions', '0.2.1'
   pod 'MaterialComponents/Typography', '31.0.1'
   pod 'MaterialComponents/Buttons', '31.0.1'
