@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '11.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
@@ -9,7 +9,7 @@ project 'BluePlaquesLondon.xcodeproj'
 target 'BluePlaquesLondon' do
   pod 'TTTAttributedLabel', '2.0.0'
   pod 'GoogleAnalytics', '3.17.0'
-  pod 'GoogleMaps', '1.13.2'
+  pod 'GoogleMaps', '2.4.0'
   pod 'IntentKit', '0.7.5'
   pod 'iRate', :git => 'https://github.com/nicklockwood/iRate.git', :branch => 'master'
   pod 'iOS-KML-Framework', '0.0.2'
