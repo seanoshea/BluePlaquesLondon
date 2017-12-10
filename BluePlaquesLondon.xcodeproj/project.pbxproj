@@ -662,6 +662,7 @@
 				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKMailHandler.bundle",
 				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKMapsHandler.bundle",
 				"$PODS_CONFIGURATION_BUILD_DIR/IntentKit/IntentKit-INKTwitterHandler.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/ActivityIndicator/src/MaterialActivityIndicator.bundle",
 				"${PODS_ROOT}/MaterialComponents/components/CollectionCells/src/MaterialCollectionCells.bundle",
 				"${PODS_ROOT}/MaterialComponents/components/Collections/src/MaterialCollections.bundle",
 				"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents/MaterialIcons_ic_check.bundle",
