@@ -79,7 +79,6 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
 {
   [super viewDidLoad];
   self.screenName = @"Map Detail Screen";
-  self.automaticallyAdjustsScrollViewInsets = NO;
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
 }

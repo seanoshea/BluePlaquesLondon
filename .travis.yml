@@ -1,4 +1,4 @@
-osx_image: xcode8.3
+osx_image: xcode9.1
 language: objective-c
 before_install:
   - rvm use $RVM_RUBY_VERSION
@@ -9,6 +9,6 @@ install:
   - bundle install --without=documentation --path ../travis_bundle_dir
   - bundle exec pod repo update
   - bundle exec pod install
-script: FASTLANE_XCODE_LIST_TIMEOUT=60 bundle exec fastlane test
+script: bundle exec fastlane test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
