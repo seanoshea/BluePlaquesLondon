@@ -131,6 +131,25 @@
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>BRAHAM, Wing Commander JRD &apos;Bob&apos;</name>
+				<description><![CDATA[BRAHAM, Wing Commander JRD &apos;Bob&apos; (1920-1974)<br>
+				RAF Fighter Pilot lived here as a boy<br>
+				139 Hendon Way, London NW2 2NA<br>
+				Barnet 2017]]></description>
+				<LookAt>
+					<longitude>-0.2077164422556088</longitude>
+					<latitude>51.56811884326228</latitude>
+					<altitude>0</altitude>
+					<heading>0.0001303162830253325</heading>
+					<tilt>0</tilt>
+					<range>500</range>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.2077164422556088,51.56811884326228,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
 				<name>CHAPMAN, Herbert</name>
 				<description><![CDATA[CHAPMAN, Herbert (1878-1934)<br>
 				Football Manager, lived and died here<br>
@@ -1789,7 +1808,26 @@
 				<Point>
 					<coordinates>-0.1957820071703076,51.56025134739285,0</coordinates>
 				</Point>
-			</Placemark>			
+			</Placemark>
+			<Placemark>
+				<name>GORE, Spencer Frederick</name>
+				<description><![CDATA[GORE, Spencer Frederick (1878-1914)<br>
+				Painter lived and worked here 1909-1912<br>
+				31 Mornington Crescent, London NW1 7RE<br>
+				Camden 2017]]></description>
+				<LookAt>
+					<longitude>-0.1404590426248398</longitude>
+					<latitude>51.53402314730541</latitude>
+					<altitude>0</altitude>
+					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>500</range>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.1404590426248398,51.53402314730541,0</coordinates>
+				</Point>
+			</Placemark>
 			<Placemark>
 				<name>GREENAWAY, Kate</name>
 				<description><![CDATA[GREENAWAY, Kate (1846-1901)<br>
@@ -6193,7 +6231,7 @@
 					<longitude>-0.1623459999556758</longitude>
 					<latitude>51.49681700008535</latitude>
 					<altitude>0</altitude>
-					<heading>2.808934199826299e-011</heading>
+					<heading>0</heading>
 					<tilt>0</tilt>
 					<range>500</range>
 					<altitudeMode>relativeToGround</altitudeMode>
@@ -6223,6 +6261,25 @@
 					<coordinates>-0.1683100793471004,51.4913786159706,0</coordinates>
 				</Point>
 			</Placemark>
+	<Placemark>
+		<name>BACON, Francis</name>
+		<description><![CDATA[BACON, Francis (1909-1992)<br>
+		Painter lived and worked here 1961-1992<br>
+		7 Reece Mews, South Kensington, London SW7 3HE<br>
+		Kensington &amp; Chelsea 2017]]></description>
+		<LookAt>
+			<longitude>-0.1770268565176902</longitude>
+			<latitude>51.49324112114897</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<range>500</range>
+		</LookAt>
+		<styleUrl>#myDefaultStyles</styleUrl>
+		<Point>
+			<coordinates>-0.1769925521263926,51.49323501886945,0</coordinates>
+		</Point>
+	</Placemark>
 			<Placemark>
 				<name>BAKER, Benjamin</name>
 				<description><![CDATA[BAKER, Benjamin (1840-1907)<br>
@@ -8392,6 +8449,25 @@
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
 					<coordinates>-0.1954359999626262,51.5017539995975,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>NUREYEV, Rudolf</name>
+				<description><![CDATA[NUREYEV, Rudolf (1938-1993)<br>
+				Ballet Dancer lived here<br>
+				27 Victoria Road, Kensington, London W8 5RF<br>
+				Kensington &amp; Chelsea 2017]]></description>
+				<LookAt>
+					<longitude>-0.1857361111111111</longitude>
+					<latitude>51.49988784236434</latitude>
+					<altitude>0</altitude>
+					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>500</range>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.1857989624689971,51.49981044695309,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -10587,6 +10663,26 @@
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>NIVEDITA, Sister (Margaret Noble)</name>
+				<description><![CDATA[NIVEDITA, Sister (Margaret Noble)<br>
+				1867-1911<br>
+				Educationalist and Campaigner for Indian Independence lived here<br>
+				21A High Street, Wimbledon, London SW19 5DX<br>
+				Merton 2017]]></description>
+				<LookAt>
+					<longitude>-0.2170315473115458</longitude>
+					<latitude>51.42502849715379</latitude>
+					<altitude>0</altitude>
+					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>500</range>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.2170315473115458,51.42502849715378,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
 				<name>RUTHERFORD, Dame Margaret</name>
 				<description><![CDATA[RUTHERFORD, Dame Margaret (1892-1972)<br>
 				Actress lived here 1895-1920<br>
@@ -11217,6 +11313,25 @@
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
 					<coordinates>-0.3163930000160775,51.45365899963771,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>WATSON-WATT, Sir Robert</name>
+				<description><![CDATA[WATSON-WATT, Sir Robert (1892-1973)<br>
+				Pioneer of Radar lived here<br>
+				287 Sheen Lane, London SW14 8RN<br>
+				Richmond Upon Thames 2017]]></description>
+				<LookAt>
+					<longitude>-0.2676535322972895</longitude>
+					<latitude>51.45755122582534</latitude>
+					<altitude>0</altitude>
+					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>500</range>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.2676535322972895,51.45755122582534,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -12942,6 +13057,25 @@
 				<styleUrl>#myDefaultStyles</styleUrl>
 				<Point>
 					<coordinates>-0.2014620000529846,51.45193200036944,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>GAUDIER-BRZESKA, Henri</name>
+				<description><![CDATA[GAUDIER-BRZESKA, Henri (1891-1915)<br>
+				Sculptor and Artist worked here 1913-1914<br>
+				25 Winthorpe Road, Putney, London SW15 2LW<br>
+				Wandsworth 2017]]></description>
+				<LookAt>
+					<longitude>-0.2106393041000554</longitude>
+					<latitude>51.46146227145538</latitude>
+					<altitude>0</altitude>
+					<heading>0</heading>
+					<tilt>0</tilt>
+					<range>500</range>
+				</LookAt>
+				<styleUrl>#myDefaultStyles</styleUrl>
+				<Point>
+					<coordinates>-0.2106649921495729,51.46143753687731,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
