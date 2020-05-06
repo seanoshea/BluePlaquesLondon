@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2014 - 2016 Upwards Northwards Software Limited
+ Copyright (c) 2014 - present Upwards Northwards Software Limited
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
@@ -38,9 +38,11 @@
 #import "MaterialActivityIndicator.h"
 #import "MDCCollectionViewCell.h"
 
-@interface BPLWikipediaViewController() <UIWebViewDelegate>
+#import <WebKit/WebKit.h>
 
-@property (nonatomic, weak) IBOutlet UIWebView *webView;
+@interface BPLWikipediaViewController() <WKNavigationDelegate>
+
+@property (nonatomic, weak) IBOutlet WKWebView *webView;
 @property (nonatomic) MDCActivityIndicator *activityIndicator;
 
 @property (nonatomic) BPLWikipediaViewModel *model;
@@ -64,7 +66,7 @@
   KMLPlacemark *placemark = self.markers[0];
   self.model = [[BPLWikipediaViewModel alloc] initWithName:placemark.name];
   self.navigationItem.title = NSLocalizedString(@"Wikipedia Article", nil);
-  self.webView.delegate = self;
+  self.webView.navigationDelegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -81,7 +83,9 @@
   
   [[self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
     if (!error) {
-      [self.webView loadRequest:urlRequest];
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webView loadRequest:urlRequest];
+      });
     } else {
       [self displayErrorAlert];
     }
@@ -94,24 +98,14 @@
   [super viewWillDisappear:animated];
 }
 
-#pragma mark UIWebViewDelegate
+#pragma mark WKNavigationDelegate
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-  return YES;
-}
-
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-  
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
   [self hideActivityIndicator];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {
   [self displayErrorAlert];
 }
@@ -175,7 +169,7 @@
 
 - (void)dealloc
 {
-  self.webView.delegate = nil;
+  self.webView.navigationDelegate = nil;
   [self.webView stopLoading];
 }
 
