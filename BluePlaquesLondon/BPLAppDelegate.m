@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2014 - 2016 Upwards Northwards Software Limited
+ Copyright (c) 2014 - present Upwards Northwards Software Limited
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
@@ -34,11 +34,6 @@
 #import <GoogleAnalytics/GAI.h>
 #import <GoogleAnalytics/GAIDictionaryBuilder.h>
 #import <GoogleAnalytics/GAIFields.h>
-
-#ifndef DEBUG
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
-#endif
 
 #import "Reachability.h"
 
@@ -147,7 +142,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 {
 #ifndef DEBUG
   if ([BPLConfiguration isCrashReportingEnabled]) {
-    [Fabric with:@[CrashlyticsKit]];
     [GAI sharedInstance].trackUncaughtExceptions = YES;
   }
 #endif
