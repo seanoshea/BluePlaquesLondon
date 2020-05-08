@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2014 - 2016 Upwards Northwards Software Limited
+ Copyright (c) 2014 - present Upwards Northwards Software Limited
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
+#import <WebKit/WebKit.h>
 
 #import "BPLWikipediaViewController.h"
 #import "BPLUnitTestHelper.h"
@@ -43,9 +44,9 @@
 
 @end
 
-@interface BPLWikipediaViewController () <UIWebViewDelegate>
+@interface BPLWikipediaViewController () <WKNavigationDelegate>
 
-@property (nonatomic, weak) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) IBOutlet WKWebView *webView;
 @property (nonatomic) BPLWikipediaViewModel *model;
 
 - (void)displayErrorAlert;
@@ -80,12 +81,6 @@
   OCMVerifyAll(partial);
 }
 
-- (void)testShouldLoadMethod
-{
-  NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://wikipedia.org"]];
-  XCTAssertTrue([self.controller webView:self.controller.webView shouldStartLoadWithRequest:request navigationType:UIWebViewNavigationTypeLinkClicked]);
-}
-
 - (void)testWebViewFinishLoadFailure
 {
   id alertControllerMock = OCMClassMock([UIAlertController class]);
@@ -97,7 +92,7 @@
   [[[partial expect] andForwardToRealObject] presentViewController:alertControllerMock animated:YES completion:nil];
   
   NSError *error = [[NSError alloc] initWithDomain:@"DOMAIN" code:500 userInfo:@{}];
-  [partial webView:self.controller.webView didFailLoadWithError:error];
+  [partial webView:self.controller.webView didFailNavigation:OCMOCK_ANY withError:error];
   
   OCMVerifyAll(partial);
   OCMVerifyAll(alertControllerMock);
