@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -32,29 +32,15 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.2</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>8aa2986353e21d6181e23a9360cd528dca68aafb</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-		</array>
-	</dict>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<string>NO</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>I&apos;d like to be able to show you the closest blue plaque to your current location.</string>
+	<string>I'd like to be able to show you the closest blue plaque to your current location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>I&apos;d like to be able to show you the closest blue plaque to your current location.</string>
+	<string>I'd like to be able to show you the closest blue plaque to your current location.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
