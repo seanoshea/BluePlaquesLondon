@@ -30,7 +30,7 @@
 
 #import "BPLMapViewDetailViewController.h"
 
-#import <IntentKit/IntentKit.h>
+// IntentKit removed as per modernization plan
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "BPLConstants.h"
@@ -46,8 +46,7 @@
 #import "NSObject+BPLTracking.h"
 #import "BPLPlacemark+Additions.h"
 
-#import "INKMapsHandler.h"
-#import "INKActivityPresenter.h"
+// IntentKit removed as per modernization plan
 
 NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetailViewController";
 
@@ -73,12 +72,19 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
 
 @implementation BPLMapViewDetailViewController
 
+#pragma mark Properties
+
+- (NSString *)screenName
+{
+  return @"Map Detail Screen";
+}
+
 #pragma mark Lifecycle
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.screenName = @"Map Detail Screen";
+  // screenName removed with Google Analytics
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detailChooserViewControllerRowSelected:) name:BPLDetailChooserViewControllerRowSelected object:nil];
 }
@@ -158,16 +164,10 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
 
 - (IBAction)directionsButtonTapped:(id)sender
 {
-  INKMapsHandler *mapsHandler = [[INKMapsHandler alloc] init];
-  mapsHandler.center = CLLocationCoordinate2DMake(self.model.currentLocation.coordinate.longitude, self.model.currentLocation.coordinate.latitude);
-  mapsHandler.zoom = [NSUserDefaults standardUserDefaults].mapZoom;
+  // IntentKit removed - using native Maps app integration
   BPLPlacemark *placemark = self.model.markers[0];
-  NSString *to = [NSString stringWithFormat:@"%.12f, %.12f", placemark.coordinate.latitude, placemark.coordinate.longitude];
-  NSString *from = [NSString stringWithFormat:@"%.12f, %.12f", self.model.currentLocation.coordinate.latitude, self.model.currentLocation.coordinate.longitude];
-  INKActivityPresenter *presenter = [mapsHandler directionsFrom:from to:to mode:INKMapsHandlerDirectionsModeWalking];
-  [presenter presentModalActivitySheetFromViewController:self completion:^{
-    
-  }];
+  NSString *urlString = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%.12f,%.12f&dirflg=w", placemark.coordinate.latitude, placemark.coordinate.longitude];
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:nil];
   [self buttonTappedForPlacemark:placemark withAction:BPLDirectionsButtonPressedEvent];
 }
 

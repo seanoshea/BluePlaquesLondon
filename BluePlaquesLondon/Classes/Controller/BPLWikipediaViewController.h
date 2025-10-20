@@ -28,9 +28,9 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GAITrackedViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface BPLWikipediaViewController : GAITrackedViewController
+@interface BPLWikipediaViewController : UIViewController
 
 @property (nonatomic, copy) NSArray *markers;
 

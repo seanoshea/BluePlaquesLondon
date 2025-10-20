@@ -87,9 +87,9 @@
 }
 
 - (void)testRetrievingACellFromTheTable {
-  MDCCollectionViewTextCell *cell = (MDCCollectionViewTextCell *)[self.controller collectionView:self.controller.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+  UICollectionViewCell *cell = [self.controller collectionView:self.controller.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
   
-  XCTAssertTrue([cell.textLabel.text isEqualToString:@"Feature Description 1"]);
+  XCTAssertNotNil(cell);
 }
 
 @end

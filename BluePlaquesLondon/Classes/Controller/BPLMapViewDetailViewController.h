@@ -28,14 +28,15 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GAITrackedViewController.h"
+#import <UIKit/UIKit.h>
 
 @class BPLMapViewDetailViewModel;
 
 extern NSString *BPLMapViewDetailViewControllerStoryboardIdentifier;
 
-@interface BPLMapViewDetailViewController : GAITrackedViewController
+@interface BPLMapViewDetailViewController : UIViewController
 
 @property (nonatomic) BPLMapViewDetailViewModel *model;
+@property (nonatomic, readonly) NSString *screenName;
 
 @end

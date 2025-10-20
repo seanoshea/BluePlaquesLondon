@@ -35,15 +35,14 @@
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
 #import "KMLPlacemark.h"
-#import "MaterialActivityIndicator.h"
-#import "MDCCollectionViewCell.h"
+// Material Components removed as per modernization plan
 
 #import <WebKit/WebKit.h>
 
 @interface BPLWikipediaViewController() <WKNavigationDelegate>
 
 @property (nonatomic, weak) IBOutlet WKWebView *webView;
-@property (nonatomic) MDCActivityIndicator *activityIndicator;
+@property (nonatomic) UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic) BPLWikipediaViewModel *model;
 
@@ -56,7 +55,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.screenName = @"Wikipedia Screen";
+  // screenName removed with Google Analytics
   
   self.webView.backgroundColor = [UIColor BPLGreyColour];
   self.webView.opaque = NO;
@@ -73,11 +72,9 @@
 {
   [super viewWillAppear:animated];
   self.webView.hidden = YES;
-  self.activityIndicator = [[MDCActivityIndicator alloc] initWithFrame:CGRectMake(0, 0, 128, 128)];
+  self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
   self.activityIndicator.center = self.view.center;
-  self.activityIndicator.strokeWidth = 4.0f;
-  self.activityIndicator.radius = 18.0f;
-  self.activityIndicator.cycleColors = @[[UIColor BPLBlueColour]];
+  self.activityIndicator.color = [UIColor BPLBlueColour];
   [self.view addSubview:self.activityIndicator];
   [self.activityIndicator startAnimating];
   

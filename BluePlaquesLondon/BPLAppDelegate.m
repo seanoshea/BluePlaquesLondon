@@ -31,9 +31,7 @@
 #import "BPLAppDelegate.h"
 
 #import <GoogleMaps/GoogleMaps.h>
-#import <GoogleAnalytics/GAI.h>
-#import <GoogleAnalytics/GAIDictionaryBuilder.h>
-#import <GoogleAnalytics/GAIFields.h>
+// Google Analytics removed as per modernization plan
 
 #import "Reachability.h"
 
@@ -42,7 +40,7 @@
 #import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLMapViewController.h"
-#import "MDCTypography.h"
+// Material Components removed as per modernization plan
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
   BPLMapViewControllerIndex = 0,
@@ -87,14 +85,14 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
   [[UINavigationBar appearance] setBarTintColor:[UIColor BPLLightGreyColour]];
   [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                          NSForegroundColorAttributeName: [UIColor BPLBlueColour],
-                                                         NSFontAttributeName: [MDCTypography subheadFont]
+                                                         NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]
                                                          }];
   [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(5, 0)
                                                        forBarMetrics:UIBarMetricsDefault];
   
   [[UIBarButtonItem appearance] setTitleTextAttributes:@{
                                                          NSForegroundColorAttributeName: [UIColor BPLBlueColour],
-                                                         NSFontAttributeName: [MDCTypography subheadFont]
+                                                         NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]
                                                          } forState:UIControlStateNormal];
   
   self.window.tintColor = [UIColor BPLBlueColour];
@@ -126,25 +124,14 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeTracking
 {
-  if ([BPLConfiguration isTrackingEnabled]) {
-    // don't bother sending analytics for debug builds.
-    if ([BPLConfiguration isDebug]) {
-      [GAI sharedInstance].dryRun = YES;
-    }
-    [GAI sharedInstance].dispatchInterval = 30;
-    [GAI sharedInstance].logger.logLevel = [BPLConfiguration isDebug] ? kGAILogLevelVerbose : kGAILogLevelWarning;
-    NSString *shortVersionString = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
-    [self trackCategory:BPLApplicationLoaded action:[NSString stringWithFormat:@"Application Version: %@", shortVersionString] label:[NSString stringWithFormat:@"iOS Version %@", [UIDevice currentDevice].systemVersion]];
-  }
+  // Google Analytics tracking removed as per modernization plan
+  // TODO: Replace with native analytics if needed
 }
 
 - (void)initializeCrashReporting
 {
-#ifndef DEBUG
-  if ([BPLConfiguration isCrashReportingEnabled]) {
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-  }
-#endif
+  // Google Analytics crash reporting removed as per modernization plan
+  // TODO: Replace with native crash reporting if needed
 }
 
 - (void)openAppAtClosestPlacemark {

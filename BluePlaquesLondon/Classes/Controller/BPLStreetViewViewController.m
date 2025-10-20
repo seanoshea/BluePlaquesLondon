@@ -44,12 +44,19 @@
 
 @implementation BPLStreetViewViewController
 
+#pragma mark Properties
+
+- (NSString *)screenName
+{
+  return @"Street View Screen";
+}
+
 #pragma mark Lifecycle
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.screenName = @"Street View Screen";
+  // screenName removed with Google Analytics
   self.title = NSLocalizedString(@"Street View", nil);
   GMSPanoramaView *panoView = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:self.placemark.coordinate];
   panoView.delegate = self;

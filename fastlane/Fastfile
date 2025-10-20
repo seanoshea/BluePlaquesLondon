@@ -1,7 +1,27 @@
-before_all do
-
-end
+default_platform(:ios)
 
 lane :test do
-  scan(scheme: "BluePlaquesLondon")
+  scan(
+    scheme: "BluePlaquesLondon",
+    device: "iPhone 16 Pro",
+    deployment_target_version: "18.0"
+  )
+end
+
+lane :build do
+  gym(
+    scheme: "BluePlaquesLondon",
+    export_method: "development",
+    xcargs: "-allowProvisioningUpdates"
+  )
+end
+
+lane :beta do
+  build
+  upload_to_testflight
+end
+
+lane :release do
+  build
+  upload_to_app_store
 end
