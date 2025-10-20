@@ -109,8 +109,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   [super viewDidLoad];
   self.screenName = @"Maps Screen";
   
-  self.automaticallyAdjustsScrollViewInsets = NO;
-  
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   CLLocationCoordinate2D lastKnownCoordinate = defaults.lastKnownBPLCoordinate;
   float mapZoom = defaults.mapZoom;

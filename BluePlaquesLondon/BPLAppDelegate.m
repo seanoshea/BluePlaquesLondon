@@ -41,7 +41,6 @@
 #endif
 
 #import "Reachability.h"
-#import "iRate.h"
 
 #import "BPLConfiguration.h"
 #import "BPLConstants.h"
@@ -55,7 +54,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
   BPLAboutViewControllerIndex = 1,
 };
 
-@interface BPLAppDelegate() <iRateDelegate>
+@interface BPLAppDelegate()
 
 @property (nonatomic) Reachability *internetReach;
 
@@ -70,7 +69,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
   [self initializeReachability];
   [self initializeTracking];
   [self initializeCrashReporting];
-  [self initializeRating];
   return YES;
 }
 
@@ -155,16 +153,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 #endif
 }
 
-- (void)initializeRating
-{
-  [iRate sharedInstance].delegate = self;
-  [iRate sharedInstance].messageTitle = NSLocalizedString(@"Rate Blue Plaques London", nil);
-  [iRate sharedInstance].message = NSLocalizedString(@"If you enjoy using this application, would you mind taking a moment to rate it?", nil);
-  [iRate sharedInstance].applicationName = NSLocalizedString(@"Blue Plaques London", nil);
-  [iRate sharedInstance].daysUntilPrompt = 5;
-  [iRate sharedInstance].usesUntilPrompt = 15;
-}
-
 - (void)openAppAtClosestPlacemark {
   [self trackCategory:BPLUIActionCategory action:BPLTodayExtensionButtonPressed label:nil];
   // ensure that the map tab is selected
@@ -172,28 +160,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
   [mapViewNavigationController popToRootViewControllerAnimated:NO];
   BPLMapViewController *mapViewController = mapViewNavigationController.viewControllers[0];
   [mapViewController navigateToClosestPlacemark];
-}
-
-#pragma mark iRateDelegate
-
-- (void)iRateUserDidAttemptToRateApp
-{
-  [self trackCategory:BPLUIActionCategory action:BPLRateAppButtonPressedEvent label:nil];
-}
-
-- (void)iRateUserDidDeclineToRateApp
-{
-  [self trackCategory:BPLUIActionCategory action:BPLDeclineRateAppButtonPressedEvent label:nil];
-}
-
-- (void)iRateUserDidRequestReminderToRateApp
-{
-  [self trackCategory:BPLUIActionCategory action:BPLRemindRateAppButtonPressedEvent label:nil];
-}
-
-- (void)iRateDidOpenAppStore
-{
-  [self trackCategory:BPLRateAppStoreOpened action:nil label:nil];
 }
 
 @end
