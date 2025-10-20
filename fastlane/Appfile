@@ -1,2 +1,1 @@
 app_identifier "com.upwardsnorthwards.BluePlaquesLondon"
-apple_id ENV["APPLE_ID"]

@@ -77,7 +77,10 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeGoogleMapsApi
 {
-  [GMSServices provideAPIKey:BPLMapsKey];
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"APIKeys" ofType:@"plist"];
+  NSDictionary *apiKeys = [NSDictionary dictionaryWithContentsOfFile:path];
+  NSString *googleMapsKey = apiKeys[@"GoogleMapsAPIKey"];
+  [GMSServices provideAPIKey:googleMapsKey];
 }
 
 - (void)initializeStyling

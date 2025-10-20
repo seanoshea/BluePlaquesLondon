@@ -34,6 +34,9 @@ xcuserdata/
 *.gcda
 *.profdata
 
+# Build artifacts
+*.dSYM.zip
+
 # CocoaPods
 Pods/
 Podfile.lock
@@ -98,3 +101,7 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+
+# API Configuration Files
+GoogleService-Info.plist
+APIKeys.plist
