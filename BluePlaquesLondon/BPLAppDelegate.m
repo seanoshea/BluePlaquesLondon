@@ -77,16 +77,24 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeGoogleMapsApi
 {
-  // Skip Google Maps initialization during tests
-  if (NSClassFromString(@"XCTestCase") != nil) {
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"APIKeys" ofType:@"plist"];
+  if (!path) {
+    NSLog(@"APIKeys.plist not found in bundle");
     return;
   }
   
-  NSString *path = [[NSBundle mainBundle] pathForResource:@"APIKeys" ofType:@"plist"];
   NSDictionary *apiKeys = [NSDictionary dictionaryWithContentsOfFile:path];
+  if (!apiKeys) {
+    NSLog(@"Failed to load APIKeys.plist");
+    return;
+  }
+  
   NSString *googleMapsKey = apiKeys[@"GoogleMapsAPIKey"];
   if (googleMapsKey && googleMapsKey.length > 0) {
     [GMSServices provideAPIKey:googleMapsKey];
+    NSLog(@"Google Maps API key configured successfully");
+  } else {
+    NSLog(@"GoogleMapsAPIKey not found or empty in APIKeys.plist");
   }
 }
 
