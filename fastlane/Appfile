@@ -1,2 +1,2 @@
 app_identifier "com.upwardsnorthwards.BluePlaquesLondon"
-apple_id "xyz@abc.com"
+apple_id ENV["APPLE_ID"]

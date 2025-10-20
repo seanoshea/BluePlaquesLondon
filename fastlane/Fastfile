@@ -1,3 +1,6 @@
+require 'dotenv'
+Dotenv.load('../.env')
+
 default_platform(:ios)
 
 lane :test do
@@ -17,8 +20,14 @@ lane :build do
 end
 
 lane :beta do
-  build
-  upload_to_testflight
+  gym(
+    scheme: "BluePlaquesLondon",
+    export_method: "app-store",
+    xcargs: "-allowProvisioningUpdates"
+  )
+  upload_to_testflight(
+    skip_waiting_for_build_processing: true
+  )
 end
 
 lane :release do
