@@ -1,0 +1,33 @@
+repos:
+  - repo: local
+    hooks:
+      - id: bundle-check
+        name: Bundle check
+        entry: bundle check
+        language: system
+        pass_filenames: false
+        
+      - id: pod-lib-lint
+        name: Pod lib lint
+        entry: pod lib lint --quick
+        language: system
+        files: '\.podspec$|Podfile'
+        pass_filenames: false
+        
+      - id: swiftlint
+        name: SwiftLint
+        entry: swiftlint lint --strict
+        language: system
+        files: '\.swift$'
+        
+      - id: trailing-whitespace
+        name: Trim trailing whitespace
+        entry: trailing-whitespace-fixer
+        language: system
+        types: [text]
+        
+      - id: end-of-file-fixer
+        name: Fix end of files
+        entry: end-of-file-fixer
+        language: system
+        types: [text]
