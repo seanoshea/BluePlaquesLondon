@@ -1,5 +1,5 @@
 # Blue Plaques London
-iOS Application for finding Blue Plaques through London. [App Store Link](http://www.appstore.com/seanoshea)
+iOS Application for finding Blue Plaques through London. [App Store Link](https://apps.apple.com/app/blue-plaques-london/id427106068)
 
 [![CI Status](https://github.com/seanoshea/BluePlaquesLondon/workflows/CI/badge.svg)](https://github.com/seanoshea/BluePlaquesLondon/actions/workflows/ci.yml)
 [![Code Coverage](http://codecov.io/github/seanoshea/BluePlaquesLondon/coverage.svg?branch=develop)](http://codecov.io/github/seanoshea/BluePlaquesLondon?branch=develop)
