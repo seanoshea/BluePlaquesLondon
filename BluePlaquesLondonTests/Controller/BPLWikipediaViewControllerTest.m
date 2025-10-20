@@ -57,10 +57,14 @@
 
 - (void)setUp {
   [super setUp];
-  UIStoryboard *storybord = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-  self.controller = [storybord instantiateViewControllerWithIdentifier:@"BPLWikipediaViewController"];
+  self.controller = [[BPLWikipediaViewController alloc] init];
   self.controller.markers = @[[BPLUnitTestHelper placemarkWithIdentifier:@"1"]];
   self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.controller];
+  
+  // Mock the webView since it can't be instantiated from storyboard in tests
+  id mockWebView = OCMClassMock([WKWebView class]);
+  [self.controller setValue:mockWebView forKey:@"webView"];
+  
   __unused id view = (self.controller).view;
 }
 
