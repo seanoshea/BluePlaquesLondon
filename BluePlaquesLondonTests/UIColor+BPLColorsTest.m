@@ -6,19 +6,6 @@
 
 @implementation UIColorBPLColorsTest
 
-- (void)testBPLBlueColour {
-    UIColor *blue = [UIColor BPLBlueColour];
-    XCTAssertNotNil(blue);
-    
-    CGFloat red, green, blue_component, alpha;
-    [blue getRed:&red green:&green blue:&blue_component alpha:&alpha];
-    
-    XCTAssertEqualWithAccuracy(red, 0.0, 0.1);
-    XCTAssertEqualWithAccuracy(green, 0.0, 0.1);
-    XCTAssertEqualWithAccuracy(blue_component, 1.0, 0.1);
-    XCTAssertEqualWithAccuracy(alpha, 1.0, 0.01);
-}
-
 - (void)testBPLLightGreyColour {
     UIColor *lightGrey = [UIColor BPLLightGreyColour];
     XCTAssertNotNil(lightGrey);

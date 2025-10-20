@@ -58,6 +58,11 @@
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
 		313462102EA6D5B6007401D9 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3134620F2EA6D5B6007401D9 /* APIKeys.plist */; };
+		313462212EA6DA61007401D9 /* BPLAboutViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 313462112EA6DA61007401D9 /* BPLAboutViewControllerTest.m */; };
+		313462222EA6DA61007401D9 /* NSObject+BPLTrackingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3134621A2EA6DA61007401D9 /* NSObject+BPLTrackingTest.m */; };
+		313462252EA6DA61007401D9 /* BPLLabelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 313462162EA6DA61007401D9 /* BPLLabelTest.m */; };
+		313462272EA6DA61007401D9 /* BPLConstantsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 313462142EA6DA61007401D9 /* BPLConstantsTest.m */; };
+		313462292EA6DA61007401D9 /* UIColor+BPLColorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3134621D2EA6DA61007401D9 /* UIColor+BPLColorsTest.m */; };
 		31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */; };
 		411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
@@ -169,6 +174,11 @@
 		21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2251E9CB2C4CEABE54BD2118 /* Pods-BluePlaquesLondon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.release.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.release.xcconfig"; sourceTree = "<group>"; };
 		3134620F2EA6D5B6007401D9 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		313462112EA6DA61007401D9 /* BPLAboutViewControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewControllerTest.m; sourceTree = "<group>"; };
+		313462142EA6DA61007401D9 /* BPLConstantsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLConstantsTest.m; sourceTree = "<group>"; };
+		313462162EA6DA61007401D9 /* BPLLabelTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLLabelTest.m; sourceTree = "<group>"; };
+		3134621A2EA6DA61007401D9 /* NSObject+BPLTrackingTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BPLTrackingTest.m"; sourceTree = "<group>"; };
+		3134621D2EA6DA61007401D9 /* UIColor+BPLColorsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BPLColorsTest.m"; sourceTree = "<group>"; };
 		31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
 		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
@@ -265,6 +275,11 @@
 		146C5FB01A9D09EB00E88761 /* BluePlaquesLondonTests */ = {
 			isa = PBXGroup;
 			children = (
+				313462112EA6DA61007401D9 /* BPLAboutViewControllerTest.m */,
+				313462142EA6DA61007401D9 /* BPLConstantsTest.m */,
+				313462162EA6DA61007401D9 /* BPLLabelTest.m */,
+				3134621A2EA6DA61007401D9 /* NSObject+BPLTrackingTest.m */,
+				3134621D2EA6DA61007401D9 /* UIColor+BPLColorsTest.m */,
 				14C9E8211A9FBEC900B446D1 /* Controller */,
 				14F0037B1A9D1FBF00AEE2AC /* Model */,
 				146C5FB11A9D09EB00E88761 /* Supporting Files */,
@@ -714,6 +729,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */,
+				313462212EA6DA61007401D9 /* BPLAboutViewControllerTest.m in Sources */,
+				313462222EA6DA61007401D9 /* NSObject+BPLTrackingTest.m in Sources */,
+				313462252EA6DA61007401D9 /* BPLLabelTest.m in Sources */,
+				313462272EA6DA61007401D9 /* BPLConstantsTest.m in Sources */,
+				313462292EA6DA61007401D9 /* UIColor+BPLColorsTest.m in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
 				411FA5461D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
 				14C9E8271A9FD56C00B446D1 /* BPLMapViewControllerTest.m in Sources */,
