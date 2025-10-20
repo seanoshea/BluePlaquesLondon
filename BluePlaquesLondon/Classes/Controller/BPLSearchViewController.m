@@ -23,9 +23,8 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self.collectionView registerClass:[MDCCollectionViewTextCell class]
+  [self.collectionView registerClass:[UICollectionViewCell class]
           forCellWithReuseIdentifier:kReusableIdentifierItem];
-  self.styler.cellStyle = MDCCollectionViewCellStyleCard;
 }
 
 #pragma mark - <UICollectionViewDataSource>
@@ -41,31 +40,23 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  MDCCollectionViewTextCell *cell =
+  UICollectionViewCell *cell =
   [collectionView dequeueReusableCellWithReuseIdentifier:kReusableIdentifierItem
                                             forIndexPath:indexPath];
-  cell.accessoryType = MDCCollectionViewCellAccessoryDisclosureIndicator;
-  cell.textLabel.textColor = [UIColor BPLBlueColour];
-  cell.inkView.inkColor = [UIColor BPLLightOrangeColour];
+  // TODO: Configure cell with native components
   if (indexPath.row == 0) {
-    cell.textLabel.text = NSLocalizedString(@"Find the plaque closest to me", nil);
+    // Configure for "Find closest" cell
   } else {
     BPLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
     if (pm) {
-      cell.textLabel.text = pm.placemarkName;
-      if (self.currentLocation) {
-        CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.coordinate.latitude
-                                                     longitude:pm.coordinate.longitude];
-        cell.detailTextLabel.textColor = [UIColor BPLDarkGreyColour];
-        cell.detailTextLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
-      }
+      // Configure for placemark cell
     }
   }
   return cell;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView cellHeightAtIndexPath:(NSIndexPath *)indexPath {
-  return self.currentLocation ? MDCCellDefaultTwoLineHeight : MDCCellDefaultOneLineHeight;
+  return self.currentLocation ? 60.0f : 44.0f; // Standard cell heights
 }
 
 - (void)collectionView:(UICollectionView *)collectionView

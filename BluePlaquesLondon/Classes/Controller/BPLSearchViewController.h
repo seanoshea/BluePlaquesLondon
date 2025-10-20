@@ -6,7 +6,7 @@
 //  Copyright © 2016 Sean O'Shea. All rights reserved.
 //
 
-#import "MaterialCollections.h"
+// Material Components removed as per modernization plan
 
 #import "BPLMapViewModel.h"
 
@@ -19,7 +19,7 @@
 
 @end
 
-@interface BPLSearchViewController : MDCCollectionViewController
+@interface BPLSearchViewController : UICollectionViewController
 
 @property (nonatomic, weak) id<BPLSearchViewControllerDelegate> delegate;
 @property (nonatomic) BPLMapViewModel *model;

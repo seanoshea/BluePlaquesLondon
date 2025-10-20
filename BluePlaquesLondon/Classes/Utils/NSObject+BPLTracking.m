@@ -29,14 +29,11 @@
  */
 
 #import "NSObject+BPLTracking.h"
+#import <FirebaseAnalytics/FirebaseAnalytics.h>
 
 #ifndef DEBUG
 #import <Crashlytics/Crashlytics.h>
 #endif
-
-#import <GoogleAnalytics/GAI.h>
-#import <GoogleAnalytics/GAIDictionaryBuilder.h>
-#import <GoogleAnalytics/GAIFields.h>
 
 #import "BPLConfiguration.h"
 #import "BPLConstants.h"
@@ -51,25 +48,12 @@
 - (void)trackCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value
 {
   if ([BPLConfiguration isTrackingEnabled]) {
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:BPLTrackingKey];
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
-                                                          action:action
-                                                           label:label
-                                                           value:value] build]];
-    if ([BPLConfiguration isCrashReportingEnabled]) {
-#ifndef DEBUG
-      static unsigned long long eventCount = 0;
-      NSDictionary *parameters = @{
-                                   @"category": category ?: @"",
-                                   @"action": action ?: @"",
-                                   @"label": label ?: @"",
-                                   @"value": value ?: @""
-                                   };
-      Crashlytics *crashlytics = [Crashlytics sharedInstance];
-      [crashlytics setObjectValue:parameters
-                           forKey:[action stringByAppendingFormat:@"-%llu", (unsigned long long)++eventCount]];
-#endif
-    }
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    if (category) parameters[@"category"] = category;
+    if (label) parameters[@"label"] = label;
+    if (value) parameters[@"value"] = value;
+    
+    [FIRAnalytics logEventWithName:action parameters:parameters];
   }
 }
 

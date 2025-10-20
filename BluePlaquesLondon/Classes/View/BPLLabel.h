@@ -28,8 +28,8 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <TTTAttributedLabel/TTTAttributedLabel.h>
+#import <UIKit/UIKit.h>
 
-@interface BPLLabel : TTTAttributedLabel
+@interface BPLLabel : UILabel
 
 @end

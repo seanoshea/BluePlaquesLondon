@@ -42,10 +42,9 @@
 #import "NSObject+BPLTracking.h"
 #import "MKDistanceFormatter+BPLAdditions.h"
 #import "BPLPlacemark+Additions.h"
-#import "GAITrackedViewController.h"
+// GAITrackedViewController removed as per modernization plan
 #import "BPLSearchViewController.h"
-#import "MaterialFlexibleHeader.h"
-#import "MDCFlatButton.h"
+// Material Components removed as per modernization plan
 #import "BPLInfoWindow.h"
 #import "BPLPlacemark+Additions.h"
 
@@ -57,8 +56,8 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 @property (nonatomic, weak) BPLSearchViewController *searchViewController;
 
 @property (nonatomic) UISearchBar *searchBar;
-@property (nonatomic) MDCFlexibleHeaderViewController *fhvc;
-@property (nonatomic) MDCFlatButton *aboutButton;
+@property (nonatomic) UIView *headerView;
+@property (nonatomic) UIButton *aboutButton;
 
 @property (nonatomic) GMSMapView *mapView;
 
@@ -101,13 +100,12 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   self.locationManager.distanceFilter = kCLDistanceFilterNone;
   self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
   [self.locationManager startUpdatingLocation];
-  [self setupFlexibleHeaderViewController];
 }
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.screenName = @"Maps Screen";
+  // screenName removed with Google Analytics
   
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   CLLocationCoordinate2D lastKnownCoordinate = defaults.lastKnownBPLCoordinate;
@@ -129,9 +127,10 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   
   [self.mapView animateToLocation:lastKnownCoordinate];
   
+  [self setupHeaderView];
   [self setupSearchBar];
   
-  [self styleFlexibleHeaderView];
+  [self styleHeaderView];
   [self setupInfoButton];
 }
 
@@ -319,9 +318,10 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 #pragma mark MDC stuff
 
-- (void)setupFlexibleHeaderViewController {
-  _fhvc = [[MDCFlexibleHeaderViewController alloc] initWithNibName:nil bundle:nil];
-  [self addChildViewController:_fhvc];
+- (void)setupHeaderView {
+  CGFloat width = self.view.frame.size.width > 0 ? self.view.frame.size.width : 320.0f;
+  _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 76.0f)];
+  _headerView.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)setupSearchBar {
@@ -330,27 +330,22 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   self.searchBar.userInteractionEnabled = NO;
   self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
   self.searchBar.delegate = self;
-  [self.fhvc.view addSubview:self.searchBar];
+  [self.headerView addSubview:self.searchBar];
   [self toggleSearchViewController:NO];
 }
 
-- (void)styleFlexibleHeaderView {
-  self.fhvc.view.frame = self.view.bounds;
-  self.fhvc.headerView.minimumHeight = 76.0f;
-  self.fhvc.headerView.backgroundColor = [UIColor whiteColor];
-  [self.view addSubview:self.fhvc.view];
-  [self.fhvc didMoveToParentViewController:self];
+- (void)styleHeaderView {
+  [self.view addSubview:self.headerView];
 }
 
 - (void)setupInfoButton {
-  self.aboutButton = [[MDCFlatButton alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
+  self.aboutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
-  [self.aboutButton setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  self.aboutButton.backgroundColor = [UIColor whiteColor];
   self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width - 8.0f, 50.0f);
   [self.aboutButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
-  self.aboutButton.inkStyle = MDCInkStyleUnbounded;
-  [self.fhvc.view addSubview:self.aboutButton];
+  [self.headerView addSubview:self.aboutButton];
 }
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {

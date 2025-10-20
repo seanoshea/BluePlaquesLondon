@@ -28,11 +28,11 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GAITrackedViewController.h"
+#import <UIKit/UIKit.h>
 
 extern NSString *BPLMapViewControllerStoryboardIdentifier;
 
-@interface BPLMapViewController : GAITrackedViewController
+@interface BPLMapViewController : UIViewController
 
 - (void)navigateToClosestPlacemark;
 

@@ -30,8 +30,8 @@
 
 @import UIKit;
 
-#import "MDCRaisedButton.h"
+// Material Components removed as per modernization plan
 
-@interface BPLButton : MDCRaisedButton
+@interface BPLButton : UIButton
 
 @end

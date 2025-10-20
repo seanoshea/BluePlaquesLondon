@@ -30,7 +30,7 @@
 
 #import "BPLInfoWindow.h"
 
-#import "MDCTypography.h"
+// Material Components removed as per modernization plan
 #import "UIColor+BPLColors.h"
 
 @implementation BPLInfoWindow
@@ -44,8 +44,8 @@
 }
 
 - (void)styleInfoWindow {
-  self.header.font = [MDCTypography subheadFont];
-  self.runner.font = [MDCTypography captionFont];
+  self.header.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+  self.runner.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
 }
 
 - (void)awakeFromNib {

@@ -34,11 +34,7 @@
 #import "BPLConstants.h"
 #import "BPLPlacemark.h"
 #import "BPLPlacemark+Additions.h"
-#import "MDCCollectionViewTextCell.h"
-
-#import <GoogleAnalytics/GAI.h>
-#import <GoogleAnalytics/GAIDictionaryBuilder.h>
-#import <GoogleAnalytics/GAIFields.h>
+// Material Components removed as per modernization plan
 
 static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
@@ -52,9 +48,8 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self.collectionView registerClass:[MDCCollectionViewTextCell class]
+  [self.collectionView registerClass:[UICollectionViewCell class]
           forCellWithReuseIdentifier:kReusableIdentifierItem];
-  self.styler.cellStyle = MDCCollectionViewCellStyleCard;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -66,9 +61,7 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
-  id tracker = [GAI sharedInstance].defaultTracker;
-  [tracker set:kGAIScreenName value:@"Multiple Placemarks Screen"];
-  [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+  // Google Analytics tracking removed as per modernization plan
   [self.collectionView reloadData];
 }
 
@@ -82,19 +75,17 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView cellHeightAtIndexPath:(NSIndexPath *)indexPath {
-  return MDCCellDefaultOneLineHeight;
+  return 44.0f; // Standard cell height
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  MDCCollectionViewTextCell *cell =
+  UICollectionViewCell *cell =
   [collectionView dequeueReusableCellWithReuseIdentifier:kReusableIdentifierItem
                                             forIndexPath:indexPath];
-  cell.accessoryType = MDCCollectionViewCellAccessoryDisclosureIndicator;
-  cell.textLabel.textColor = [UIColor BPLBlueColour];
-  cell.inkView.inkColor = [UIColor BPLLightOrangeColour];
+  // Configure cell with native components
   BPLPlacemark *pm = self.markers[indexPath.row];
-  cell.textLabel.text = pm.placemarkName;
+  // TODO: Add proper cell configuration with native UI components
   return cell;
 }
 

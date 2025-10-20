@@ -31,7 +31,6 @@
 #import "BPLLabel.h"
 
 #import "UIColor+BPLColors.h"
-#import "MDCTypography.h"
 
 @implementation BPLLabel
 
@@ -40,11 +39,7 @@
   self = [super initWithCoder:aDecoder];
   if (self) {
     self.textColor = [UIColor BPLBlueColour];
-    self.linkAttributes = @{NSForegroundColorAttributeName: [UIColor BPLBlueColour],
-                            NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
-    self.activeLinkAttributes = @{NSForegroundColorAttributeName: [UIColor BPLOrangeColour],
-                                  NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
-    self.font = [MDCTypography body1Font];
+    self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
   }
   return self;
 }

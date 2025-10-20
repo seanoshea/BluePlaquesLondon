@@ -1,5 +1,8 @@
 scheme "BluePlaquesLondon"
-
+device "iPhone 17 Pro"
 clean true
-
+code_coverage true
+output_directory "./test_output"
 output_types "html"
+deployment_target_version "18.0"
+result_bundle true

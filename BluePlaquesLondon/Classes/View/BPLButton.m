@@ -40,7 +40,7 @@
   if (self) {
     [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor BPLOrangeColour] forState:UIControlStateHighlighted];
-    [self setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.backgroundColor = [UIColor whiteColor];
   }
   return self;
 }

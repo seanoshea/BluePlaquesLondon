@@ -37,8 +37,7 @@
 	<string>NO</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>I'd like to be able to show you the closest blue plaque to your current location.</string>
+
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>I'd like to be able to show you the closest blue plaque to your current location.</string>
 	<key>UILaunchStoryboardName</key>
@@ -49,7 +48,7 @@
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
-		<string>armv7</string>
+		<string>arm64</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>

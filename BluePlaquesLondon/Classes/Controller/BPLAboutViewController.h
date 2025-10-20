@@ -28,11 +28,11 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GAITrackedViewController.h"
+#import <UIKit/UIKit.h>
 
 @class BPLAboutViewModel;
 
-@interface BPLAboutViewController : GAITrackedViewController
+@interface BPLAboutViewController : UIViewController
 
 @property (nonatomic) BPLAboutViewModel *model;
 

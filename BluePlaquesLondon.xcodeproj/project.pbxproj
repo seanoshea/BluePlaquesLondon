@@ -57,6 +57,7 @@
 		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
+		31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */; };
 		411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */; };
@@ -68,8 +69,8 @@
 		41C7CFFE1CAA148100736645 /* wikipedia_malformed.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7CFFD1CAA148100736645 /* wikipedia_malformed.json */; };
 		41C7D0001CAA15BC00736645 /* wikipedia_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7CFFF1CAA15BC00736645 /* wikipedia_empty.json */; };
 		41C7D0021CAA185700736645 /* wikipedia_sargent.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7D0011CAA185700736645 /* wikipedia_sargent.json */; };
-		7A751506E1D94527E6A11E25 /* libPods-BluePlaquesLondon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D772121B4F7ED9C84BA2CDD /* libPods-BluePlaquesLondon.a */; };
-		DF2FB486DC928BF018A5C79C /* libPods-BluePlaquesLondonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5030A664DF2CBA5E86EBFCC /* libPods-BluePlaquesLondonTests.a */; };
+		C38C596F5EAFF3005BC397B6 /* libPods-BluePlaquesLondonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */; };
+		D96DF99C366F03725A3578B0 /* libPods-BluePlaquesLondon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7A1D1B01387564CBCDAF46 /* libPods-BluePlaquesLondon.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A77E713C0EAA79D503A4DBC /* Pods-BluePlaquesLondonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.debug.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		141B27731AC83F6A0095A0F8 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		141B27831AC84F250095A0F8 /* BPLAppDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAppDelegateTest.m; sourceTree = "<group>"; };
 		142A90171ACDC41F00AB8EDC /* BluePlaquesLondonTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -163,8 +165,9 @@
 		14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkFeatureDescriptionTests.m; sourceTree = "<group>"; };
 		14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLStateTest.m; sourceTree = "<group>"; };
 		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
-		35E62A76A1A5C04993430748 /* Pods-BluePlaquesLondonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.release.xcconfig"; sourceTree = "<group>"; };
-		3D772121B4F7ED9C84BA2CDD /* libPods-BluePlaquesLondon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2251E9CB2C4CEABE54BD2118 /* Pods-BluePlaquesLondon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.release.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.release.xcconfig"; sourceTree = "<group>"; };
+		31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
 		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
 		411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLInfoWindow.m; sourceTree = "<group>"; };
@@ -176,10 +179,9 @@
 		41C7CFFD1CAA148100736645 /* wikipedia_malformed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia_malformed.json; sourceTree = "<group>"; };
 		41C7CFFF1CAA15BC00736645 /* wikipedia_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia_empty.json; sourceTree = "<group>"; };
 		41C7D0011CAA185700736645 /* wikipedia_sargent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wikipedia_sargent.json; sourceTree = "<group>"; };
-		5DD8C3C4CB526EA1770DD68C /* Pods-BluePlaquesLondon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.debug.xcconfig"; sourceTree = "<group>"; };
-		C2525DFB0E83DCC2E01433EC /* Pods-BluePlaquesLondonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F1FCC68879B08AEB14FB866C /* Pods-BluePlaquesLondon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.release.xcconfig"; sourceTree = "<group>"; };
-		F5030A664DF2CBA5E86EBFCC /* libPods-BluePlaquesLondonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BEAF99394F43524AB0CB2EF /* Pods-BluePlaquesLondonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.release.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.release.xcconfig"; sourceTree = "<group>"; };
+		7E7A1D1B01387564CBCDAF46 /* libPods-BluePlaquesLondon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D597F0ED4BB264D96D444B8 /* Pods-BluePlaquesLondon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.debug.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A751506E1D94527E6A11E25 /* libPods-BluePlaquesLondon.a in Frameworks */,
+				D96DF99C366F03725A3578B0 /* libPods-BluePlaquesLondon.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF2FB486DC928BF018A5C79C /* libPods-BluePlaquesLondonTests.a in Frameworks */,
+				C38C596F5EAFF3005BC397B6 /* libPods-BluePlaquesLondonTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				141B27731AC83F6A0095A0F8 /* NotificationCenter.framework */,
-				F5030A664DF2CBA5E86EBFCC /* libPods-BluePlaquesLondonTests.a */,
-				3D772121B4F7ED9C84BA2CDD /* libPods-BluePlaquesLondon.a */,
+				7E7A1D1B01387564CBCDAF46 /* libPods-BluePlaquesLondon.a */,
+				21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,7 +221,7 @@
 				146C5FB01A9D09EB00E88761 /* BluePlaquesLondonTests */,
 				146C5F921A9D09EB00E88761 /* Products */,
 				0881CF2E622A2E854CB722C0 /* Frameworks */,
-				4158A58E53E5DA34EC3AD7F9 /* Pods */,
+				F8B44DFB79971FC493F7F1AB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -420,6 +422,7 @@
 				14F003761A9D1F2E00AEE2AC /* strings */,
 				14F003721A9D1F2B00AEE2AC /* blueplaques.kml */,
 				14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */,
+				31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -462,15 +465,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		4158A58E53E5DA34EC3AD7F9 /* Pods */ = {
+		F8B44DFB79971FC493F7F1AB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C2525DFB0E83DCC2E01433EC /* Pods-BluePlaquesLondonTests.debug.xcconfig */,
-				35E62A76A1A5C04993430748 /* Pods-BluePlaquesLondonTests.release.xcconfig */,
-				5DD8C3C4CB526EA1770DD68C /* Pods-BluePlaquesLondon.debug.xcconfig */,
-				F1FCC68879B08AEB14FB866C /* Pods-BluePlaquesLondon.release.xcconfig */,
+				9D597F0ED4BB264D96D444B8 /* Pods-BluePlaquesLondon.debug.xcconfig */,
+				2251E9CB2C4CEABE54BD2118 /* Pods-BluePlaquesLondon.release.xcconfig */,
+				0A77E713C0EAA79D503A4DBC /* Pods-BluePlaquesLondonTests.debug.xcconfig */,
+				4BEAF99394F43524AB0CB2EF /* Pods-BluePlaquesLondonTests.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,11 +483,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 146C5FB71A9D09EB00E88761 /* Build configuration list for PBXNativeTarget "BluePlaquesLondon" */;
 			buildPhases = (
-				119023E215B17C89E3451341 /* [CP] Check Pods Manifest.lock */,
+				72363E4BDB8EBFB3AF018D26 /* [CP] Check Pods Manifest.lock */,
 				146C5F8D1A9D09EB00E88761 /* Sources */,
 				146C5F8E1A9D09EB00E88761 /* Frameworks */,
 				146C5F8F1A9D09EB00E88761 /* Resources */,
-				3354F2219EB3EC086BE81355 /* [CP] Copy Pods Resources */,
+				8ECADFED1532856D3DE22F4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -499,7 +502,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 146C5FBA1A9D09EB00E88761 /* Build configuration list for PBXNativeTarget "BluePlaquesLondonTests" */;
 			buildPhases = (
-				75FDB89755BE3C34B43BA310 /* [CP] Check Pods Manifest.lock */,
+				5124A60E14D3B148A085CEB8 /* [CP] Check Pods Manifest.lock */,
 				146C5FA91A9D09EB00E88761 /* Sources */,
 				146C5FAA1A9D09EB00E88761 /* Frameworks */,
 				146C5FAB1A9D09EB00E88761 /* Resources */,
@@ -565,6 +568,7 @@
 			files = (
 				14F003701A9D1E7700AEE2AC /* Main.storyboard in Resources */,
 				14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */,
+				31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */,
 				14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */,
 				411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */,
 				146C5FA81A9D09EB00E88761 /* LaunchScreen.xib in Resources */,
@@ -589,16 +593,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		119023E215B17C89E3451341 /* [CP] Check Pods Manifest.lock */ = {
+		5124A60E14D3B148A085CEB8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BluePlaquesLondonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72363E4BDB8EBFB3AF018D26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-BluePlaquesLondon-checkManifestLockResult.txt",
 			);
@@ -607,76 +637,34 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3354F2219EB3EC086BE81355 /* [CP] Copy Pods Resources */ = {
+		8ECADFED1532856D3DE22F4E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/IntentKit/IntentKit/IntentKit-Localizations.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IntentKit/IntentKit.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IntentKit/IntentKit-Defaults.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IntentKit/IntentKit-INKBrowserHandler.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IntentKit/IntentKit-INKFacebookHandler.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IntentKit/IntentKit-INKGPlusHandler.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IntentKit/IntentKit-INKMailHandler.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IntentKit/IntentKit-INKMapsHandler.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IntentKit/IntentKit-INKTwitterHandler.bundle",
-				"${PODS_ROOT}/MaterialComponents/components/ActivityIndicator/src/MaterialActivityIndicator.bundle",
-				"${PODS_ROOT}/MaterialComponents/components/CollectionCells/src/MaterialCollectionCells.bundle",
-				"${PODS_ROOT}/MaterialComponents/components/Collections/src/MaterialCollections.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_check.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_check_circle.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_chevron_right.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_info.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_radio_button_unchecked.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_reorder.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal/FirebaseCoreInternal_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMaps/GoogleMapsResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb_Privacy.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit-Localizations.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit-Defaults.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit-INKBrowserHandler.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit-INKFacebookHandler.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit-INKGPlusHandler.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit-INKMailHandler.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit-INKMapsHandler.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntentKit-INKTwitterHandler.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialActivityIndicator.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCollectionCells.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCollections.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_check.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_check_circle.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_chevron_right.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_info.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_radio_button_unchecked.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_reorder.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCore_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCoreInternal_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseInstallations_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMapsResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleUtilities_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FBLPromises_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/nanopb_Privacy.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		75FDB89755BE3C34B43BA310 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BluePlaquesLondonTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -822,7 +810,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -872,7 +860,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -882,7 +870,7 @@
 		};
 		146C5FB81A9D09EB00E88761 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DD8C3C4CB526EA1770DD68C /* Pods-BluePlaquesLondon.debug.xcconfig */;
+			baseConfigurationReference = 9D597F0ED4BB264D96D444B8 /* Pods-BluePlaquesLondon.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -898,20 +886,20 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
 				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		146C5FB91A9D09EB00E88761 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1FCC68879B08AEB14FB866C /* Pods-BluePlaquesLondon.release.xcconfig */;
+			baseConfigurationReference = 2251E9CB2C4CEABE54BD2118 /* Pods-BluePlaquesLondon.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -926,7 +914,7 @@
 				);
 				GCC_PREFIX_HEADER = "BluePlaquesLondon/BluePlaquesLondon-Prefix.pch";
 				INFOPLIST_FILE = BluePlaquesLondon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.2;
 				OTHER_CFLAGS = (
@@ -961,14 +949,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		146C5FBB1A9D09EB00E88761 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2525DFB0E83DCC2E01433EC /* Pods-BluePlaquesLondonTests.debug.xcconfig */;
+			baseConfigurationReference = 0A77E713C0EAA79D503A4DBC /* Pods-BluePlaquesLondonTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -989,14 +977,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Debug;
 		};
 		146C5FBC1A9D09EB00E88761 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35E62A76A1A5C04993430748 /* Pods-BluePlaquesLondonTests.release.xcconfig */;
+			baseConfigurationReference = 4BEAF99394F43524AB0CB2EF /* Pods-BluePlaquesLondonTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -1012,7 +1000,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "upwardsnorthwards.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluePlaquesLondonTests/Controller/BluePlaquesLondonTests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluePlaquesLondon.app/BluePlaquesLondon";
 			};
 			name = Release;

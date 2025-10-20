@@ -30,11 +30,11 @@
 
 @import UIKit;
 
-#import "MaterialCollections.h"
+// Material Components removed as per modernization plan
 
 extern NSString *BPLDetailChooserViewControllerStoryboardIdentifier;
 
-@interface BPLDetailChooserViewController : MDCCollectionViewController
+@interface BPLDetailChooserViewController : UICollectionViewController
 
 @property (nonatomic, copy) NSArray *markers;
 

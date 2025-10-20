@@ -28,12 +28,13 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "GAITrackedViewController.h"
+#import <UIKit/UIKit.h>
 
 @class BPLPlacemark;
 
-@interface BPLStreetViewViewController : GAITrackedViewController
+@interface BPLStreetViewViewController : UIViewController
 
 @property (nonatomic) BPLPlacemark *placemark;
+@property (nonatomic, readonly) NSString *screenName;
 
 @end
