@@ -57,6 +57,7 @@
 		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
+		313462102EA6D5B6007401D9 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3134620F2EA6D5B6007401D9 /* APIKeys.plist */; };
 		31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */; };
 		411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
@@ -167,6 +168,7 @@
 		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
 		21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2251E9CB2C4CEABE54BD2118 /* Pods-BluePlaquesLondon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.release.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.release.xcconfig"; sourceTree = "<group>"; };
+		3134620F2EA6D5B6007401D9 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
 		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 		14F003711A9D1F1700AEE2AC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3134620F2EA6D5B6007401D9 /* APIKeys.plist */,
 				14F003761A9D1F2E00AEE2AC /* strings */,
 				14F003721A9D1F2B00AEE2AC /* blueplaques.kml */,
 				14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */,
@@ -567,6 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14F003701A9D1E7700AEE2AC /* Main.storyboard in Resources */,
+				313462102EA6D5B6007401D9 /* APIKeys.plist in Resources */,
 				14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */,
 				31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */,
 				14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */,

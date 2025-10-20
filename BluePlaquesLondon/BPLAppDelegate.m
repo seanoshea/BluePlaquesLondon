@@ -77,10 +77,17 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeGoogleMapsApi
 {
+  // Skip Google Maps initialization during tests
+  if (NSClassFromString(@"XCTestCase") != nil) {
+    return;
+  }
+  
   NSString *path = [[NSBundle mainBundle] pathForResource:@"APIKeys" ofType:@"plist"];
   NSDictionary *apiKeys = [NSDictionary dictionaryWithContentsOfFile:path];
   NSString *googleMapsKey = apiKeys[@"GoogleMapsAPIKey"];
-  [GMSServices provideAPIKey:googleMapsKey];
+  if (googleMapsKey && googleMapsKey.length > 0) {
+    [GMSServices provideAPIKey:googleMapsKey];
+  }
 }
 
 - (void)initializeStyling
@@ -127,6 +134,11 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeTracking
 {
+  // Skip Firebase initialization during tests
+  if (NSClassFromString(@"XCTestCase") != nil) {
+    return;
+  }
+  
   [FIRApp configure];
 }
 
