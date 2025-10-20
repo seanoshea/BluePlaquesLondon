@@ -3,6 +3,7 @@ platform :ios, '18.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
 inhibit_all_warnings!
+use_modular_headers!
 
 project 'BluePlaquesLondon.xcodeproj'
 
@@ -10,6 +11,7 @@ target 'BluePlaquesLondon' do
   pod 'GoogleMaps'
   pod 'iOS-KML-Framework', '0.0.2'
   pod 'TBXML', :path => 'BluePlaquesLondon/Dependencies/TBXML'
+  pod 'FirebaseAnalytics'
 
   pod 'GTMNSStringHTMLAdditions'
 

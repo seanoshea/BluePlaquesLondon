@@ -29,12 +29,11 @@
  */
 
 #import "NSObject+BPLTracking.h"
+#import <FirebaseAnalytics/FirebaseAnalytics.h>
 
 #ifndef DEBUG
 #import <Crashlytics/Crashlytics.h>
 #endif
-
-// Google Analytics removed as per modernization plan
 
 #import "BPLConfiguration.h"
 #import "BPLConstants.h"
@@ -48,8 +47,14 @@
 
 - (void)trackCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value
 {
-  // Google Analytics tracking removed as per modernization plan
-  // TODO: Replace with native analytics if needed
+  if ([BPLConfiguration isTrackingEnabled]) {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    if (category) parameters[@"category"] = category;
+    if (label) parameters[@"label"] = label;
+    if (value) parameters[@"value"] = value;
+    
+    [FIRAnalytics logEventWithName:action parameters:parameters];
+  }
 }
 
 @end

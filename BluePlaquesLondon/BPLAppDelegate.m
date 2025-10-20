@@ -31,7 +31,7 @@
 #import "BPLAppDelegate.h"
 
 #import <GoogleMaps/GoogleMaps.h>
-// Google Analytics removed as per modernization plan
+#import <FirebaseCore/FirebaseCore.h>
 
 #import "Reachability.h"
 
@@ -124,8 +124,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeTracking
 {
-  // Google Analytics tracking removed as per modernization plan
-  // TODO: Replace with native analytics if needed
+  [FIRApp configure];
 }
 
 - (void)initializeCrashReporting

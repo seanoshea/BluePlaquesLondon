@@ -14,7 +14,7 @@ iOS Application for finding Blue Plaques through London. [App Store Link](http:/
 # Requirements
 - **Ruby**: 3.4.7 or later
 - **iOS**: 18.0 or later
-- **Xcode**: 26.0.1 or later
+- **Xcode**: 16.0 or later
 - **CocoaPods**: Latest version
 
 # Development Setup
