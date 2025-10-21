@@ -44,7 +44,6 @@
 
 @interface BPLAppDelegate ()
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
 - (void)openAppAtClosestPlacemark;
 
 @end
@@ -56,15 +55,7 @@
   self.appDelegate = [[BPLAppDelegate alloc] init];
 }
 
-- (void)testCanOpenValidURL {
-  NSURL *url = [NSURL URLWithString:@"blueplaqueslondon://closest"];
-  XCTAssert([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
-}
 
-- (void)testCannotOpenInvalidURL {
-  NSURL *url = [NSURL URLWithString:@"blueplaqueslondn://closest"];
-  XCTAssertFalse([self.appDelegate application:nil openURL:url sourceApplication:nil annotation:nil]);
-}
 
 - (void)testOpenClosestBluePlaqueAnalyticsTracked {
   

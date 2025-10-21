@@ -46,6 +46,11 @@
 
 @implementation BPLMapViewModel
 
+- (instancetype)init
+{
+  return [self initWithKMLFileParsedCallback:nil];
+}
+
 - (instancetype)initWithKMLFileParsedCallback:(dispatch_block_t)kmlFileParsedCallback
 {
   self = [super init];

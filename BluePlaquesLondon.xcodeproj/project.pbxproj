@@ -57,7 +57,15 @@
 		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
+		31000DF82EA70395007D819B /* BPLAboutViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000DF72EA70395007D819B /* BPLAboutViewControllerTest.m */; };
+		31000DFD2EA703AB007D819B /* NSObject+BPLTrackingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000DFB2EA703AB007D819B /* NSObject+BPLTrackingTest.m */; };
+		31000DFF2EA703AB007D819B /* BPLConstantsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000DF92EA703AB007D819B /* BPLConstantsTest.m */; };
+		31000E002EA703AB007D819B /* UIColor+BPLColorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000DFC2EA703AB007D819B /* UIColor+BPLColorsTest.m */; };
+		31000E022EA703C4007D819B /* BPLLabelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000E012EA703C4007D819B /* BPLLabelTest.m */; };
+		313462102EA6D5B6007401D9 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3134620F2EA6D5B6007401D9 /* APIKeys.plist */; };
 		31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */; };
+		31D0C3C02EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */; };
+		31D0C3C12EA70EB8004D0E0F /* BPLConfigurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */; };
 		411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */; };
@@ -167,7 +175,15 @@
 		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
 		21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2251E9CB2C4CEABE54BD2118 /* Pods-BluePlaquesLondon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.release.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.release.xcconfig"; sourceTree = "<group>"; };
+		31000DF72EA70395007D819B /* BPLAboutViewControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewControllerTest.m; sourceTree = "<group>"; };
+		31000DF92EA703AB007D819B /* BPLConstantsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLConstantsTest.m; sourceTree = "<group>"; };
+		31000DFB2EA703AB007D819B /* NSObject+BPLTrackingTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BPLTrackingTest.m"; sourceTree = "<group>"; };
+		31000DFC2EA703AB007D819B /* UIColor+BPLColorsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BPLColorsTest.m"; sourceTree = "<group>"; };
+		31000E012EA703C4007D819B /* BPLLabelTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLLabelTest.m; sourceTree = "<group>"; };
+		3134620F2EA6D5B6007401D9 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLConfigurationTest.m; sourceTree = "<group>"; };
+		31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkAdditionsTest.m; sourceTree = "<group>"; };
 		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
 		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
 		411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLInfoWindow.m; sourceTree = "<group>"; };
@@ -291,6 +307,7 @@
 		14C9E8211A9FBEC900B446D1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31000DF72EA70395007D819B /* BPLAboutViewControllerTest.m */,
 				142A90171ACDC41F00AB8EDC /* BluePlaquesLondonTests-Bridging-Header.h */,
 				14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */,
 				14C9E8261A9FD56C00B446D1 /* BPLMapViewControllerTest.m */,
@@ -419,6 +436,7 @@
 		14F003711A9D1F1700AEE2AC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3134620F2EA6D5B6007401D9 /* APIKeys.plist */,
 				14F003761A9D1F2E00AEE2AC /* strings */,
 				14F003721A9D1F2B00AEE2AC /* blueplaques.kml */,
 				14F003731A9D1F2B00AEE2AC /* blueplaques.kmz */,
@@ -449,6 +467,7 @@
 		14F0037E1A9D1FDB00AEE2AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31000E012EA703C4007D819B /* BPLLabelTest.m */,
 				14F003801A9D1FF200AEE2AC /* BPLButtonTest.m */,
 			);
 			path = View;
@@ -457,10 +476,15 @@
 		14F0037F1A9D1FE500AEE2AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */,
+				31000DF92EA703AB007D819B /* BPLConstantsTest.m */,
 				14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */,
+				31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */,
 				14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */,
 				14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */,
 				41C7CFFB1CAA135B00736645 /* BPLWikipediaParserTest.m */,
+				31000DFB2EA703AB007D819B /* NSObject+BPLTrackingTest.m */,
+				31000DFC2EA703AB007D819B /* UIColor+BPLColorsTest.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -567,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14F003701A9D1E7700AEE2AC /* Main.storyboard in Resources */,
+				313462102EA6D5B6007401D9 /* APIKeys.plist in Resources */,
 				14F003751A9D1F2B00AEE2AC /* blueplaques.kmz in Resources */,
 				31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */,
 				14F003741A9D1F2B00AEE2AC /* blueplaques.kml in Resources */,
@@ -709,6 +734,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D0C3C02EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m in Sources */,
+				31D0C3C12EA70EB8004D0E0F /* BPLConfigurationTest.m in Sources */,
+				31000DF82EA70395007D819B /* BPLAboutViewControllerTest.m in Sources */,
 				14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
 				411FA5461D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
@@ -719,6 +747,9 @@
 				14C9E82A1AA1C08D00B446D1 /* BPLUnitTestHelper.m in Sources */,
 				14F003861A9D1FF900AEE2AC /* BPLMapViewDetailViewModelTest.m in Sources */,
 				141B27841AC84F250095A0F8 /* BPLAppDelegateTest.m in Sources */,
+				31000DFD2EA703AB007D819B /* NSObject+BPLTrackingTest.m in Sources */,
+				31000DFF2EA703AB007D819B /* BPLConstantsTest.m in Sources */,
+				31000E002EA703AB007D819B /* UIColor+BPLColorsTest.m in Sources */,
 				14588E891AEEC40300E02385 /* BPLDetailChooserViewController.m in Sources */,
 				14588E8A1AEEC41B00E02385 /* BPLMapViewController.m in Sources */,
 				14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */,
@@ -729,6 +760,7 @@
 				14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */,
 				14E147931A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m in Sources */,
 				14C9E8251A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m in Sources */,
+				31000E022EA703C4007D819B /* BPLLabelTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,7 +908,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -906,7 +938,7 @@
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3TQU8WFYZ9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

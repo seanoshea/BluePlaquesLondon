@@ -60,11 +60,67 @@
 }
 
 - (void)testInitialisation {
+  XCTAssertNotNil(self.model.coordinateToMarker);
+  XCTAssertNotNil(self.model.keyToArrayPositions);
+  XCTAssertNotNil(self.model.massagedData);
+  XCTAssertNotNil(self.model.kmlFileParsedCallback);
+}
+
+- (void)testLoadBluePlaquesData {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"KML data loaded"];
+  __block BPLMapViewModel *model;
   
-  XCTAssertTrue(self.model.coordinateToMarker != nil);
-  XCTAssertTrue(self.model.keyToArrayPositions != nil);
-  XCTAssertTrue(self.model.massagedData != nil);
-  XCTAssertTrue(self.model.kmlFileParsedCallback != nil);
+  model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    XCTAssertNotNil(model.data);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)testNumberOfPlacemarks {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Data loaded"];
+  __block BPLMapViewModel *model;
+  
+  model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    NSInteger count = model.numberOfPlacemarks;
+    XCTAssertTrue(count >= 0);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)testPlacemarkForRowAtIndexPath {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Data loaded"];
+  __block BPLMapViewModel *model;
+  
+  model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    if (model.numberOfPlacemarks > 0) {
+      NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+      BPLPlacemark *placemark = [model placemarkForRowAtIndexPath:indexPath];
+      XCTAssertNotNil(placemark);
+    }
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)testClosestPlacemarkToCoordinate {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Data loaded"];
+  __block BPLMapViewModel *model;
+  
+  model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(51.5074, -0.1278);
+    BPLPlacemark *placemark = [model closestPlacemarkToCoordinate:coordinate];
+    if (model.numberOfPlacemarks > 0) {
+      XCTAssertNotNil(placemark);
+    }
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

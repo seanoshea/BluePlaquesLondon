@@ -115,7 +115,8 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
                                                           longitude:lastKnownCoordinate.longitude
                                                                zoom:mapZoom];
   
-  self.mapView = [GMSMapView mapWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
+  self.mapView = [[GMSMapView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
+  self.mapView.camera = camera;
   UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0f, 5.0f, 5.0f, 0.0f);
   self.mapView.padding = mapInsets;
   self.mapView.delegate = self;

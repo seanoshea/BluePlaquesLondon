@@ -1,11 +1,53 @@
 default_platform(:ios)
 
+# Load environment variables from .env file for local development
+begin
+  require 'dotenv'
+  Dotenv.load
+rescue LoadError
+  # Dotenv not available, skip loading (CI environments provide env vars directly)
+end
+
 lane :test do
+  setup
   scan(
     scheme: "BluePlaquesLondon",
     device: "iPhone 16 Pro",
-    deployment_target_version: "18.0"
+    code_coverage: true
   )
+end
+
+lane :screenshots do
+  snapshot
+end
+
+lane :setup do
+  inject_firebase_api_key
+  inject_google_maps_api_key
+end
+
+private_lane :inject_firebase_api_key do
+  firebase_key = ENV['FIREBASE_API_KEY']
+  UI.user_error!("FIREBASE_API_KEY environment variable is required") if firebase_key.nil? || firebase_key.empty?
+  
+  plist_path = "../BluePlaquesLondon/Resources/GoogleService-Info.plist"
+  sh "plutil -replace API_KEY -string '#{firebase_key}' '#{plist_path}'"
+  UI.success("Firebase API key injected successfully")
+end
+
+private_lane :inject_google_maps_api_key do
+  maps_key = ENV['GOOGLE_MAPS_API_KEY']
+  UI.user_error!("GOOGLE_MAPS_API_KEY environment variable is required") if maps_key.nil? || maps_key.empty?
+  
+  plist_path = "../BluePlaquesLondon/Resources/APIKeys.plist"
+  sh "plutil -replace GoogleMapsAPIKey -string '#{maps_key}' '#{plist_path}'"
+  UI.success("Google Maps API key injected successfully")
+end
+
+lane :cleanup do
+  sh "plutil -replace API_KEY -string 'FIREBASE_API_KEY_PLACEHOLDER' '../BluePlaquesLondon/Resources/GoogleService-Info.plist'"
+  sh "plutil -replace GoogleMapsAPIKey -string 'GOOGLE_MAPS_API_KEY_PLACEHOLDER' '../BluePlaquesLondon/Resources/APIKeys.plist'"
+  UI.success("API keys reset to placeholders")
 end
 
 lane :build do
@@ -17,11 +59,40 @@ lane :build do
 end
 
 lane :beta do
-  build
-  upload_to_testflight
+  setup
+  increment_build_number(xcodeproj: "BluePlaquesLondon.xcodeproj")
+  gym(
+    scheme: "BluePlaquesLondon",
+    export_method: "app-store",
+    xcargs: "-allowProvisioningUpdates"
+  )
+  upload_to_testflight(
+    api_key: app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
+      key_filepath: "fastlane/api_keys/AuthKey_#{ENV['APP_STORE_CONNECT_API_KEY_KEY_ID']}.p8"
+    ),
+    changelog: "Bug fixes and improvements",
+    skip_waiting_for_build_processing: true
+  )
 end
 
 lane :release do
-  build
-  upload_to_app_store
+  setup
+  increment_version_number(bump_type: "patch")
+  increment_build_number(xcodeproj: "BluePlaquesLondon.xcodeproj")
+  gym(
+    scheme: "BluePlaquesLondon",
+    export_method: "app-store",
+    xcargs: "-allowProvisioningUpdates"
+  )
+  upload_to_app_store(
+    api_key: app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
+      key_filepath: "fastlane/api_keys/AuthKey_#{ENV['APP_STORE_CONNECT_API_KEY_KEY_ID']}.p8"
+    ),
+    force: true,
+    submit_for_review: false
+  )
 end

@@ -46,7 +46,7 @@ NSString * const BPLSearchViewControllerSegue = @"BPLSearchViewControllerSegue";
 
 NSString * const BPLCrashReportingKey = @"8aa2986353e21d6181e23a9360cd528dca68aafb";
 NSString * const BPLTrackingKey = @"UA-46153093-1";
-NSString * const BPLMapsKey = @"AIzaSyD3VT-JDnPAKhNiStoUpVAxOyIUUrWUsz0";
+NSString * const BPLMapsKey = nil; // Will be loaded from plist
 
 #pragma mark - NSNotificationCenter Keys
 

@@ -80,91 +80,91 @@
 
 - (void)testExtractName
 {
-  NSString *wanamaker = self.wanamaker.name;
-  NSString *gainsborough = self.gainsborough.name;
-  NSString *holst = self.holst.name;
-  NSString *nicholson = self.nicholson.name;
-  NSString *mcmillan = self.mcmillan.name;
-  NSString *tait = self.tait.name;
-  NSString *hutchinson = self.hutchinson.name;
-  NSString *mann = self.mann.name;
-  NSString *pevsner = self.pevsner.name;
-  NSString *taylor = self.taylor.name;
-  NSString *walton = self.walton.name;
+  NSString *wanamaker = [self.wanamaker name];
+  NSString *gainsborough = [self.gainsborough name];
+  NSString *holst = [self.holst name];
+  NSString *nicholson = [self.nicholson name];
+  NSString *mcmillan = [self.mcmillan name];
+  NSString *tait = [self.tait name];
+  NSString *hutchinson = [self.hutchinson name];
+  NSString *mann = [self.mann name];
+  NSString *pevsner = [self.pevsner name];
+  NSString *taylor = [self.taylor name];
+  NSString *walton = [self.walton name];
   
-  XCTAssert([wanamaker isEqualToString:@"WANAMAKER, Sam"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([gainsborough isEqualToString:@"GAINSBOROUGH, Thomas"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([holst isEqualToString:@"HOLST, Gustav"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([nicholson isEqualToString:@"NICHOLSON, William"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([mcmillan isEqualToString:@"McMILLAN, Margaret"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([tait isEqualToString:@"TAIT, Thomas Smith"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([hutchinson isEqualToString:@"HUTCHINSON, Leslie 'Hutch'"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([mann isEqualToString:@"MANN, Dame Ida"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([pevsner isEqualToString:@"PEVSNER, Sir Nikolaus"], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([taylor isEqualToString:@"TAYLOR, A.J.P."], @"The name should only contain the person's full name and not the dates");
-  XCTAssert([walton isEqualToString:@"WALTON, Sir William"], @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(wanamaker, @"WANAMAKER, Sam", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(gainsborough, @"GAINSBOROUGH, Thomas", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(holst, @"HOLST, Gustav", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(nicholson, @"NICHOLSON, William", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(mcmillan, @"McMILLAN, Margaret", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(tait, @"TAIT, Thomas Smith", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(hutchinson, @"HUTCHINSON, Leslie 'Hutch'", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(mann, @"MANN, Dame Ida", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(pevsner, @"PEVSNER, Sir Nikolaus", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(taylor, @"TAYLOR, A.J.P.", @"The name should only contain the person's full name and not the dates");
+  XCTAssertEqualObjects(walton, @"WALTON, Sir William", @"The name should only contain the person's full name and not the dates");
 }
 
 - (void)testExtractTitle
 {
-  NSString *title = self.wanamaker.title;
-  XCTAssert([title isEqualToString:@"WANAMAKER, Sam (1919-1993)"], @"The title should contain the name and birth dates");
+  NSString *title = [self.wanamaker title];
+  XCTAssertEqualObjects(title, @"WANAMAKER, Sam (1919-1993)", @"The title should contain the name and birth dates");
 }
 
 - (void)testExtractOccupation
 {
-  NSString *wanamaker = self.wanamaker.occupation;
-  NSString *gainsborough = self.gainsborough.occupation;
-  NSString *nicholson = self.nicholson.occupation;
-  NSString *mcmillan = self.mcmillan.occupation;
-  NSString *tait = self.tait.occupation;
-  NSString *hutchinson = self.hutchinson.occupation;
-  NSString *mann = self.mann.occupation;
-  NSString *pevsner = self.pevsner.occupation;
-  NSString *taylor = self.taylor.occupation;
-  NSString *walton = self.walton.occupation;
+  NSString *wanamaker = [self.wanamaker occupation];
+  NSString *gainsborough = [self.gainsborough occupation];
+  NSString *nicholson = [self.nicholson occupation];
+  NSString *mcmillan = [self.mcmillan occupation];
+  NSString *tait = [self.tait occupation];
+  NSString *hutchinson = [self.hutchinson occupation];
+  NSString *mann = [self.mann occupation];
+  NSString *pevsner = [self.pevsner occupation];
+  NSString *taylor = [self.taylor occupation];
+  NSString *walton = [self.walton occupation];
   
-  XCTAssert([wanamaker isEqualToString:@"The man behind Shakespeare's Globe"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([gainsborough isEqualToString:@"Artist, lived here"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([nicholson isEqualToString:@"Painter and Printmaker lived here 1904-1906"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([mcmillan isEqualToString:@"RACHEL McMILLAN 1859-1917 MARGARET McMILLAN 1860-1931 Pioneers of Nursery Education lodged here"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([tait isEqualToString:@"Architect lived here"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([hutchinson isEqualToString:@"Singer and Pianist lived here 1929-1967"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([mann isEqualToString:@"Ophthalmologist lived here 1902-1934"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([pevsner isEqualToString:@"Architectural Historian lived here from 1936 until his death"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([taylor isEqualToString:@"Historian and Broadcaster lived here"], @"The occupation should only include the reason the plaque was commerated in the first place");
-  XCTAssert([walton isEqualToString:@"Composer lived here"], @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(wanamaker, @"The man behind Shakespeare's Globe", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(gainsborough, @"Artist, lived here", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(nicholson, @"Painter and Printmaker lived here 1904-1906", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(mcmillan, @"RACHEL McMILLAN 1859-1917 MARGARET McMILLAN 1860-1931 Pioneers of Nursery Education lodged here", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(tait, @"Architect lived here", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(hutchinson, @"Singer and Pianist lived here 1929-1967", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(mann, @"Ophthalmologist lived here 1902-1934", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(pevsner, @"Architectural Historian lived here from 1936 until his death", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(taylor, @"Historian and Broadcaster lived here", @"The occupation should only include the reason the plaque was commerated in the first place");
+  XCTAssertEqualObjects(walton, @"Composer lived here", @"The occupation should only include the reason the plaque was commerated in the first place");
 }
 
 - (void)testExtractAddress
 {
-  NSString *wanamaker = self.wanamaker.address;
-  NSString *popper = self.popper.address;
-  NSString *hazlitt = self.hazlitt.address;
-  NSString *adam = self.adam.address;
+  NSString *wanamaker = [self.wanamaker address];
+  NSString *popper = [self.popper address];
+  NSString *hazlitt = [self.hazlitt address];
+  NSString *adam = [self.adam address];
   
-  XCTAssert([wanamaker isEqualToString:@"New Globe Buildings, Bankside, SE1"], @"The address should only include the plaque's human-readable location");
-  XCTAssert([popper isEqualToString:@"16 Burlington Rise, EN4"], @"The address should only include the plaque's human-readable location");
-  XCTAssert([hazlitt isEqualToString:@"6 Frith Street, W1"], @"The address should only include the plaque's human-readable location");
-  XCTAssert([adam isEqualToString:@"1-3 Robert Street, Adelphi, WC2"], @"The address should only include the plaque's human-readable location");
+  XCTAssertEqualObjects(wanamaker, @"New Globe Buildings, Bankside, SE1", @"The address should only include the plaque's human-readable location");
+  XCTAssertEqualObjects(popper, @"16 Burlington Rise, EN4", @"The address should only include the plaque's human-readable location");
+  XCTAssertEqualObjects(hazlitt, @"6 Frith Street, W1", @"The address should only include the plaque's human-readable location");
+  XCTAssertEqualObjects(adam, @"1-3 Robert Street, Adelphi, WC2", @"The address should only include the plaque's human-readable location");
 }
 
 - (void)testExtractNote
 {
-  NSString *gainsborough = self.gainsborough.note;
-  NSString *moore = self.moore.note;
+  NSString *gainsborough = [self.gainsborough note];
+  NSString *moore = [self.moore note];
   
-  XCTAssert([gainsborough isEqualToString:@"Note: Replaces plaque up in 1881 by RSA at No. 80."], @"The note should only include exactly what is in between <em></em> tags");
-  XCTAssert([moore isEqualToString:@"Note: This plaque was removed from 28 Bury Street, St James's Westminster in 1962."], @"The note should only include exactly what is in between <em></em> tags");
+  XCTAssertEqualObjects(gainsborough, @"Note: Replaces plaque up in 1881 by RSA at No. 80.", @"The note should only include exactly what is in between <em></em> tags");
+  XCTAssertEqualObjects(moore, @"Note: This plaque was removed from 28 Bury Street, St James's Westminster in 1962.", @"The note should only include exactly what is in between <em></em> tags");
 }
 
 - (void)testExtractCouncilAndYear
 {
-  NSString *shelley = self.shelley.councilAndYear;
-  NSString *peltham = self.peltham.councilAndYear;
+  NSString *shelley = [self.shelley councilAndYear];
+  NSString *peltham = [self.peltham councilAndYear];
   
-  XCTAssert([shelley isEqualToString:@"Westminster 1979/2000"], @"The councilAndYear should include both the council that errected the plaque and the year in which it was errected");
-  XCTAssert([peltham isEqualToString:@"Westminster 1995"], @"The councilAndYear should include both the council that errected the plaque and the year in which it was errected");
+  XCTAssertEqualObjects(shelley, @"Westminster 1979/2000", @"The councilAndYear should include both the council that errected the plaque and the year in which it was errected");
+  XCTAssertEqualObjects(peltham, @"Westminster 1995", @"The councilAndYear should include both the council that errected the plaque and the year in which it was errected");
 }
 
 @end

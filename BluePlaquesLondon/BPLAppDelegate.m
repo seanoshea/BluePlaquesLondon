@@ -65,7 +65,7 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
   return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
   BOOL canHandle = NO;
   NSURLComponents *components = [NSURLComponents componentsWithString:url.absoluteString];
   canHandle = [components.scheme caseInsensitiveCompare:BPLApplicationURLSchemeIdentifier] == NSOrderedSame;
@@ -77,7 +77,25 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeGoogleMapsApi
 {
-  [GMSServices provideAPIKey:BPLMapsKey];
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"APIKeys" ofType:@"plist"];
+  if (!path) {
+    NSLog(@"APIKeys.plist not found in bundle");
+    return;
+  }
+  
+  NSDictionary *apiKeys = [NSDictionary dictionaryWithContentsOfFile:path];
+  if (!apiKeys) {
+    NSLog(@"Failed to load APIKeys.plist");
+    return;
+  }
+  
+  NSString *googleMapsKey = apiKeys[@"GoogleMapsAPIKey"];
+  if (googleMapsKey && googleMapsKey.length > 0) {
+    [GMSServices provideAPIKey:googleMapsKey];
+    NSLog(@"Google Maps API key configured successfully");
+  } else {
+    NSLog(@"GoogleMapsAPIKey not found or empty in APIKeys.plist");
+  }
 }
 
 - (void)initializeStyling
@@ -124,6 +142,11 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
 
 - (void)initializeTracking
 {
+  // Skip Firebase initialization during tests
+  if (NSClassFromString(@"XCTestCase") != nil) {
+    return;
+  }
+  
   [FIRApp configure];
 }
 

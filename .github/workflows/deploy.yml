@@ -1,9 +1,10 @@
-name: Deploy to TestFlight
+name: Deploy
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   deploy:
@@ -23,7 +24,7 @@ jobs:
         bundle install
         pod install
     
-    - name: Build and deploy to TestFlight
+    - name: Deploy to TestFlight
       env:
         APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}
         APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}

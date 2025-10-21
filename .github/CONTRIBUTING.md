@@ -1,10 +1,21 @@
-Contributions to the development of the app are always welcome. Some guidelines:
-- If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
-- If you **have a feature request**, open an issue.
-- If you **want to contribute**, submit a pull request.
+# Contributing
 
-See the [Issue Template](ISSUE_TEMPLATE.md) for some helpful tips on what information is useful for getting a quick resolution to any issue you might want to open.
+Contributions to Blue Plaques London are welcome! Please follow these guidelines:
 
-Github have published [How to write the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request). While it's not necessary to follow each and every one of these ideas, it gives the reader some ideas of what constitutes a good pull request.
+## Getting Started
+- Review the [README](../README.md) for development setup requirements
+- Ensure you have Ruby 3.4.7+, iOS 18.0+, and Xcode 16.0+
 
-There's a simple well-intentioned [Code of Conduct](http://contributor-covenant.org/version/1/2/0/code_of_conduct.txt) for any community that might spring up around the development of the app too.
+## Reporting Issues
+- **Bug reports**: Provide steps to reproduce reliably
+- **Feature requests**: Describe the use case and expected behavior
+- Use the [Issue Template](ISSUE_TEMPLATE.md) for guidance
+
+## Pull Requests
+- Include unit tests for new features
+- Follow existing code style
+- Reference related issues in your PR description
+- Run `bundle exec fastlane test` before submitting
+
+## Code of Conduct
+This project follows the [Contributor Covenant](http://contributor-covenant.org/version/1/2/0/code_of_conduct.txt).
