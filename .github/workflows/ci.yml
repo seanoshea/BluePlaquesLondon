@@ -25,6 +25,9 @@ jobs:
         pod install
     
     - name: Run tests
+      env:
+        FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+        GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       run: bundle exec fastlane test
     
     - name: Export coverage data
