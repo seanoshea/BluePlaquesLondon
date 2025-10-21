@@ -72,7 +72,7 @@ GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
 APP_STORE_CONNECT_API_KEY_KEY_ID=your_key_id
 APP_STORE_CONNECT_API_KEY_ISSUER_ID=your_issuer_id
 APP_STORE_CONNECT_API_KEY=your_p8_file_contents
-CODECOV_TOKEN=your_codecov_token
+
 ```
 
 **Note**: For `APP_STORE_CONNECT_API_KEY`, copy the entire contents of your `.p8` file including the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines.

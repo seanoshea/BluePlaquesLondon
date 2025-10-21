@@ -79,7 +79,6 @@ end
 
 lane :release do
   setup
-  increment_version_number(bump_type: "patch")
   increment_build_number(xcodeproj: "BluePlaquesLondon.xcodeproj")
   gym(
     scheme: "BluePlaquesLondon",
@@ -93,6 +92,7 @@ lane :release do
       key_filepath: "fastlane/api_keys/AuthKey_#{ENV['APP_STORE_CONNECT_API_KEY_KEY_ID']}.p8"
     ),
     force: true,
-    submit_for_review: false
+    submit_for_review: false,
+    precheck_include_in_app_purchases: false
   )
 end
