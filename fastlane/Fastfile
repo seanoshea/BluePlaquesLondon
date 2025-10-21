@@ -1,7 +1,12 @@
 default_platform(:ios)
 
 # Load environment variables from .env file for local development
-Dotenv.load
+begin
+  require 'dotenv'
+  Dotenv.load
+rescue LoadError
+  # Dotenv not available, skip loading (CI environments provide env vars directly)
+end
 
 lane :test do
   setup
