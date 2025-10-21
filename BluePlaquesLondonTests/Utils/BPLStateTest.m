@@ -78,6 +78,43 @@
   XCTAssert(after.latitude == 0.1f && after.longitude == 0.2f, @"Saving the last known BPL coordinate should be automatically saved to the defaults");
 }
 
+- (void)testTrackingEnabledDefault
+{
+  BOOL enabled = [[NSUserDefaults standardUserDefaults] isTrackingEnabled];
+  XCTAssertTrue(enabled, @"Tracking should be enabled by default");
+}
+
+- (void)testSaveTrackingEnabled
+{
+  [[NSUserDefaults standardUserDefaults] saveTrackingEnabled:NO];
+  BOOL enabled = [[NSUserDefaults standardUserDefaults] isTrackingEnabled];
+  XCTAssertFalse(enabled, @"Tracking should be disabled after saving NO");
+  
+  [[NSUserDefaults standardUserDefaults] saveTrackingEnabled:YES];
+  enabled = [[NSUserDefaults standardUserDefaults] isTrackingEnabled];
+  XCTAssertTrue(enabled, @"Tracking should be enabled after saving YES");
+}
+
+- (void)testInvalidCoordinateSave
+{
+  CLLocationCoordinate2D invalidCoordinate = CLLocationCoordinate2DMake(0.0, 0.0);
+  [[NSUserDefaults standardUserDefaults] saveLastKnownCoordinate:invalidCoordinate];
+  
+  CLLocationCoordinate2D retrieved = [[NSUserDefaults standardUserDefaults] lastKnownCoordinate];
+  XCTAssertNotEqual(retrieved.latitude, 0.0, @"Should not save invalid coordinate");
+  XCTAssertNotEqual(retrieved.longitude, 0.0, @"Should not save invalid coordinate");
+}
+
+- (void)testDefaultCoordinateWhenNothingSaved
+{
+  NSString *appDomain = [NSBundle mainBundle].bundleIdentifier;
+  [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+  
+  CLLocationCoordinate2D coordinate = [[NSUserDefaults standardUserDefaults] lastKnownCoordinate];
+  XCTAssertEqualWithAccuracy(coordinate.latitude, 51.50016999993306, 0.0001, @"Should return default Churchill coordinate");
+  XCTAssertEqualWithAccuracy(coordinate.longitude, -0.1814680000049975, 0.0001, @"Should return default Churchill coordinate");
+}
+
 - (void)tearDown
 {
   NSString *appDomain = [NSBundle mainBundle].bundleIdentifier;

@@ -40,60 +40,75 @@
 
 - (void)testHTTPError
 {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"HTTP error handled"];
   NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_malformed" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:path];
   NSError *httpError = [[NSError alloc] initWithDomain:@"Domain" code:123 userInfo:nil];
   [BPLWikipediaParser parseWikipediaData:data error:httpError name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-    XCTAssert(error != nil);
-    XCTAssert(error.code == 123);
-    XCTAssert([error.domain caseInsensitiveCompare:@"Domain"] == NSOrderedSame);
+    XCTAssertNotNil(error);
+    XCTAssertEqual(error.code, 123);
+    XCTAssertEqualObjects(error.domain, @"Domain");
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 - (void)testMalformedJSON
 {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Malformed JSON handled"];
   NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_malformed" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:path];
-  NSError *error;
+  NSError *error = nil;
   [BPLWikipediaParser parseWikipediaData:data error:error name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-    XCTAssert(error != nil);
-    XCTAssert(error.code == 3840);
-    XCTAssert([error.domain caseInsensitiveCompare:@"NSCocoaErrorDomain"] == NSOrderedSame);
+    XCTAssertNotNil(error);
+    XCTAssertEqual(error.code, 3840);
+    XCTAssertEqualObjects(error.domain, @"NSCocoaErrorDomain");
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 - (void)testEmptySearchResponseJSON
 {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Empty search handled"];
   NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_empty" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:path];
-  NSError *error;
+  NSError *error = nil;
   [BPLWikipediaParser parseWikipediaData:data error:error name:@"Churchill" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-    XCTAssert(error != nil);
-    XCTAssert(error.code == 404);
-    XCTAssert([error.domain caseInsensitiveCompare:@"BPLWikipediaParserStringsErrorDomain"] == NSOrderedSame);
+    XCTAssertNotNil(error);
+    XCTAssertEqual(error.code, 404);
+    XCTAssertEqualObjects(error.domain, @"BPLWikipediaParserStringsErrorDomain");
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 - (void)testNameMissing
 {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Name missing handled"];
   NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:path];
-  NSError *error;
+  NSError *error = nil;
   [BPLWikipediaParser parseWikipediaData:data error:error name:@"Thatcher" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-    XCTAssert(error == nil);
-    XCTAssert([urlRequest.URL.absoluteString caseInsensitiveCompare:@"https://en.wikipedia.org/wiki/Winston_Churchill"] == NSOrderedSame);
+    XCTAssertNil(error);
+    XCTAssertEqualObjects(urlRequest.URL.absoluteString, @"https://en.wikipedia.org/wiki/Winston_Churchill");
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 - (void)testSargent
 {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Sargent parsed"];
   NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia_sargent" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:path];
-  NSError *error;
+  NSError *error = nil;
   [BPLWikipediaParser parseWikipediaData:data error:error name:@"SARGENT, Sir Malcolm" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-    XCTAssert(error == nil);
-    XCTAssert([urlRequest.URL.absoluteString caseInsensitiveCompare:@"https://en.wikipedia.org/wiki/Malcolm_Sargent"] == NSOrderedSame);
+    XCTAssertNil(error);
+    XCTAssertEqualObjects(urlRequest.URL.absoluteString, @"https://en.wikipedia.org/wiki/Malcolm_Sargent");
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 @end

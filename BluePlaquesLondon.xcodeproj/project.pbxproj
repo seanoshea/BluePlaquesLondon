@@ -64,6 +64,8 @@
 		31000E022EA703C4007D819B /* BPLLabelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000E012EA703C4007D819B /* BPLLabelTest.m */; };
 		313462102EA6D5B6007401D9 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3134620F2EA6D5B6007401D9 /* APIKeys.plist */; };
 		31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */; };
+		31D0C3C02EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */; };
+		31D0C3C12EA70EB8004D0E0F /* BPLConfigurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */; };
 		411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */; };
@@ -180,6 +182,8 @@
 		31000E012EA703C4007D819B /* BPLLabelTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLLabelTest.m; sourceTree = "<group>"; };
 		3134620F2EA6D5B6007401D9 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLConfigurationTest.m; sourceTree = "<group>"; };
+		31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkAdditionsTest.m; sourceTree = "<group>"; };
 		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
 		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
 		411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLInfoWindow.m; sourceTree = "<group>"; };
@@ -472,8 +476,10 @@
 		14F0037F1A9D1FE500AEE2AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */,
 				31000DF92EA703AB007D819B /* BPLConstantsTest.m */,
 				14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */,
+				31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */,
 				14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */,
 				14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */,
 				41C7CFFB1CAA135B00736645 /* BPLWikipediaParserTest.m */,
@@ -728,6 +734,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D0C3C02EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m in Sources */,
+				31D0C3C12EA70EB8004D0E0F /* BPLConfigurationTest.m in Sources */,
 				31000DF82EA70395007D819B /* BPLAboutViewControllerTest.m in Sources */,
 				14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,

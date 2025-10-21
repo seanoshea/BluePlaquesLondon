@@ -37,12 +37,29 @@
 
 @implementation BPLMKDistanceFormatterAdditionsTest
 
-- (void)testRetrieveLastKnownBPLCoordinate
+- (void)testDistanceFromLocation
 {
   CLLocation *from = [[CLLocation alloc] initWithLatitude:50.001 longitude:0.0012456];
   CLLocation *to = [[CLLocation alloc] initWithLatitude:0.12345 longitude:25.987];
   NSString *distance = [MKDistanceFormatter distanceFromLocation:from toLocation:to];
-  XCTAssert(distance != nil, @"The distance returned from `distanceFromLocation` should not be nil");
+  XCTAssertNotNil(distance);
+  XCTAssertTrue(distance.length > 0);
+}
+
+- (void)testDistanceWithSameLocation
+{
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:51.5074 longitude:-0.1278];
+  NSString *distance = [MKDistanceFormatter distanceFromLocation:location toLocation:location];
+  XCTAssertNotNil(distance);
+}
+
+- (void)testDistanceWithNearbyLocations
+{
+  CLLocation *from = [[CLLocation alloc] initWithLatitude:51.5074 longitude:-0.1278];
+  CLLocation *to = [[CLLocation alloc] initWithLatitude:51.5075 longitude:-0.1279];
+  NSString *distance = [MKDistanceFormatter distanceFromLocation:from toLocation:to];
+  XCTAssertNotNil(distance);
+  XCTAssertTrue(distance.length > 0);
 }
 
 @end
