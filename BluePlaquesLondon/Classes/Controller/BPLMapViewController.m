@@ -326,7 +326,8 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 }
 
 - (void)setupSearchBar {
-  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(2, 25, self.view.frame.size.width - 40, 50)];
+  CGFloat searchBarWidth = self.view.frame.size.width - 50; // Leave space for info button
+  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(8, 25, searchBarWidth, 44)];
   self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
   self.searchBar.userInteractionEnabled = NO;
   self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -340,11 +341,12 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 }
 
 - (void)setupInfoButton {
-  self.aboutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
+  self.aboutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30.0f, 30.0f)];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
   [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
   self.aboutButton.backgroundColor = [UIColor whiteColor];
-  self.aboutButton.center = CGPointMake(self.view.frame.size.width - self.aboutButton.frame.size.width - 8.0f, 50.0f);
+  self.aboutButton.layer.cornerRadius = 15.0f;
+  self.aboutButton.center = CGPointMake(self.view.frame.size.width - 25.0f, 47.0f);
   [self.aboutButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
   [self.headerView addSubview:self.aboutButton];
 }

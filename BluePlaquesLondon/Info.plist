@@ -32,12 +32,14 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>9</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<string>NO</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>I'd like to be able to show you the closest blue plaque to your current location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>I'd like to be able to show you the closest blue plaque to your current location.</string>
 	<key>UILaunchStoryboardName</key>
