@@ -101,7 +101,8 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+fastlane/.env
 
-# API Configuration Files
-GoogleService-Info.plist
-APIKeys.plist
+# API Configuration Files (commented out to allow placeholder versions)
+# GoogleService-Info.plist
+# APIKeys.plist

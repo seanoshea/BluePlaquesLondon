@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Reset API keys to placeholders before commit
+plutil -replace API_KEY -string "FIREBASE_API_KEY_PLACEHOLDER" "BluePlaquesLondon/Resources/GoogleService-Info.plist"
+plutil -replace GoogleMapsAPIKey -string "GOOGLE_MAPS_API_KEY_PLACEHOLDER" "BluePlaquesLondon/Resources/APIKeys.plist"
+
+# Stage the changes
+git add BluePlaquesLondon/Resources/GoogleService-Info.plist BluePlaquesLondon/Resources/APIKeys.plist

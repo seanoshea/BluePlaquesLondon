@@ -1,5 +1,8 @@
 default_platform(:ios)
 
+# Load environment variables from .env file for local development
+Dotenv.load
+
 lane :test do
   setup
   scan(
@@ -14,10 +17,32 @@ lane :screenshots do
 end
 
 lane :setup do
-  # Generate GoogleService-Info.plist from template
-  sh "sed 's/FIREBASE_API_KEY_PLACEHOLDER/#{ENV['FIREBASE_API_KEY']}/g' ../BluePlaquesLondon/Resources/GoogleService-Info-template.plist > ../BluePlaquesLondon/Resources/GoogleService-Info.plist"
-  # Generate APIKeys.plist from template  
-  sh "sed 's/GOOGLE_MAPS_API_KEY_PLACEHOLDER/#{ENV['GOOGLE_MAPS_API_KEY']}/g' ../BluePlaquesLondon/Resources/APIKeys-template.plist > ../BluePlaquesLondon/Resources/APIKeys.plist"
+  inject_firebase_api_key
+  inject_google_maps_api_key
+end
+
+private_lane :inject_firebase_api_key do
+  firebase_key = ENV['FIREBASE_API_KEY']
+  UI.user_error!("FIREBASE_API_KEY environment variable is required") if firebase_key.nil? || firebase_key.empty?
+  
+  plist_path = "../BluePlaquesLondon/Resources/GoogleService-Info.plist"
+  sh "plutil -replace API_KEY -string '#{firebase_key}' '#{plist_path}'"
+  UI.success("Firebase API key injected successfully")
+end
+
+private_lane :inject_google_maps_api_key do
+  maps_key = ENV['GOOGLE_MAPS_API_KEY']
+  UI.user_error!("GOOGLE_MAPS_API_KEY environment variable is required") if maps_key.nil? || maps_key.empty?
+  
+  plist_path = "../BluePlaquesLondon/Resources/APIKeys.plist"
+  sh "plutil -replace GoogleMapsAPIKey -string '#{maps_key}' '#{plist_path}'"
+  UI.success("Google Maps API key injected successfully")
+end
+
+lane :cleanup do
+  sh "plutil -replace API_KEY -string 'FIREBASE_API_KEY_PLACEHOLDER' '../BluePlaquesLondon/Resources/GoogleService-Info.plist'"
+  sh "plutil -replace GoogleMapsAPIKey -string 'GOOGLE_MAPS_API_KEY_PLACEHOLDER' '../BluePlaquesLondon/Resources/APIKeys.plist'"
+  UI.success("API keys reset to placeholders")
 end
 
 lane :build do
