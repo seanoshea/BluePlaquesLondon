@@ -17,7 +17,7 @@ lane :setup do
   # Generate GoogleService-Info.plist from template
   sh "sed 's/FIREBASE_API_KEY_PLACEHOLDER/#{ENV['FIREBASE_API_KEY']}/g' ../BluePlaquesLondon/Resources/GoogleService-Info-template.plist > ../BluePlaquesLondon/Resources/GoogleService-Info.plist"
   # Generate APIKeys.plist from template  
-  sh "sed 's/GOOGLE_MAPS_API_KEY_PLACEHOLDER/#{ENV['GOOGLE_MAPS_API_KEY']}/g' ../BluePlaquesLondon/Resources/APIKeys.plist > ../BluePlaquesLondon/Resources/APIKeys-temp.plist && mv ../BluePlaquesLondon/Resources/APIKeys-temp.plist ../BluePlaquesLondon/Resources/APIKeys.plist"
+  sh "sed 's/GOOGLE_MAPS_API_KEY_PLACEHOLDER/#{ENV['GOOGLE_MAPS_API_KEY']}/g' ../BluePlaquesLondon/Resources/APIKeys-template.plist > ../BluePlaquesLondon/Resources/APIKeys.plist"
 end
 
 lane :build do
