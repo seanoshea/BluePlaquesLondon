@@ -5,7 +5,7 @@ Discover London's rich history through its famous blue plaques! This iOS app hel
 [📱 Download on the App Store](https://apps.apple.com/app/blue-plaques-london/id427106068)
 
 [![CI Status](https://github.com/seanoshea/BluePlaquesLondon/workflows/CI/badge.svg)](https://github.com/seanoshea/BluePlaquesLondon/actions/workflows/ci.yml)
-[![Code Coverage](http://codecov.io/github/seanoshea/BluePlaquesLondon/coverage.svg?branch=develop)](http://codecov.io/github/seanoshea/BluePlaquesLondon?branch=develop)
+
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![License](http://img.shields.io/badge/license-BSD-green.svg?style=flat)](https://github.com/seanoshea/BluePlaquesLondon/blob/master/LICENSE)
 [![Twitter: @seanoshea](https://img.shields.io/badge/contact-@seanoshea-blue.svg?style=flat)](https://twitter.com/seanoshea)
