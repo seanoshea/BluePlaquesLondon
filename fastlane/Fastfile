@@ -4,7 +4,6 @@ lane :test do
   scan(
     scheme: "BluePlaquesLondon",
     device: "iPhone 16 Pro",
-    deployment_target_version: "18.0",
     code_coverage: true
   )
 end
