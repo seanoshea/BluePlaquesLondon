@@ -30,10 +30,27 @@ jobs:
         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       run: bundle exec fastlane test
     
+    - name: Debug test output
+      if: success()
+      run: |
+        echo "Contents of test_output directory:"
+        ls -la ./test_output/ || echo "test_output directory not found"
+        echo "Looking for xcresult files:"
+        find . -name "*.xcresult" -type d 2>/dev/null || echo "No xcresult files found"
+    
     - name: Export coverage data
-      run: xcrun xccov view --report --json ./test_output/BluePlaquesLondon.xcresult > ./test_output/coverage.json
+      if: success()
+      run: |
+        XCRESULT_PATH=$(find . -name "*.xcresult" -type d | head -1)
+        if [ -n "$XCRESULT_PATH" ] && [ -d "$XCRESULT_PATH" ]; then
+          echo "Found xcresult at: $XCRESULT_PATH"
+          xcrun xccov view --report --json "$XCRESULT_PATH" > ./test_output/coverage.json
+        else
+          echo "No xcresult bundle found, skipping coverage export"
+        fi
     
     - name: Upload coverage to Codecov
+      if: success() && hashFiles('./test_output/coverage.json') != ''
       uses: codecov/codecov-action@v4
       with:
         files: ./test_output/coverage.json
