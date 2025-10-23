@@ -30,8 +30,10 @@
 
 @import UIKit;
 
-// Material Components removed as per modernization plan
-
+/**
+ * Custom button class that applies Blue Plaques London app styling.
+ * Automatically configures button appearance with app theme colors.
+ */
 @interface BPLButton : UIButton
 
 @end

@@ -113,12 +113,27 @@ bundle exec fastlane cleanup
 
 ## Contributing
 
-Before contributing, please:
+Contributions to Blue Plaques London are welcome! Please follow these guidelines:
 
-1. Read [CONTRIBUTING.md](.github/CONTRIBUTING.md)
-2. Ensure git hooks are installed: `./scripts/setup-hooks.sh`
-3. Run tests: `bundle exec fastlane test`
-4. Follow existing code style and patterns
+### Getting Started
+- Ensure you have Ruby 3.4.7+, iOS 18.0+, and Xcode 16.0+
+- Install git hooks: `./scripts/setup-hooks.sh`
+- Run tests: `bundle exec fastlane test`
+- Follow existing code style and patterns
+
+### Reporting Issues
+- **Bug reports**: Provide steps to reproduce reliably
+- **Feature requests**: Describe the use case and expected behavior
+- Use the [Issue Template](.github/ISSUE_TEMPLATE.md) for guidance
+
+### Pull Requests
+- Include unit tests for new features
+- Follow existing code style
+- Reference related issues in your PR description
+- Run `bundle exec fastlane test` before submitting
+
+### Code of Conduct
+This project follows the [Contributor Covenant](http://contributor-covenant.org/version/1/2/0/code_of_conduct.txt)
 
 ## Troubleshooting
 

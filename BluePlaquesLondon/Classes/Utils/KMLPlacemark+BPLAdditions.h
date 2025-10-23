@@ -30,14 +30,25 @@
 
 #import "KMLPlacemark.h"
 
+/**
+ * Category that adds computed properties to KMLPlacemark for easier data access.
+ * Provides convenient methods to extract formatted information from KML plaque data.
+ */
 @interface KMLPlacemark (BPLAdditions)
 
+/// Extracted person name from the KML description
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *name;
+/// Extracted title including name and dates
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *title;
+/// Extracted occupation or profession
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *occupation;
+/// Extracted street address
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *address;
+/// Extracted additional notes
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *note;
+/// Extracted council and year information
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *councilAndYear;
+/// Unique key based on coordinate for grouping plaques at same location
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *key;
 
 @end

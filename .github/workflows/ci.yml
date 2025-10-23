@@ -23,6 +23,17 @@ jobs:
       run: |
         bundle install
         pod install
+        brew install oclint
+    
+    - name: Run security audit
+      run: |
+        bundle exec bundle-audit check --update
+    
+    - name: Run OCLint
+      run: |
+        xcodebuild clean build -workspace BluePlaquesLondon.xcworkspace -scheme BluePlaquesLondon -configuration Debug | xcpretty -r json-compilation-database -o compile_commands.json
+        oclint-json-compilation-database -v -- -report-type html -o oclint_report.html
+      continue-on-error: true
     
     - name: Run tests
       env:
@@ -38,21 +49,16 @@ jobs:
         echo "Looking for xcresult files:"
         find . -name "*.xcresult" -type d 2>/dev/null || echo "No xcresult files found"
     
-    - name: Export coverage data
+    - name: Check coverage threshold
       if: success()
-      run: |
-        XCRESULT_PATH=$(find . -name "*.xcresult" -type d | head -1)
-        if [ -n "$XCRESULT_PATH" ] && [ -d "$XCRESULT_PATH" ]; then
-          echo "Found xcresult at: $XCRESULT_PATH"
-          xcrun xccov view --report --json "$XCRESULT_PATH" > ./test_output/coverage.json
-        else
-          echo "No xcresult bundle found, skipping coverage export"
-        fi
+      run: ./scripts/coverage-check.sh
     
 
-    - name: Upload test results
+    - name: Upload test results and reports
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: test-results
-        path: test_output/
+        name: test-results-and-reports
+        path: |
+          test_output/
+          oclint_report.html

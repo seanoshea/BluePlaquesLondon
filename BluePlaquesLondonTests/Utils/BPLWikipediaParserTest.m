@@ -111,4 +111,44 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testNilDataWithNoError
+{
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Nil data handled"];
+  NSError *nilDataError = [[NSError alloc] initWithDomain:@"TestDomain" code:400 userInfo:nil];
+  [BPLWikipediaParser parseWikipediaData:nil error:nilDataError name:@"Test" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    XCTAssertNotNil(error);
+    XCTAssertNil(urlRequest);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testEmptyNameParameter
+{
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Empty name handled"];
+  NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:path];
+  [BPLWikipediaParser parseWikipediaData:data error:nil name:@"" completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    // Should still work with empty name, will just use first result
+    XCTAssertNil(error);
+    XCTAssertNotNil(urlRequest);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testNilNameParameter
+{
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Nil name handled"];
+  NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"wikipedia" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:path];
+  [BPLWikipediaParser parseWikipediaData:data error:nil name:nil completionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    // Should still work with nil name, will just use first result
+    XCTAssertNil(error);
+    XCTAssertNotNil(urlRequest);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 @end

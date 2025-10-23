@@ -28,8 +28,13 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * View model for the About screen that provides license and attribution information.
+ * Contains data about the app's dependencies and third-party components.
+ */
 @interface BPLAboutViewModel : NSObject
 
+/// Google Maps open source license information text
 @property (nonatomic, copy) NSString *mapsOpenSourceLicenseInfo;
 
 @end

@@ -28,9 +28,27 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * Category that adds analytics tracking capabilities to all NSObject instances.
+ * Provides convenient methods for logging user interactions and events.
+ */
 @interface NSObject (BPLTracking)
 
+/**
+ * Tracks a user action with category, action, and label.
+ * @param category The event category (e.g., "UI Action")
+ * @param action The specific action taken (e.g., "Button Pressed")
+ * @param label Additional context or identifier for the event
+ */
 - (void)trackCategory:(NSString *)category action:(NSString *)action label:(NSString *)label;
+
+/**
+ * Tracks a user action with category, action, label, and numeric value.
+ * @param category The event category (e.g., "UI Action")
+ * @param action The specific action taken (e.g., "Button Pressed")
+ * @param label Additional context or identifier for the event
+ * @param value Numeric value associated with the event
+ */
 - (void)trackCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value;
 
 @end

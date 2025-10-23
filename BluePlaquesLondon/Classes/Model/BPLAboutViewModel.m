@@ -34,6 +34,10 @@
 
 @implementation BPLAboutViewModel
 
+/**
+ * Initializes the view model and loads Google Maps license information.
+ * @return Initialized BPLAboutViewModel instance
+ */
 - (instancetype)init
 {
   self = [super init];

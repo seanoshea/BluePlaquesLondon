@@ -46,18 +46,29 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 
 #pragma mark Lifecycle
 
+/**
+ * Configures the collection view and registers cell classes.
+ */
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self.collectionView registerClass:[UICollectionViewCell class]
           forCellWithReuseIdentifier:kReusableIdentifierItem];
 }
 
+/**
+ * Sets the navigation title when the view is about to appear.
+ * @param animated Whether the appearance is animated
+ */
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
   self.title = NSLocalizedString(@"Choose one", nil);
 }
 
+/**
+ * Reloads collection view data when the view appears.
+ * @param animated Whether the appearance is animated
+ */
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
@@ -65,19 +76,44 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
   [self.collectionView reloadData];
 }
 
+#pragma mark UICollectionViewDataSource
+
+/**
+ * Returns the number of sections in the collection view.
+ * @param collectionView The collection view requesting this information
+ * @return Always returns 1 section
+ */
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
   return 1;
 }
 
+/**
+ * Returns the number of items in the specified section.
+ * @param collectionView The collection view requesting this information
+ * @param section The index of the section
+ * @return The number of markers to display
+ */
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
   return self.markers.count;
 }
 
+/**
+ * Returns the height for cells in the collection view.
+ * @param collectionView The collection view requesting this information
+ * @param indexPath The index path of the cell
+ * @return Standard cell height of 44 points
+ */
 - (CGFloat)collectionView:(UICollectionView *)collectionView cellHeightAtIndexPath:(NSIndexPath *)indexPath {
   return 44.0f; // Standard cell height
 }
 
+/**
+ * Configures and returns a cell for the specified index path.
+ * @param collectionView The collection view requesting the cell
+ * @param indexPath The index path specifying the location of the cell
+ * @return A configured collection view cell
+ */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   UICollectionViewCell *cell =
@@ -89,6 +125,14 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
   return cell;
 }
 
+#pragma mark UICollectionViewDelegate
+
+/**
+ * Handles selection of a collection view item by posting a notification
+ * and navigating back to the previous view controller.
+ * @param collectionView The collection view containing the selected item
+ * @param indexPath The index path of the selected item
+ */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
   [super collectionView:collectionView didSelectItemAtIndexPath:indexPath];

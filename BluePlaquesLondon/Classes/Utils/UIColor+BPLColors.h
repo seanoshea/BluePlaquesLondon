@@ -28,13 +28,46 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * Category that provides app-specific color constants for consistent theming.
+ * Defines the Blue Plaques London app color palette.
+ */
 @interface UIColor (BPLColors)
 
+/**
+ * Returns the app's primary blue color.
+ * @return UIColor instance for the primary blue theme color
+ */
 + (UIColor *)BPLBlueColour;
+
+/**
+ * Returns the app's dark grey color for text and UI elements.
+ * @return UIColor instance for dark grey
+ */
 + (UIColor *)BPLDarkGreyColour;
+
+/**
+ * Returns the app's standard grey color.
+ * @return UIColor instance for standard grey
+ */
 + (UIColor *)BPLGreyColour;
+
+/**
+ * Returns the app's light grey color for backgrounds.
+ * @return UIColor instance for light grey
+ */
 + (UIColor *)BPLLightGreyColour;
+
+/**
+ * Returns the app's primary orange accent color.
+ * @return UIColor instance for the orange accent color
+ */
 + (UIColor *)BPLOrangeColour;
+
+/**
+ * Returns the app's light orange color with transparency.
+ * @return UIColor instance for light orange with alpha
+ */
 + (UIColor *)BPLLightOrangeColour;
 
 @end

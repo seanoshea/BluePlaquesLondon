@@ -28,14 +28,25 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * Domain model representing a blue plaque location in London.
+ * Contains all the information needed to display and locate a specific plaque.
+ */
 @interface BPLPlacemark : NSObject
 
+/// Detailed description of the plaque including person's achievements and dates
 @property (nonatomic, copy) NSString *featureDescription;
+/// Name of the person commemorated by the plaque
 @property (nonatomic, copy) NSString *name;
+/// Title or profession of the person
 @property (nonatomic, copy) NSString *title;
+/// Style URL for map display (legacy KML property)
 @property (nonatomic, copy) NSString *styleUrl;
+/// Longitude coordinate of the plaque location
 @property (nonatomic) NSNumber *longitude;
+/// Latitude coordinate of the plaque location
 @property (nonatomic) NSNumber *latitude;
+/// Type identifier for the map pin display
 @property (nonatomic) NSNumber *placemarkPinType;
 
 @end

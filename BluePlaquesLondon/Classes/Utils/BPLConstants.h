@@ -28,8 +28,13 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * Constants class that defines app-wide string constants, identifiers, and keys.
+ * Centralizes all constant values used throughout the application.
+ */
 @interface BPLConstants : NSObject
 
+/// Filename for the KML file containing blue plaque data
 extern NSString * const BPLKMZFilename;
 
 #pragma mark - Segue Identifiers

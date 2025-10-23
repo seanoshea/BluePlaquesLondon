@@ -28,13 +28,23 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * Category that adds HTML parsing capabilities to NSString for plaque feature descriptions.
+ * Extracts structured information from HTML-formatted plaque description strings.
+ */
 @interface NSString (BPLPlacemarkFeatureDescription)
 
+/// Extracted person name from the description
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *name;
+/// Extracted title including name and dates
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *title;
+/// Extracted occupation or profession
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *occupation;
+/// Extracted street address
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *address;
+/// Extracted additional notes
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *note;
+/// Extracted council and year information
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *councilAndYear;
 
 @end

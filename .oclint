@@ -1,0 +1,54 @@
+rules:
+  - ShortVariableName
+  - LongVariableName
+  - LongParameterList
+  - LongMethod
+  - LongClass
+  - LongLine
+  - HighComplexity
+  - HighCyclomaticComplexity
+  - TooManyParameters
+  - TooManyMethods
+  - TooManyFields
+  - DeepNestedBlock
+  - BitwiseOperatorInConditional
+  - InvertedLogic
+  - ForLoopShouldBeWhileLoop
+  - RedundantConditionalOperator
+  - RedundantLocalVariable
+  - RedundantNilCheck
+  - UnnecessaryElseStatement
+  - UselessParentheses
+
+rule-configurations:
+  - key: LONG_LINE
+    value: 120
+  - key: LONG_METHOD
+    value: 50
+  - key: LONG_PARAMETER_LIST
+    value: 6
+  - key: LONG_VARIABLE_NAME
+    value: 30
+  - key: SHORT_VARIABLE_NAME
+    value: 2
+  - key: TOO_MANY_PARAMETERS
+    value: 6
+  - key: TOO_MANY_METHODS
+    value: 30
+  - key: TOO_MANY_FIELDS
+    value: 20
+  - key: HIGH_CYCLOMATIC_COMPLEXITY
+    value: 10
+  - key: HIGH_COMPLEXITY
+    value: 10
+  - key: DEEP_NESTED_BLOCK
+    value: 5
+
+disable-rules:
+  - UnusedMethodParameter
+
+output: html
+report-type: html
+max-priority-1: 0
+max-priority-2: 10
+max-priority-3: 20

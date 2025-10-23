@@ -34,9 +34,15 @@
 
 extern NSString *BPLMapViewDetailViewControllerStoryboardIdentifier;
 
+/**
+ * Detail view controller that displays comprehensive information about a selected blue plaque.
+ * Shows plaque details, provides navigation options, and handles multiple plaques at the same location.
+ */
 @interface BPLMapViewDetailViewController : UIViewController
 
+/// View model containing plaque data and location information
 @property (nonatomic) BPLMapViewDetailViewModel *model;
+/// Screen name for analytics tracking
 @property (nonatomic, readonly) NSString *screenName;
 
 @end

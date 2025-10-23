@@ -32,10 +32,20 @@
 
 @implementation BPLMapViewDetailViewModel
 
+/**
+ * Convenience initializer that calls the designated initializer with nil values.
+ * @return Initialized BPLMapViewDetailViewModel instance
+ */
 - (instancetype)init {
   return [self initWithMarkers:nil currentLocation:nil];
 }
 
+/**
+ * Designated initializer that creates a view model with the provided data.
+ * @param markers Array of BPLPlacemark objects to manage
+ * @param currentLocation User's current location
+ * @return Initialized BPLMapViewDetailViewModel instance
+ */
 - (instancetype)initWithMarkers:(NSArray *)markers currentLocation:(CLLocation *)currentLocation
 {
   self = [super init];

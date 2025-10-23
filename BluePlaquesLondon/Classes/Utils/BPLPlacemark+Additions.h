@@ -32,15 +32,27 @@
 
 @import CoreLocation;
 
+/**
+ * Category that adds computed properties to BPLPlacemark for easier data access.
+ * Provides convenient methods to extract formatted information from the raw plaque data.
+ */
 @interface BPLPlacemark (Additions)
 
+/// Geographic coordinate of the plaque location
 @property (NS_NONATOMIC_IOSONLY, readonly) CLLocationCoordinate2D coordinate;
+/// Name of the person commemorated by the plaque
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *placemarkName;
+/// Full title including name and dates
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *placemarkTitle;
+/// Profession or occupation of the commemorated person
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *occupation;
+/// Street address where the plaque is located
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *address;
+/// Additional notes about the person or plaque
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *note;
+/// Council that erected the plaque and year of installation
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *councilAndYear;
+/// Unique key based on coordinate for grouping plaques at same location
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *key;
 
 @end

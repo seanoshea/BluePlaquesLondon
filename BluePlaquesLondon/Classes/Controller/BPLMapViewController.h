@@ -32,8 +32,15 @@
 
 extern NSString *BPLMapViewControllerStoryboardIdentifier;
 
+/**
+ * Main map view controller that displays blue plaques on an interactive map.
+ * Provides search functionality, location services, and navigation to plaque details.
+ */
 @interface BPLMapViewController : UIViewController
 
+/**
+ * Navigates the map to the closest blue plaque based on user's current location.
+ */
 - (void)navigateToClosestPlacemark;
 
 @end

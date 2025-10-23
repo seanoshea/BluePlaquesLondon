@@ -28,12 +28,47 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
+#import "BPLPlacemark.h"
 
-/**
- * Custom label class that applies Blue Plaques London app styling.
- * Automatically configures label appearance with app theme colors and fonts.
- */
-@interface BPLLabel : UILabel
+@interface BPLPlacemarkTest : XCTestCase
+@end
+
+@implementation BPLPlacemarkTest
+
+- (void)testInitialization
+{
+    BPLPlacemark *placemark = [[BPLPlacemark alloc] init];
+    
+    XCTAssertNotNil(placemark);
+    XCTAssertNil(placemark.featureDescription);
+    XCTAssertNil(placemark.name);
+    XCTAssertNil(placemark.title);
+    XCTAssertNil(placemark.styleUrl);
+    XCTAssertNil(placemark.longitude);
+    XCTAssertNil(placemark.latitude);
+    XCTAssertNil(placemark.placemarkPinType);
+}
+
+- (void)testPropertyAssignment
+{
+    BPLPlacemark *placemark = [[BPLPlacemark alloc] init];
+    
+    placemark.featureDescription = @"Test description";
+    placemark.name = @"Test Name";
+    placemark.title = @"Test Title";
+    placemark.styleUrl = @"#testStyle";
+    placemark.longitude = @(-0.1278);
+    placemark.latitude = @(51.5074);
+    placemark.placemarkPinType = @(1);
+    
+    XCTAssertEqualObjects(placemark.featureDescription, @"Test description");
+    XCTAssertEqualObjects(placemark.name, @"Test Name");
+    XCTAssertEqualObjects(placemark.title, @"Test Title");
+    XCTAssertEqualObjects(placemark.styleUrl, @"#testStyle");
+    XCTAssertEqualObjects(placemark.longitude, @(-0.1278));
+    XCTAssertEqualObjects(placemark.latitude, @(51.5074));
+    XCTAssertEqualObjects(placemark.placemarkPinType, @(1));
+}
 
 @end
