@@ -50,25 +50,10 @@
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaL-Ty-6qF">
-                                <rect key="frame" x="0.0" y="76" width="375" height="607"/>
-                                <connections>
-                                    <segue destination="JzK-wl-vy2" kind="embed" identifier="BPLSearchViewControllerSegue" id="mq2-Ts-ahf"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="oaL-Ty-6qF" secondAttribute="bottom" constant="-16" id="6r1-p9-tDT"/>
-                            <constraint firstItem="oaL-Ty-6qF" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="DLt-99-rRK"/>
-                            <constraint firstAttribute="trailing" secondItem="oaL-Ty-6qF" secondAttribute="trailing" id="E6v-Vt-asW"/>
-                            <constraint firstItem="oaL-Ty-6qF" firstAttribute="top" secondItem="2VE-Yg-loa" secondAttribute="top" constant="76" id="fbx-Av-k77"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MOo-jM-9kA"/>
                     <connections>
-                        <outlet property="containerView" destination="oaL-Ty-6qF" id="EA4-5O-Mom"/>
                         <segue destination="Eph-hh-E1n" kind="push" identifier="BPLMapDetailViewControllerSegue" id="l4P-vK-Wem"/>
                         <segue destination="10x-CT-HIQ" kind="modal" identifier="AboutViewControllerPushSegue" id="GLa-nQ-vhl"/>
                     </connections>

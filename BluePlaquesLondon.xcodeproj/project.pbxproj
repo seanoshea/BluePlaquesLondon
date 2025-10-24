@@ -79,6 +79,9 @@
 		41C7CFFE1CAA148100736645 /* wikipedia_malformed.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7CFFD1CAA148100736645 /* wikipedia_malformed.json */; };
 		41C7D0001CAA15BC00736645 /* wikipedia_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7CFFF1CAA15BC00736645 /* wikipedia_empty.json */; };
 		41C7D0021CAA185700736645 /* wikipedia_sargent.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7D0011CAA185700736645 /* wikipedia_sargent.json */; };
+		4F80D17756FD66D9B80B9487 /* BPLSearchResultsController.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AC576FE787DDC8806FD1C7 /* BPLSearchResultsController.h */; };
+		5E7E8988E3ABA85058309151 /* BPLSearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40537AC9AF2004FA8F6E3F20 /* BPLSearchResultsController.m */; };
+		687691AAA20CB448635DCC3E /* BPLSearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40537AC9AF2004FA8F6E3F20 /* BPLSearchResultsController.m */; };
 		C38C596F5EAFF3005BC397B6 /* libPods-BluePlaquesLondonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */; };
 		D96DF99C366F03725A3578B0 /* libPods-BluePlaquesLondon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7A1D1B01387564CBCDAF46 /* libPods-BluePlaquesLondon.a */; };
 /* End PBXBuildFile section */
@@ -188,6 +191,7 @@
 		31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkAdditionsTest.m; sourceTree = "<group>"; };
 		31F60D972EAC172100981A9E /* BPLSearchResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPLSearchResultCell.h; sourceTree = "<group>"; };
 		31F60D982EAC172100981A9E /* BPLSearchResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLSearchResultCell.m; sourceTree = "<group>"; };
+		40537AC9AF2004FA8F6E3F20 /* BPLSearchResultsController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BPLSearchResultsController.m; path = ../../../BluePlaquesLondon/Classes/Controller/BPLSearchResultsController.m; sourceTree = "<group>"; };
 		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
 		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
 		411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLInfoWindow.m; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 		4BEAF99394F43524AB0CB2EF /* Pods-BluePlaquesLondonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.release.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E7A1D1B01387564CBCDAF46 /* libPods-BluePlaquesLondon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D597F0ED4BB264D96D444B8 /* Pods-BluePlaquesLondon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.debug.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.debug.xcconfig"; sourceTree = "<group>"; };
+		D1AC576FE787DDC8806FD1C7 /* BPLSearchResultsController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BPLSearchResultsController.h; path = ../../../BluePlaquesLondon/Classes/Controller/BPLSearchResultsController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +373,8 @@
 				14F003291A9D0DE700AEE2AC /* BPLStreetViewViewController.m */,
 				14F0032A1A9D0DE700AEE2AC /* BPLWikipediaViewController.h */,
 				14F0032B1A9D0DE700AEE2AC /* BPLWikipediaViewController.m */,
+				D1AC576FE787DDC8806FD1C7 /* BPLSearchResultsController.h */,
+				40537AC9AF2004FA8F6E3F20 /* BPLSearchResultsController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -508,6 +515,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		3C7D58708B90F9EB508A02C4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F80D17756FD66D9B80B9487 /* BPLSearchResultsController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		146C5F901A9D09EB00E88761 /* BluePlaquesLondon */ = {
 			isa = PBXNativeTarget;
@@ -518,6 +536,7 @@
 				146C5F8E1A9D09EB00E88761 /* Frameworks */,
 				146C5F8F1A9D09EB00E88761 /* Resources */,
 				8ECADFED1532856D3DE22F4E /* [CP] Copy Pods Resources */,
+				3C7D58708B90F9EB508A02C4 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -734,6 +753,8 @@
 				31F60D9A2EAC172100981A9E /* BPLSearchResultCell.m in Sources */,
 				411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
 				14F003301A9D0DE700AEE2AC /* BPLStreetViewViewController.m in Sources */,
+				5E7E8988E3ABA85058309151 /* BPLSearchResultsController.m in Sources */,
+				687691AAA20CB448635DCC3E /* BPLSearchResultsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
