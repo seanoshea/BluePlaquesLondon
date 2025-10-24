@@ -66,6 +66,8 @@
 		31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */; };
 		31D0C3C02EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */; };
 		31D0C3C12EA70EB8004D0E0F /* BPLConfigurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */; };
+		31F60D992EAC172100981A9E /* BPLSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F60D982EAC172100981A9E /* BPLSearchResultCell.m */; };
+		31F60D9A2EAC172100981A9E /* BPLSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F60D982EAC172100981A9E /* BPLSearchResultCell.m */; };
 		411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */; };
@@ -184,6 +186,8 @@
 		31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLConfigurationTest.m; sourceTree = "<group>"; };
 		31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkAdditionsTest.m; sourceTree = "<group>"; };
+		31F60D972EAC172100981A9E /* BPLSearchResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPLSearchResultCell.h; sourceTree = "<group>"; };
+		31F60D982EAC172100981A9E /* BPLSearchResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLSearchResultCell.m; sourceTree = "<group>"; };
 		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
 		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
 		411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLInfoWindow.m; sourceTree = "<group>"; };
@@ -429,6 +433,8 @@
 				411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */,
 				14F0035E1A9D0E2500AEE2AC /* BPLLabel.h */,
 				14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */,
+				31F60D972EAC172100981A9E /* BPLSearchResultCell.h */,
+				31F60D982EAC172100981A9E /* BPLSearchResultCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -725,6 +731,7 @@
 				14F0032C1A9D0DE700AEE2AC /* BPLAboutViewController.m in Sources */,
 				14F0032F1A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m in Sources */,
 				14F003561A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m in Sources */,
+				31F60D9A2EAC172100981A9E /* BPLSearchResultCell.m in Sources */,
 				411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
 				14F003301A9D0DE700AEE2AC /* BPLStreetViewViewController.m in Sources */,
 			);
@@ -761,6 +768,7 @@
 				14E147931A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m in Sources */,
 				14C9E8251A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m in Sources */,
 				31000E022EA703C4007D819B /* BPLLabelTest.m in Sources */,
+				31F60D992EAC172100981A9E /* BPLSearchResultCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

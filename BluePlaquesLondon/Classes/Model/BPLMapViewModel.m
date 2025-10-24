@@ -98,10 +98,13 @@
   
   // pop the markers on the map
   for (BPLPlacemark *placemark in self.massagedData) {
-    
+
     GMSMarker *marker = [GMSMarker markerWithPosition:placemark.coordinate];
     marker.userData = placemark;
-    marker.icon = [UIImage imageNamed:[placemark.styleUrl isEqualToString:@"#myDefaultStyles"] ? @"blue" : @"green"];
+    // Determine marker icon based on plaque color style
+    // The KML generator produces #blueStyle for blue plaques and #greyStyle for other colors
+    NSString *markerImageName = ([placemark.styleUrl isEqualToString:@"#blueStyle"]) ? @"blue" : @"green";
+    marker.icon = [UIImage imageNamed:markerImageName];
     marker.title = placemark.placemarkTitle;
     // check to see if the regular subtitle would be too big to pop into the snippet
     NSString *snippet;

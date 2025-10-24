@@ -34,6 +34,7 @@
 #import "BPLPlacemark+Additions.h"
 #import "UIColor+BPLColors.h"
 #import "MKDistanceFormatter+BPLAdditions.h"
+#import "BPLSearchResultCell.h"
 
 static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
@@ -43,22 +44,30 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
 @implementation BPLSearchViewController
 
+- (void)dealloc
+{
+  // Clean up references
+  self.delegate = nil;
+  self.model = nil;
+  self.currentLocation = nil;
+}
+
 /**
  * Configures the collection view layout and appearance.
  */
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
+
   // Configure collection view layout
   UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
   layout.minimumLineSpacing = 2.0f; // Small spacing between cards
   layout.minimumInteritemSpacing = 0;
   layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8); // Padding around collection
   self.collectionView.collectionViewLayout = layout;
-  
-  [self.collectionView registerClass:[UICollectionViewCell class]
+
+  [self.collectionView registerClass:[BPLSearchResultCell class]
           forCellWithReuseIdentifier:kReusableIdentifierItem];
-  
+
   self.collectionView.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0]; // Light gray background
 }
 
@@ -106,69 +115,34 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
  */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  UICollectionViewCell *cell =
-  [collectionView dequeueReusableCellWithReuseIdentifier:kReusableIdentifierItem
+  BPLSearchResultCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReusableIdentifierItem
                                             forIndexPath:indexPath];
-  
-  // Remove existing subviews
-  for (UIView *subview in cell.contentView.subviews) {
-    [subview removeFromSuperview];
-  }
-  
-  // Card-like styling
-  cell.backgroundColor = [UIColor whiteColor];
-  cell.layer.cornerRadius = 8.0f;
-  cell.layer.shadowColor = [UIColor blackColor].CGColor;
-  cell.layer.shadowOffset = CGSizeMake(0, 2);
-  cell.layer.shadowRadius = 4.0f;
-  cell.layer.shadowOpacity = 0.1f;
-  
-  // Configure labels
-  CGFloat cellWidth = cell.frame.size.width;
-  UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 8, cellWidth - 48, 20)];
-  UILabel *subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 28, cellWidth - 48, 16)];
-  
-  titleLabel.font = [UIFont boldSystemFontOfSize:16];
-  titleLabel.textColor = [UIColor BPLBlueColour];
-  subtitleLabel.font = [UIFont systemFontOfSize:14];
-  subtitleLabel.textColor = [UIColor BPLDarkGreyColour];
-  titleLabel.numberOfLines = 1;
-  subtitleLabel.numberOfLines = 1;
-  
-  // Add disclosure indicator
-  UILabel *disclosureLabel = [[UILabel alloc] initWithFrame:CGRectMake(cellWidth - 30, 0, 20, cell.frame.size.height)];
-  disclosureLabel.text = @">";
-  disclosureLabel.textColor = [UIColor lightGrayColor];
-  disclosureLabel.textAlignment = NSTextAlignmentCenter;
-  disclosureLabel.font = [UIFont boldSystemFontOfSize:18];
-  
+
+  NSString *title = @"";
+  NSString *subtitle = @"";
+  BOOL showSubtitle = NO;
+
   if (indexPath.row == 0) {
-    titleLabel.text = NSLocalizedString(@"Find the plaque closest to me", nil);
+    title = NSLocalizedString(@"Find the plaque closest to me", nil);
     if (self.currentLocation) {
-      subtitleLabel.text = @"Navigate to nearest plaque";
-    } else {
-      subtitleLabel.text = @"";
+      subtitle = @"Navigate to nearest plaque";
+      showSubtitle = YES;
     }
   } else {
     BPLPlacemark *pm = [self.model placemarkForRowAtIndexPath:indexPath];
     if (pm) {
-      titleLabel.text = pm.placemarkName;
+      title = pm.placemarkName;
       if (self.currentLocation) {
         CLLocation *loc = [[CLLocation alloc] initWithLatitude:pm.coordinate.latitude
                                                      longitude:pm.coordinate.longitude];
-        subtitleLabel.text = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
-      } else {
-        subtitleLabel.text = @"";
+        subtitle = [MKDistanceFormatter distanceFromLocation:loc toLocation:self.currentLocation];
+        showSubtitle = YES;
       }
     }
   }
-  
-  [cell.contentView addSubview:titleLabel];
-  if (self.currentLocation || indexPath.row == 0) {
-    [cell.contentView addSubview:subtitleLabel];
-  }
-  [cell.contentView addSubview:disclosureLabel];
-  
+
+  [cell configureCellWithTitle:title subtitle:subtitle showSubtitle:showSubtitle];
+
   return cell;
 }
 

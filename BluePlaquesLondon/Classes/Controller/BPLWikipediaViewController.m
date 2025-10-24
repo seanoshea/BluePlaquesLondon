@@ -78,11 +78,10 @@
   [self.view addSubview:self.activityIndicator];
   [self.activityIndicator startAnimating];
   
+  // Note: Completion block is always called on main thread, so no need for dispatch_async
   [[self.model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
-    if (!error) {
-      dispatch_async(dispatch_get_main_queue(), ^{
-        [self.webView loadRequest:urlRequest];
-      });
+    if (!error && urlRequest) {
+      [self.webView loadRequest:urlRequest];
     } else {
       [self displayErrorAlert];
     }

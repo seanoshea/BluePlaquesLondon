@@ -73,6 +73,23 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 #pragma mark Lifecycle
 
+- (void)dealloc
+{
+  // Clean up location manager
+  [self.locationManager stopUpdatingLocation];
+  self.locationManager.delegate = nil;
+  self.locationManager = nil;
+
+  // Clean up references
+  self.model = nil;
+  self.searchViewController = nil;
+  self.currentLocation = nil;
+  self.mapView = nil;
+  self.searchBar = nil;
+  self.headerView = nil;
+  self.aboutButton = nil;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
   self = [super initWithCoder:aDecoder];
@@ -84,14 +101,19 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)commonInit
 {
+  // Use weak reference to self in block to avoid retain cycle
+  __weak typeof(self) weakSelf = self;
   self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
-    dispatch_async(dispatch_get_main_queue(), ^{
-      [self.model createMarkersForMap:self.mapView];
-      self.searchViewController.model = self.model;
-      self.searchBar.userInteractionEnabled = YES;
-      [self reloadData];
-      [self checkForAutomaticallyNavigatingToClosestPlacemark];
-    });
+    __strong typeof(weakSelf) strongSelf = weakSelf;
+    if (strongSelf) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [strongSelf.model createMarkersForMap:strongSelf.mapView];
+        strongSelf.searchViewController.model = strongSelf.model;
+        strongSelf.searchBar.userInteractionEnabled = YES;
+        [strongSelf reloadData];
+        [strongSelf checkForAutomaticallyNavigatingToClosestPlacemark];
+      });
+    }
   }];
   self.locationManager = [[CLLocationManager alloc] init];
   [self.locationManager requestAlwaysAuthorization];
@@ -139,6 +161,20 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 {
   [super viewWillAppear:animated];
   self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+  [super viewWillDisappear:animated];
+  // Stop location updates when view disappears to prevent battery drain and unnecessary processing
+  [self.locationManager stopUpdatingLocation];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+  [super viewDidDisappear:animated];
+  // Ensure location manager is stopped when view is fully dismissed
+  self.locationManager.delegate = nil;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -247,18 +283,25 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)toggleSearchViewController:(BOOL)show
 {
+  if (!self.containerView) {
+    return; // Container view not yet initialized
+  }
+
   if (show) {
     [self.view bringSubviewToFront:self.containerView];
+    self.containerView.hidden = NO;
   } else {
     [self.view sendSubviewToBack:self.containerView];
+    self.containerView.hidden = YES;
   }
   self.aboutButton.hidden = show;
   self.searchBar.showsCancelButton = show;
-  self.containerView.hidden = !show;
 }
 
 - (void)reloadData {
-  [self.searchViewController.collectionView reloadData];
+  if (self.searchViewController) {
+    [self.searchViewController.collectionView reloadData];
+  }
 }
 
 #pragma mark CLLocationManagerDelegate
