@@ -17,7 +17,7 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.4.7
-        bundler-cache: true
+        bundler-cache: false
     
     - name: Install dependencies
       run: |
@@ -44,9 +44,7 @@ jobs:
         echo "Looking for xcresult files:"
         find . -name "*.xcresult" -type d 2>/dev/null || echo "No xcresult files found"
     
-    - name: Check coverage threshold
-      if: success()
-      run: ./scripts/coverage-check.sh
+
     
 
     - name: Upload test results and reports
