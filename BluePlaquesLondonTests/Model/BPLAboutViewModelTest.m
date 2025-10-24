@@ -28,12 +28,30 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
+#import "BPLAboutViewModel.h"
 
-/**
- * Custom label class that applies Blue Plaques London app styling.
- * Automatically configures label appearance with app theme colors and fonts.
- */
-@interface BPLLabel : UILabel
+@interface BPLAboutViewModelTest : XCTestCase
+@end
+
+@implementation BPLAboutViewModelTest
+
+- (void)testInitialization
+{
+    BPLAboutViewModel *viewModel = [[BPLAboutViewModel alloc] init];
+    
+    XCTAssertNotNil(viewModel);
+    XCTAssertNotNil(viewModel.mapsOpenSourceLicenseInfo);
+    XCTAssertTrue(viewModel.mapsOpenSourceLicenseInfo.length > 0);
+}
+
+- (void)testMapsLicenseInfoContainsExpectedContent
+{
+    BPLAboutViewModel *viewModel = [[BPLAboutViewModel alloc] init];
+    
+    // Google Maps license info should contain certain expected strings
+    NSString *licenseInfo = viewModel.mapsOpenSourceLicenseInfo;
+    XCTAssertTrue([licenseInfo containsString:@"Google"] || [licenseInfo containsString:@"Maps"]);
+}
 
 @end

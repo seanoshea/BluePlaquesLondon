@@ -34,6 +34,11 @@
 
 @implementation BPLButton
 
+/**
+ * Initializes the button from Interface Builder and applies app styling.
+ * @param aDecoder The decoder used to initialize from storyboard/xib
+ * @return Initialized BPLButton instance with app styling applied
+ */
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
   self = [super initWithCoder:aDecoder];

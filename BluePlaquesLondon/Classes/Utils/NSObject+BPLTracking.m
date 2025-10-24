@@ -32,7 +32,7 @@
 #import <FirebaseAnalytics/FirebaseAnalytics.h>
 
 #ifndef DEBUG
-#import <Crashlytics/Crashlytics.h>
+@import FirebaseCrashlytics;
 #endif
 
 #import "BPLConfiguration.h"

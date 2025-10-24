@@ -12,8 +12,7 @@ lane :test do
   setup
   scan(
     scheme: "BluePlaquesLondon",
-    device: "iPhone 16 Pro",
-    code_coverage: true
+    device: "iPhone 16 Pro"
   )
 end
 
@@ -49,6 +48,20 @@ lane :cleanup do
   sh "plutil -replace GoogleMapsAPIKey -string 'GOOGLE_MAPS_API_KEY_PLACEHOLDER' '../BluePlaquesLondon/Resources/APIKeys.plist'"
   UI.success("API keys reset to placeholders")
 end
+
+lane :quality do
+  security_audit
+end
+
+private_lane :security_audit do
+  sh "bundle exec bundle-audit check --update"
+  sh "pod audit"
+  UI.success("Security audit completed")
+end
+
+
+
+
 
 lane :build do
   gym(

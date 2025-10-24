@@ -32,9 +32,15 @@
 
 #import "BPLLabel.h"
 
+/**
+ * Custom view for displaying plaque information in Google Maps info windows.
+ * Shows the plaque title and person's occupation in a formatted layout.
+ */
 @interface BPLInfoWindow : UIView
 
+/// Label displaying the main title/name of the plaque
 @property (nonatomic, weak) IBOutlet BPLLabel *header;
+/// Label displaying the person's occupation or subtitle
 @property (nonatomic, weak) IBOutlet BPLLabel *runner;
 
 @end

@@ -32,6 +32,7 @@
 #import <XCTest/XCTest.h>
 
 #import "BPLMapViewModel.h"
+#import "BPLPlacemark+Additions.h"
 #import "OCMock.h"
 
 @interface BPLMapViewModelTest : XCTestCase
@@ -117,6 +118,68 @@
     if (model.numberOfPlacemarks > 0) {
       XCTAssertNotNil(placemark);
     }
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)testClosestPlacemarkWithInvalidCoordinate {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Data loaded"];
+  __block BPLMapViewModel *model;
+  
+  model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    CLLocationCoordinate2D invalidCoordinate = CLLocationCoordinate2DMake(999.0, 999.0);
+    BPLPlacemark *placemark = [model closestPlacemarkToCoordinate:invalidCoordinate];
+    if (model.numberOfPlacemarks > 0) {
+      XCTAssertNotNil(placemark); // Should still return closest even with invalid input
+    }
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)testPlacemarkForRowAtIndexPathOutOfBounds {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Data loaded"];
+  __block BPLMapViewModel *model;
+  
+  model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    NSIndexPath *outOfBoundsIndexPath = [NSIndexPath indexPathForRow:999999 inSection:0];
+    BPLPlacemark *placemark = [model placemarkForRowAtIndexPath:outOfBoundsIndexPath];
+    XCTAssertNil(placemark); // Should return nil for out of bounds
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)testFirstPlacemarkAtCoordinate {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Data loaded"];
+  __block BPLMapViewModel *model;
+  
+  model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    if (model.numberOfPlacemarks > 0) {
+      BPLPlacemark *firstPlacemark = model.alphabeticallySortedPositions.firstObject;
+      BPLPlacemark *foundPlacemark = [model firstPlacemarkAtCoordinate:firstPlacemark.coordinate];
+      XCTAssertNotNil(foundPlacemark);
+      XCTAssertEqual(foundPlacemark.coordinate.latitude, firstPlacemark.coordinate.latitude);
+      XCTAssertEqual(foundPlacemark.coordinate.longitude, firstPlacemark.coordinate.longitude);
+    }
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
+
+- (void)testFirstPlacemarkAtNonExistentCoordinate {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Data loaded"];
+  __block BPLMapViewModel *model;
+  
+  model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
+    CLLocationCoordinate2D nonExistentCoordinate = CLLocationCoordinate2DMake(0.0, 0.0);
+    BPLPlacemark *placemark = [model firstPlacemarkAtCoordinate:nonExistentCoordinate];
+    XCTAssertNil(placemark); // Should return nil for non-existent coordinate
     [expectation fulfill];
   }];
   

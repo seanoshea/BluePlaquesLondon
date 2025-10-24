@@ -34,6 +34,11 @@
 
 @implementation BPLLabel
 
+/**
+ * Initializes the label from Interface Builder and applies app styling.
+ * @param aDecoder The decoder used to initialize from storyboard/xib
+ * @return Initialized BPLLabel instance with app styling applied
+ */
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
   self = [super initWithCoder:aDecoder];

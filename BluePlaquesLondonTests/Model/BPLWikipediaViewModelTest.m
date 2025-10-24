@@ -79,4 +79,67 @@
   }];
 }
 
+- (void)testNetworkError
+{
+  // Stub network error
+  [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+    return [request.URL.host isEqualToString:@"en.wikipedia.org"];
+  } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+    NSError *networkError = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorNotConnectedToInternet userInfo:nil];
+    return [OHHTTPStubsResponse responseWithError:networkError];
+  }];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Network error handled"];
+  BPLWikipediaViewModel *model = [[BPLWikipediaViewModel alloc] initWithName:@"Test"];
+  
+  NSURLSessionDataTask *task = [model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    XCTAssertNotNil(error, @"Should have network error");
+    XCTAssertNil(urlRequest, @"Should not have URL request on error");
+    XCTAssertEqual(error.code, NSURLErrorNotConnectedToInternet, @"Should be network error");
+    [expectation fulfill];
+  }];
+  
+  [task resume];
+  
+  [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+    if (error != nil) {
+      NSLog(@"Timeout error: %@", error.localizedDescription);
+    }
+    [task cancel];
+  }];
+}
+
+- (void)testTimeoutError
+{
+  // Stub with immediate timeout error
+  [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+    return [request.URL.host isEqualToString:@"en.wikipedia.org"];
+  } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+    NSError *timeoutError = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorTimedOut userInfo:nil];
+    return [OHHTTPStubsResponse responseWithError:timeoutError];
+  }];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Timeout handled"];
+  BPLWikipediaViewModel *model = [[BPLWikipediaViewModel alloc] initWithName:@"Test"];
+  
+  NSURLSessionDataTask *task = [model retrieveWikipediaUrlWithCompletionBlock:^(NSURLRequest *urlRequest, NSError *error) {
+    XCTAssertNotNil(error, @"Should have timeout error");
+    XCTAssertEqual(error.code, NSURLErrorTimedOut, @"Should be timeout error");
+    XCTAssertNil(urlRequest, @"Should not have URL request on timeout");
+    [expectation fulfill];
+  }];
+  
+  [task resume];
+  
+  [self waitForExpectationsWithTimeout:2.0 handler:^(NSError *error) {
+    [task cancel];
+  }];
+}
+
+- (void)tearDown
+{
+  [OHHTTPStubs removeAllStubs];
+  [super tearDown];
+}
+
 @end

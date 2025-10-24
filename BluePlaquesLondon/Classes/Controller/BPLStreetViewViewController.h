@@ -32,9 +32,15 @@
 
 @class BPLPlacemark;
 
+/**
+ * View controller that displays Google Street View for a blue plaque location.
+ * Provides an immersive street-level view of the plaque's surroundings.
+ */
 @interface BPLStreetViewViewController : UIViewController
 
+/// The placemark whose location will be displayed in Street View
 @property (nonatomic) BPLPlacemark *placemark;
+/// Screen name for analytics tracking
 @property (nonatomic, readonly) NSString *screenName;
 
 @end

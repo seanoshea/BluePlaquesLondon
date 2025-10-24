@@ -32,8 +32,13 @@
 
 @class BPLAboutViewModel;
 
+/**
+ * View controller that displays information about the app, including developer,
+ * designer, and data source credits. Provides links to external resources.
+ */
 @interface BPLAboutViewController : UIViewController
 
+/// The view model containing about page data and license information
 @property (nonatomic) BPLAboutViewModel *model;
 
 @end

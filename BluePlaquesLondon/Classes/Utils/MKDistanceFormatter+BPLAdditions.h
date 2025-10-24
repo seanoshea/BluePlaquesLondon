@@ -30,8 +30,18 @@
 
 #import <MapKit/MapKit.h>
 
+/**
+ * Category that adds convenience methods to MKDistanceFormatter for distance calculations.
+ * Provides formatted distance strings between two locations.
+ */
 @interface MKDistanceFormatter (BPLAdditions)
 
+/**
+ * Returns a formatted distance string between two locations.
+ * @param location The starting location
+ * @param toLocation The destination location
+ * @return Formatted distance string (e.g., "1.2 km", "500 m")
+ */
 + (NSString *)distanceFromLocation:(CLLocation *)location toLocation:(CLLocation *)toLocation;
 
 @end

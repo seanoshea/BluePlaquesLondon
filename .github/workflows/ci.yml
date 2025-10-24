@@ -17,12 +17,19 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.4.7
-        bundler-cache: true
+        bundler-cache: false
     
     - name: Install dependencies
       run: |
         bundle install
-        pod install
+        pod repo update
+        pod install --repo-update
+    
+    - name: Run security audit
+      run: |
+        bundle exec bundle-audit check --update
+    
+
     
     - name: Run tests
       env:
@@ -38,21 +45,13 @@ jobs:
         echo "Looking for xcresult files:"
         find . -name "*.xcresult" -type d 2>/dev/null || echo "No xcresult files found"
     
-    - name: Export coverage data
-      if: success()
-      run: |
-        XCRESULT_PATH=$(find . -name "*.xcresult" -type d | head -1)
-        if [ -n "$XCRESULT_PATH" ] && [ -d "$XCRESULT_PATH" ]; then
-          echo "Found xcresult at: $XCRESULT_PATH"
-          xcrun xccov view --report --json "$XCRESULT_PATH" > ./test_output/coverage.json
-        else
-          echo "No xcresult bundle found, skipping coverage export"
-        fi
+
     
 
-    - name: Upload test results
+    - name: Upload test results and reports
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: test-results
-        path: test_output/
+        name: test-results-and-reports
+        path: |
+          test_output/

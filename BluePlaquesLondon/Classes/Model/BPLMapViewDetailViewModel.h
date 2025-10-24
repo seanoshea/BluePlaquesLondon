@@ -30,11 +30,23 @@
 
 @import CoreLocation;
 
+/**
+ * View model for the map detail view that manages plaque information and user location.
+ * Handles data for displaying detailed information about selected blue plaques.
+ */
 @interface BPLMapViewDetailViewModel : NSObject
 
+/// Current user location for distance calculations and navigation
 @property (nonatomic) CLLocation *currentLocation;
+/// Array of BPLPlacemark objects representing plaques at the selected location
 @property (nonatomic, copy) NSArray *markers;
 
+/**
+ * Designated initializer that creates a view model with plaque data and location.
+ * @param markers Array of BPLPlacemark objects to display
+ * @param currentLocation User's current location
+ * @return Initialized BPLMapViewDetailViewModel instance
+ */
 - (instancetype)initWithMarkers:(NSArray *)markers currentLocation:(CLLocation *)currentLocation NS_DESIGNATED_INITIALIZER;
 
 @end

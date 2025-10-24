@@ -32,8 +32,19 @@
 
 #import "BPLWikipediaViewModel.h"
 
+/**
+ * Utility class for parsing Wikipedia search API responses.
+ * Handles JSON parsing and URL construction for Wikipedia articles.
+ */
 @interface BPLWikipediaParser : NSObject
 
+/**
+ * Parses Wikipedia search API response data and constructs article URL.
+ * @param data JSON response data from Wikipedia search API
+ * @param error Network error from the API request, if any
+ * @param name The person's name that was searched for
+ * @param completionBlock Block to execute with the parsed URL request or error
+ */
 + (void)parseWikipediaData:(NSData *)data error:(NSError *)error name:(NSString *)name completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
 
 @end

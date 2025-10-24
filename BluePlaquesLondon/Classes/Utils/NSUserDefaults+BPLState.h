@@ -30,18 +30,42 @@
 
 #import <CoreLocation/CoreLocation.h>
 
+/**
+ * Category that adds app state persistence methods to NSUserDefaults.
+ * Manages storage and retrieval of user preferences and app state data.
+ */
 @interface NSUserDefaults (BPLState)
 
+/// Last known blue plaque coordinate that user viewed
 @property (NS_NONATOMIC_IOSONLY, readonly) CLLocationCoordinate2D lastKnownBPLCoordinate;
+/**
+ * Saves the last known blue plaque coordinate.
+ * @param coordinate The coordinate to save
+ */
 - (void)saveLastKnownBPLCoordinate:(CLLocationCoordinate2D)coordinate;
 
+/// Last known user location coordinate
 @property (NS_NONATOMIC_IOSONLY, readonly) CLLocationCoordinate2D lastKnownCoordinate;
+/**
+ * Saves the user's last known location coordinate.
+ * @param coordinate The coordinate to save
+ */
 - (void)saveLastKnownCoordinate:(CLLocationCoordinate2D)coordinate;
 
+/// Current map zoom level
 @property (NS_NONATOMIC_IOSONLY, readonly) float mapZoom;
+/**
+ * Saves the current map zoom level.
+ * @param zoom The zoom level to save
+ */
 - (void)saveMapZoom:(float)zoom;
 
+/// Whether analytics tracking is enabled
 @property (NS_NONATOMIC_IOSONLY, getter=isTrackingEnabled, readonly) BOOL trackingEnabled;
+/**
+ * Saves the tracking enabled preference.
+ * @param trackingEnabled YES to enable tracking, NO to disable
+ */
 - (void)saveTrackingEnabled:(BOOL)trackingEnabled;
 
 @end

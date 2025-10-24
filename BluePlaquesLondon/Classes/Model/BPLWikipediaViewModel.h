@@ -28,11 +28,31 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * Completion block type for Wikipedia URL resolution.
+ * @param urlRequest The resolved URL request for the Wikipedia article, or nil if failed
+ * @param error Error object if the resolution failed, or nil if successful
+ */
 typedef void(^BPLWikipediaViewURLResolutionCompletionBlock)(NSURLRequest *urlRequest, NSError *error);
 
+/**
+ * View model that handles Wikipedia article search and URL resolution.
+ * Searches for Wikipedia articles based on person names and provides URL requests for web view loading.
+ */
 @interface BPLWikipediaViewModel : NSObject
 
+/**
+ * Designated initializer that creates a view model for the specified person.
+ * @param name The name of the person to search for on Wikipedia
+ * @return Initialized BPLWikipediaViewModel instance
+ */
 - (instancetype)initWithName:(NSString *)name NS_DESIGNATED_INITIALIZER;
+
+/**
+ * Searches Wikipedia for articles related to the person and returns a URL request.
+ * @param completionBlock Block to execute when the search completes
+ * @return NSURLSessionDataTask for the Wikipedia search request
+ */
 - (NSURLSessionDataTask *)retrieveWikipediaUrlWithCompletionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock;
 
 @end

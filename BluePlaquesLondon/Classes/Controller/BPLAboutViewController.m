@@ -66,6 +66,11 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 #pragma mark Lifecycle
 
+/**
+ * Initializes the view controller from a storyboard.
+ * @param aDecoder The decoder used to initialize from storyboard
+ * @return Initialized view controller instance
+ */
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
   self = [super initWithCoder:aDecoder];
@@ -75,6 +80,9 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
   return self;
 }
 
+/**
+ * Configures the view with about information and styling.
+ */
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -113,6 +121,10 @@ static NSString *const BPLDataURLString = @"http://www.reeddesign.co.uk";
 
 
 
+/**
+ * Dismisses the about view controller.
+ * @param sender The object that triggered the close action
+ */
 - (void)close:(id)sender {
   [self dismissViewControllerAnimated:YES completion:nil];
 }

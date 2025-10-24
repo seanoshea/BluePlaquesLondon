@@ -28,10 +28,28 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * Configuration utility class that provides app-wide settings and feature flags.
+ * Manages tracking, crash reporting, and debug mode settings based on build configuration.
+ */
 @interface BPLConfiguration : NSObject
 
+/**
+ * Returns whether user analytics tracking is enabled.
+ * @return YES if tracking is enabled, NO otherwise
+ */
 + (BOOL)isTrackingEnabled;
+
+/**
+ * Returns whether crash reporting is enabled for this build.
+ * @return YES if crash reporting is enabled, NO otherwise
+ */
 + (BOOL)isCrashReportingEnabled;
+
+/**
+ * Returns whether the app is running in debug mode.
+ * @return YES if debug mode is active, NO otherwise
+ */
 + (BOOL)isDebug;
 
 @end

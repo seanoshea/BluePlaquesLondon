@@ -36,21 +36,69 @@
 #import <zlib.h>
 #import "KML.h"
 
+/**
+ * View model that manages blue plaque data, map markers, and search functionality.
+ * Handles KML file parsing, marker creation, and provides data access methods.
+ */
 @interface BPLMapViewModel : NSObject
 
+/// Processed array of unique plaque locations
 @property (nonatomic) NSMutableArray *massagedData;
+/// Alphabetically sorted array of all placemarks
 @property (nonatomic, copy) NSArray *alphabeticallySortedPositions;
+/// Filtered array based on search criteria
 @property (nonatomic, copy) NSArray *filteredData;
+/// Callback block executed when KML file parsing completes
 @property (nonatomic, copy) dispatch_block_t kmlFileParsedCallback;
+/// Total number of placemarks available for display
 @property (NS_NONATOMIC_IOSONLY, readonly) NSInteger numberOfPlacemarks;
 
+/**
+ * Designated initializer that creates a view model with a completion callback.
+ * @param kmlFileParsedCallback Block to execute when KML parsing completes
+ * @return Initialized BPLMapViewModel instance
+ */
 - (instancetype)initWithKMLFileParsedCallback:(dispatch_block_t)kmlFileParsedCallback NS_DESIGNATED_INITIALIZER;
 
+/**
+ * Creates and adds map markers to the provided Google Maps view.
+ * @param mapView The Google Maps view to add markers to
+ */
 - (void)createMarkersForMap:(GMSMapView *)mapView;
+
+/**
+ * Returns the placemark at the specified index path in the filtered or sorted data.
+ * @param indexPath The index path of the desired placemark
+ * @return BPLPlacemark object at the specified index path
+ */
 - (BPLPlacemark *)placemarkForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ * Finds the closest placemark to the given coordinate.
+ * @param coordinate The coordinate to search from
+ * @return The closest BPLPlacemark object
+ */
 - (BPLPlacemark *)closestPlacemarkToCoordinate:(CLLocationCoordinate2D)coordinate;
+
+/**
+ * Returns the first placemark found at the exact coordinate.
+ * @param coordinate The coordinate to search for
+ * @return BPLPlacemark object at the coordinate, or nil if none found
+ */
 - (BPLPlacemark *)firstPlacemarkAtCoordinate:(CLLocationCoordinate2D)coordinate;
+
+/**
+ * Returns the Google Maps marker associated with the given placemark.
+ * @param placemark The placemark to find the marker for
+ * @return GMSMarker object associated with the placemark
+ */
 - (GMSMarker *)markerAtPlacemark:(BPLPlacemark *)placemark;
+
+/**
+ * Returns all placemarks associated with the given location key.
+ * @param key The location key to search for
+ * @return Array of BPLPlacemark objects at the location
+ */
 - (NSArray *)placemarksForKey:(NSString *)key;
 
 @end

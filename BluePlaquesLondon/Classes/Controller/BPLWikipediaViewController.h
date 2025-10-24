@@ -30,8 +30,13 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * View controller that displays Wikipedia articles related to blue plaque subjects.
+ * Loads and presents relevant Wikipedia content in a web view interface.
+ */
 @interface BPLWikipediaViewController : UIViewController
 
+/// Array of BPLPlacemark objects containing information about the subjects to research
 @property (nonatomic, copy) NSArray *markers;
 
 @end

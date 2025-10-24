@@ -34,8 +34,14 @@
 
 extern NSString *BPLDetailChooserViewControllerStoryboardIdentifier;
 
+/**
+ * Collection view controller that displays a list of blue plaque markers
+ * when multiple plaques are located at the same coordinate. Allows users
+ * to choose which specific plaque they want to view details for.
+ */
 @interface BPLDetailChooserViewController : UICollectionViewController
 
+/// Array of BPLPlacemark objects to display in the collection view
 @property (nonatomic, copy) NSArray *markers;
 
 @end

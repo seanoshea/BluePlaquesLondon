@@ -51,7 +51,7 @@ static const struct BPLWikipediaParserStrings BPLWikipediaParserStrings = {
 + (void)parseWikipediaData:(NSData *)data error:(NSError *)error name:(NSString *)name completionBlock:(BPLWikipediaViewURLResolutionCompletionBlock)completionBlock
 {
   NSParameterAssert(completionBlock != nil);
-  if (!error) {
+  if (!error && data) {
     NSError *jsonParsingError = nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonParsingError];
     if (!jsonParsingError) {
