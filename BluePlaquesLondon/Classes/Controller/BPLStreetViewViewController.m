@@ -75,17 +75,19 @@
 {
   if (!self.firstPanoramaId) {
     self.firstPanoramaId = panorama.panoramaID;
-  }
-  if (!self.firstPanoramaId) {
-    NSString *title = NSLocalizedString(@"Oooops", nil);
-    NSString *message = NSLocalizedString(@"Could not load Street View", nil);
-    UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:action];
-    [self presentViewController:alertController animated:YES completion:nil];
-    [self trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:self.placemark.placemarkName];
+    
+    // Check if panorama failed to load
+    if (!panorama || !panorama.panoramaID) {
+      NSString *title = NSLocalizedString(@"Oooops", nil);
+      NSString *message = NSLocalizedString(@"Could not load Street View", nil);
+      UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
+      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                               message:message
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+      [alertController addAction:action];
+      [self presentViewController:alertController animated:YES completion:nil];
+      [self trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:self.placemark.placemarkName];
+    }
   }
 }
 
