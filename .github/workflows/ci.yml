@@ -23,17 +23,12 @@ jobs:
       run: |
         bundle install
         pod install
-        brew install oclint
     
     - name: Run security audit
       run: |
         bundle exec bundle-audit check --update
     
-    - name: Run OCLint
-      run: |
-        xcodebuild clean build -workspace BluePlaquesLondon.xcworkspace -scheme BluePlaquesLondon -configuration Debug | xcpretty -r json-compilation-database -o compile_commands.json
-        oclint-json-compilation-database -v -- -report-type html -o oclint_report.html
-      continue-on-error: true
+
     
     - name: Run tests
       env:
@@ -61,4 +56,3 @@ jobs:
         name: test-results-and-reports
         path: |
           test_output/
-          oclint_report.html

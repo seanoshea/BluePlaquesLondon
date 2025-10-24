@@ -12,8 +12,7 @@ lane :test do
   setup
   scan(
     scheme: "BluePlaquesLondon",
-    device: "iPhone 16 Pro",
-    code_coverage: true
+    device: "iPhone 16 Pro"
   )
 end
 
@@ -52,32 +51,17 @@ end
 
 lane :quality do
   security_audit
-  oclint_analysis
-  coverage_check
 end
 
 private_lane :security_audit do
   sh "bundle exec bundle-audit check --update"
+  sh "pod audit"
   UI.success("Security audit completed")
 end
 
-private_lane :oclint_analysis do
-  sh "xcodebuild clean build -workspace BluePlaquesLondon.xcworkspace -scheme BluePlaquesLondon -configuration Debug | xcpretty -r json-compilation-database -o compile_commands.json"
-  sh "oclint-json-compilation-database -v -- -report-type html -o oclint_report.html"
-  UI.success("OCLint analysis completed")
-end
 
-private_lane :coverage_check do
-  xcov(
-    scheme: "BluePlaquesLondon",
-    minimum_coverage_percentage: 0.0,  # Set to 0 to not fail, just report
-    include_test_targets: false,
-    output_directory: "test_output/coverage",
-    html_report: true
-  )
-  UI.important("📊 Coverage report generated at test_output/coverage/index.html")
-  UI.important("🎯 Target coverage: 70% (currently much lower - write more tests!)")
-end
+
+
 
 lane :build do
   gym(
