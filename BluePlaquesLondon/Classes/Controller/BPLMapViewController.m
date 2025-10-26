@@ -145,7 +145,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   // Add Auto Layout constraints for map view
   // Map extends behind the transparent navigation bar
   [NSLayoutConstraint activateConstraints:@[
-    [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+    [self.mapView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
     [self.mapView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
     [self.mapView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
     [self.mapView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
@@ -169,7 +169,7 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   self.searchController.hidesNavigationBarDuringPresentation = NO;
   self.navigationItem.searchController = self.searchController;
   self.navigationItem.hidesSearchBarWhenScrolling = NO;
-  self.definesPresentationContext = YES;
+  self.definesPresentationContext = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
