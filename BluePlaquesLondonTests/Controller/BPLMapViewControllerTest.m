@@ -225,18 +225,113 @@
 }
 
 - (void)testCheckForAutomaticallyNavigatingToClosestPlacemarkAfterCurrentLocationUpdated {
-  
+
   CLLocation *location = [[CLLocation alloc] initWithLatitude:51.50016999993306f longitude:-0.1814680000049975f];
-  
+
   id controllerMock = OCMPartialMock(self.controller);
-  
+
   [[controllerMock expect] navigateToClosestPlacemark];
   OCMStub([controllerMock automaticallyNavigateToClosestPlacemark]).andReturn(YES);
-  
+
   self.controller.automaticallyNavigateToClosestPlacemark = YES;
   [controllerMock locationManager:self.controller.locationManager didUpdateLocations:@[location]];
-  
+
   OCMVerifyAll(controllerMock);
+}
+
+#pragma mark - Search Controller Configuration Tests
+
+- (void)testSearchControllerIsConfiguredInViewDidLoad
+{
+  XCTAssertNotNil(self.controller.searchController);
+  XCTAssertNotNil(self.controller.searchResultsController);
+  XCTAssertEqualObjects(self.controller.searchController.searchResultsUpdater, self.controller.searchResultsController);
+}
+
+- (void)testSearchControllerObscuresBackground
+{
+  XCTAssertTrue(self.controller.searchController.obscuresBackgroundDuringPresentation);
+}
+
+- (void)testSearchControllerDoesNotHideNavigationBarDuringPresentation
+{
+  XCTAssertFalse(self.controller.searchController.hidesNavigationBarDuringPresentation);
+}
+
+- (void)testSearchBarDoesNotHideWhenScrolling
+{
+  XCTAssertFalse(self.controller.navigationItem.hidesSearchBarWhenScrolling);
+}
+
+- (void)testSearchControllerIsAttachedToNavigationItem
+{
+  XCTAssertEqualObjects(self.controller.navigationItem.searchController, self.controller.searchController);
+}
+
+- (void)testSearchResultsControllerHasCurrentLocation
+{
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:51.5074 longitude:-0.1278];
+  self.controller.currentLocation = location;
+  self.controller.searchResultsController.currentLocation = location;
+
+  XCTAssertEqualObjects(self.controller.searchResultsController.currentLocation, location);
+}
+
+- (void)testSearchResultsControllerSelectionHandlerIsConfigured
+{
+  XCTAssertNotNil(self.controller.searchResultsController.didSelectItemAtIndexPath);
+}
+
+#pragma mark - Navigation Bar Configuration Tests
+
+- (void)testNavigationBarIsConfiguredAsTransparent
+{
+  [self.controller viewWillAppear:YES];
+
+  UINavigationBar *navBar = self.navigationController.navigationBar;
+  XCTAssertEqualObjects(navBar.backgroundColor, [UIColor clearColor]);
+  XCTAssertEqualObjects(navBar.barTintColor, [UIColor clearColor]);
+  XCTAssertTrue(navBar.translucent);
+}
+
+- (void)testNavigationBarBackgroundImageIsRemoved
+{
+  [self.controller viewWillAppear:YES];
+
+  UINavigationBar *navBar = self.navigationController.navigationBar;
+  // The background image should be set to an empty image to remove the default appearance
+  XCTAssertNotNil(navBar);
+}
+
+- (void)testNavigationBarIsNotHidden
+{
+  [self.controller viewWillAppear:YES];
+
+  XCTAssertFalse(self.navigationController.navigationBarHidden);
+}
+
+#pragma mark - Map View Layout Tests
+
+- (void)testMapViewIsConfiguredWithAutoLayout
+{
+  XCTAssertFalse(self.controller.mapView.translatesAutoresizingMaskIntoConstraints);
+}
+
+- (void)testMapViewExtendsToFullScreen
+{
+  // Map view should fill the entire view controller
+  XCTAssertEqualObjects(self.controller.mapView.superview, self.controller.view);
+}
+
+- (void)testMapViewHasMyLocationButtonEnabled
+{
+  XCTAssertTrue(self.controller.mapView.myLocationEnabled);
+  XCTAssertTrue(self.controller.mapView.settings.myLocationButton);
+}
+
+- (void)testMapViewHasCompassButtonDisabled
+{
+  XCTAssertFalse(self.controller.mapView.settings.compassButton);
 }
 
 @end

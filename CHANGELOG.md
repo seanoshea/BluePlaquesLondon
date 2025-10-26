@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI/CD pipeline for automated testing and deployment
 - Code coverage reporting and configuration
 - Pre-push hooks to run tests before pushing changes
+- New UISearchController-based search functionality with dedicated search results controller
+- BPLSearchResultsController for improved search result display and interaction
+- BPLSearchResultCell for enhanced search result presentation
+- Comprehensive unit test coverage for search functionality and view controllers
+- Dependabot configuration for automated dependency updates
+- Python script for KML data updates (update_kml.py)
+- 2023 blue plaques data (2023.json)
 
 ### Changed
 - **BREAKING**: Minimum iOS version updated to 18.0
@@ -22,12 +29,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Migrated from CircleCI to GitHub Actions for CI/CD
 - Updated all CocoaPods dependencies to latest versions
 - Modernized Fastlane configuration for iOS 18.0 compatibility
+- Modernized search implementation from legacy search to UISearchController
+- Enhanced search result presentation with collection view-based interface
+- Improved test coverage with comprehensive unit tests for controllers and models
+- Updated blue plaques data with latest KML information
 
 ### Removed
 - Material Components dependencies (replaced with native iOS components)
 - Google Analytics SDK
 - CircleCI configuration
 - Deprecated NSLocationAlwaysUsageDescription permission
+- About view controller and related components (BPLAboutViewController)
+- Legacy codecov configuration
+- GitHub contributing guidelines (moved to development docs)
 
 ### Fixed
 - Compatibility issues with iOS 18.0
