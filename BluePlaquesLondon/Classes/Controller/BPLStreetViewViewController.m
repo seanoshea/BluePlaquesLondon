@@ -115,6 +115,11 @@
 
 - (void)panoramaView:(GMSPanoramaView *)view didMoveToPanorama:(GMSPanorama *)panorama
 {
+  if (!panorama.panoramaID) {
+    [self showStreetViewErrorAlert];
+    return;
+  }
+  
   if (!self.firstPanoramaId) {
     self.firstPanoramaId = panorama.panoramaID;
   }
