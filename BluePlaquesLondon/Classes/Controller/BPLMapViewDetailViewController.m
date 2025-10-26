@@ -30,7 +30,6 @@
 
 #import "BPLMapViewDetailViewController.h"
 
-// IntentKit removed as per modernization plan
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "BPLConstants.h"
@@ -45,8 +44,6 @@
 #import "BPLButton.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLPlacemark+Additions.h"
-
-// IntentKit removed as per modernization plan
 
 NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetailViewController";
 
@@ -164,7 +161,6 @@ NSString *BPLMapViewDetailViewControllerStoryboardIdentifier = @"BPLMapViewDetai
 
 - (IBAction)directionsButtonTapped:(id)sender
 {
-  // IntentKit removed - using native Maps app integration
   BPLPlacemark *placemark = self.model.markers[0];
   NSString *urlString = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%.12f,%.12f&dirflg=w", placemark.coordinate.latitude, placemark.coordinate.longitude];
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:nil];

@@ -1,7 +1,7 @@
 /*
  Copyright (c) 2014 - present Upwards Northwards Software Limited
  All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
  1. Redistributions of source code must retain the above copyright
@@ -15,7 +15,7 @@
  4. Neither the name of Upwards Northwards Software Limited nor the
  names of its contributors may be used to endorse or promote products
  derived from this software without specific prior written permission.
- 
+
  THIS SOFTWARE IS PROVIDED BY UPWARDS NORTHWARDS SOFTWARE LIMITED ''AS IS'' AND ANY
  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -28,13 +28,25 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * View model for the About screen that provides license and attribution information.
- * Contains data about the app's dependencies and third-party components.
- */
-@interface BPLAboutViewModel : NSObject
+#import <UIKit/UIKit.h>
 
-/// Google Maps open source license information text
-@property (nonatomic, copy) NSString *mapsOpenSourceLicenseInfo;
+/**
+ * Custom collection view cell for displaying search results.
+ * Properly manages UI elements to support cell reuse without memory leaks.
+ */
+@interface BPLSearchResultCell : UICollectionViewCell
+
+/// Title label displayed in the cell
+@property (nonatomic, readonly) UILabel *titleLabel;
+/// Subtitle label displayed below the title
+@property (nonatomic, readonly) UILabel *subtitleLabel;
+
+/**
+ * Configures the cell with a title and optional subtitle.
+ * @param title The title text to display
+ * @param subtitle The subtitle text to display
+ * @param showSubtitle Whether the subtitle should be visible
+ */
+- (void)configureCellWithTitle:(NSString *)title subtitle:(NSString *)subtitle showSubtitle:(BOOL)showSubtitle;
 
 @end

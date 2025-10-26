@@ -42,20 +42,17 @@
 #import "NSObject+BPLTracking.h"
 #import "MKDistanceFormatter+BPLAdditions.h"
 #import "BPLPlacemark+Additions.h"
-// GAITrackedViewController removed as per modernization plan
-#import "BPLSearchViewController.h"
-// Material Components removed as per modernization plan
+#import "BPLSearchResultsController.h"
 #import "BPLInfoWindow.h"
 #import "BPLPlacemark+Additions.h"
 
 NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
-@interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, BPLSearchViewControllerDelegate>
+@interface BPLMapViewController() <GMSMapViewDelegate, CLLocationManagerDelegate>
 
-@property (nonatomic, weak) IBOutlet UIView *containerView;
-@property (nonatomic, weak) BPLSearchViewController *searchViewController;
+@property (nonatomic) UISearchController *searchController;
+@property (nonatomic) BPLSearchResultsController *searchResultsController;
 
-@property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic) UIView *headerView;
 @property (nonatomic) UIButton *aboutButton;
 
@@ -73,6 +70,23 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 #pragma mark Lifecycle
 
+- (void)dealloc
+{
+  // Clean up location manager
+  [self.locationManager stopUpdatingLocation];
+  self.locationManager.delegate = nil;
+  self.locationManager = nil;
+
+  // Clean up references
+  self.model = nil;
+  self.searchController = nil;
+  self.searchResultsController = nil;
+  self.currentLocation = nil;
+  self.mapView = nil;
+  self.headerView = nil;
+  self.aboutButton = nil;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
   self = [super initWithCoder:aDecoder];
@@ -84,14 +98,18 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)commonInit
 {
+  // Use weak reference to self in block to avoid retain cycle
+  __weak typeof(self) weakSelf = self;
   self.model = [[BPLMapViewModel alloc] initWithKMLFileParsedCallback:^{
-    dispatch_async(dispatch_get_main_queue(), ^{
-      [self.model createMarkersForMap:self.mapView];
-      self.searchViewController.model = self.model;
-      self.searchBar.userInteractionEnabled = YES;
-      [self reloadData];
-      [self checkForAutomaticallyNavigatingToClosestPlacemark];
-    });
+    __strong typeof(weakSelf) strongSelf = weakSelf;
+    if (strongSelf) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [strongSelf.model createMarkersForMap:strongSelf.mapView];
+        strongSelf.searchResultsController.model = strongSelf.model;
+        [strongSelf.searchResultsController.collectionView reloadData];
+        [strongSelf checkForAutomaticallyNavigatingToClosestPlacemark];
+      });
+    }
   }];
   self.locationManager = [[CLLocationManager alloc] init];
   [self.locationManager requestAlwaysAuthorization];
@@ -127,10 +145,23 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   [self.view addSubview:self.mapView];
   
   [self.mapView animateToLocation:lastKnownCoordinate];
-  
+
+  // Setup UISearchController with results controller
+  self.searchResultsController = [[BPLSearchResultsController alloc] init];
+  self.searchResultsController.model = self.model;
+  self.searchResultsController.currentLocation = self.currentLocation;
+
+  __weak typeof(self) weakSelf = self;
+  self.searchResultsController.didSelectItemAtIndexPath = ^(NSIndexPath *indexPath) {
+    [weakSelf handleSearchResultSelection:indexPath];
+  };
+
+  self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultsController];
+  self.searchController.searchResultsUpdater = self.searchResultsController;
+  self.navigationItem.searchController = self.searchController;
+  self.definesPresentationContext = YES;
+
   [self setupHeaderView];
-  [self setupSearchBar];
-  
   [self styleHeaderView];
   [self setupInfoButton];
 }
@@ -141,6 +172,20 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   self.navigationController.navigationBarHidden = YES;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+  [super viewWillDisappear:animated];
+  // Stop location updates when view disappears to prevent battery drain and unnecessary processing
+  [self.locationManager stopUpdatingLocation];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+  [super viewDidDisappear:animated];
+  // Ensure location manager is stopped when view is fully dismissed
+  self.locationManager.delegate = nil;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   if ([segue.identifier isEqualToString:BPLMapDetailViewControllerSegue]) {
@@ -149,9 +194,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
     NSArray *markers = [self.model placemarksForKey:placemark.key];
     BPLMapViewDetailViewModel *model = [[BPLMapViewDetailViewModel alloc] initWithMarkers:markers currentLocation:self.currentLocation];
     destinationViewController.model = model;
-  } else if ([segue.identifier isEqualToString:BPLSearchViewControllerSegue]) {
-    self.searchViewController = segue.destinationViewController;
-    self.searchViewController.delegate = self;
   }
 }
 
@@ -173,9 +215,10 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   }
 }
 
-#pragma mark BPLSearchViewControllerDelegate
+#pragma mark - Search Result Selection
 
-- (void)searchViewController:(BPLSearchViewController *)searchViewController didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)handleSearchResultSelection:(NSIndexPath *)indexPath
+{
   if (indexPath.row == 0) {
     [self navigateToClosestPlacemark];
   } else {
@@ -185,80 +228,15 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   }
 }
 
-#pragma mark - Search
-
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-  return YES;
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-  [self filterDataForSearchText:self.searchBar.text];
-  [searchBar resignFirstResponder];
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-  [self toggleSearchViewController:YES];
-}
-
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
-{
-  return YES;
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-  [self filterDataForSearchText:searchBar.text];
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-  [self filterDataForSearchText:searchText];
-}
-
-- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-  return YES;
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-  [searchBar resignFirstResponder];
-  [self toggleSearchViewController:NO];
-}
-
-- (void)filterDataForSearchText:(NSString *)searchText
-{
-  self.model.filteredData = [self.model.alphabeticallySortedPositions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.placemarkTitle contains[c] %@", searchText]];
-  [self reloadData];
-}
-
 - (void)navigateToPlacemark:(BPLPlacemark *)placemark
 {
-  [self.searchBar resignFirstResponder];
-  [self toggleSearchViewController:NO];
+  // Dismiss search controller
+  self.searchController.active = NO;
+
   [self.mapView animateToLocation:placemark.coordinate];
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     self.mapView.selectedMarker = [self.model markerAtPlacemark:placemark];
   });
-}
-
-- (void)toggleSearchViewController:(BOOL)show
-{
-  if (show) {
-    [self.view bringSubviewToFront:self.containerView];
-  } else {
-    [self.view sendSubviewToBack:self.containerView];
-  }
-  self.aboutButton.hidden = show;
-  self.searchBar.showsCancelButton = show;
-  self.containerView.hidden = !show;
-}
-
-- (void)reloadData {
-  [self.searchViewController.collectionView reloadData];
 }
 
 #pragma mark CLLocationManagerDelegate
@@ -276,7 +254,8 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-  [self toggleSearchViewController:NO];
+  // Dismiss search controller when user taps on map
+  self.searchController.active = NO;
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
@@ -312,8 +291,9 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
 - (void)setCurrentLocation:(CLLocation *)currentLocation {
   _currentLocation = currentLocation;
-  if (self.searchViewController) {
-    self.searchViewController.currentLocation = currentLocation;
+  if (self.searchResultsController) {
+    self.searchResultsController.currentLocation = currentLocation;
+    [self.searchResultsController.collectionView reloadData];
   }
 }
 
@@ -323,17 +303,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   CGFloat width = self.view.frame.size.width > 0 ? self.view.frame.size.width : 320.0f;
   _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 76.0f)];
   _headerView.backgroundColor = [UIColor whiteColor];
-}
-
-- (void)setupSearchBar {
-  CGFloat searchBarWidth = self.view.frame.size.width - 50; // Leave space for info button
-  self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(8, 25, searchBarWidth, 44)];
-  self.searchBar.placeholder = NSLocalizedString(@"Search", @"");
-  self.searchBar.userInteractionEnabled = NO;
-  self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
-  self.searchBar.delegate = self;
-  [self.headerView addSubview:self.searchBar];
-  [self toggleSearchViewController:NO];
 }
 
 - (void)styleHeaderView {

@@ -1,7 +1,7 @@
 /*
  Copyright (c) 2014 - present Upwards Northwards Software Limited
  All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
  1. Redistributions of source code must retain the above copyright
@@ -15,7 +15,7 @@
  4. Neither the name of Upwards Northwards Software Limited nor the
  names of its contributors may be used to endorse or promote products
  derived from this software without specific prior written permission.
- 
+
  THIS SOFTWARE IS PROVIDED BY UPWARDS NORTHWARDS SOFTWARE LIMITED ''AS IS'' AND ANY
  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -29,16 +29,41 @@
  */
 
 #import <UIKit/UIKit.h>
-
-@class BPLAboutViewModel;
+#import "BPLMapViewModel.h"
 
 /**
- * View controller that displays information about the app, including developer,
- * designer, and data source credits. Provides links to external resources.
+ * Callback for search result selection.
+ * @param indexPath The index path of the selected search result
  */
-@interface BPLAboutViewController : UIViewController
+typedef void(^BPLSearchResultSelectionHandler)(NSIndexPath *indexPath);
 
-/// The view model containing about page data and license information
-@property (nonatomic) BPLAboutViewModel *model;
+/**
+ * View controller for displaying and managing search results in a collection view.
+ * Works with UISearchController to provide search result updates and selection handling.
+ * Conforms to UISearchResultsUpdating to handle search text changes.
+ */
+@interface BPLSearchResultsController : UIViewController <UISearchResultsUpdating, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+/// View model containing plaque data and search functionality
+@property (nonatomic) BPLMapViewModel *model;
+/// Current user location for distance calculations
+@property (nonatomic) CLLocation *currentLocation;
+/// Callback block invoked when a search result is selected
+@property (nonatomic, copy) BPLSearchResultSelectionHandler didSelectItemAtIndexPath;
+/// The underlying collection view for search results
+@property (nonatomic, readonly) UICollectionView *collectionView;
+
+/**
+ * Initializes the search results controller.
+ * @return Initialized instance
+ */
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+
+/**
+ * Updates search results based on the search controller's search text.
+ * Automatically called by UISearchResultsUpdating protocol.
+ * @param searchController The search controller providing the search text
+ */
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController;
 
 @end

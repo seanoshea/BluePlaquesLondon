@@ -30,8 +30,6 @@
 
 @import UIKit;
 
-// Material Components removed as per modernization plan
-
 extern NSString *BPLDetailChooserViewControllerStoryboardIdentifier;
 
 /**

@@ -24,14 +24,12 @@
 		14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D55D801A9E70200006D76F /* BPLMapViewModelTest.m */; };
 		14E147931A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E147921A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m */; };
 		14F003071A9D0D3100AEE2AC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003061A9D0D3100AEE2AC /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		14F0032C1A9D0DE700AEE2AC /* BPLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003211A9D0DE700AEE2AC /* BPLAboutViewController.m */; };
 		14F0032D1A9D0DE700AEE2AC /* BPLDetailChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003231A9D0DE700AEE2AC /* BPLDetailChooserViewController.m */; };
 		14F0032E1A9D0DE700AEE2AC /* BPLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003251A9D0DE700AEE2AC /* BPLMapViewController.m */; };
 		14F0032F1A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003271A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m */; };
 		14F003301A9D0DE700AEE2AC /* BPLStreetViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003291A9D0DE700AEE2AC /* BPLStreetViewViewController.m */; };
 		14F003311A9D0DE700AEE2AC /* BPLWikipediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0032B1A9D0DE700AEE2AC /* BPLWikipediaViewController.m */; };
 		14F003341A9D0DF700AEE2AC /* BPLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003331A9D0DF700AEE2AC /* BPLPlacemark.m */; };
-		14F0033D1A9D0E0600AEE2AC /* BPLAboutViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003361A9D0E0600AEE2AC /* BPLAboutViewModel.m */; };
 		14F0033E1A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003381A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m */; };
 		14F0033F1A9D0E0600AEE2AC /* BPLMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0033A1A9D0E0600AEE2AC /* BPLMapViewModel.m */; };
 		14F003401A9D0E0600AEE2AC /* BPLWikipediaViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0033C1A9D0E0600AEE2AC /* BPLWikipediaViewModel.m */; };
@@ -57,7 +55,6 @@
 		14F0038B1A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003881A9D1FFF00AEE2AC /* BPLMKDistanceFormatterAdditionsTest.m */; };
 		14F0038C1A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F003891A9D1FFF00AEE2AC /* BPLPlacemarkFeatureDescriptionTests.m */; };
 		14F0038D1A9D1FFF00AEE2AC /* BPLStateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0038A1A9D1FFF00AEE2AC /* BPLStateTest.m */; };
-		31000DF82EA70395007D819B /* BPLAboutViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000DF72EA70395007D819B /* BPLAboutViewControllerTest.m */; };
 		31000DFD2EA703AB007D819B /* NSObject+BPLTrackingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000DFB2EA703AB007D819B /* NSObject+BPLTrackingTest.m */; };
 		31000DFF2EA703AB007D819B /* BPLConstantsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000DF92EA703AB007D819B /* BPLConstantsTest.m */; };
 		31000E002EA703AB007D819B /* UIColor+BPLColorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31000DFC2EA703AB007D819B /* UIColor+BPLColorsTest.m */; };
@@ -66,6 +63,8 @@
 		31A3FEF12EA5BB99007715F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */; };
 		31D0C3C02EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */; };
 		31D0C3C12EA70EB8004D0E0F /* BPLConfigurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */; };
+		31F60D992EAC172100981A9E /* BPLSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F60D982EAC172100981A9E /* BPLSearchResultCell.m */; };
+		31F60D9A2EAC172100981A9E /* BPLSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F60D982EAC172100981A9E /* BPLSearchResultCell.m */; };
 		411FA5411D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5421D77BF7B00A2731C /* BPLInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */; };
 		411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */; };
@@ -77,6 +76,9 @@
 		41C7CFFE1CAA148100736645 /* wikipedia_malformed.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7CFFD1CAA148100736645 /* wikipedia_malformed.json */; };
 		41C7D0001CAA15BC00736645 /* wikipedia_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7CFFF1CAA15BC00736645 /* wikipedia_empty.json */; };
 		41C7D0021CAA185700736645 /* wikipedia_sargent.json in Resources */ = {isa = PBXBuildFile; fileRef = 41C7D0011CAA185700736645 /* wikipedia_sargent.json */; };
+		4F80D17756FD66D9B80B9487 /* BPLSearchResultsController.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AC576FE787DDC8806FD1C7 /* BPLSearchResultsController.h */; };
+		5E7E8988E3ABA85058309151 /* BPLSearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40537AC9AF2004FA8F6E3F20 /* BPLSearchResultsController.m */; };
+		687691AAA20CB448635DCC3E /* BPLSearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40537AC9AF2004FA8F6E3F20 /* BPLSearchResultsController.m */; };
 		C38C596F5EAFF3005BC397B6 /* libPods-BluePlaquesLondonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */; };
 		D96DF99C366F03725A3578B0 /* libPods-BluePlaquesLondon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7A1D1B01387564CBCDAF46 /* libPods-BluePlaquesLondon.a */; };
 /* End PBXBuildFile section */
@@ -116,8 +118,6 @@
 		14E147921A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewModelTest.m; sourceTree = "<group>"; };
 		14F003051A9D0D3100AEE2AC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		14F003061A9D0D3100AEE2AC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		14F003201A9D0DE700AEE2AC /* BPLAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAboutViewController.h; sourceTree = "<group>"; };
-		14F003211A9D0DE700AEE2AC /* BPLAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewController.m; sourceTree = "<group>"; };
 		14F003221A9D0DE700AEE2AC /* BPLDetailChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLDetailChooserViewController.h; sourceTree = "<group>"; };
 		14F003231A9D0DE700AEE2AC /* BPLDetailChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLDetailChooserViewController.m; sourceTree = "<group>"; };
 		14F003241A9D0DE700AEE2AC /* BPLMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewController.h; sourceTree = "<group>"; };
@@ -130,8 +130,6 @@
 		14F0032B1A9D0DE700AEE2AC /* BPLWikipediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLWikipediaViewController.m; sourceTree = "<group>"; };
 		14F003321A9D0DF700AEE2AC /* BPLPlacemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLPlacemark.h; sourceTree = "<group>"; };
 		14F003331A9D0DF700AEE2AC /* BPLPlacemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemark.m; sourceTree = "<group>"; };
-		14F003351A9D0E0600AEE2AC /* BPLAboutViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLAboutViewModel.h; sourceTree = "<group>"; };
-		14F003361A9D0E0600AEE2AC /* BPLAboutViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewModel.m; sourceTree = "<group>"; };
 		14F003371A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewDetailViewModel.h; sourceTree = "<group>"; };
 		14F003381A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLMapViewDetailViewModel.m; sourceTree = "<group>"; };
 		14F003391A9D0E0600AEE2AC /* BPLMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLMapViewModel.h; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 		14F003911A9D206800AEE2AC /* BluePlaquesLondonTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BluePlaquesLondonTests-Prefix.pch"; sourceTree = "<group>"; };
 		21E096AF55C82963C2FC6693 /* libPods-BluePlaquesLondonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2251E9CB2C4CEABE54BD2118 /* Pods-BluePlaquesLondon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.release.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.release.xcconfig"; sourceTree = "<group>"; };
-		31000DF72EA70395007D819B /* BPLAboutViewControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLAboutViewControllerTest.m; sourceTree = "<group>"; };
 		31000DF92EA703AB007D819B /* BPLConstantsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLConstantsTest.m; sourceTree = "<group>"; };
 		31000DFB2EA703AB007D819B /* NSObject+BPLTrackingTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BPLTrackingTest.m"; sourceTree = "<group>"; };
 		31000DFC2EA703AB007D819B /* UIColor+BPLColorsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BPLColorsTest.m"; sourceTree = "<group>"; };
@@ -184,6 +181,9 @@
 		31A3FEF02EA5BB99007715F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31D0C3BE2EA70EB8004D0E0F /* BPLConfigurationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLConfigurationTest.m; sourceTree = "<group>"; };
 		31D0C3BF2EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLPlacemarkAdditionsTest.m; sourceTree = "<group>"; };
+		31F60D972EAC172100981A9E /* BPLSearchResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPLSearchResultCell.h; sourceTree = "<group>"; };
+		31F60D982EAC172100981A9E /* BPLSearchResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPLSearchResultCell.m; sourceTree = "<group>"; };
+		40537AC9AF2004FA8F6E3F20 /* BPLSearchResultsController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BPLSearchResultsController.m; path = ../../../BluePlaquesLondon/Classes/Controller/BPLSearchResultsController.m; sourceTree = "<group>"; };
 		411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPLInfoWindow.xib; sourceTree = "<group>"; };
 		411FA5431D77BFFB00A2731C /* BPLInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLInfoWindow.h; sourceTree = "<group>"; };
 		411FA5441D77BFFB00A2731C /* BPLInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLInfoWindow.m; sourceTree = "<group>"; };
@@ -198,6 +198,7 @@
 		4BEAF99394F43524AB0CB2EF /* Pods-BluePlaquesLondonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondonTests.release.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondonTests/Pods-BluePlaquesLondonTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E7A1D1B01387564CBCDAF46 /* libPods-BluePlaquesLondon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluePlaquesLondon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D597F0ED4BB264D96D444B8 /* Pods-BluePlaquesLondon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluePlaquesLondon.debug.xcconfig"; path = "Target Support Files/Pods-BluePlaquesLondon/Pods-BluePlaquesLondon.debug.xcconfig"; sourceTree = "<group>"; };
+		D1AC576FE787DDC8806FD1C7 /* BPLSearchResultsController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BPLSearchResultsController.h; path = ../../../BluePlaquesLondon/Classes/Controller/BPLSearchResultsController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,7 +308,6 @@
 		14C9E8211A9FBEC900B446D1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				31000DF72EA70395007D819B /* BPLAboutViewControllerTest.m */,
 				142A90171ACDC41F00AB8EDC /* BluePlaquesLondonTests-Bridging-Header.h */,
 				14C9E8221A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m */,
 				14C9E8261A9FD56C00B446D1 /* BPLMapViewControllerTest.m */,
@@ -350,8 +350,6 @@
 		14F003091A9D0D9400AEE2AC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				14F003201A9D0DE700AEE2AC /* BPLAboutViewController.h */,
-				14F003211A9D0DE700AEE2AC /* BPLAboutViewController.m */,
 				14F003221A9D0DE700AEE2AC /* BPLDetailChooserViewController.h */,
 				14F003231A9D0DE700AEE2AC /* BPLDetailChooserViewController.m */,
 				14F003241A9D0DE700AEE2AC /* BPLMapViewController.h */,
@@ -364,6 +362,8 @@
 				14F003291A9D0DE700AEE2AC /* BPLStreetViewViewController.m */,
 				14F0032A1A9D0DE700AEE2AC /* BPLWikipediaViewController.h */,
 				14F0032B1A9D0DE700AEE2AC /* BPLWikipediaViewController.m */,
+				D1AC576FE787DDC8806FD1C7 /* BPLSearchResultsController.h */,
+				40537AC9AF2004FA8F6E3F20 /* BPLSearchResultsController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,8 +380,6 @@
 		14F0030B1A9D0DA500AEE2AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				14F003351A9D0E0600AEE2AC /* BPLAboutViewModel.h */,
-				14F003361A9D0E0600AEE2AC /* BPLAboutViewModel.m */,
 				14F003371A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.h */,
 				14F003381A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m */,
 				14F003391A9D0E0600AEE2AC /* BPLMapViewModel.h */,
@@ -429,6 +427,8 @@
 				411FA5401D77BF7B00A2731C /* BPLInfoWindow.xib */,
 				14F0035E1A9D0E2500AEE2AC /* BPLLabel.h */,
 				14F0035F1A9D0E2500AEE2AC /* BPLLabel.m */,
+				31F60D972EAC172100981A9E /* BPLSearchResultCell.h */,
+				31F60D982EAC172100981A9E /* BPLSearchResultCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -502,6 +502,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		3C7D58708B90F9EB508A02C4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F80D17756FD66D9B80B9487 /* BPLSearchResultsController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		146C5F901A9D09EB00E88761 /* BluePlaquesLondon */ = {
 			isa = PBXNativeTarget;
@@ -512,6 +523,7 @@
 				146C5F8E1A9D09EB00E88761 /* Frameworks */,
 				146C5F8F1A9D09EB00E88761 /* Resources */,
 				8ECADFED1532856D3DE22F4E /* [CP] Copy Pods Resources */,
+				3C7D58708B90F9EB508A02C4 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -719,14 +731,15 @@
 				146C5FBF1A9D0BD700E88761 /* BPLAppDelegate.m in Sources */,
 				14F0032E1A9D0DE700AEE2AC /* BPLMapViewController.m in Sources */,
 				4198EFA11D67E72800625A78 /* BPLSearchViewController.m in Sources */,
-				14F0033D1A9D0E0600AEE2AC /* BPLAboutViewModel.m in Sources */,
 				14F003531A9D0E1300AEE2AC /* BPLConfiguration.m in Sources */,
 				14F0033E1A9D0E0600AEE2AC /* BPLMapViewDetailViewModel.m in Sources */,
-				14F0032C1A9D0DE700AEE2AC /* BPLAboutViewController.m in Sources */,
 				14F0032F1A9D0DE700AEE2AC /* BPLMapViewDetailViewController.m in Sources */,
 				14F003561A9D0E1300AEE2AC /* KMLPlacemark+BPLAdditions.m in Sources */,
+				31F60D9A2EAC172100981A9E /* BPLSearchResultCell.m in Sources */,
 				411FA5451D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
 				14F003301A9D0DE700AEE2AC /* BPLStreetViewViewController.m in Sources */,
+				5E7E8988E3ABA85058309151 /* BPLSearchResultsController.m in Sources */,
+				687691AAA20CB448635DCC3E /* BPLSearchResultsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,7 +749,6 @@
 			files = (
 				31D0C3C02EA70EB8004D0E0F /* BPLPlacemarkAdditionsTest.m in Sources */,
 				31D0C3C12EA70EB8004D0E0F /* BPLConfigurationTest.m in Sources */,
-				31000DF82EA70395007D819B /* BPLAboutViewControllerTest.m in Sources */,
 				14C9E8231A9FBF0400B446D1 /* BPLDetailChooserViewControllerTest.m in Sources */,
 				14D55D811A9E70200006D76F /* BPLMapViewModelTest.m in Sources */,
 				411FA5461D77BFFB00A2731C /* BPLInfoWindow.m in Sources */,
@@ -761,6 +773,7 @@
 				14E147931A9E77A1007D7A4E /* BPLWikipediaViewModelTest.m in Sources */,
 				14C9E8251A9FCAB400B446D1 /* BPLMapViewDetailViewControllerTest.m in Sources */,
 				31000E022EA703C4007D819B /* BPLLabelTest.m in Sources */,
+				31F60D992EAC172100981A9E /* BPLSearchResultCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

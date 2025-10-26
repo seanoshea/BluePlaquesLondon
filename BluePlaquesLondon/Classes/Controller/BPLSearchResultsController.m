@@ -1,7 +1,7 @@
 /*
  Copyright (c) 2014 - present Upwards Northwards Software Limited
  All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
  1. Redistributions of source code must retain the above copyright
@@ -15,7 +15,7 @@
  4. Neither the name of Upwards Northwards Software Limited nor the
  names of its contributors may be used to endorse or promote products
  derived from this software without specific prior written permission.
- 
+
  THIS SOFTWARE IS PROVIDED BY UPWARDS NORTHWARDS SOFTWARE LIMITED ''AS IS'' AND ANY
  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -28,95 +28,98 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "BPLSearchViewController.h"
-
+#import "BPLSearchResultsController.h"
 #import "BPLPlacemark.h"
 #import "BPLPlacemark+Additions.h"
-#import "UIColor+BPLColors.h"
-#import "MKDistanceFormatter+BPLAdditions.h"
 #import "BPLSearchResultCell.h"
+#import "MKDistanceFormatter+BPLAdditions.h"
 
 static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
-@interface BPLSearchViewController () <UICollectionViewDelegateFlowLayout>
+@interface BPLSearchResultsController ()
+
+@property (nonatomic) UICollectionView *collectionView;
 
 @end
 
-@implementation BPLSearchViewController
+@implementation BPLSearchResultsController
+
+- (instancetype)init
+{
+  self = [super init];
+  if (self) {
+    [self setupCollectionView];
+  }
+  return self;
+}
+
+- (void)setupCollectionView
+{
+  // Create collection view with flow layout
+  UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+  layout.minimumLineSpacing = 2.0f;
+  layout.minimumInteritemSpacing = 0;
+  layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8);
+
+  _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+  _collectionView.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+  _collectionView.dataSource = self;
+  _collectionView.delegate = self;
+
+  [_collectionView registerClass:[BPLSearchResultCell class]
+      forCellWithReuseIdentifier:kReusableIdentifierItem];
+}
+
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  self.view = self.collectionView;
+}
 
 - (void)dealloc
 {
-  // Clean up references
-  self.delegate = nil;
+  self.didSelectItemAtIndexPath = nil;
   self.model = nil;
   self.currentLocation = nil;
+  self.collectionView.dataSource = nil;
+  self.collectionView.delegate = nil;
 }
 
-/**
- * Configures the collection view layout and appearance.
- */
-- (void)viewDidLoad {
-  [super viewDidLoad];
+#pragma mark - UISearchResultsUpdating
 
-  // Configure collection view layout
-  UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-  layout.minimumLineSpacing = 2.0f; // Small spacing between cards
-  layout.minimumInteritemSpacing = 0;
-  layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8); // Padding around collection
-  self.collectionView.collectionViewLayout = layout;
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+  // Filter the data based on search text
+  NSString *searchText = searchController.searchBar.text;
+  if (searchText.length > 0) {
+    self.model.filteredData = [self.model.alphabeticallySortedPositions
+        filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.placemarkTitle contains[c] %@", searchText]];
+  } else {
+    self.model.filteredData = nil;
+  }
 
-  [self.collectionView registerClass:[BPLSearchResultCell class]
-          forCellWithReuseIdentifier:kReusableIdentifierItem];
-
-  self.collectionView.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0]; // Light gray background
+  [self.collectionView reloadData];
 }
 
-#pragma mark - UICollectionViewDelegateFlowLayout
+#pragma mark - UICollectionViewDataSource
 
-/**
- * Returns the size for collection view cells based on content requirements.
- * @param collectionView The collection view requesting size information
- * @param collectionViewLayout The layout object
- * @param indexPath The index path of the cell
- * @return Size for the cell at the specified index path
- */
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  CGFloat height = self.currentLocation ? 70.0f : 50.0f; // Two-line vs one-line height
-  return CGSizeMake(collectionView.frame.size.width - 16, height); // Account for section insets
-}
-
-#pragma mark - <UICollectionViewDataSource>
-
-/**
- * Returns the number of sections in the collection view.
- * @param collectionView The collection view requesting this information
- * @return Always returns 1 section
- */
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
   return 1;
 }
 
-/**
- * Returns the number of items in the collection view section.
- * @param collectionView The collection view requesting this information
- * @param section The section index
- * @return Number of placemarks plus one for the "Find closest" cell
- */
 - (NSInteger)collectionView:(UICollectionView *)collectionView
-     numberOfItemsInSection:(NSInteger)section {
+     numberOfItemsInSection:(NSInteger)section
+{
   return self.model.numberOfPlacemarks + 1; // +1 for "Find closest" cell
 }
 
-/**
- * Configures and returns a collection view cell for the specified index path.
- * @param collectionView The collection view requesting the cell
- * @param indexPath The index path of the cell
- * @return A configured collection view cell
- */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-  BPLSearchResultCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReusableIdentifierItem
-                                            forIndexPath:indexPath];
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  BPLSearchResultCell *cell =
+      [collectionView dequeueReusableCellWithReuseIdentifier:kReusableIdentifierItem
+                                                forIndexPath:indexPath];
 
   NSString *title = @"";
   NSString *subtitle = @"";
@@ -146,20 +149,25 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
   return cell;
 }
 
+#pragma mark - UICollectionViewDelegateFlowLayout
 
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  CGFloat height = self.currentLocation ? 70.0f : 50.0f;
+  return CGSizeMake(collectionView.frame.size.width - 16, height);
+}
 
-/**
- * Handles user selection of a collection view item.
- * @param collectionView The collection view containing the selected item
- * @param indexPath The index path of the selected item
- */
+#pragma mark - UICollectionViewDelegate
+
 - (void)collectionView:(UICollectionView *)collectionView
-didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-  // Deselect the cell for visual feedback
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
   [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-  
-  if ([self.delegate respondsToSelector:@selector(searchViewController:didSelectItemAtIndexPath:)]) {
-    [self.delegate searchViewController:self didSelectItemAtIndexPath:indexPath];
+
+  if (self.didSelectItemAtIndexPath) {
+    self.didSelectItemAtIndexPath(indexPath);
   }
 }
 

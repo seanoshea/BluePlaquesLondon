@@ -68,7 +68,10 @@ static const struct BPLWikipediaViewModelStrings BPLWikipediaViewModelStrings = 
   NSString *encodedURLString = [[NSString stringWithFormat:BPLWikipediaViewModelStrings.searchUrlFormat, self.name] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
   NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:encodedURLString]
                                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                             [BPLWikipediaParser parseWikipediaData:data error:error name:self.name completionBlock:completionBlock];
+                                                             // Dispatch to main thread to ensure completion block is called on main thread
+                                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                               [BPLWikipediaParser parseWikipediaData:data error:error name:self.name completionBlock:completionBlock];
+                                                             });
                                                            }];
   return task;
 }
