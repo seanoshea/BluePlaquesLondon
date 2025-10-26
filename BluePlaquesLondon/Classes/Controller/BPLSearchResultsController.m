@@ -60,11 +60,16 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
   layout.minimumLineSpacing = 2.0f;
   layout.minimumInteritemSpacing = 0;
   layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8);
+  layout.scrollDirection = UICollectionViewScrollDirectionVertical;
 
   _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+  // Use autoresizing mask since collection view will be the root view
+  _collectionView.translatesAutoresizingMaskIntoConstraints = YES;
+  _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   _collectionView.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
   _collectionView.dataSource = self;
   _collectionView.delegate = self;
+  _collectionView.alwaysBounceVertical = YES;
 
   [_collectionView registerClass:[BPLSearchResultCell class]
       forCellWithReuseIdentifier:kReusableIdentifierItem];
@@ -156,7 +161,10 @@ static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
   CGFloat height = self.currentLocation ? 70.0f : 50.0f;
-  return CGSizeMake(collectionView.frame.size.width - 16, height);
+  // Account for section insets and padding
+  UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)collectionViewLayout;
+  CGFloat availableWidth = collectionView.frame.size.width - layout.sectionInset.left - layout.sectionInset.right;
+  return CGSizeMake(availableWidth, height);
 }
 
 #pragma mark - UICollectionViewDelegate

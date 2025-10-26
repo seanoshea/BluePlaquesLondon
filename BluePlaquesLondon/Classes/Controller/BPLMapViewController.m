@@ -53,8 +53,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 @property (nonatomic) UISearchController *searchController;
 @property (nonatomic) BPLSearchResultsController *searchResultsController;
 
-@property (nonatomic) UIView *headerView;
-@property (nonatomic) UIButton *aboutButton;
 
 @property (nonatomic) GMSMapView *mapView;
 
@@ -83,8 +81,6 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   self.searchResultsController = nil;
   self.currentLocation = nil;
   self.mapView = nil;
-  self.headerView = nil;
-  self.aboutButton = nil;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -124,17 +120,19 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 {
   [super viewDidLoad];
   // screenName removed with Google Analytics
-  
+
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   CLLocationCoordinate2D lastKnownCoordinate = defaults.lastKnownBPLCoordinate;
   float mapZoom = defaults.mapZoom;
-  
+
   GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lastKnownCoordinate.latitude
                                                           longitude:lastKnownCoordinate.longitude
                                                                zoom:mapZoom];
-  
-  self.mapView = [[GMSMapView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
+
+  // Initialize map view with frame - will be constrained in viewDidLayoutSubviews
+  self.mapView = [[GMSMapView alloc] initWithFrame:self.view.bounds];
   self.mapView.camera = camera;
+  self.mapView.translatesAutoresizingMaskIntoConstraints = NO;
   UIEdgeInsets mapInsets = UIEdgeInsetsMake(0.0f, 5.0f, 5.0f, 0.0f);
   self.mapView.padding = mapInsets;
   self.mapView.delegate = self;
@@ -143,7 +141,16 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   self.mapView.settings.myLocationButton = YES;
   self.mapView.settings.compassButton = NO;
   [self.view addSubview:self.mapView];
-  
+
+  // Add Auto Layout constraints for map view
+  // Map extends behind the transparent navigation bar
+  [NSLayoutConstraint activateConstraints:@[
+    [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+    [self.mapView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+    [self.mapView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+    [self.mapView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+  ]];
+
   [self.mapView animateToLocation:lastKnownCoordinate];
 
   // Setup UISearchController with results controller
@@ -158,18 +165,28 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
 
   self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultsController];
   self.searchController.searchResultsUpdater = self.searchResultsController;
+  self.searchController.obscuresBackgroundDuringPresentation = YES;
+  self.searchController.hidesNavigationBarDuringPresentation = NO;
   self.navigationItem.searchController = self.searchController;
+  self.navigationItem.hidesSearchBarWhenScrolling = NO;
   self.definesPresentationContext = YES;
-
-  [self setupHeaderView];
-  [self styleHeaderView];
-  [self setupInfoButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
-  self.navigationController.navigationBarHidden = YES;
+  // Show navigation bar to allow search controller to function properly
+  self.navigationController.navigationBarHidden = NO;
+
+  // Configure navigation bar for transparent appearance
+  UINavigationBar *navBar = self.navigationController.navigationBar;
+  navBar.backgroundColor = [UIColor clearColor];
+  navBar.barTintColor = [UIColor clearColor];
+  navBar.translucent = YES;
+
+  // Remove the navigation bar background shadow
+  [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+  [navBar setShadowImage:[UIImage new]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -297,39 +314,12 @@ NSString *BPLMapViewControllerStoryboardIdentifier = @"BPLMapViewController";
   }
 }
 
-#pragma mark MDC stuff
-
-- (void)setupHeaderView {
-  CGFloat width = self.view.frame.size.width > 0 ? self.view.frame.size.width : 320.0f;
-  _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 76.0f)];
-  _headerView.backgroundColor = [UIColor whiteColor];
-}
-
-- (void)styleHeaderView {
-  [self.view addSubview:self.headerView];
-}
-
-- (void)setupInfoButton {
-  self.aboutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30.0f, 30.0f)];
-  [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateNormal];
-  [self.aboutButton setBackgroundImage:[UIImage imageNamed:@"ic_info"] forState:UIControlStateSelected];
-  self.aboutButton.backgroundColor = [UIColor whiteColor];
-  self.aboutButton.layer.cornerRadius = 15.0f;
-  self.aboutButton.center = CGPointMake(self.view.frame.size.width - 25.0f, 47.0f);
-  [self.aboutButton addTarget:self action:@selector(didTap:) forControlEvents:UIControlEventTouchUpInside];
-  [self.headerView addSubview:self.aboutButton];
-}
-
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
   BPLInfoWindow *view =  [[[NSBundle mainBundle] loadNibNamed:@"BPLInfoWindow" owner:self options:nil] objectAtIndex:0];
   BPLPlacemark *placemark = self.mapView.selectedMarker.userData;
   view.header.text = placemark.placemarkTitle;
   view.runner.text = placemark.occupation;
   return view;
-}
-
-- (void)didTap:(id)sender {
-  [self performSegueWithIdentifier:@"AboutViewControllerPushSegue" sender: self];
 }
 
 @end
