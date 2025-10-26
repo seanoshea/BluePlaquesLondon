@@ -35,7 +35,6 @@
 #import "NSObject+BPLTracking.h"
 #import "BPLConstants.h"
 #import "KMLPlacemark.h"
-// Material Components removed as per modernization plan
 
 #import <WebKit/WebKit.h>
 

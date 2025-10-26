@@ -42,9 +42,7 @@
 #import "NSObject+BPLTracking.h"
 #import "MKDistanceFormatter+BPLAdditions.h"
 #import "BPLPlacemark+Additions.h"
-// GAITrackedViewController removed as per modernization plan
 #import "BPLSearchResultsController.h"
-// Material Components removed as per modernization plan
 #import "BPLInfoWindow.h"
 #import "BPLPlacemark+Additions.h"
 

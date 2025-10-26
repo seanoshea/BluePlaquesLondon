@@ -31,6 +31,7 @@
 #import <UIKit/UIKit.h>
 
 @class BPLPlacemark;
+@class GMSPanoramaView;
 
 /**
  * View controller that displays Google Street View for a blue plaque location.
@@ -42,5 +43,7 @@
 @property (nonatomic) BPLPlacemark *placemark;
 /// Screen name for analytics tracking
 @property (nonatomic, readonly) NSString *screenName;
+/// The panorama view displaying Street View content
+@property (nonatomic, strong) GMSPanoramaView *panoramaView;
 
 @end

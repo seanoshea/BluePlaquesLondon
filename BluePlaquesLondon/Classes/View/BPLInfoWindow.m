@@ -30,7 +30,6 @@
 
 #import "BPLInfoWindow.h"
 
-// Material Components removed as per modernization plan
 #import "UIColor+BPLColors.h"
 
 @implementation BPLInfoWindow

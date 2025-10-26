@@ -34,7 +34,6 @@
 #import "BPLConstants.h"
 #import "BPLPlacemark.h"
 #import "BPLPlacemark+Additions.h"
-// Material Components removed as per modernization plan
 
 static NSString *const kReusableIdentifierItem = @"itemCellIdentifier";
 
@@ -72,7 +71,6 @@ NSString *BPLDetailChooserViewControllerStoryboardIdentifier = @"BPLDetailChoose
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
-  // Google Analytics tracking removed as per modernization plan
   [self.collectionView reloadData];
 }
 

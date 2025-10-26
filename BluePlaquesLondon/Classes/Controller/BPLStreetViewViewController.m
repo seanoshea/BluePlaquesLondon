@@ -39,6 +39,7 @@
 @interface BPLStreetViewViewController() <GMSPanoramaViewDelegate>
 
 @property (nonatomic, copy) NSString *firstPanoramaId;
+@property (nonatomic, strong) GMSPanoramaService *panoramaService;
 
 @end
 
@@ -58,9 +59,50 @@
   [super viewDidLoad];
   // screenName removed with Google Analytics
   self.title = NSLocalizedString(@"Street View", nil);
-  GMSPanoramaView *panoView = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:self.placemark.coordinate];
-  panoView.delegate = self;
-  self.view = panoView;
+
+  // Create panorama view with explicit frame
+  self.panoramaView = [[GMSPanoramaView alloc] initWithFrame:self.view.bounds];
+  self.panoramaView.delegate = self;
+  self.panoramaView.translatesAutoresizingMaskIntoConstraints = NO;
+
+  // Add the panorama view as a subview to fill the current view
+  [self.view addSubview:self.panoramaView];
+
+  // Use Auto Layout constraints to fill the entire container
+  [self.view addConstraints:@[
+    [NSLayoutConstraint constraintWithItem:self.panoramaView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0],
+    [NSLayoutConstraint constraintWithItem:self.panoramaView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0],
+    [NSLayoutConstraint constraintWithItem:self.panoramaView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0],
+    [NSLayoutConstraint constraintWithItem:self.panoramaView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]
+  ]];
+
+  // Request the panorama at the coordinate
+  self.panoramaService = [[GMSPanoramaService alloc] init];
+
+  __weak typeof(self) weakSelf = self;
+  GMSPanoramaCallback callback = ^(GMSPanorama * _Nullable panorama, NSError * _Nullable error) {
+    __strong typeof(weakSelf) strongSelf = weakSelf;
+    if (!strongSelf) {
+      return;
+    }
+
+    if (error) {
+      NSLog(@"Street View Error: %@", error);
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [strongSelf showStreetViewErrorAlert];
+      });
+    } else if (panorama) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        strongSelf.panoramaView.panorama = panorama;
+      });
+    } else {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [strongSelf showStreetViewErrorAlert];
+      });
+    }
+  };
+
+  [self.panoramaService requestPanoramaNearCoordinate:self.placemark.coordinate callback:callback];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -75,20 +117,25 @@
 {
   if (!self.firstPanoramaId) {
     self.firstPanoramaId = panorama.panoramaID;
-    
-    // Check if panorama failed to load
-    if (!panorama || !panorama.panoramaID) {
-      NSString *title = NSLocalizedString(@"Oooops", nil);
-      NSString *message = NSLocalizedString(@"Could not load Street View", nil);
-      UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
-      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                               message:message
-                                                                        preferredStyle:UIAlertControllerStyleAlert];
-      [alertController addAction:action];
-      [self presentViewController:alertController animated:YES completion:nil];
-      [self trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:self.placemark.placemarkName];
-    }
   }
+}
+
+- (void)panoramaView:(GMSPanoramaView *)view error:(NSError *)error onPanoramaAtCoordinate:(CLLocationCoordinate2D)coordinate
+{
+  [self showStreetViewErrorAlert];
+}
+
+- (void)showStreetViewErrorAlert
+{
+  NSString *title = NSLocalizedString(@"Oooops", nil);
+  NSString *message = NSLocalizedString(@"Could not load Street View", nil);
+  UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+  [alertController addAction:action];
+  [self presentViewController:alertController animated:YES completion:nil];
+  [self trackCategory:BPLErrorCategory action:BPLStreetMapsPageLoadErrorEvent label:self.placemark.placemarkName];
 }
 
 @end

@@ -40,11 +40,9 @@
 #import "UIColor+BPLColors.h"
 #import "NSObject+BPLTracking.h"
 #import "BPLMapViewController.h"
-// Material Components removed as per modernization plan
 
 typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
-  BPLMapViewControllerIndex = 0,
-  BPLAboutViewControllerIndex = 1,
+  BPLMapViewControllerIndex = 0
 };
 
 @interface BPLAppDelegate()
@@ -61,7 +59,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
   [self initializeStyling];
   [self initializeReachability];
   [self initializeTracking];
-  [self initializeCrashReporting];
   return YES;
 }
 
@@ -148,12 +145,6 @@ typedef NS_ENUM(NSInteger, BPLViewControllerTabIndex) {
   }
   
   [FIRApp configure];
-}
-
-- (void)initializeCrashReporting
-{
-  // Google Analytics crash reporting removed as per modernization plan
-  // TODO: Replace with native crash reporting if needed
 }
 
 - (void)openAppAtClosestPlacemark {
